@@ -5,6 +5,25 @@
     <link>https://anooppandikashala.github.io/anooptube.io/</link>
     <description>Recent content on My Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://anooppandikashala.github.io/anooptube.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Nov 2022 23:12:29 +0530</lastBuildDate><atom:link href="https://anooppandikashala.github.io/anooptube.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/page/about/</link>
+      <pubDate>Thu, 17 Nov 2022 23:12:29 +0530</pubDate>
+      
+      <guid>https://anooppandikashala.github.io/anooptube.io/page/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/blog/post1/</link>
+      <pubDate>Thu, 17 Nov 2022 23:12:05 +0530</pubDate>
+      
+      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post1/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
