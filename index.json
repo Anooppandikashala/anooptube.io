@@ -1,7 +1,1 @@
-{
-    {-$.Scratch.Add "index"
-        slice - } } {
-    {-range.Site.RegularPages - } } {
-    {-$.Scratch.Add "index" (dict "title".Title "tags".Params.tags "date".Params.Lastmod "categories".Params.categories "contents".Summary "permalink".Permalink) - } } {
-    {-end - } } {
-    {-$.Scratch.Get "index" | jsonify - } }
+[{"categories":null,"contents":"","date":"2022-11-18T20:04:52+05:30","permalink":"https://anooppandikashala.github.io/anooptube.io/blog/post2/","tags":null,"title":"Post2"},{"categories":null,"contents":"","date":"2022-11-17T23:12:29+05:30","permalink":"https://anooppandikashala.github.io/anooptube.io/page/about/","tags":["about","me"],"title":"About"},{"categories":null,"contents":"","date":"2022-11-17T23:12:05+05:30","permalink":"https://anooppandikashala.github.io/anooptube.io/blog/post1/","tags":["cpp","c++"],"title":"Hello World"}]
