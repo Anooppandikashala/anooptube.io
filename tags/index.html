@@ -31,7 +31,7 @@
 </head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex max-w-5xl justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
     <a href="https://anooppandikashala.github.io/anooptube.io/" class="capitalize font-extrabold text-2xl">
     
-    <img src="https://anooppandikashala.github.io/anooptube.io/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" />
+    <img src="https://anooppandikashala.github.io/anooptube.io/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
     
   </a>
     <button class="mobile-menu-button md:hidden">
@@ -49,8 +49,6 @@
         <li><a href="/anooptube.io/blog">Blog</a></li>
         
         <li><a href="/anooptube.io/page/about/">About</a></li>
-        
-        <li><a href="/anooptube.io/tags">Tags</a></li>
           
         <li class="grid place-items-center">
             <span class="open-search inline-block cursor-pointer">
@@ -84,10 +82,10 @@
     </ul>
 </header><main class="flex-1">
 
-<h1 class="container px-6 pt-6 mx-auto text-3xl font-bold">Tags</h1>
+<h1 class="container px-6 pt-6 mx-auto max-w-5xl text-3xl font-bold">Tags</h1>
 
 
-<div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+<div class="container p-6 mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
     
     <div class="p-2">
     <a href="https://anooppandikashala.github.io/anooptube.io/tags/markdown/">
@@ -270,12 +268,22 @@
     
     const darkmode = document.querySelector('.toggle-dark-mode');
 
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+    }
+
     function toggleDarkMode() {
         if (document.documentElement.classList.contains('dark')) {
             document.documentElement.classList.remove('dark')
+            changeLogoToLight()
             localStorage.setItem('darkmode', 'light')
         } else {
             document.documentElement.classList.add('dark')
+            changeLogoToDark()
             localStorage.setItem('darkmode', 'dark')
         }
     }
@@ -288,6 +296,7 @@
 
     if (!darkStorage && isBrowserDark) {
         document.documentElement.classList.add('dark');
+        changeLogoToDark()
     }
 
     if (darkStorage && darkStorage === 'dark') {
