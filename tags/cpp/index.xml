@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 17 Nov 2022 23:12:05 +0530</lastBuildDate><atom:link href="https://anooppandikashala.github.io/anooptube.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello World</title>
+      <title>Access Modifiers</title>
       <link>https://anooppandikashala.github.io/anooptube.io/blog/post1/</link>
       <pubDate>Thu, 17 Nov 2022 23:12:05 +0530</pubDate>
       
       <guid>https://anooppandikashala.github.io/anooptube.io/blog/post1/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+      <description>Types Of Access Specifiers Public Private Protected </description>
     </item>
     
   </channel>
