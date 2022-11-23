@@ -6,14 +6,49 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 22:51:49 +0530</lastBuildDate><atom:link href="https://anooppandikashala.github.io/anooptube.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 22:45:30 +0530</lastBuildDate><atom:link href="https://anooppandikashala.github.io/anooptube.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Markdown syntax</title>
-      <link>https://anooppandikashala.github.io/anooptube.io/blog/post7/</link>
-      <pubDate>Fri, 18 Nov 2022 22:51:49 +0530</pubDate>
+      <title>Class and Objects in C&#43;&#43;</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/blog/post5/</link>
+      <pubDate>Fri, 18 Nov 2022 22:45:30 +0530</pubDate>
       
-      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post7/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post5/</guid>
+      <description>1. Class A class is a template(prototype) for the object.
+class is collection of data and its functions/methods
+Related videos link Syntax: class ClassName { // body of class access_specifier: // data // methods / functions }; Example: class Rectangle { public: // data members double length; double width; // functions / methods double getArea() { return length * width; } }; 2. Objects Object is an instance of class The allocation of memory only occurs when an object is created Syntax: className objectName; Example: int main(){ // create objects Rectangle r1; Rectangle r2,r3; } Accessing Data Members and Functions through objects We can access functions or data (public) by using .</description>
+    </item>
+    
+    <item>
+      <title>Constructor &amp; Destructor</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/blog/post4/</link>
+      <pubDate>Fri, 18 Nov 2022 22:45:26 +0530</pubDate>
+      
+      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post4/</guid>
+      <description>Constructor &amp;amp; Destructor 1. Constructor A special type of member function. Constructor called automatically when an object is created. Constructor Name is same as Class Name. Constructor has no return type. Related videos link Constructor Types Default Constructor Parameterized Constructor 2. Destructor A special type of member function. Destructor called automatically when an object is deleted. Destructor Name is same as Class Name. Destructor has no return type. Example Program class Rectangle { public: // Default Constructor Rectangle() { std::cout &amp;lt;&amp;lt; &amp;#34;Default Constructor called&amp;#34; &amp;lt;&amp;lt; std::endl; length = 0; width = 0; } // Parameterized Constructor Rectangle(int len, int wid) { std::cout &amp;lt;&amp;lt; &amp;#34;Parameterized Constructor called&amp;#34; &amp;lt;&amp;lt; std::endl; length = len; width = wid; } // Destructor ~Rectangle() { std::cout &amp;lt;&amp;lt; &amp;#34;Destructor called &amp;#34; &amp;lt;&amp;lt; std::endl; } // functions double getArea() { return length * width; } // data members double length; double width; }; int main() { // Program start here Rectangle r1(20,20); // accessing the members // dot operator &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Operator Overloading</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/blog/post3/</link>
+      <pubDate>Fri, 18 Nov 2022 22:45:15 +0530</pubDate>
+      
+      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post3/</guid>
+      <description>Operator Overloading A special function operator can be used to overload operators
+Related videos Part-1 - link Part-2 - link Syntax return_type operator operator_symbol(arguments) { //body return value } where operator_symbol can be
+%, +, -, *, / , ++, --, !, ==, !=, &amp;gt;=, &amp;lt;= , &amp;amp;&amp;amp; , || , =, +=,*=, /=,-=, %= , [ ], &amp;amp;, |, &amp;lt;&amp;lt;, &amp;gt;&amp;gt;, ^, ~ 4 operators that cannot be overloaded in C++ 1.</description>
+    </item>
+    
+    <item>
+      <title>Overloading in C&#43;&#43;</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/blog/post2/</link>
+      <pubDate>Fri, 18 Nov 2022 20:04:52 +0530</pubDate>
+      
+      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post2/</guid>
+      <description>Types Of Overloading Constructor Overloading
+Function Overloading
+Related video link 1. Constructor Overloading All constructors have same name but
+different number of arguments
+#include&amp;lt;iostream&amp;gt; class Rectangle { public: // Constructor Rectangle() { length = 0; width = 0; } Rectangle(double len, double wid) { length = len; width = wid; } Rectangle(double side) { length = side; width = side; } void print() { std::cout &amp;lt;&amp;lt; &amp;#34;length: &amp;#34;&amp;lt;&amp;lt; length &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;width: &amp;#34;&amp;lt;&amp;lt; width &amp;lt;&amp;lt; std::endl; } double length; double width; }; int main(int argc, char const *argv[]) { Rectangle r1; r1.</description>
     </item>
     
     <item>
@@ -23,15 +58,6 @@
       
       <guid>https://anooppandikashala.github.io/anooptube.io/page/about/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Access Modifiers</title>
-      <link>https://anooppandikashala.github.io/anooptube.io/blog/post1/</link>
-      <pubDate>Thu, 17 Nov 2022 23:12:05 +0530</pubDate>
-      
-      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post1/</guid>
-      <description>Types Of Access Specifiers Public Private Protected </description>
     </item>
     
   </channel>
