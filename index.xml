@@ -60,5 +60,15 @@ different number of arguments
       <description></description>
     </item>
     
+    <item>
+      <title>Access Modifiers/Specifiers</title>
+      <link>https://anooppandikashala.github.io/anooptube.io/blog/post1/</link>
+      <pubDate>Thu, 17 Nov 2022 23:12:05 +0530</pubDate>
+      
+      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post1/</guid>
+      <description>Types Of Access Specifiers Public Private Protected Related videos link 1. Public public members can be access from any part of the program.
+class Rectangle { public: Rectangle() { length = 0; width = 0; } Rectangle(double l, double w) { length = l; width = w; } double getArea() { return length * width; } double length, width; }; int main(int argc, char const *argv[]) { Rectangle r1(10,20); std::cout &amp;lt;&amp;lt; &amp;#34;length :&amp;#34; &amp;lt;&amp;lt; r1.</description>
+    </item>
+    
   </channel>
 </rss>
