@@ -5,6 +5,9 @@
     <loc>https://anooptube.in/</loc>
     <lastmod>2022-11-18T22:45:30+05:30</lastmod>
   </url><url>
+    <loc>https://anooptube.in/playlists/basics-of-cpp-development/</loc>
+    <lastmod>2022-11-18T22:45:30+05:30</lastmod>
+  </url><url>
     <loc>https://anooptube.in/blog/</loc>
     <lastmod>2022-11-18T22:45:30+05:30</lastmod>
   </url><url>
@@ -24,6 +27,9 @@
     <lastmod>2022-11-18T22:45:30+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/oops/</loc>
+    <lastmod>2022-11-18T22:45:30+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/playlists/</loc>
     <lastmod>2022-11-18T22:45:30+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/</loc>
@@ -58,7 +64,5 @@
   </url><url>
     <loc>https://anooptube.in/tags/access_modifiers/</loc>
     <lastmod>2022-11-17T23:12:05+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/categories/</loc>
   </url>
 </urlset>
