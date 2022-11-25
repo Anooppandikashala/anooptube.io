@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>overloading on #anooptube</title>
-    <link>https://anooppandikashala.github.io/anooptube.io/tags/overloading/</link>
+    <link>https://anooptube.in/tags/overloading/</link>
     <description>Recent content in overloading on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 22:45:26 +0530</lastBuildDate><atom:link href="https://anooppandikashala.github.io/anooptube.io/tags/overloading/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 22:45:26 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/overloading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Constructor &amp; Destructor</title>
-      <link>https://anooppandikashala.github.io/anooptube.io/blog/post4/</link>
+      <link>https://anooptube.in/blog/post4/</link>
       <pubDate>Fri, 18 Nov 2022 22:45:26 +0530</pubDate>
       
-      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post4/</guid>
+      <guid>https://anooptube.in/blog/post4/</guid>
       <description>Constructor &amp;amp; Destructor 1. Constructor A special type of member function. Constructor called automatically when an object is created. Constructor Name is same as Class Name. Constructor has no return type. Related videos link Constructor Types Default Constructor Parameterized Constructor 2. Destructor A special type of member function. Destructor called automatically when an object is deleted. Destructor Name is same as Class Name. Destructor has no return type. Example Program class Rectangle { public: // Default Constructor Rectangle() { std::cout &amp;lt;&amp;lt; &amp;#34;Default Constructor called&amp;#34; &amp;lt;&amp;lt; std::endl; length = 0; width = 0; } // Parameterized Constructor Rectangle(int len, int wid) { std::cout &amp;lt;&amp;lt; &amp;#34;Parameterized Constructor called&amp;#34; &amp;lt;&amp;lt; std::endl; length = len; width = wid; } // Destructor ~Rectangle() { std::cout &amp;lt;&amp;lt; &amp;#34;Destructor called &amp;#34; &amp;lt;&amp;lt; std::endl; } // functions double getArea() { return length * width; } // data members double length; double width; }; int main() { // Program start here Rectangle r1(20,20); // accessing the members // dot operator &amp;#34;.</description>
     </item>
     
     <item>
       <title>Operator Overloading</title>
-      <link>https://anooppandikashala.github.io/anooptube.io/blog/post3/</link>
+      <link>https://anooptube.in/blog/post3/</link>
       <pubDate>Fri, 18 Nov 2022 22:45:15 +0530</pubDate>
       
-      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post3/</guid>
+      <guid>https://anooptube.in/blog/post3/</guid>
       <description>Operator Overloading A special function operator can be used to overload operators
 Related videos Part-1 - link Part-2 - link Syntax return_type operator operator_symbol(arguments) { //body return value } where operator_symbol can be
 %, +, -, *, / , ++, --, !, ==, !=, &amp;gt;=, &amp;lt;= , &amp;amp;&amp;amp; , || , =, +=,*=, /=,-=, %= , [ ], &amp;amp;, |, &amp;lt;&amp;lt;, &amp;gt;&amp;gt;, ^, ~ 4 operators that cannot be overloaded in C++ 1.</description>
@@ -29,10 +29,10 @@ Related videos Part-1 - link Part-2 - link Syntax return_type operator operator_
     
     <item>
       <title>Overloading in C&#43;&#43;</title>
-      <link>https://anooppandikashala.github.io/anooptube.io/blog/post2/</link>
+      <link>https://anooptube.in/blog/post2/</link>
       <pubDate>Fri, 18 Nov 2022 20:04:52 +0530</pubDate>
       
-      <guid>https://anooppandikashala.github.io/anooptube.io/blog/post2/</guid>
+      <guid>https://anooptube.in/blog/post2/</guid>
       <description>Types Of Overloading Constructor Overloading
 Function Overloading
 Related video link 1. Constructor Overloading All constructors have same name but
