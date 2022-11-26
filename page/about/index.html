@@ -9,7 +9,7 @@
         About - #anooptube
     </title>
     <meta name="description" content="About me" />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.5347764f7d32a95e68ffe3a98c8dc562b59705444c75b183bb373056e46a63c6.css" integrity="sha256-U0d2T30yqV5o/+OpjI3FYrWXBURMdbGDuzcwVuRqY8Y=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.9d48b88e61562c9be05c3427ce15fe42a012a4dbaf3c48bfee0a8f384f88d54b.css" integrity="sha256-nUi4jmFWLJvgXDQnzhX+QqASpNuvPEi/7gqPOE+I1Us=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,20 +79,8 @@
         <li><a href="/playlists">Playlists</a></li>
            
         <li class="grid place-items-center">
-            <span class="toggle-dark-mode inline-block cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
-          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <circle cx="12" cy="12" r="3" />
-          <line x1="12" y1="5" x2="12" y2="5.01" />
-          <line x1="17" y1="7" x2="17" y2="7.01" />
-          <line x1="19" y1="12" x2="19" y2="12.01" />
-          <line x1="17" y1="17" x2="17" y2="17.01" />
-          <line x1="12" y1="19" x2="12" y2="19.01" />
-          <line x1="7" y1="17" x2="7" y2="17.01" />
-          <line x1="5" y1="12" x2="5" y2="12.01" />
-          <line x1="7" y1="7" x2="7" y2="7.01" />
-        </svg>
+            <span class="toggle-dark-mode inline-block cursor-pointer" id="anooptube-dark-mode-toggle">
+        
       </span>
         </li>
         
@@ -101,7 +89,7 @@
 
 <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-4">
 
-    <h1 class="text-xl font-semibold mb-1 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma">About</h2>
+    <h1 class="text-xl font-semibold mb-1 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">About</h2>
         
         <h5 class="text-sm flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -138,7 +126,7 @@
             <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
             <p class="opacity-60">I work on everything coding and share developer memes</p>
         </div>
-        <ul class="flex justify-center gap-4">
+        <ul class="flex justify-end gap-4">
              
             <li>
                 <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
@@ -208,12 +196,25 @@
     
     const darkmode = document.querySelector('.toggle-dark-mode');
 
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="17.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
     function changeLogoToDark() {
         document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
     }
 
     function changeLogoToLight() {
         document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
     }
 
     function toggleDarkMode() {
@@ -236,7 +237,9 @@
 
     if (!darkStorage && isBrowserDark) {
         document.documentElement.classList.add('dark');
-        changeLogoToDark()
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
     }
 
     if (darkStorage && darkStorage === 'dark') {
