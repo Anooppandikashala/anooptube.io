@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>boolean on #anooptube</title>
+    <link>https://anooptube.in/tags/boolean/</link>
+    <description>Recent content in boolean on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Nov 2022 22:51:46 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/boolean/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>String snd Boolean</title>
+      <link>https://anooptube.in/blog/post6/</link>
+      <pubDate>Fri, 18 Nov 2022 22:51:46 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post6/</guid>
+      <description>1. Boolean bool is a data type which can hold the values true oe false. syntax bool varName = value; Example int main() { bool varName1 = true; bool varName2 = false; std::cout &amp;lt;&amp;lt; varName1 &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; varName2 &amp;lt;&amp;lt; std::endl; int age; std::cout &amp;lt;&amp;lt; &amp;#34;Enter your age:&amp;#34;; std::cin &amp;gt;&amp;gt; age; bool isGreater18 = age &amp;gt;= 18; std::cout &amp;lt;&amp;lt; &amp;#34;isGreater18: &amp;#34; &amp;lt;&amp;lt; isGreater18; } Related videos link 2. String String is a collection of characters (char).</description>
+    </item>
+    
+  </channel>
+</rss>
