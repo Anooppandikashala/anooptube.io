@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post5/</guid>
       <description>1. Class A class is a template(prototype) for the object.
 class is collection of data and its functions/methods
-Related videos link Syntax: class ClassName { // body of class access_specifier: // data // methods / functions }; Example: class Rectangle { public: // data members double length; double width; // functions / methods double getArea() { return length * width; } }; 2. Objects Object is an instance of class The allocation of memory only occurs when an object is created Syntax: className objectName; Example: int main(){ // create objects Rectangle r1; Rectangle r2,r3; } Accessing Data Members and Functions through objects We can access functions or data (public) by using .</description>
+Related videos link Syntax: class ClassName { // body of class access_specifier: // data // methods / functions }; Example: class Rectangle { public: // data members double length; double width; // functions / methods double getArea() { return length * width; } }; 2. Objects Object is an instance of class. The allocation of memory only occurs when an object is created.</description>
     </item>
     
   </channel>
