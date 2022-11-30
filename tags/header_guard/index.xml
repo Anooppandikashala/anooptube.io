@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>header_guard on #anooptube</title>
+    <link>https://anooptube.in/tags/header_guard/</link>
+    <description>Recent content in header_guard on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Nov 2022 19:13:59 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/header_guard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to create a namespace in C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post8/</link>
+      <pubDate>Wed, 30 Nov 2022 19:13:59 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post8/</guid>
+      <description>In C++ programming, a namespace is a collection of names or identifiers related to one another.
+Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } } How to create a arithmetic namespace Step-1: Create a header file named arithmetic.h Add header guards.
+// arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H #endif Add namespace declaration. // arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H namespace arithmetic { } #endif Add required functions.</description>
+    </item>
+    
+  </channel>
+</rss>

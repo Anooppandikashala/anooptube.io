@@ -6,20 +6,11 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 22:51:46 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>boolean</title>
-      <link>https://anooptube.in/tags/boolean/</link>
-      <pubDate>Fri, 18 Nov 2022 22:51:46 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/boolean/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 30 Nov 2022 19:13:59 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c&#43;&#43;</title>
       <link>https://anooptube.in/tags/c&#43;&#43;/</link>
-      <pubDate>Fri, 18 Nov 2022 22:51:46 +0530</pubDate>
+      <pubDate>Wed, 30 Nov 2022 19:13:59 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/c&#43;&#43;/</guid>
       <description></description>
@@ -28,9 +19,36 @@
     <item>
       <title>cpp</title>
       <link>https://anooptube.in/tags/cpp/</link>
-      <pubDate>Fri, 18 Nov 2022 22:51:46 +0530</pubDate>
+      <pubDate>Wed, 30 Nov 2022 19:13:59 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>header_guard</title>
+      <link>https://anooptube.in/tags/header_guard/</link>
+      <pubDate>Wed, 30 Nov 2022 19:13:59 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/header_guard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>namespace</title>
+      <link>https://anooptube.in/tags/namespace/</link>
+      <pubDate>Wed, 30 Nov 2022 19:13:59 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/namespace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boolean</title>
+      <link>https://anooptube.in/tags/boolean/</link>
+      <pubDate>Fri, 18 Nov 2022 22:51:46 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/boolean/</guid>
       <description></description>
     </item>
     
