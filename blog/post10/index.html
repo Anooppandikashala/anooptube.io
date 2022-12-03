@@ -6,9 +6,9 @@
     
     <link rel="icon" href="https://anooptube.in/favicon.svg">
     <title>
-        Create Header Files - #anooptube
+        Abstraction &amp; Encapsulation - #anooptube
     </title>
-    <meta name="description" content="Header files in C&#43;&#43;" />
+    <meta name="description" content="Abstarction and Encapsulation in C&#43;&#43;" />
     <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.96e94a1d73cfd0d42a502d262838f02c7581bc42523ebba4ce34919aa734003a.css" integrity="sha256-lulKHXPP0NQqUC0mKDjwLHWBvEJSPrukzjSRmqc0ADo=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,21 +26,21 @@
     
 
     
-     <meta property="og:title" content="Create Header Files" />
-<meta property="og:description" content="Header files in C&#43;&#43;" />
+     <meta property="og:title" content="Abstraction &amp; Encapsulation" />
+<meta property="og:description" content="Abstarction and Encapsulation in C&#43;&#43;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anooptube.in/blog/post9/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2022-12-03T12:49:20+05:30" />
-<meta property="article:modified_time" content="2022-12-03T12:49:20+05:30" />
+<meta property="og:url" content="https://anooptube.in/blog/post10/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-12-03T14:52:58+05:30" />
+<meta property="article:modified_time" content="2022-12-03T14:52:58+05:30" />
 
  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Create Header Files"/>
-<meta name="twitter:description" content="Header files in C&#43;&#43;"/>
- <meta itemprop="name" content="Create Header Files">
-<meta itemprop="description" content="Header files in C&#43;&#43;"><meta itemprop="datePublished" content="2022-12-03T12:49:20+05:30" />
-<meta itemprop="dateModified" content="2022-12-03T12:49:20+05:30" />
-<meta itemprop="wordCount" content="336">
-<meta itemprop="keywords" content="cpp,c&#43;&#43;,header_guard,header_file," /> 
+<meta name="twitter:title" content="Abstraction &amp; Encapsulation"/>
+<meta name="twitter:description" content="Abstarction and Encapsulation in C&#43;&#43;"/>
+ <meta itemprop="name" content="Abstraction &amp; Encapsulation">
+<meta itemprop="description" content="Abstarction and Encapsulation in C&#43;&#43;"><meta itemprop="datePublished" content="2022-12-03T14:52:58+05:30" />
+<meta itemprop="dateModified" content="2022-12-03T14:52:58+05:30" />
+<meta itemprop="wordCount" content="217">
+<meta itemprop="keywords" content="cpp,c&#43;&#43;,abstraction,encapsulation," /> 
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
@@ -113,7 +113,7 @@
 
 <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-4">
 
-    <h1 class="text-xl font-semibold mb-1 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Create Header Files</h2>
+    <h1 class="text-xl font-semibold mb-1 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Abstraction &amp; Encapsulation</h2>
         
         <h5 class="text-sm flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -141,18 +141,16 @@
         <line x1="3" y1="6" x2="3" y2="19" />
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
-      </svg> 336&nbsp;words   
+      </svg> 217&nbsp;words   
         </h5>
-         <p>A header file contains the declarations and definitions of functions and macros.</p>
-<h2 id="types">Types:</h2>
+         <h2 id="1-abstraction">1. Abstraction</h2>
+<p>Data Abstraction involves presenting only the essential details to the outside world, i.e., representing only the essential details inside the program, and hiding the other details.</p>
+<h3 id="how-to-achieve-abstraction">How to achieve Abstraction</h3>
+<h4 id="1-by-header-files">1. By Header files.</h4>
+<p>Example:</p>
 <ol>
-<li>System header files.</li>
+<li>Create a header file <code>person.h</code></li>
 </ol>
-<p>Example : <code>iostream</code> , <code>vector</code>, <code>string</code> ..etc.</p>
-<ol start="2">
-<li>User defined header files.</li>
-</ol>
-<h2 id="how-to-use-header-files">How to use header files</h2>
 <!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
@@ -160,142 +158,117 @@
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <!-- ADS end here -->
-<p>We use a special pre-processor directive called <mark>#include</mark> to use/include header files.</p>
-<h4 id="syntax-for-system-header-files">Syntax for System header files:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;header_file_name&gt;</span></span></span></code></pre></div>
-<h4 id="example">Example:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;vector&gt;</span></span></span></code></pre></div>
-<h4 id="syntax-for-user-defined-header-files">Syntax for User defined header files:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;path/to/header_file_name.h&#34;</span></span></span></code></pre></div>
-<h4 id="example-1">Example:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;anooptube.h&#34;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;my_header_file.h</span></span></span></code></pre></div>
-<h2 id="make-your-own-header-file-and-use-it">Make your own header file and use it.</h2>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
-<h4 id="example-markarithmetichmark">Example <mark>arithmetic.h</mark></h4>
-<h4 id="step-1">Step-1:</h4>
-<p>Create a file <code>arithmetic.h</code></p>
-<h4 id="step-2">Step-2:</h4>
-<p>Define the functions</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// arithmetic.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getSum</span>(<span style="color:#8be9fd">int</span> x,<span style="color:#8be9fd">int</span> y)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// person.h
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#ifndef ANOOP_TUBE_PERSON_H
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#define ANOOP_TUBE_PERSON_H
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Person</span>
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> x <span style="color:#ff79c6">+</span> y;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-<h4 id="step-3">Step-3:</h4>
-<ol>
-<li>Create main file <mark>main.cpp</mark></li>
-<li>include your header file <mark>arithmetic.h</mark></li>
-<li>use the function you have defined <mark>getSum()</mark></li>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        Person(std<span style="color:#ff79c6">::</span>string name_);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>string getName();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setName</span>(std<span style="color:#ff79c6">::</span>string name_);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>string name;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#endif</span></span></span></code></pre></div>
+<ol start="2">
+<li>create a file person.cpp</li>
+<li>include <code>person.h</code></li>
+<li>define all functions.</li>
 </ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// person.cpp
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#ifndef ANOOP_TUBE_PERSON_H
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#define ANOOP_TUBE_PERSON_H
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;person.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span>Person<span style="color:#ff79c6">::</span>Person(std<span style="color:#ff79c6">::</span>string name_)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    name <span style="color:#ff79c6">=</span> name_;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#ff79c6">::</span>string Person<span style="color:#ff79c6">::</span>getName()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> name;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> Person<span style="color:#ff79c6">::</span>setName(std<span style="color:#ff79c6">::</span>string name_)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    name <span style="color:#ff79c6">=</span> name_;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#endif</span></span></span></code></pre></div>
+<ol start="5">
+<li>create a <code>main.cpp</code> file</li>
+<li>include <code>person.h</code> file</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;person.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Person p(<span style="color:#f1fa8c">&#34;ANOOP&#34;</span>);
+</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Name : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> p.getName();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<ol start="7">
+<li>Compilation</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>g++ main.cpp person.cpp</span></span></code></pre></div>
+<ol start="7">
+<li>Run your binary</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./a.out</span></span></code></pre></div>
+<h4 id="2-by-classes-and-access-specifiers">2. By Classes and Access Specifiers.</h4>
+<!-- ADS start here -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- ADS end here -->
+<p>Hiding unwanted data by using private or protected access specifiers.</p>
+<h5 id="example">Example:</h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// main.cpp
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;arithmetic.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
 </span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Person</span>
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Hello #anooptube!</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
-</span></span><span style="display:flex;"><span>  std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Sum: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> getSum(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">150</span>) <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        Person(std<span style="color:#ff79c6">::</span>string name_)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            name <span style="color:#ff79c6">=</span> name_;
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>string getName()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> name;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setName</span>(std<span style="color:#ff79c6">::</span>string name_)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            name <span style="color:#ff79c6">=</span> name_;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// hide from out side of the class
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>string name;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Person p(<span style="color:#f1fa8c">&#34;ANOOP&#34;</span>);
+</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Name : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> p.getName();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-<h3 id="issue-of-multiple-definition-error">Issue of multiple definition error</h3>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
-<ol>
-<li>If you make a second header file <mark>sum.h</mark> and include <code>arithmetic.h</code> file</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// sum.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;arithmetic.h&#34;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getMySum</span>(<span style="color:#8be9fd">int</span> x,<span style="color:#8be9fd">int</span> y)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// function in arithmetic.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Sum : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> getSum(x,y);
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-<ol start="2">
-<li>and include <code>sum.h</code> in <code>main.cpp</code>, to use <code>getMySum()</code>, we get a multiple-definition error</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;arithmetic.h&#34;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;sum.h&#34;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
-</span></span><span style="display:flex;"><span>  std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Hello World!</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// function in arithmetic.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> getSum(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">150</span>) <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// function in sum.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  getMySum(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">150</span>);
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-<p>This error is due to including <code>arithmetic.h</code> two times in the mai.cpp file by</p>
-<ol>
-<li>including of <code>arithmetic.h</code></li>
-<li>including of <code>sum.h</code> ( <code>sum.h</code> already included <code>arithmetic.h</code>).</li>
-</ol>
-<p>To avoid this error we have to use header guards</p>
-<h3 id="header-gurads">Header Gurads</h3>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
-<h4 id="syntax">Syntax:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#ifndef UNIQUE_NAME
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#define UNIQUE_NAME
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// body of header file goes here
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#endif</span></span></span></code></pre></div>
-<h4 id="example-2">Example</h4>
-<ol>
-<li><code>arithmetic.h</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#ifndef ANOOP_TUBE_ARITHMETIC_H
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#define ANOOP_TUBE_ARITHMETIC_H
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getSum</span>(<span style="color:#8be9fd">int</span> x,<span style="color:#8be9fd">int</span> y)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> x <span style="color:#ff79c6">+</span> y;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#endif</span></span></span></code></pre></div>
-<ol start="2">
-<li><code>sum.h</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// sum.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#ifndef ANOOP_TUBE_SUM_H
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#define ANOOP_TUBE_SUM_H
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;arithmetic.h&#34;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getMySum</span>(<span style="color:#8be9fd">int</span> x,<span style="color:#8be9fd">int</span> y)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// function in arithmetic.h
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Sum : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> getSum(x,y);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#endif</span></span></span></code></pre></div>
-<p>These changes solve the issue of multiple-definition error.</p>
-<p><mark> Well done! You&rsquo;ve mastered the header files. </mark></p>
 
 </article><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins>
