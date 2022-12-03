@@ -6,7 +6,19 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Nov 2022 19:13:59 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Dec 2022 12:49:20 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Header Files</title>
+      <link>https://anooptube.in/blog/post9/</link>
+      <pubDate>Sat, 03 Dec 2022 12:49:20 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post9/</guid>
+      <description>A header file contains the declarations and definitions of functions and macros.
+Types: System header files. Example : iostream , vector, string ..etc.
+User defined header files. How to use header files We use a special pre-processor directive called #include to use/include header files.
+Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Example: #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; Syntax for User defined header files: #include &amp;#34;path/to/header_file_name.h&amp;#34; Example: #include &amp;#34;anooptube.h&amp;#34; #include &amp;#34;my_header_file.h Make your own header file and use it.</description>
+    </item>
+    
     <item>
       <title>How to create a namespace in C&#43;&#43;</title>
       <link>https://anooptube.in/blog/post8/</link>
