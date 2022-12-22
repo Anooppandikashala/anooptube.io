@@ -6,7 +6,17 @@
     <description>Recent content in Basics of CPP Development on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Dec 2022 14:52:58 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/basics-of-cpp-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Dec 2022 19:36:41 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/basics-of-cpp-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; Input and Output Functions</title>
+      <link>https://anooptube.in/blog/post11/</link>
+      <pubDate>Wed, 14 Dec 2022 19:36:41 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post11/</guid>
+      <description>1. Output Functions. The output functions display the results to the user.
+Syntax: #include &amp;lt;iostream&amp;gt; std::cout &amp;lt;&amp;lt; &amp;#34;message&amp;#34; ; std::cout &amp;lt;&amp;lt; variables; Example: #include &amp;lt;iostream&amp;gt; int main() { // print strings std::cout &amp;lt;&amp;lt; &amp;#34;Welcome to #anooptube\n&amp;#34;; int age = 18; double salary = 12000.50; // print the variables std::cout &amp;lt;&amp;lt; age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; salary &amp;lt;&amp;lt; std::endl; // print two or more variables std::cout &amp;lt;&amp;lt; &amp;#34;Your age is: &amp;#34; &amp;lt;&amp;lt; age &amp;lt;&amp;lt; &amp;#34; and salary is: &amp;#34; &amp;lt;&amp;lt; salary &amp;lt;&amp;lt; std::endl; return 0; } To print a new line, use std::endl or \n</description>
+    </item>
+    
     <item>
       <title>Abstraction &amp; Encapsulation</title>
       <link>https://anooptube.in/blog/post10/</link>

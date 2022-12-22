@@ -6,20 +6,11 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Dec 2022 14:52:58 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>abstraction</title>
-      <link>https://anooptube.in/tags/abstraction/</link>
-      <pubDate>Sat, 03 Dec 2022 14:52:58 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/abstraction/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 14 Dec 2022 19:36:41 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c&#43;&#43;</title>
       <link>https://anooptube.in/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 03 Dec 2022 14:52:58 +0530</pubDate>
+      <pubDate>Wed, 14 Dec 2022 19:36:41 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/c&#43;&#43;/</guid>
       <description></description>
@@ -28,9 +19,45 @@
     <item>
       <title>cpp</title>
       <link>https://anooptube.in/tags/cpp/</link>
-      <pubDate>Sat, 03 Dec 2022 14:52:58 +0530</pubDate>
+      <pubDate>Wed, 14 Dec 2022 19:36:41 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>input</title>
+      <link>https://anooptube.in/tags/input/</link>
+      <pubDate>Wed, 14 Dec 2022 19:36:41 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/input/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>io</title>
+      <link>https://anooptube.in/tags/io/</link>
+      <pubDate>Wed, 14 Dec 2022 19:36:41 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>output</title>
+      <link>https://anooptube.in/tags/output/</link>
+      <pubDate>Wed, 14 Dec 2022 19:36:41 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/output/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>abstraction</title>
+      <link>https://anooptube.in/tags/abstraction/</link>
+      <pubDate>Sat, 03 Dec 2022 14:52:58 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/abstraction/</guid>
       <description></description>
     </item>
     
