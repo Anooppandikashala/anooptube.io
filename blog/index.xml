@@ -6,7 +6,16 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Dec 2022 19:36:41 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Dec 2022 19:07:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C v/s C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post12/</link>
+      <pubDate>Mon, 26 Dec 2022 19:07:45 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post12/</guid>
+      <description>1. File Extension: C - Files are saved with .c extension. C++ - Files are saved with .cpp extension. 2. Area of usage: C - Embedded devices And system-level code. C++ - Gaming,networking and server-side applications. 3. Compatibility: C - The C compiler isn’t able to execute the C++ code. C++ - C++ is a superset of C so C++ is able to run most C code. 4. OOP - Compatibility: C - It does not Support Object-Oriented -Programming (OOP) C++ - It Support Object-Oriented -Programming (OOP) for more visit Class and Objects in C++</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Input and Output Functions</title>
       <link>https://anooptube.in/blog/post11/</link>

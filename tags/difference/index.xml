@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>difference on #anooptube</title>
+    <link>https://anooptube.in/tags/difference/</link>
+    <description>Recent content in difference on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Dec 2022 19:07:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/difference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C v/s C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post12/</link>
+      <pubDate>Mon, 26 Dec 2022 19:07:45 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post12/</guid>
+      <description>1. File Extension: C - Files are saved with .c extension. C++ - Files are saved with .cpp extension. 2. Area of usage: C - Embedded devices And system-level code. C++ - Gaming,networking and server-side applications. 3. Compatibility: C - The C compiler isn’t able to execute the C++ code. C++ - C++ is a superset of C so C++ is able to run most C code. 4. OOP - Compatibility: C - It does not Support Object-Oriented -Programming (OOP) C++ - It Support Object-Oriented -Programming (OOP) for more visit Class and Objects in C++</description>
+    </item>
+    
+  </channel>
+</rss>
