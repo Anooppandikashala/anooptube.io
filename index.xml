@@ -6,7 +6,18 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Dec 2022 19:07:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 15:50:10 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inheritance</title>
+      <link>https://anooptube.in/blog/post13/</link>
+      <pubDate>Thu, 05 Jan 2023 15:50:10 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post13/</guid>
+      <description>C++ supports inheritance as a key feature of Object Oriented Programming (OOP). It is a method for creating new classes (derived classes) from existing classes (base classes).
+Base class and Derived class A derived class inherits the features of a base class as well as its own features.
+Each shape has two properties, for example area and perimeter. And child classes should be able to access these properties, so we have given them the protected access specifier.</description>
+    </item>
+    
     <item>
       <title>C v/s C&#43;&#43;</title>
       <link>https://anooptube.in/blog/post12/</link>
