@@ -6,7 +6,17 @@
     <description>Recent content in oop on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jan 2023 15:50:10 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 23:08:47 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Function Overriding</title>
+      <link>https://anooptube.in/blog/post14/</link>
+      <pubDate>Wed, 15 Mar 2023 23:08:47 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post14/</guid>
+      <description>Our knowledge of inheritance begins with the fact that we can create derived classes from a base class, which is one of the core features of OOP. A derived class inherits the features of a base class.
+Assume that the same function is defined in both the derived class and the based class. When we call this function using the object of the derived class, the derived class&amp;rsquo;s function is executed.</description>
+    </item>
+    
     <item>
       <title>Inheritance</title>
       <link>https://anooptube.in/blog/post13/</link>
