@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Mar 2023 23:08:47 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 19:41:47 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basics Of Pointers</title>
+      <link>https://anooptube.in/blog/post15/</link>
+      <pubDate>Sat, 18 Mar 2023 19:41:47 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post15/</guid>
+      <description>A pointer is a special type of variable that can hold the memory address of an another variable.
+Overview of C++ Pointers 1. Accessing address of a variable We can access the memory address of a variable by &amp;amp; symbol
+int x = 10; &amp;amp;x // gives the memory address Example #include &amp;lt;iostream&amp;gt; int main() { int mark = 300; int age = 24; int salary = 17000; std::cout &amp;lt;&amp;lt; &amp;#34;Address of mark: &amp;#34;&amp;lt;&amp;lt; &amp;amp;mark &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of age: &amp;#34; &amp;lt;&amp;lt; &amp;amp;age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of salary: &amp;#34; &amp;lt;&amp;lt; &amp;amp;salary &amp;lt;&amp;lt; std::endl; } 2.</description>
+    </item>
+    
     <item>
       <title>Function Overriding</title>
       <link>https://anooptube.in/blog/post14/</link>
