@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>delete on #anooptube</title>
+    <link>https://anooptube.in/tags/delete/</link>
+    <description>Recent content in delete on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Mar 2023 19:23:16 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/delete/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New and Delete Operators</title>
+      <link>https://anooptube.in/blog/post16/</link>
+      <pubDate>Wed, 29 Mar 2023 19:23:16 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post16/</guid>
+      <description>C++ allows us to create variables at runtime. The variable can be created in Stack memory or Heap memory.
+Memory Layout in C++ Stack Memory Functions are allocated stack memory every time they are called by the machine. Whenever a new local variable is declared, more stack memory is allocated to store the variable in that function.
+Stacks grow downward when such allocations are made. All local variables of this function become invalid after the function returns, since the stack memory of this function is deallocated.</description>
+    </item>
+    
+  </channel>
+</rss>
