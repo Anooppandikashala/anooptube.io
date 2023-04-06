@@ -6,7 +6,17 @@
     <description>Recent content in pointers on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Mar 2023 19:23:16 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/pointers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Apr 2023 19:50:04 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/pointers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arrow Operator</title>
+      <link>https://anooptube.in/blog/post17/</link>
+      <pubDate>Sat, 01 Apr 2023 19:50:04 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post17/</guid>
+      <description>We can create a pointer variable for Complex data types such as struct and class. Also we can create a pointer for class and struct in stack and heap As similar as primitive data types.
+Syntax className *pointerName; pointerName = &amp;amp;classObjectName; Example struct Student { int mark; std::string name; }; int main(int argc, char const *argv[]) { Student s; s.mark = 10; s.name = &amp;#34;ANOOP&amp;#34;; Student *sPtr = &amp;amp;s; } Accessing data members using pointer: We can access data members of a struct/class pointer variable by using * operator with .</description>
+    </item>
+    
     <item>
       <title>New and Delete Operators</title>
       <link>https://anooptube.in/blog/post16/</link>
