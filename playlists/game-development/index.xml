@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game Development on #anooptube</title>
+    <link>https://anooptube.in/playlists/game-development/</link>
+    <description>Recent content in Game Development on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Apr 2023 18:38:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/game-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ghost Hunter Game - Part-2</title>
+      <link>https://anooptube.in/blog/post19/</link>
+      <pubDate>Sun, 16 Apr 2023 18:38:24 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post19/</guid>
+      <description>Part-1 link Code Related Explanations First we have to create a Project Directory TheGhostHunter.
+Create 3 directories (folders)
+assets This folder for storing all resources like images, fonts etc. css This folder for storing all stylesheets related with html files. js This folder for storing all javascripts related with html files. Create a file called index.html in TheGhostHunter (called root directory for this project).
+For code editing you can use your favorite IDE.</description>
+    </item>
+    
+    <item>
+      <title>Ghost Hunter Game - Part-1</title>
+      <link>https://anooptube.in/blog/post18/</link>
+      <pubDate>Fri, 14 Apr 2023 21:38:33 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post18/</guid>
+      <description>This math game is called &amp;ldquo;The Ghost Hunter&amp;rdquo;. In this game, a ghost appears with a math problem that has two numbers and an operation, such as &amp;ldquo;7 + 3&amp;rdquo;. The player then needs to match the correct answer with a witch who is holding a sign with the answer, such as &amp;ldquo;10&amp;rdquo;. The player needs to match the ghost with the correct witch holding the correct answer as quickly as possible to score points.</description>
+    </item>
+    
+  </channel>
+</rss>
