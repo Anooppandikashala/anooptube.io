@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Apr 2023 18:58:41 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Apr 2023 21:51:16 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pure Virtual Functions</title>
+      <link>https://anooptube.in/blog/post21/</link>
+      <pubDate>Thu, 20 Apr 2023 21:51:16 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post21/</guid>
+      <description>In C++, a pure virtual function is a virtual function that is declared in a base class but does not provide an implementation.
+Syntax: virtual return_type functionNname(parameters) = 0; Where = 0 at the end of the declaration indicates that the function is pure virtual.
+A class that contains one or more pure virtual functions is called an abstract class, and it cannot be instantiated (can not create an object for this class).</description>
+    </item>
+    
     <item>
       <title>Virtual Functions</title>
       <link>https://anooptube.in/blog/post20/</link>
