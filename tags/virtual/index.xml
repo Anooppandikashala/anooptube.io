@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>virtual on #anooptube</title>
+    <link>https://anooptube.in/tags/virtual/</link>
+    <description>Recent content in virtual on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Apr 2023 18:58:41 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/virtual/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Virtual Functions</title>
+      <link>https://anooptube.in/blog/post20/</link>
+      <pubDate>Thu, 20 Apr 2023 18:58:41 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post20/</guid>
+      <description>In C++, a virtual function is a member function of a class that can be overridden in a derived class. When a virtual function is called on a derived class object, the function of the derived class is called instead of the function of the base class. This is known as dynamic binding or runtime polymorphism.
+Syntax: virtual return_type functionName() { //body of the function return statement; } Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle.</description>
+    </item>
+    
+  </channel>
+</rss>
