@@ -178,7 +178,7 @@
                 </h5>
                  <p>In C++, a pure virtual function is a virtual function that is declared in a base class but does not provide an implementation.</p>
 <h3 id="syntax">Syntax:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">virtual</span> return_type <span style="color:#50fa7b">functionNname</span>(parameters) <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">virtual</span> return_type <span style="color:#50fa7b">functionName</span>(parameters) <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
 </span></span></code></pre></div><p>Where <mark> = 0 </mark>  at the end of the declaration indicates that the function is pure virtual.</p>
 <p>A class that contains one or more pure virtual functions is called an <mark>abstract class</mark>, and it cannot be instantiated (can not create an object for this class). Instead, you must derive a new class from the abstract class and provide an implementation for all the pure virtual functions in the derived class.</p>
 <p>Consider the Shape class</p>
