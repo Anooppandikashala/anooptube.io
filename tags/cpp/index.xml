@@ -6,7 +6,18 @@
     <description>Recent content in cpp on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Apr 2023 21:51:16 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Apr 2023 18:34:49 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Friend Function</title>
+      <link>https://anooptube.in/blog/post22/</link>
+      <pubDate>Mon, 24 Apr 2023 18:34:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post22/</guid>
+      <description>In C++, classes have three access modifiers that determine the level of access to class members. These are: public, private, and protected.
+Private and protected members are accessible only within the class and its subclasses, whereas public members are accessible anywhere.
+Private members are declared with the private keyword in the class definition. Private members cannot be accessed outside of the class or its friend functions. This means that only the members of the class or its friend functions can access them.</description>
+    </item>
+    
     <item>
       <title>Pure Virtual Functions</title>
       <link>https://anooptube.in/blog/post21/</link>
