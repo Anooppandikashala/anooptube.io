@@ -6,7 +6,18 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Jun 2023 21:48:13 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 22:06:52 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recursion</title>
+      <link>https://anooptube.in/blog/post24/</link>
+      <pubDate>Sat, 17 Jun 2023 22:06:52 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post24/</guid>
+      <description>Recursion is a programming concept where a function calls itself during its execution. In C++, recursion allows you to solve complex problems by breaking them down into smaller, simpler versions of the same problem.
+To implement recursion in C++, you typically define a function that calls itself until it reaches a base case, which is a condition that terminates the recursive calls.
+For Example, in order to print n numbers, the base concept is output the a given number and the condition is to print the number is less than or equal to the given limit say n.</description>
+    </item>
+    
     <item>
       <title>Function Objects</title>
       <link>https://anooptube.in/blog/post23/</link>
