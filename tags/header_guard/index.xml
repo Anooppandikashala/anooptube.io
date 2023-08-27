@@ -14,9 +14,10 @@
       
       <guid>https://anooptube.in/blog/post9/</guid>
       <description>A header file contains the declarations and definitions of functions and macros.
-Types: System header files. Example : iostream , vector, string ..etc.
-User defined header files. How to use header files We use a special pre-processor directive called #include to use/include header files.
-Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Example: #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; Syntax for User defined header files: #include &amp;#34;path/to/header_file_name.h&amp;#34; Example: #include &amp;#34;anooptube.h&amp;#34; #include &amp;#34;my_header_file.h Make your own header file and use it.</description>
+Types:  System header files.  Example : iostream , vector, string ..etc.
+User defined header files.  How to use header files  
+ (adsbygoogle = window.adsbygoogle || []).push({});  We use a special pre-processor directive called #include to use/include header files.
+Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Example: #include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt; Syntax for User defined header files: #include &amp;#34;path/to/header_file_name.</description>
     </item>
     
     <item>
@@ -26,8 +27,10 @@ Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Exampl
       
       <guid>https://anooptube.in/blog/post8/</guid>
       <description>In C++ programming, a namespace is a collection of names or identifiers related to one another.
-Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } } How to create a arithmetic namespace Step-1: Create a header file named arithmetic.h Add header guards.
-// arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H #endif Add namespace declaration. // arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H namespace arithmetic { } #endif Add required functions.</description>
+Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } }  
+ (adsbygoogle = window.adsbygoogle || []).push({});  How to create a arithmetic namespace Step-1:   Create a header file named  arithmetic.h 
+  Add header guards.
+  // arithmetic.</description>
     </item>
     
   </channel>

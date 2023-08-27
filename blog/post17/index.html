@@ -9,7 +9,7 @@
         Arrow Operator - #anooptube
     </title>
     <meta name="description" content="Arrow Operator in C&#43;&#43;" />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Arrow Operator">
 <meta itemprop="description" content="Arrow Operator in C&#43;&#43;"><meta itemprop="datePublished" content="2023-04-01T19:50:04+05:30" />
 <meta itemprop="dateModified" content="2023-04-01T19:50:04+05:30" />
-<meta itemprop="wordCount" content="430">
+<meta itemprop="wordCount" content="445">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,new,arrow,pointers," /> 
 
     
@@ -174,14 +174,14 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 430&nbsp;words   
+                </svg> 445&nbsp;words   
                 </h5>
                  <p>We can create a pointer variable for Complex data types such as struct and class.
 Also we can create a pointer for class and struct in stack and heap As similar as primitive data types.</p>
 <h4 id="syntax">Syntax</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>className <span style="color:#ff79c6">*</span>pointerName;
-</span></span><span style="display:flex;"><span>pointerName <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>classObjectName;
-</span></span></code></pre></div><!-- ADS start here -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">className <span style="color:#ff79c6">*</span>pointerName;
+pointerName <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>classObjectName;
+</code></pre></div><!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
 <script>
@@ -189,39 +189,39 @@ Also we can create a pointer for class and struct in stack and heap As similar a
 </script>
 <!-- ADS end here -->
 <h4 id="example">Example</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Student</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> mark;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string name;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Student s;
-</span></span><span style="display:flex;"><span>    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
-</span></span><span style="display:flex;"><span>    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="accessing-data-members-using-pointer">Accessing data members using pointer:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Student</span>
+{
+    <span style="color:#8be9fd">int</span> mark;
+    std<span style="color:#ff79c6">::</span>string name;
+};
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Student s;
+    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
+
+    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
+}
+</code></pre></div><h2 id="accessing-data-members-using-pointer">Accessing data members using pointer:</h2>
 <p>We can access data members of a struct/class pointer variable by using <code>*</code> operator with <code>.</code>operator</p>
 <h3 id="syntax-1">Syntax</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>(<span style="color:#ff79c6">*</span>pointerName).memberVariableName
-</span></span></code></pre></div><h3 id="example-1">Example</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Student s;
-</span></span><span style="display:flex;"><span>    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
-</span></span><span style="display:flex;"><span>    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>When it comes to structure and classes, we need to use <mark>* (star)</mark> and <mark> . (dot) </mark> operators in combination.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">(<span style="color:#ff79c6">*</span>pointerName).memberVariableName
+</code></pre></div><h3 id="example-1">Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Student s;
+    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
+
+    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+}
+</code></pre></div><p>When it comes to structure and classes, we need to use <mark>* (star)</mark> and <mark> . (dot) </mark> operators in combination.</p>
 <p>As a result, C++ introduced a new operator called <mark> -&gt; (arrow-operator)</mark> to access class and structure members.</p>
 <h3 id="syntax-2">Syntax</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>pointerName<span style="color:#ff79c6">-&gt;</span>memberVariableName
-</span></span></code></pre></div><!-- ADS start here -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">pointerName<span style="color:#ff79c6">-&gt;</span>memberVariableName
+</code></pre></div><!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
 <script>
@@ -229,44 +229,45 @@ Also we can create a pointer for class and struct in stack and heap As similar a
 </script>
 <!-- ADS end here -->
 <h3 id="example-2">Example</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Student s;
-</span></span><span style="display:flex;"><span>    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
-</span></span><span style="display:flex;"><span>    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="new-operator-for-constructors">new Operator for Constructors.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Student s;
+    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
+
+    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+}
+</code></pre></div><h3 id="new-operator-for-constructors">new Operator for Constructors.</h3>
 <p>We also can use new operator for Parameterized constructors.</p>
 <h3 id="syntax-3">Syntax</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>ClassName <span style="color:#ff79c6">*</span>pointerName <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ClassName(arguments);
-</span></span></code></pre></div><h3 id="example-3">Example</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">int</span> len,<span style="color:#8be9fd">int</span> wid)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> len;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> wid;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getArea</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> length,width;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Rectangle <span style="color:#ff79c6">*</span>rPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#bd93f9">20</span>,<span style="color:#bd93f9">30</span>);
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area 2 : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> rPtr;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><!-- ADS start here -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">ClassName <span style="color:#ff79c6">*</span>pointerName <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ClassName(arguments);
+</code></pre></div><h3 id="example-3">Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Rectangle(<span style="color:#8be9fd">int</span> len,<span style="color:#8be9fd">int</span> wid)
+    {
+        length <span style="color:#ff79c6">=</span> len;
+        width <span style="color:#ff79c6">=</span> wid;
+    }
+    <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getArea</span>()
+    {
+        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
+    }
+    <span style="color:#8be9fd">int</span> length,width;
+};
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Rectangle <span style="color:#ff79c6">*</span>rPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#bd93f9">20</span>,<span style="color:#bd93f9">30</span>);
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area 2 : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    <span style="color:#ff79c6">delete</span> rPtr;
+}
+
+</code></pre></div><!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
 <script>
@@ -274,74 +275,75 @@ Also we can create a pointer for class and struct in stack and heap As similar a
 </script>
 <!-- ADS end here -->
 <h4 id="full-example">Full Example</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Student</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> mark;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string name;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">myFunc1</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Student s;
-</span></span><span style="display:flex;"><span>    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
-</span></span><span style="display:flex;"><span>    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl; <span style="color:#6272a4">//   -&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">myFunc2</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Student();
-</span></span><span style="display:flex;"><span>    sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>;
-</span></span><span style="display:flex;"><span>    sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;anoop&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// ----------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">int</span> len,<span style="color:#8be9fd">int</span> wid)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> len;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> wid;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getArea</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> length,width;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">myFunc3</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Rectangle r1(<span style="color:#bd93f9">10</span>,<span style="color:#bd93f9">20</span>);
-</span></span><span style="display:flex;"><span>    Rectangle <span style="color:#ff79c6">*</span>rPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>r1;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle <span style="color:#ff79c6">*</span>rPtr2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#bd93f9">20</span>,<span style="color:#bd93f9">30</span>);
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area 2 : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr2<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> rPtr2;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area 2 : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr2<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    myFunc1();
-</span></span><span style="display:flex;"><span>    myFunc2();
-</span></span><span style="display:flex;"><span>    myFunc3();
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Student</span>
+{
+    <span style="color:#8be9fd">int</span> mark;
+    std<span style="color:#ff79c6">::</span>string name;
+};
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">myFunc1</span>()
+{
+    Student s;
+    s.mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+    s.name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ANOOP&#34;</span>;
+
+    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>s;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl; <span style="color:#6272a4">//   -&gt;
+</span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+}
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">myFunc2</span>()
+{
+    Student <span style="color:#ff79c6">*</span>sPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Student();
+    sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>;
+    sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;anoop&#34;</span>;
+
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#ff79c6">*</span>sPtr).name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>mark <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;,&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>name <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+}
+
+<span style="color:#6272a4">// ----------------------------------------------------
+</span><span style="color:#6272a4"></span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Rectangle(<span style="color:#8be9fd">int</span> len,<span style="color:#8be9fd">int</span> wid)
+    {
+        length <span style="color:#ff79c6">=</span> len;
+        width <span style="color:#ff79c6">=</span> wid;
+    }
+    <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getArea</span>()
+    {
+        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
+    }
+    <span style="color:#8be9fd">int</span> length,width;
+};
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">myFunc3</span>()
+{
+    Rectangle r1(<span style="color:#bd93f9">10</span>,<span style="color:#bd93f9">20</span>);
+    Rectangle <span style="color:#ff79c6">*</span>rPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">&amp;</span>r1;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    Rectangle <span style="color:#ff79c6">*</span>rPtr2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#bd93f9">20</span>,<span style="color:#bd93f9">30</span>);
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area 2 : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr2<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    <span style="color:#ff79c6">delete</span> rPtr2;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area 2 : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> rPtr2<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+}
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    myFunc1();
+    myFunc2();
+    myFunc3();
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+
+</code></pre></div>
         </article>
 
 
@@ -354,6 +356,17 @@ Also we can create a pointer for class and struct in stack and heap As similar a
 <div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
     <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
     <div class="mx-6">
+        <a href="/blog/post25/" class="">
+            <div
+                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                <div class="px-2 ">
+                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Referencs</div>
+                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                        <time><i class="fa-sharp fa-solid fa-timer"></i>27/08/2023</time>
+                    </p>
+                </div>
+            </div>
+        </a>
         <a href="/blog/post24/" class="">
             <div
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
@@ -392,17 +405,6 @@ Also we can create a pointer for class and struct in stack and heap As similar a
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
                 <div class="px-2 ">
                     <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Pure Virtual Functions</div>
-                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                        <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
-                    </p>
-                </div>
-            </div>
-        </a>
-        <a href="/blog/post20/" class="">
-            <div
-                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
-                <div class="px-2 ">
-                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Virtual Functions</div>
                     <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
                         <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
                     </p>

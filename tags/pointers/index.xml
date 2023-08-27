@@ -14,7 +14,8 @@
       
       <guid>https://anooptube.in/blog/post17/</guid>
       <description>We can create a pointer variable for Complex data types such as struct and class. Also we can create a pointer for class and struct in stack and heap As similar as primitive data types.
-Syntax className *pointerName; pointerName = &amp;amp;classObjectName; Example struct Student { int mark; std::string name; }; int main(int argc, char const *argv[]) { Student s; s.mark = 10; s.name = &amp;#34;ANOOP&amp;#34;; Student *sPtr = &amp;amp;s; } Accessing data members using pointer: We can access data members of a struct/class pointer variable by using * operator with .</description>
+Syntax className *pointerName; pointerName = &amp;amp;classObjectName;  
+ (adsbygoogle = window.adsbygoogle || []).push({});  Example struct Student { int mark; std::string name; }; int main(int argc, char const *argv[]) { Student s; s.mark = 10; s.</description>
     </item>
     
     <item>
@@ -36,7 +37,7 @@ Stacks grow downward when such allocations are made. All local variables of this
       <guid>https://anooptube.in/blog/post15/</guid>
       <description>A pointer is a special type of variable that can hold the memory address of an another variable.
 Overview of C++ Pointers 1. Accessing address of a variable We can access the memory address of a variable by &amp;amp; symbol
-int x = 10; &amp;amp;x // gives the memory address Example #include &amp;lt;iostream&amp;gt; int main() { int mark = 300; int age = 24; int salary = 17000; std::cout &amp;lt;&amp;lt; &amp;#34;Address of mark: &amp;#34;&amp;lt;&amp;lt; &amp;amp;mark &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of age: &amp;#34; &amp;lt;&amp;lt; &amp;amp;age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of salary: &amp;#34; &amp;lt;&amp;lt; &amp;amp;salary &amp;lt;&amp;lt; std::endl; } 2.</description>
+int x = 10; &amp;amp;x // gives the memory address  Example #include &amp;lt;iostream&amp;gt; int main() { int mark = 300; int age = 24; int salary = 17000; std::cout &amp;lt;&amp;lt; &amp;#34;Address of mark: &amp;#34;&amp;lt;&amp;lt; &amp;amp;mark &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of age: &amp;#34; &amp;lt;&amp;lt; &amp;amp;age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of salary: &amp;#34; &amp;lt;&amp;lt; &amp;amp;salary &amp;lt;&amp;lt; std::endl; }</description>
     </item>
     
   </channel>

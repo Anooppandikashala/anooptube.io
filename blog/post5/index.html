@@ -9,7 +9,7 @@
         Class and Objects in C&#43;&#43; - #anooptube
     </title>
     <meta name="description" content="Object oriented Programming with class and objects" />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Class and Objects in C&#43;&#43;">
 <meta itemprop="description" content="Object oriented Programming with class and objects"><meta itemprop="datePublished" content="2022-11-18T22:45:30+05:30" />
 <meta itemprop="dateModified" content="2022-11-18T22:45:30+05:30" />
-<meta itemprop="wordCount" content="154">
+<meta itemprop="wordCount" content="162">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,class,objects,oops," /> 
 
     
@@ -174,7 +174,7 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 154&nbsp;words   
+                </svg> 162&nbsp;words   
                 </h5>
                  <h2 id="1-class">1. Class</h2>
 <ol>
@@ -194,16 +194,16 @@
 <!-- <iframe src="https://www.youtube.com/embed/GxIwqWY433U"
         scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> -->
 <h4 id="syntax">Syntax:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ClassName</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// body of class
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">access_specifier</span>:
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// data
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// methods / functions
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ClassName</span>
+{
+    <span style="color:#6272a4">// body of class
+</span><span style="color:#6272a4"></span>
+<span style="color:#8be9fd;font-style:italic">access_specifier</span>:
+    
+    <span style="color:#6272a4">// data
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// methods / functions
+</span><span style="color:#6272a4"></span>
+};</code></pre></div>
 <!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
@@ -212,52 +212,52 @@
 </script>
 <!-- ADS end here -->
 <h4 id="example">Example:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// data members
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> length;
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> width;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// functions / methods
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#6272a4">// data members
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> length;
+    <span style="color:#8be9fd">double</span> width;
+
+    <span style="color:#6272a4">// functions / methods
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>()
+    {
+        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
+    }
+};</code></pre></div>
 <h2 id="2-objects">2. Objects</h2>
 <ol>
 <li>Object is an instance of class.</li>
 <li>The allocation of memory only occurs when an object is created.</li>
 </ol>
 <h4 id="syntax-1">Syntax:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>className objectName;</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">className objectName;</code></pre></div>
 <h4 id="example-1">Example:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// create objects 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Rectangle r1;
-</span></span><span style="display:flex;"><span>    Rectangle r2,r3;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
+    <span style="color:#6272a4">// create objects 
+</span><span style="color:#6272a4"></span>    Rectangle r1;
+    Rectangle r2,r3;
+}</code></pre></div>
 <h2 id="accessing-data-members-and-functions-through-objects">Accessing Data Members and Functions through objects</h2>
 <p>We can access functions or data (public) by using <mark>. (dot)</mark> operator.</p>
 <h4 id="syntax-2">Syntax:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>objectName.memberName;
-</span></span><span style="display:flex;"><span>objectName.functionName();</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">objectName.memberName;
+objectName.functionName();</code></pre></div>
 <h4 id="example-2">Example:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// create objects 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Rectangle r1;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// accessing the data members
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    r1.length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
-</span></span><span style="display:flex;"><span>    r1.width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// accessing the member functions
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> area <span style="color:#ff79c6">=</span> r1.getArea();
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area :&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> area;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
+    <span style="color:#6272a4">// create objects 
+</span><span style="color:#6272a4"></span>    Rectangle r1;
+    
+    <span style="color:#6272a4">// accessing the data members
+</span><span style="color:#6272a4"></span>    r1.length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+    r1.width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+
+    <span style="color:#6272a4">// accessing the member functions
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> area <span style="color:#ff79c6">=</span> r1.getArea();
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area :&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> area;
+
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}</code></pre></div>
 
         </article>
 
@@ -271,6 +271,17 @@
 <div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
     <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
     <div class="mx-6">
+        <a href="/blog/post25/" class="">
+            <div
+                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                <div class="px-2 ">
+                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Referencs</div>
+                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                        <time><i class="fa-sharp fa-solid fa-timer"></i>27/08/2023</time>
+                    </p>
+                </div>
+            </div>
+        </a>
         <a href="/blog/post24/" class="">
             <div
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
@@ -309,17 +320,6 @@
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
                 <div class="px-2 ">
                     <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Pure Virtual Functions</div>
-                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                        <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
-                    </p>
-                </div>
-            </div>
-        </a>
-        <a href="/blog/post20/" class="">
-            <div
-                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
-                <div class="px-2 ">
-                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Virtual Functions</div>
                     <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
                         <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
                     </p>

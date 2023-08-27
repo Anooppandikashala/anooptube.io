@@ -9,7 +9,7 @@
         Operator Overloading - #anooptube
     </title>
     <meta name="description" content="Basics of Operator Overloading " />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Operator Overloading">
 <meta itemprop="description" content="Basics of Operator Overloading "><meta itemprop="datePublished" content="2022-11-18T22:45:15+05:30" />
 <meta itemprop="dateModified" content="2022-11-18T22:45:15+05:30" />
-<meta itemprop="wordCount" content="412">
+<meta itemprop="wordCount" content="422">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,overloading," /> 
 
     
@@ -174,7 +174,7 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 412&nbsp;words   
+                </svg> 422&nbsp;words   
                 </h5>
                  <p>A special function <mark> operator </mark> can be used to overload operators.</p>
 <h4 id="related-videos">Related videos</h4>
@@ -185,11 +185,11 @@
 </li>
 </ol>
 <h3 id="syntax">Syntax</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>return_type <span style="color:#ff79c6">operator</span> <span style="color:#50fa7b">operator_symbol</span>(arguments)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> value
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">return_type <span style="color:#ff79c6">operator</span> <span style="color:#50fa7b">operator_symbol</span>(arguments)
+{
+    <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> value
+}</code></pre></div>
 <p>where <mark>operator_symbol</mark> can be</p>
 <pre tabindex="0"><code>%, +, -, *, / , ++, --, !, ==, !=, &gt;=, &lt;= , &amp;&amp; , || , =, +=,*=, /=,-=, %= , [ ], &amp;, |, &lt;&lt;, &gt;&gt;, ^, ~
 </code></pre><h4 id="4-operators-that-cannot-be-overloaded-in-c">4 operators that cannot be overloaded in C++</h4>
@@ -214,84 +214,84 @@
 </script>
 <!-- ADS end here -->
 <h3 id="1-overloading-binary-operators----etc">1. Overloading binary-operators (+, -, ..etc)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Complex</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Complex()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        real <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>        img <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Complex(<span style="color:#8be9fd">double</span> r, <span style="color:#8be9fd">double</span> i)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        real <span style="color:#ff79c6">=</span> r;
-</span></span><span style="display:flex;"><span>        img <span style="color:#ff79c6">=</span> i;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Complex <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">const</span> Complex<span style="color:#ff79c6">&amp;</span> c)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Complex ret;
-</span></span><span style="display:flex;"><span>        ret.real <span style="color:#ff79c6">=</span> c.real <span style="color:#ff79c6">+</span> real;
-</span></span><span style="display:flex;"><span>        ret.img <span style="color:#ff79c6">=</span> c.img <span style="color:#ff79c6">+</span> img;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ret;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Complex <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">-</span>(<span style="color:#ff79c6">const</span> Complex<span style="color:#ff79c6">&amp;</span> c)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Complex ret;
-</span></span><span style="display:flex;"><span>        ret.real <span style="color:#ff79c6">=</span> c.real <span style="color:#ff79c6">-</span> real;
-</span></span><span style="display:flex;"><span>        ret.img <span style="color:#ff79c6">=</span> c.img <span style="color:#ff79c6">-</span> img;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ret;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> real <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; + i&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> img <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> real, img;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Complex c1(<span style="color:#bd93f9">10</span>,<span style="color:#bd93f9">20</span>);
-</span></span><span style="display:flex;"><span>    Complex c2(<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">10</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Complex c3 <span style="color:#ff79c6">=</span> c1 <span style="color:#ff79c6">+</span> c2;
-</span></span><span style="display:flex;"><span>    c3.print();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Complex c4 <span style="color:#ff79c6">=</span> c1 <span style="color:#ff79c6">-</span> c2;
-</span></span><span style="display:flex;"><span>    c4.print();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Complex</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Complex()
+    {
+        real <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+        img <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+    }
+
+    Complex(<span style="color:#8be9fd">double</span> r, <span style="color:#8be9fd">double</span> i)
+    {
+        real <span style="color:#ff79c6">=</span> r;
+        img <span style="color:#ff79c6">=</span> i;
+    }
+
+    Complex <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">const</span> Complex<span style="color:#ff79c6">&amp;</span> c)
+    {
+        Complex ret;
+        ret.real <span style="color:#ff79c6">=</span> c.real <span style="color:#ff79c6">+</span> real;
+        ret.img <span style="color:#ff79c6">=</span> c.img <span style="color:#ff79c6">+</span> img;
+
+        <span style="color:#ff79c6">return</span> ret;
+    }
+
+    Complex <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">-</span>(<span style="color:#ff79c6">const</span> Complex<span style="color:#ff79c6">&amp;</span> c)
+    {
+        Complex ret;
+        ret.real <span style="color:#ff79c6">=</span> c.real <span style="color:#ff79c6">-</span> real;
+        ret.img <span style="color:#ff79c6">=</span> c.img <span style="color:#ff79c6">-</span> img;
+
+        <span style="color:#ff79c6">return</span> ret;
+    }
+
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>()
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> real <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; + i&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> img <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    }
+
+    <span style="color:#8be9fd">double</span> real, img;
+};
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Complex c1(<span style="color:#bd93f9">10</span>,<span style="color:#bd93f9">20</span>);
+    Complex c2(<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">10</span>);
+
+    Complex c3 <span style="color:#ff79c6">=</span> c1 <span style="color:#ff79c6">+</span> c2;
+    c3.print();
+
+    Complex c4 <span style="color:#ff79c6">=</span> c1 <span style="color:#ff79c6">-</span> c2;
+    c4.print();
+
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}</code></pre></div>
 <h3 id="overloading-unary-operators------etc">Overloading unary-operators (++, &ndash; , ..etc)</h3>
 <h4 id="types-1">Types:</h4>
 <ol>
 <li>prefix operators</li>
 </ol>
 <pre tabindex="0"><code>Example : ++a , --a
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">//Syntax
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>returnType <span style="color:#ff79c6">operator</span> <span style="color:#50fa7b">symbol</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span>
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">//Syntax
+</span><span style="color:#6272a4"></span>returnType <span style="color:#ff79c6">operator</span> <span style="color:#50fa7b">symbol</span>()
+{
+    <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span>
+}</code></pre></div>
 <ol start="2">
 <li>postfix operators</li>
 </ol>
 <pre tabindex="0"><code>Example : a++ , a--
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">//Syntax
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>returnType <span style="color:#ff79c6">operator</span> <span style="color:#50fa7b">symbol</span>(<span style="color:#8be9fd">int</span>)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span>
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">//Syntax
+</span><span style="color:#6272a4"></span>returnType <span style="color:#ff79c6">operator</span> <span style="color:#50fa7b">symbol</span>(<span style="color:#8be9fd">int</span>)
+{
+    <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span>
+}</code></pre></div>
 <!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
@@ -300,77 +300,77 @@
 </script>
 <!-- ADS end here -->
 <h3 id="example-program">Example Program</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Number</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Number()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        value <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Number(<span style="color:#8be9fd">int</span> val)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        value <span style="color:#ff79c6">=</span> val;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// prefix ++
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">++</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Number n;
-</span></span><span style="display:flex;"><span>        n.value <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">++</span>value;
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> n;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// postfix ++
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">++</span>(<span style="color:#8be9fd">int</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Number n;
-</span></span><span style="display:flex;"><span>        n.value <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">++</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> n;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// prefix --
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">--</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Number n;
-</span></span><span style="display:flex;"><span>        n.value <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">--</span>value;
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> n;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// postfix --
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">--</span>(<span style="color:#8be9fd">int</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//body
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Number n;
-</span></span><span style="display:flex;"><span>        n.value <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">--</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> n;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> value;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Number n1(<span style="color:#bd93f9">10</span>);
-</span></span><span style="display:flex;"><span>    Number n2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">++</span>n1;
-</span></span><span style="display:flex;"><span>    Number n3 <span style="color:#ff79c6">=</span> n1<span style="color:#ff79c6">++</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n1:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n1.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n2:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n2.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n3:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n3.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Number n4 <span style="color:#ff79c6">=</span> n3<span style="color:#ff79c6">--</span>;
-</span></span><span style="display:flex;"><span>    Number n5 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">--</span>n4;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n4:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n4.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n5:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n5.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Number</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+
+    Number()
+    {
+        value <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+    }
+
+    Number(<span style="color:#8be9fd">int</span> val)
+    {
+        value <span style="color:#ff79c6">=</span> val;
+    }
+
+    <span style="color:#6272a4">// prefix ++
+</span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">++</span>()
+    {
+        <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>        Number n;
+        n.value <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">++</span>value;
+        <span style="color:#ff79c6">return</span> n;
+    }
+
+    <span style="color:#6272a4">// postfix ++
+</span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">++</span>(<span style="color:#8be9fd">int</span>)
+    {
+        <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>        Number n;
+        n.value <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">++</span>;
+        <span style="color:#ff79c6">return</span> n;
+    }
+
+    <span style="color:#6272a4">// prefix --
+</span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">--</span>()
+    {
+        <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>        Number n;
+        n.value <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">--</span>value;
+        <span style="color:#ff79c6">return</span> n;
+    }
+
+    <span style="color:#6272a4">// postfix --
+</span><span style="color:#6272a4"></span>    Number <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">--</span>(<span style="color:#8be9fd">int</span>)
+    {
+        <span style="color:#6272a4">//body
+</span><span style="color:#6272a4"></span>        Number n;
+        n.value <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">--</span>;
+        <span style="color:#ff79c6">return</span> n;
+    }
+
+    <span style="color:#8be9fd">int</span> value;
+};
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Number n1(<span style="color:#bd93f9">10</span>);
+    Number n2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">++</span>n1;
+    Number n3 <span style="color:#ff79c6">=</span> n1<span style="color:#ff79c6">++</span>;
+
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n1:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n1.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n2:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n2.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n3:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n3.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    Number n4 <span style="color:#ff79c6">=</span> n3<span style="color:#ff79c6">--</span>;
+    Number n5 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">--</span>n4;
+
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n4:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n4.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;n5:&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n5.value <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}</code></pre></div>
 
         </article>
 
@@ -384,6 +384,17 @@
 <div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
     <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
     <div class="mx-6">
+        <a href="/blog/post25/" class="">
+            <div
+                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                <div class="px-2 ">
+                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Referencs</div>
+                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                        <time><i class="fa-sharp fa-solid fa-timer"></i>27/08/2023</time>
+                    </p>
+                </div>
+            </div>
+        </a>
         <a href="/blog/post24/" class="">
             <div
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
@@ -422,17 +433,6 @@
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
                 <div class="px-2 ">
                     <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Pure Virtual Functions</div>
-                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                        <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
-                    </p>
-                </div>
-            </div>
-        </a>
-        <a href="/blog/post20/" class="">
-            <div
-                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
-                <div class="px-2 ">
-                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Virtual Functions</div>
                     <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
                         <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
                     </p>

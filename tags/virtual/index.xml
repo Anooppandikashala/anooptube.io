@@ -14,7 +14,7 @@
       
       <guid>https://anooptube.in/blog/post21/</guid>
       <description>In C++, a pure virtual function is a virtual function that is declared in a base class but does not provide an implementation.
-Syntax: virtual return_type functionName(parameters) = 0; Where = 0 at the end of the declaration indicates that the function is pure virtual.
+Syntax: virtual return_type functionName(parameters) = 0; Where  = 0  at the end of the declaration indicates that the function is pure virtual.
 A class that contains one or more pure virtual functions is called an abstract class, and it cannot be instantiated (can not create an object for this class).</description>
     </item>
     
@@ -25,7 +25,7 @@ A class that contains one or more pure virtual functions is called an abstract c
       
       <guid>https://anooptube.in/blog/post20/</guid>
       <description>In C++, a virtual function is a member function of a class that can be overridden in a derived class. When a virtual function is called on a derived class object, the function of the derived class is called instead of the function of the base class. This is known as dynamic binding or runtime polymorphism.
-Syntax: virtual return_type functionName() { //body of the function return statement; } Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle.</description>
+Syntax: virtual return_type functionName() { //body of the function  return statement; } Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle.</description>
     </item>
     
   </channel>

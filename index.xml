@@ -6,7 +6,18 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jun 2023 22:06:52 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Aug 2023 18:56:49 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Referencs</title>
+      <link>https://anooptube.in/blog/post25/</link>
+      <pubDate>Sun, 27 Aug 2023 18:56:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post25/</guid>
+      <description>In C++, references are a way to create an alias for an existing variable. They provide an alternative name to access the same memory location as the original variable. References are often used for passing arguments to functions, especially to avoid making copies of large objects.
+There are two main types of references in C++:
+ references (also known as lvalue references) const references.  1. Reference (&amp;amp;) Syntax: type &amp;amp;referenceName = existingVariable; A reference must be initialized when declared.</description>
+    </item>
+    
     <item>
       <title>Recursion</title>
       <link>https://anooptube.in/blog/post24/</link>
@@ -47,7 +58,7 @@ Private members are declared with the private keyword in the class definition. P
       
       <guid>https://anooptube.in/blog/post21/</guid>
       <description>In C++, a pure virtual function is a virtual function that is declared in a base class but does not provide an implementation.
-Syntax: virtual return_type functionName(parameters) = 0; Where = 0 at the end of the declaration indicates that the function is pure virtual.
+Syntax: virtual return_type functionName(parameters) = 0; Where  = 0  at the end of the declaration indicates that the function is pure virtual.
 A class that contains one or more pure virtual functions is called an abstract class, and it cannot be instantiated (can not create an object for this class).</description>
     </item>
     
@@ -58,7 +69,7 @@ A class that contains one or more pure virtual functions is called an abstract c
       
       <guid>https://anooptube.in/blog/post20/</guid>
       <description>In C++, a virtual function is a member function of a class that can be overridden in a derived class. When a virtual function is called on a derived class object, the function of the derived class is called instead of the function of the base class. This is known as dynamic binding or runtime polymorphism.
-Syntax: virtual return_type functionName() { //body of the function return statement; } Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle.</description>
+Syntax: virtual return_type functionName() { //body of the function  return statement; } Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle.</description>
     </item>
     
     <item>
@@ -67,10 +78,9 @@ Syntax: virtual return_type functionName() { //body of the function return state
       <pubDate>Sun, 16 Apr 2023 18:38:24 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post19/</guid>
-      <description>Part-1 link Code Related Explanations First we have to create a Project Directory TheGhostHunter.
-Create 3 directories (folders)
-assets This folder for storing all resources like images, fonts etc. css This folder for storing all stylesheets related with html files. js This folder for storing all javascripts related with html files. Create a file called index.html in TheGhostHunter (called root directory for this project).
-For code editing you can use your favorite IDE.</description>
+      <description>Part-1 link  Code Related Explanations   First we have to create a Project Directory TheGhostHunter.
+  Create 3 directories (folders)
+ assets This folder for storing all resources like images, fonts etc. css This folder for storing all stylesheets related with html files. js This folder for storing all javascripts related with html files.    Create a file called index.html in TheGhostHunter (called root directory for this project).</description>
     </item>
     
     <item>
@@ -89,7 +99,8 @@ For code editing you can use your favorite IDE.</description>
       
       <guid>https://anooptube.in/blog/post17/</guid>
       <description>We can create a pointer variable for Complex data types such as struct and class. Also we can create a pointer for class and struct in stack and heap As similar as primitive data types.
-Syntax className *pointerName; pointerName = &amp;amp;classObjectName; Example struct Student { int mark; std::string name; }; int main(int argc, char const *argv[]) { Student s; s.mark = 10; s.name = &amp;#34;ANOOP&amp;#34;; Student *sPtr = &amp;amp;s; } Accessing data members using pointer: We can access data members of a struct/class pointer variable by using * operator with .</description>
+Syntax className *pointerName; pointerName = &amp;amp;classObjectName;  
+ (adsbygoogle = window.adsbygoogle || []).push({});  Example struct Student { int mark; std::string name; }; int main(int argc, char const *argv[]) { Student s; s.mark = 10; s.</description>
     </item>
     
     <item>
@@ -111,7 +122,7 @@ Stacks grow downward when such allocations are made. All local variables of this
       <guid>https://anooptube.in/blog/post15/</guid>
       <description>A pointer is a special type of variable that can hold the memory address of an another variable.
 Overview of C++ Pointers 1. Accessing address of a variable We can access the memory address of a variable by &amp;amp; symbol
-int x = 10; &amp;amp;x // gives the memory address Example #include &amp;lt;iostream&amp;gt; int main() { int mark = 300; int age = 24; int salary = 17000; std::cout &amp;lt;&amp;lt; &amp;#34;Address of mark: &amp;#34;&amp;lt;&amp;lt; &amp;amp;mark &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of age: &amp;#34; &amp;lt;&amp;lt; &amp;amp;age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of salary: &amp;#34; &amp;lt;&amp;lt; &amp;amp;salary &amp;lt;&amp;lt; std::endl; } 2.</description>
+int x = 10; &amp;amp;x // gives the memory address  Example #include &amp;lt;iostream&amp;gt; int main() { int mark = 300; int age = 24; int salary = 17000; std::cout &amp;lt;&amp;lt; &amp;#34;Address of mark: &amp;#34;&amp;lt;&amp;lt; &amp;amp;mark &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of age: &amp;#34; &amp;lt;&amp;lt; &amp;amp;age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;Address of salary: &amp;#34; &amp;lt;&amp;lt; &amp;amp;salary &amp;lt;&amp;lt; std::endl; }</description>
     </item>
     
     <item>
@@ -141,7 +152,8 @@ Each shape has two properties, for example area and perimeter. And child classes
       <pubDate>Mon, 26 Dec 2022 19:07:45 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post12/</guid>
-      <description>1. File Extension: C - Files are saved with .c extension. C++ - Files are saved with .cpp extension. 2. Area of usage: C - Embedded devices And system-level code. C++ - Gaming,networking and server-side applications. 3. Compatibility: C - The C compiler isn’t able to execute the C++ code. C++ - C++ is a superset of C so C++ is able to run most C code. 4. OOP - Compatibility: C - It does not Support Object-Oriented -Programming (OOP) C++ - It Support Object-Oriented -Programming (OOP) for more visit Class and Objects in C++</description>
+      <description>1. File Extension:  C - Files are saved with .c extension. C++ - Files are saved with .cpp extension.  2. Area of usage:  C - Embedded devices And system-level code. C++ - Gaming,networking and server-side applications.   
+ (adsbygoogle = window.adsbygoogle || []).push({});  3. Compatibility:  C - The C compiler isn’t able to execute the C++ code. C++ - C++ is a superset of C so C++ is able to run most C code.</description>
     </item>
     
     <item>
@@ -151,7 +163,8 @@ Each shape has two properties, for example area and perimeter. And child classes
       
       <guid>https://anooptube.in/blog/post11/</guid>
       <description>1. Output Functions. The output functions display the results to the user.
-Syntax: #include &amp;lt;iostream&amp;gt; std::cout &amp;lt;&amp;lt; &amp;#34;message&amp;#34; ; std::cout &amp;lt;&amp;lt; variables; Example: #include &amp;lt;iostream&amp;gt; int main() { // print strings std::cout &amp;lt;&amp;lt; &amp;#34;Welcome to #anooptube\n&amp;#34;; int age = 18; double salary = 12000.50; // print the variables std::cout &amp;lt;&amp;lt; age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; salary &amp;lt;&amp;lt; std::endl; // print two or more variables std::cout &amp;lt;&amp;lt; &amp;#34;Your age is: &amp;#34; &amp;lt;&amp;lt; age &amp;lt;&amp;lt; &amp;#34; and salary is: &amp;#34; &amp;lt;&amp;lt; salary &amp;lt;&amp;lt; std::endl; return 0; } To print a new line, use std::endl or \n</description>
+User ---/ Result/Output -- Syntax: #include &amp;lt;iostream&amp;gt; std::cout &amp;lt;&amp;lt; &amp;#34;message&amp;#34; ; std::cout &amp;lt;&amp;lt; variables;  
+ (adsbygoogle = window.adsbygoogle || []).push({});  Example: #include &amp;lt;iostream&amp;gt; int main() { // print strings  std::cout &amp;lt;&amp;lt; &amp;#34;Welcome to #anooptube\n&amp;#34;; int age = 18; double salary = 12000.50; // print the variables  std::cout &amp;lt;&amp;lt; age &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; salary &amp;lt;&amp;lt; std::endl; // print two or more variables  std::cout &amp;lt;&amp;lt; &amp;#34;Your age is: &amp;#34; &amp;lt;&amp;lt; age &amp;lt;&amp;lt; &amp;#34; and salary is: &amp;#34; &amp;lt;&amp;lt; salary &amp;lt;&amp;lt; std::endl; return 0; } To print a new line, use std::endl or \n</description>
     </item>
     
     <item>
@@ -162,7 +175,8 @@ Syntax: #include &amp;lt;iostream&amp;gt; std::cout &amp;lt;&amp;lt; &amp;#34;me
       <guid>https://anooptube.in/blog/post10/</guid>
       <description>1. Abstraction Data Abstraction involves presenting only the essential details to the outside world, i.e., representing only the essential details inside the program, and hiding the other details.
 How to achieve Abstraction 1. By Header files. Example:
-Create a header file person.h // person.h #ifndef ANOOP_TUBE_PERSON_H #define ANOOP_TUBE_PERSON_H #include&amp;lt;iostream&amp;gt; class Person { public: Person(std::string name_); std::string getName(); void setName(std::string name_); private: std::string name; }; #endif create a file person.cpp include person.</description>
+ Create a header file person.h   
+ (adsbygoogle = window.adsbygoogle || []).push({});  // person.h  #ifndef ANOOP_TUBE_PERSON_H #define ANOOP_TUBE_PERSON_H  #include&amp;lt;iostream&amp;gt; class Person { public: Person(std::string name_); std::string getName(); void setName(std::string name_); private: std::string name; }; #endif create a file person.</description>
     </item>
     
     <item>
@@ -172,9 +186,10 @@ Create a header file person.h // person.h #ifndef ANOOP_TUBE_PERSON_H #define AN
       
       <guid>https://anooptube.in/blog/post9/</guid>
       <description>A header file contains the declarations and definitions of functions and macros.
-Types: System header files. Example : iostream , vector, string ..etc.
-User defined header files. How to use header files We use a special pre-processor directive called #include to use/include header files.
-Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Example: #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; Syntax for User defined header files: #include &amp;#34;path/to/header_file_name.h&amp;#34; Example: #include &amp;#34;anooptube.h&amp;#34; #include &amp;#34;my_header_file.h Make your own header file and use it.</description>
+Types:  System header files.  Example : iostream , vector, string ..etc.
+User defined header files.  How to use header files  
+ (adsbygoogle = window.adsbygoogle || []).push({});  We use a special pre-processor directive called #include to use/include header files.
+Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Example: #include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt; Syntax for User defined header files: #include &amp;#34;path/to/header_file_name.</description>
     </item>
     
     <item>
@@ -184,8 +199,10 @@ Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Exampl
       
       <guid>https://anooptube.in/blog/post8/</guid>
       <description>In C++ programming, a namespace is a collection of names or identifiers related to one another.
-Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } } How to create a arithmetic namespace Step-1: Create a header file named arithmetic.h Add header guards.
-// arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H #endif Add namespace declaration. // arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H namespace arithmetic { } #endif Add required functions.</description>
+Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } }  
+ (adsbygoogle = window.adsbygoogle || []).push({});  How to create a arithmetic namespace Step-1:   Create a header file named  arithmetic.h 
+  Add header guards.
+  // arithmetic.</description>
     </item>
     
     <item>
@@ -194,7 +211,7 @@ Syntax: namespace namespace_name { // code here } Example: namespace anooptube_n
       <pubDate>Tue, 29 Nov 2022 17:51:34 +0530</pubDate>
       
       <guid>https://anooptube.in/privacy/</guid>
-      <description>At #anooptube, accessible from https://anooptube.in , one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by #anooptube and how we use it.
+      <description>At #anooptube, accessible from https://anooptube.in  , one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by #anooptube and how we use it.
 If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
 This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in #anooptube.</description>
     </item>
@@ -205,7 +222,7 @@ This Privacy Policy applies only to our online activities and is valid for visit
       <pubDate>Fri, 18 Nov 2022 22:51:46 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post6/</guid>
-      <description>1. Boolean bool is a data type which can hold the values true or false. Syntax: bool varName = value; Example: #include &amp;lt;iostream&amp;gt; int main() { bool varName1 = true; bool varName2 = false; std::cout &amp;lt;&amp;lt; varName1 &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; varName2 &amp;lt;&amp;lt; std::endl; int age; std::cout &amp;lt;&amp;lt; &amp;#34;Enter your age:&amp;#34;; std::cin &amp;gt;&amp;gt; age; bool isGreater18 = age &amp;gt;= 18; std::cout &amp;lt;&amp;lt; &amp;#34;isGreater18: &amp;#34; &amp;lt;&amp;lt; isGreater18; } Related videos: link 2.</description>
+      <description>1. Boolean  bool is a data type which can hold the values true or false.  Syntax: bool varName = value; Example: #include &amp;lt;iostream&amp;gt; int main() { bool varName1 = true; bool varName2 = false; std::cout &amp;lt;&amp;lt; varName1 &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; varName2 &amp;lt;&amp;lt; std::endl; int age; std::cout &amp;lt;&amp;lt; &amp;#34;Enter your age:&amp;#34;; std::cin &amp;gt;&amp;gt; age; bool isGreater18 = age &amp;gt;= 18; std::cout &amp;lt;&amp;lt; &amp;#34;isGreater18: &amp;#34; &amp;lt;&amp;lt; isGreater18; } Related videos: link</description>
     </item>
     
     <item>
@@ -214,9 +231,10 @@ This Privacy Policy applies only to our online activities and is valid for visit
       <pubDate>Fri, 18 Nov 2022 22:45:30 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post5/</guid>
-      <description>1. Class A class is a template(prototype) for the object.
-class is collection of data and its functions/methods
-Related videos link Syntax: class ClassName { // body of class access_specifier: // data // methods / functions }; Example: class Rectangle { public: // data members double length; double width; // functions / methods double getArea() { return length * width; } }; 2. Objects Object is an instance of class. The allocation of memory only occurs when an object is created.</description>
+      <description>1. Class   A class is a template(prototype) for the object.
+  class is collection of data and its functions/methods
+  Related videos link --  --  -- Syntax: class ClassName { // body of class  access_specifier: // data  // methods / functions  };  
+ (adsbygoogle = window.adsbygoogle || []).push({});  Example: class Rectangle { public: // data members  double length; double width; // functions / methods  double getArea() { return length * width; } }; 2.</description>
     </item>
     
     <item>
@@ -225,7 +243,7 @@ Related videos link Syntax: class ClassName { // body of class access_specifier:
       <pubDate>Fri, 18 Nov 2022 22:45:26 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post4/</guid>
-      <description>1. Constructor A special type of member function. Constructor called automatically when an object is created. Constructor Name is same as Class Name. Constructor has no return type. Related videos link Constructor Types Default Constructor. Parameterized Constructor. 2. Destructor A special type of member function. Destructor called automatically when an object is deleted. Destructor Name is same as Class Name. Destructor has no return type. Example Program class Rectangle { public: // Default Constructor Rectangle() { std::cout &amp;lt;&amp;lt; &amp;#34;Default Constructor called&amp;#34; &amp;lt;&amp;lt; std::endl; length = 0; width = 0; } // Parameterized Constructor Rectangle(int len, int wid) { std::cout &amp;lt;&amp;lt; &amp;#34;Parameterized Constructor called&amp;#34; &amp;lt;&amp;lt; std::endl; length = len; width = wid; } // Destructor ~Rectangle() { std::cout &amp;lt;&amp;lt; &amp;#34;Destructor called &amp;#34; &amp;lt;&amp;lt; std::endl; } // functions double getArea() { return length * width; } // data members double length; double width; }; int main() { // Program start here Rectangle r1(20,20); // accessing the members // dot operator &amp;#34;.</description>
+      <description>1. Constructor  A special type of member function. Constructor called automatically when an object is created. Constructor Name is same as Class Name. Constructor has no return type.  Related videos link Constructor Types  Default Constructor. Parameterized Constructor.  2. Destructor  A special type of member function. Destructor called automatically when an object is deleted. Destructor Name is same as Class Name. Destructor has no return type.</description>
     </item>
     
     <item>
@@ -234,8 +252,8 @@ Related videos link Syntax: class ClassName { // body of class access_specifier:
       <pubDate>Fri, 18 Nov 2022 22:45:15 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post3/</guid>
-      <description>A special function operator can be used to overload operators.
-Related videos Part-1 - link Part-2 - link Syntax return_type operator operator_symbol(arguments) { //body return value } where operator_symbol can be
+      <description>A special function  operator  can be used to overload operators.
+Related videos  Part-1 - link  Part-2 - link   Syntax return_type operator operator_symbol(arguments) { //body  return value } where operator_symbol can be
 %, +, -, *, / , ++, --, !, ==, !=, &amp;gt;=, &amp;lt;= , &amp;amp;&amp;amp; , || , =, +=,*=, /=,-=, %= , [ ], &amp;amp;, |, &amp;lt;&amp;lt;, &amp;gt;&amp;gt;, ^, ~ 4 operators that cannot be overloaded in C++ 1.</description>
     </item>
     
@@ -245,11 +263,11 @@ Related videos Part-1 - link Part-2 - link Syntax return_type operator operator_
       <pubDate>Fri, 18 Nov 2022 20:04:52 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post2/</guid>
-      <description>Types Of Overloading Constructor Overloading
-Function Overloading
-Related video link 1. Constructor Overloading All constructors have same name but
-different number of arguments
-#include&amp;lt;iostream&amp;gt; class Rectangle { public: // Constructor Rectangle() { length = 0; width = 0; } Rectangle(double len, double wid) { length = len; width = wid; } Rectangle(double side) { length = side; width = side; } void print() { std::cout &amp;lt;&amp;lt; &amp;#34;length: &amp;#34;&amp;lt;&amp;lt; length &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;width: &amp;#34;&amp;lt;&amp;lt; width &amp;lt;&amp;lt; std::endl; } double length; double width; }; int main(int argc, char const *argv[]) { Rectangle r1; r1.</description>
+      <description>Types Of Overloading   Constructor Overloading
+  Function Overloading
+  Related video link 1. Constructor Overloading   All constructors have same name but
+  different number of arguments
+  #include&amp;lt;iostream&amp;gt; class Rectangle { public: // Constructor  Rectangle() { length = 0; width = 0; } Rectangle(double len, double wid) { length = len; width = wid; } Rectangle(double side) { length = side; width = side; } void print() { std::cout &amp;lt;&amp;lt; &amp;#34;length: &amp;#34;&amp;lt;&amp;lt; length &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;width: &amp;#34;&amp;lt;&amp;lt; width &amp;lt;&amp;lt; std::endl; } double length; double width; }; int main(int argc, char const *argv[]) { Rectangle r1; r1.</description>
     </item>
     
     <item>
@@ -267,7 +285,7 @@ different number of arguments
       <pubDate>Thu, 17 Nov 2022 23:12:05 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post1/</guid>
-      <description>Types Of Access Specifiers Public Private Protected Related videos link 1. Public public members can be access from any part of the program.
+      <description>Types Of Access Specifiers  Public Private Protected  Related videos link 1. Public public members can be access from any part of the program.
 class Rectangle { public: Rectangle() { length = 0; width = 0; } Rectangle(double l, double w) { length = l; width = w; } double getArea() { return length * width; } double length, width; }; int main(int argc, char const *argv[]) { Rectangle r1(10,20); std::cout &amp;lt;&amp;lt; &amp;#34;length :&amp;#34; &amp;lt;&amp;lt; r1.</description>
     </item>
     

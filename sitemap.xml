@@ -3,19 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/playlists/basics-of-cpp-development/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/blog/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/c&#43;&#43;/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/cpp/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/playlists/</loc>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/reference/</loc>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/blog/post25/</loc>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/function_objects/</loc>
     <lastmod>2023-06-17T22:06:52+05:30</lastmod>
@@ -23,13 +35,7 @@
     <loc>https://anooptube.in/tags/functor/</loc>
     <lastmod>2023-06-17T22:06:52+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/playlists/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
-  </url><url>
     <loc>https://anooptube.in/blog/post24/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/</loc>
     <lastmod>2023-06-17T22:06:52+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/blog/post23/</loc>
@@ -104,10 +110,10 @@
     <loc>https://anooptube.in/tags/overriding/</loc>
     <lastmod>2023-03-15T23:08:47+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/tags/inheritance/</loc>
+    <loc>https://anooptube.in/blog/post13/</loc>
     <lastmod>2023-01-05T15:50:10+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/blog/post13/</loc>
+    <loc>https://anooptube.in/tags/inheritance/</loc>
     <lastmod>2023-01-05T15:50:10+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/c/</loc>
@@ -194,10 +200,10 @@
     <loc>https://anooptube.in/blog/post2/</loc>
     <lastmod>2022-11-18T20:04:52+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/tags/about/</loc>
+    <loc>https://anooptube.in/page/about/</loc>
     <lastmod>2022-11-17T23:12:29+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/page/about/</loc>
+    <loc>https://anooptube.in/tags/about/</loc>
     <lastmod>2022-11-17T23:12:29+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/me/</loc>

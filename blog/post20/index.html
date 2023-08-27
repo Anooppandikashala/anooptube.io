@@ -9,7 +9,7 @@
         Virtual Functions - #anooptube
     </title>
     <meta name="description" content="Virtual Functions in C&#43;&#43;" />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Virtual Functions">
 <meta itemprop="description" content="Virtual Functions in C&#43;&#43;"><meta itemprop="datePublished" content="2023-04-20T18:58:41+05:30" />
 <meta itemprop="dateModified" content="2023-04-20T18:58:41+05:30" />
-<meta itemprop="wordCount" content="678">
+<meta itemprop="wordCount" content="677">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,virtual," /> 
 
     
@@ -174,183 +174,183 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 678&nbsp;words   
+                </svg> 677&nbsp;words   
                 </h5>
                  <p>In C++, a virtual function is a member function of a class that can be overridden in a derived class. When a virtual function is called on a derived class object, the function of the derived class is called instead of the function of the base class. This is known as <mark>dynamic binding</mark> or <mark>runtime polymorphism.</mark></p>
 <h3 id="syntax">Syntax:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">virtual</span> return_type <span style="color:#50fa7b">functionName</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//body of the function
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> statement;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle. And we have a function called <mark>drawShape()</mark> that simply prints out &ldquo;Drawing a [shape_name]&rdquo;.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">virtual</span> return_type <span style="color:#50fa7b">functionName</span>()
+{
+    <span style="color:#6272a4">//body of the function
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> statement;
+}
+</code></pre></div><p>Suppose we have a base class named Shape and three derived classes named Circle and Rectangle and Triangle. And we have a function called <mark>drawShape()</mark> that simply prints out &ldquo;Drawing a [shape_name]&rdquo;.
 So we can pass a pointers of each derived classes to the function and simply use the getName of the object. And also print the area of the given shape pointer.</p>
 <p>First we implement as normal function and see what will be the output.</p>
 <h3 id="base-class">Base Class:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> getArea(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Shape&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h3 id="child-classes">Child Classes:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">double</span> getArea(){
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
+    }
+    std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Shape&#34;</span>;
+    }
+};
+</code></pre></div><h3 id="child-classes">Child Classes:</h3>
 <p>For now we consider only one child class called Circle.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Circle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Circle(<span style="color:#8be9fd">double</span> rad){
-</span></span><span style="display:flex;"><span>        radius <span style="color:#ff79c6">=</span> rad;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">3.14</span> <span style="color:#ff79c6">*</span> radius <span style="color:#ff79c6">*</span> radius);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Circle&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> radius;
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h3 id="main-function">Main function:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Circle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Circle(<span style="color:#8be9fd">double</span> rad){
+        radius <span style="color:#ff79c6">=</span> rad;
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
+        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">3.14</span> <span style="color:#ff79c6">*</span> radius <span style="color:#ff79c6">*</span> radius);
+    }
+    std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Circle&#34;</span>;
+    }
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">double</span> radius;
+};
+</code></pre></div><h3 id="main-function">Main function:</h3>
 <p>In the main function we create the pointer of the Circle class and assign to Shape type;</p>
 <p>Then we try to call the <code>getArea()</code> function. This will lead to a unexpected result.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Circle <span style="color:#ff79c6">*</span>cPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Circle(<span style="color:#bd93f9">10</span>);
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> cPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Name: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> cPtr<span style="color:#ff79c6">-&gt;</span>getName() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> cPtr;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="output">Output:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Area: 0.0
-</span></span><span style="display:flex;"><span>Name: Shape
-</span></span></code></pre></div><p>But we expected area is <code>314</code> and Name is <code>Circle</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Circle <span style="color:#ff79c6">*</span>cPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Circle(<span style="color:#bd93f9">10</span>);
+    
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> cPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Name: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> cPtr<span style="color:#ff79c6">-&gt;</span>getName() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    <span style="color:#ff79c6">delete</span> cPtr;
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+</code></pre></div><h3 id="output">Output:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Area: 0.0
+Name: Shape
+</code></pre></div><p>But we expected area is <code>314</code> and Name is <code>Circle</code></p>
 <p>This is because the compiler only knows about the base class&rsquo;s members and does not know about the child class&rsquo;s members at compile-time. The actual function that is called depends on the type of object the pointer is pointing to at runtime.</p>
 <p>To call the child class&rsquo;s function, you can either cast the pointer to the child class type, or you can declare the member function as <mark>virtual</mark> in the base class. When a function is declared as virtual in the base class, the appropriate function of the child class will be called at runtime, regardless of the type of pointer used to call it. This is known as runtime polymorphism, and it allows you to write more flexible and extensible code.</p>
 <p>So the Base class declaration can be re-write as</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">virtual</span> <span style="color:#8be9fd">double</span> getArea(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">virtual</span> std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Shape&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>Then our result will be</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Area: <span style="color:#bd93f9">314</span>
-</span></span><span style="display:flex;"><span>Name: Circle
-</span></span></code></pre></div><h3 id="ufull-codeu"><u>Full Code</u></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;cmath&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">virtual</span> <span style="color:#8be9fd">double</span> getArea(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">virtual</span> std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Shape&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Circle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Circle(<span style="color:#8be9fd">double</span> rad){
-</span></span><span style="display:flex;"><span>        radius <span style="color:#ff79c6">=</span> rad;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">3.14</span> <span style="color:#ff79c6">*</span> radius <span style="color:#ff79c6">*</span> radius);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">3.14</span> <span style="color:#ff79c6">*</span> radius);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Circle&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> radius;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">double</span> len, <span style="color:#8be9fd">double</span> wid){
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> len;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> wid;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> (length <span style="color:#ff79c6">*</span> width);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> (length <span style="color:#ff79c6">+</span> width));
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Rectangle&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> length, width;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Triangle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    Triangle(<span style="color:#8be9fd">double</span> s1, <span style="color:#8be9fd">double</span> s2, <span style="color:#8be9fd">double</span> s3){
-</span></span><span style="display:flex;"><span>        side1 <span style="color:#ff79c6">=</span> s1;
-</span></span><span style="display:flex;"><span>        side2 <span style="color:#ff79c6">=</span> s2;
-</span></span><span style="display:flex;"><span>        side3 <span style="color:#ff79c6">=</span> s3;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">double</span> s <span style="color:#ff79c6">=</span> (side1 <span style="color:#ff79c6">+</span> side2 <span style="color:#ff79c6">+</span> side3) <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">double</span> area <span style="color:#ff79c6">=</span> sqrt(s <span style="color:#ff79c6">*</span> (s<span style="color:#ff79c6">-</span>side1) <span style="color:#ff79c6">*</span> (s<span style="color:#ff79c6">-</span>side2) <span style="color:#ff79c6">*</span> (s<span style="color:#ff79c6">-</span>side3));
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> area;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> (side1 <span style="color:#ff79c6">+</span> side2 <span style="color:#ff79c6">+</span> side3);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>string getName(){
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Triangle&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> side1, side2, side3;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">DrawShape</span>(Shape <span style="color:#ff79c6">*</span>sPtr)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout<span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>getName() <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; Drawing.....!&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Circle <span style="color:#ff79c6">*</span>cPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Circle(<span style="color:#bd93f9">10</span>);
-</span></span><span style="display:flex;"><span>    Rectangle <span style="color:#ff79c6">*</span>rPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#bd93f9">20</span>,<span style="color:#bd93f9">10</span>);
-</span></span><span style="display:flex;"><span>    Triangle <span style="color:#ff79c6">*</span>tPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Triangle(<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">6</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    DrawShape(cPtr);
-</span></span><span style="display:flex;"><span>    DrawShape(rPtr);
-</span></span><span style="display:flex;"><span>    DrawShape(tPtr);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> cPtr;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> rPtr;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> tPtr;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">virtual</span> <span style="color:#8be9fd">double</span> getArea(){
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
+    }
+    <span style="color:#ff79c6">virtual</span> std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Shape&#34;</span>;
+    }
+};
+</code></pre></div><p>Then our result will be</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Area: <span style="color:#bd93f9">314</span>
+Name: Circle
+</code></pre></div><h3 id="ufull-codeu"><u>Full Code</u></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;cmath&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">virtual</span> <span style="color:#8be9fd">double</span> getArea(){
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0.0</span>;
+    }
+    <span style="color:#ff79c6">virtual</span> std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Shape&#34;</span>;
+    }
+};
+
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Circle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Circle(<span style="color:#8be9fd">double</span> rad){
+        radius <span style="color:#ff79c6">=</span> rad;
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
+        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">3.14</span> <span style="color:#ff79c6">*</span> radius <span style="color:#ff79c6">*</span> radius);
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
+        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">3.14</span> <span style="color:#ff79c6">*</span> radius);
+    }
+    std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Circle&#34;</span>;
+    }
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">double</span> radius;
+};
+
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Rectangle(<span style="color:#8be9fd">double</span> len, <span style="color:#8be9fd">double</span> wid){
+        length <span style="color:#ff79c6">=</span> len;
+        width <span style="color:#ff79c6">=</span> wid;
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
+        <span style="color:#ff79c6">return</span> (length <span style="color:#ff79c6">*</span> width);
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
+        <span style="color:#ff79c6">return</span> (<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> (length <span style="color:#ff79c6">+</span> width));
+    }
+    std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Rectangle&#34;</span>;
+    }
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">double</span> length, width;
+};
+
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Triangle</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> Shape
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    Triangle(<span style="color:#8be9fd">double</span> s1, <span style="color:#8be9fd">double</span> s2, <span style="color:#8be9fd">double</span> s3){
+        side1 <span style="color:#ff79c6">=</span> s1;
+        side2 <span style="color:#ff79c6">=</span> s2;
+        side3 <span style="color:#ff79c6">=</span> s3;
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(){
+        <span style="color:#8be9fd">double</span> s <span style="color:#ff79c6">=</span> (side1 <span style="color:#ff79c6">+</span> side2 <span style="color:#ff79c6">+</span> side3) <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>;
+        <span style="color:#8be9fd">double</span> area <span style="color:#ff79c6">=</span> sqrt(s <span style="color:#ff79c6">*</span> (s<span style="color:#ff79c6">-</span>side1) <span style="color:#ff79c6">*</span> (s<span style="color:#ff79c6">-</span>side2) <span style="color:#ff79c6">*</span> (s<span style="color:#ff79c6">-</span>side3));
+        <span style="color:#ff79c6">return</span> area;
+    }
+    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getPerimeter</span>(){
+        <span style="color:#ff79c6">return</span> (side1 <span style="color:#ff79c6">+</span> side2 <span style="color:#ff79c6">+</span> side3);
+    }
+    std<span style="color:#ff79c6">::</span>string getName(){
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Triangle&#34;</span>;
+    }
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">double</span> side1, side2, side3;
+};
+
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">DrawShape</span>(Shape <span style="color:#ff79c6">*</span>sPtr)
+{
+    std<span style="color:#ff79c6">::</span>cout<span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>getName() <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; Drawing.....!&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> sPtr<span style="color:#ff79c6">-&gt;</span>getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+}
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Circle <span style="color:#ff79c6">*</span>cPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Circle(<span style="color:#bd93f9">10</span>);
+    Rectangle <span style="color:#ff79c6">*</span>rPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#bd93f9">20</span>,<span style="color:#bd93f9">10</span>);
+    Triangle <span style="color:#ff79c6">*</span>tPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Triangle(<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">6</span>);
+
+    DrawShape(cPtr);
+    DrawShape(rPtr);
+    DrawShape(tPtr);
+
+    <span style="color:#ff79c6">delete</span> cPtr;
+    <span style="color:#ff79c6">delete</span> rPtr;
+    <span style="color:#ff79c6">delete</span> tPtr;
+    
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+</code></pre></div>
         </article>
 
 
@@ -363,6 +363,17 @@ So we can pass a pointers of each derived classes to the function and simply use
 <div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
     <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
     <div class="mx-6">
+        <a href="/blog/post25/" class="">
+            <div
+                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                <div class="px-2 ">
+                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Referencs</div>
+                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                        <time><i class="fa-sharp fa-solid fa-timer"></i>27/08/2023</time>
+                    </p>
+                </div>
+            </div>
+        </a>
         <a href="/blog/post24/" class="">
             <div
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
@@ -401,17 +412,6 @@ So we can pass a pointers of each derived classes to the function and simply use
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
                 <div class="px-2 ">
                     <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Pure Virtual Functions</div>
-                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                        <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
-                    </p>
-                </div>
-            </div>
-        </a>
-        <a href="/blog/post20/" class="">
-            <div
-                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
-                <div class="px-2 ">
-                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Virtual Functions</div>
                     <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
                         <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
                     </p>

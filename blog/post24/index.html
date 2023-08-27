@@ -9,7 +9,7 @@
         Recursion - #anooptube
     </title>
     <meta name="description" content="Recursion in C&#43;&#43;" />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Recursion">
 <meta itemprop="description" content="Recursion in C&#43;&#43;"><meta itemprop="datePublished" content="2023-06-17T22:06:52+05:30" />
 <meta itemprop="dateModified" content="2023-06-17T22:06:52+05:30" />
-<meta itemprop="wordCount" content="780">
+<meta itemprop="wordCount" content="779">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,functor,function_objects," /> 
 
     
@@ -174,38 +174,38 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 780&nbsp;words   
+                </svg> 779&nbsp;words   
                 </h5>
                  <p>Recursion is a programming concept where a function calls itself during its execution. In C++, recursion allows you to solve complex problems by breaking them down into smaller, simpler versions of the same problem.</p>
 <p>To implement recursion in C++, you typically define a function that calls itself until it reaches a base case, which is a condition that terminates the recursive calls.</p>
 <p>For Example, in order to print n numbers, the base concept is output the a given number and the condition is to print the number is less than or equal to the given limit say <code>n</code>.
 This is achieved by a basic for loop.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNNumbers</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i<span style="color:#ff79c6">=</span>n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span> ; i<span style="color:#ff79c6">--</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here we can simply divide the problem into simple way</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNNumbers</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i<span style="color:#ff79c6">=</span>n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span> ; i<span style="color:#ff79c6">--</span>)
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+    }
+}
+</code></pre></div><p>Here we can simply divide the problem into simple way</p>
 <ol>
 <li>Create a function that simply accept the number and print the given number.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
+{
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+}
+</code></pre></div><ol start="2">
 <li>We need to print the number only if the given number is greater than One.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+    }
+}
+</code></pre></div><ol start="3">
 <li>
 <p>if we pass the number 10 to this function it is simply print the number and if the number is 0 then it will not print the number</p>
 </li>
@@ -213,129 +213,130 @@ This is achieved by a basic for loop.</p>
 <p>So we can simply call the same function after the print statement with <code>n-1</code></p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>        printNumber(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Then the Ouput of <code>printNumber(10)</code> will be</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+        printNumber(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+    }
+}
+</code></pre></div><p>Then the Ouput of <code>printNumber(10)</code> will be</p>
 <pre tabindex="0"><code>10 9 8 7 6 5 4 3 2 1 
 </code></pre><p>Each recursive call works on a smaller subset of the problem, bringing it closer to the base case. Once the base case is reached, the function starts returning values to the previous recursive calls, eventually leading to the final result.</p>
 <p>Then if we want to reverse the result we need to call the function before print statement.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        printNumber(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><pre tabindex="0"><code>1 2 3 4 5 6 7 8 9 10 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
+    {
+        printNumber(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+    }
+}
+</code></pre></div><pre tabindex="0"><code>1 2 3 4 5 6 7 8 9 10 
 </code></pre><h2 id="example-2">Example 2:</h2>
 <p>Here&rsquo;s a secoond example to illustrate recursion in C++. Let&rsquo;s consider the factorial function, which calculates the product of all positive integers from 1 to a given number n. The factorial of n is denoted as n!.</p>
 <h3 id="solution-with-forloop">Solution with forloop</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">factorial</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> fact <span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span>; i<span style="color:#ff79c6">--</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        fact <span style="color:#ff79c6">=</span> fact <span style="color:#ff79c6">*</span>i;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> fact;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="solution-with-recursion">Solution with recursion</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">factorial</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#8be9fd">int</span> fact <span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>;
+    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span>; i<span style="color:#ff79c6">--</span>)
+    {
+        fact <span style="color:#ff79c6">=</span> fact <span style="color:#ff79c6">*</span>i;
+    }
+    <span style="color:#ff79c6">return</span> fact;
+}
+</code></pre></div><h3 id="solution-with-recursion">Solution with recursion</h3>
 <p>Base condition is <code>1! = 1</code> and <code>0! = 1</code> then</p>
 <ol>
 <li>Create a simple function called <code>fact</code></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fact</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// logic
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fact</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>)
+    {
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>;
+    }
+    <span style="color:#6272a4">// logic
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><ol start="2">
 <li>Simply return the multiplied result of given number (n) and (n-1)</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fact</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// logic
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> ret <span style="color:#ff79c6">=</span> n <span style="color:#ff79c6">*</span> fact(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> ret;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> num <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> result <span style="color:#ff79c6">=</span> fact(num);
-</span></span><span style="display:flex;"><span>  std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Factorial of &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> num <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; is &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> result <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In this example, the factorial function takes an integer n as input. It checks if n is either 0 or 1, which are the base cases where the factorial is known to be 1. Otherwise, it makes a recursive call to itself with n - 1, multiplying the current value of n with the factorial of (n-1). The recursive calls continue until the base case is reached, and then the results are returned back to the previous calls until the final result is obtained.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fact</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>)
+    {
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>;
+    }
+    <span style="color:#6272a4">// logic
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> ret <span style="color:#ff79c6">=</span> n <span style="color:#ff79c6">*</span> fact(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+    <span style="color:#ff79c6">return</span> ret;
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+  <span style="color:#8be9fd">int</span> num <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+  <span style="color:#8be9fd">int</span> result <span style="color:#ff79c6">=</span> fact(num);
+  std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Factorial of &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> num <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; is &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> result <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+  <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+</code></pre></div><p>In this example, the factorial function takes an integer n as input. It checks if n is either 0 or 1, which are the base cases where the factorial is known to be 1. Otherwise, it makes a recursive call to itself with n - 1, multiplying the current value of n with the factorial of (n-1). The recursive calls continue until the base case is reached, and then the results are returned back to the previous calls until the final result is obtained.</p>
 <p>When you run the program, it will output:</p>
 <pre tabindex="0"><code>Factorial of 5 is 120
 </code></pre><p>This example demonstrates how recursion can be used to solve the factorial problem by dividing it into smaller subproblems and leveraging the results of previous recursive calls.</p>
 <h2 id="full-code">Full Code</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        printNumber(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumbers</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i<span style="color:#ff79c6">=</span>n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span> ; i<span style="color:#ff79c6">--</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fact</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> ret <span style="color:#ff79c6">=</span> n <span style="color:#ff79c6">*</span> fact(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> ret;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">factorial</span>(<span style="color:#8be9fd">int</span> n)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> fact <span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span>; i<span style="color:#ff79c6">--</span>)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        fact <span style="color:#ff79c6">=</span> fact <span style="color:#ff79c6">*</span>i;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> fact;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
-</span></span><span style="display:flex;"><span>    printNumbers(n);
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    printNumber(n);
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">Factorial of &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; is :&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> factorial(n) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Factorial of &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; is :&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> fact(n);
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><pre tabindex="0"><code>5 4 3 2 1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumber</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)
+    {
+        printNumber(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+    }
+
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+}
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printNumbers</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i<span style="color:#ff79c6">=</span>n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span> ; i<span style="color:#ff79c6">--</span>)
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span>;
+    }
+}
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fact</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#ff79c6">if</span>(n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>)
+    {
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>;
+    }
+    <span style="color:#8be9fd">int</span> ret <span style="color:#ff79c6">=</span> n <span style="color:#ff79c6">*</span> fact(n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+    <span style="color:#ff79c6">return</span> ret;
+}
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">factorial</span>(<span style="color:#8be9fd">int</span> n)
+{
+    <span style="color:#8be9fd">int</span> fact <span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>;
+    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> n; i <span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">1</span>; i<span style="color:#ff79c6">--</span>)
+    {
+        fact <span style="color:#ff79c6">=</span> fact <span style="color:#ff79c6">*</span>i;
+    }
+    <span style="color:#ff79c6">return</span> fact;
+}
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>()
+{
+    <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+    printNumbers(n);
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    printNumber(n);
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">Factorial of &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; is :&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> factorial(n) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Factorial of &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> n <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; is :&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> fact(n);
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+</code></pre></div><pre tabindex="0"><code>5 4 3 2 1
 1 2 3 4 5
 Factorial of 5 is 120
 Factorial of 5 is 120
+
 </code></pre>
         </article>
 
@@ -349,6 +350,17 @@ Factorial of 5 is 120
 <div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
     <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
     <div class="mx-6">
+        <a href="/blog/post25/" class="">
+            <div
+                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                <div class="px-2 ">
+                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Referencs</div>
+                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                        <time><i class="fa-sharp fa-solid fa-timer"></i>27/08/2023</time>
+                    </p>
+                </div>
+            </div>
+        </a>
         <a href="/blog/post24/" class="">
             <div
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
@@ -387,17 +399,6 @@ Factorial of 5 is 120
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
                 <div class="px-2 ">
                     <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Pure Virtual Functions</div>
-                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                        <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
-                    </p>
-                </div>
-            </div>
-        </a>
-        <a href="/blog/post20/" class="">
-            <div
-                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
-                <div class="px-2 ">
-                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Virtual Functions</div>
                     <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
                         <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
                     </p>

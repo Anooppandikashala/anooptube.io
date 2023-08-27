@@ -9,7 +9,7 @@
         Overloading in C&#43;&#43; - #anooptube
     </title>
     <meta name="description" content="Basics of Function/Constructor Overloading" />
-    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.105.0"><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
+    <meta name="author" content="ANOOP P" /> <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.67a2b32302db71d084657e5125d889206a819840169187244f6415bac0039417.css" integrity="sha256-Z6KzIwLbcdCEZX5RJdiJIGqBmEAWkYckT2QVusADlBc=" /> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Overloading in C&#43;&#43;">
 <meta itemprop="description" content="Basics of Function/Constructor Overloading"><meta itemprop="datePublished" content="2022-11-18T20:04:52+05:30" />
 <meta itemprop="dateModified" content="2022-11-18T20:04:52+05:30" />
-<meta itemprop="wordCount" content="304">
+<meta itemprop="wordCount" content="309">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,overloading," /> 
 
     
@@ -174,7 +174,7 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 304&nbsp;words   
+                </svg> 309&nbsp;words   
                 </h5>
                  <h2 id="types-of-overloading">Types Of Overloading</h2>
 <ol>
@@ -196,57 +196,57 @@
 <p>different number of <code>arguments</code></p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Constructor
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Rectangle()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">double</span> len, <span style="color:#8be9fd">double</span> wid)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> len;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> wid;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">double</span> side)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> side;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> side;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;length: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> length <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;width: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> width <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> length;
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> width;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle r1;
-</span></span><span style="display:flex;"><span>    r1.print();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle r2(<span style="color:#bd93f9">100</span>,<span style="color:#bd93f9">200</span>);
-</span></span><span style="display:flex;"><span>    r2.print();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle s(<span style="color:#bd93f9">50</span>);
-</span></span><span style="display:flex;"><span>    s.print();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
+{
+
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+
+    <span style="color:#6272a4">// Constructor
+</span><span style="color:#6272a4"></span>    Rectangle()
+    {
+        length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+        width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+    }
+
+    Rectangle(<span style="color:#8be9fd">double</span> len, <span style="color:#8be9fd">double</span> wid)
+    {
+        length <span style="color:#ff79c6">=</span> len;
+        width <span style="color:#ff79c6">=</span> wid;
+    }
+
+    Rectangle(<span style="color:#8be9fd">double</span> side)
+    {
+        length <span style="color:#ff79c6">=</span> side;
+        width <span style="color:#ff79c6">=</span> side;
+    }
+
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>()
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;length: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> length <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;width: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> width <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    }
+
+    <span style="color:#8be9fd">double</span> length;
+    <span style="color:#8be9fd">double</span> width;
+
+};
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+
+    Rectangle r1;
+    r1.print();
+
+    Rectangle r2(<span style="color:#bd93f9">100</span>,<span style="color:#bd93f9">200</span>);
+    r2.print();
+
+    Rectangle s(<span style="color:#bd93f9">50</span>);
+    s.print();
+
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}</code></pre></div>
 <!-- ADS start here -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
 <p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
@@ -260,80 +260,80 @@
 <li>All overloading functions have same <code>return-type</code>,</li>
 <li>but different number of <code>arguments</code></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Constructor
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    Rectangle()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">double</span> len, <span style="color:#8be9fd">double</span> wid)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> len;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> wid;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle(<span style="color:#8be9fd">double</span> side)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        length <span style="color:#ff79c6">=</span> side;
-</span></span><span style="display:flex;"><span>        width <span style="color:#ff79c6">=</span> side;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;length: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> length <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;width: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> width <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// overloaded function with zero arguments
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// overloaded function with one arguments
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(<span style="color:#8be9fd">double</span> side)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> side <span style="color:#ff79c6">*</span> side;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// overloaded function with two arguments
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(<span style="color:#8be9fd">double</span> l, <span style="color:#8be9fd">double</span> w)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> l <span style="color:#ff79c6">*</span> w;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">double</span> length, width;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Rectangle r1;
-</span></span><span style="display:flex;"><span>    r1.print();
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r1.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle r2(<span style="color:#bd93f9">100</span>,<span style="color:#bd93f9">200</span>);
-</span></span><span style="display:flex;"><span>    r2.print();
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r2.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle s(<span style="color:#bd93f9">50</span>);
-</span></span><span style="display:flex;"><span>    s.print();
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> s.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Rectangle r3;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r3.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r3.getArea(<span style="color:#bd93f9">10</span>,<span style="color:#bd93f9">10</span>) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r3.getArea(<span style="color:#bd93f9">20</span>) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+
+    <span style="color:#6272a4">// Constructor
+</span><span style="color:#6272a4"></span>    Rectangle()
+    {
+        length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+        width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+    }
+
+    Rectangle(<span style="color:#8be9fd">double</span> len, <span style="color:#8be9fd">double</span> wid)
+    {
+        length <span style="color:#ff79c6">=</span> len;
+        width <span style="color:#ff79c6">=</span> wid;
+    }
+
+    Rectangle(<span style="color:#8be9fd">double</span> side)
+    {
+        length <span style="color:#ff79c6">=</span> side;
+        width <span style="color:#ff79c6">=</span> side;
+    }
+
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>()
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;length: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> length <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;width: &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> width <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    }
+
+    <span style="color:#6272a4">// overloaded function with zero arguments
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>()
+    {
+        <span style="color:#ff79c6">return</span> length <span style="color:#ff79c6">*</span> width;
+    }
+
+    <span style="color:#6272a4">// overloaded function with one arguments
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(<span style="color:#8be9fd">double</span> side)
+    {
+        <span style="color:#ff79c6">return</span> side <span style="color:#ff79c6">*</span> side;
+    }
+
+    <span style="color:#6272a4">// overloaded function with two arguments
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">double</span> <span style="color:#50fa7b">getArea</span>(<span style="color:#8be9fd">double</span> l, <span style="color:#8be9fd">double</span> w)
+    {
+        <span style="color:#ff79c6">return</span> l <span style="color:#ff79c6">*</span> w;
+    }
+
+    <span style="color:#8be9fd">double</span> length, width;
+};
+
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">*</span>argv[])
+{
+    Rectangle r1;
+    r1.print();
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r1.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    Rectangle r2(<span style="color:#bd93f9">100</span>,<span style="color:#bd93f9">200</span>);
+    r2.print();
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r2.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    Rectangle s(<span style="color:#bd93f9">50</span>);
+    s.print();
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> s.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    Rectangle r3;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r3.getArea() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r3.getArea(<span style="color:#bd93f9">10</span>,<span style="color:#bd93f9">10</span>) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Area : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> r3.getArea(<span style="color:#bd93f9">20</span>) <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}</code></pre></div>
 
         </article>
 
@@ -347,6 +347,17 @@
 <div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
     <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
     <div class="mx-6">
+        <a href="/blog/post25/" class="">
+            <div
+                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                <div class="px-2 ">
+                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Referencs</div>
+                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                        <time><i class="fa-sharp fa-solid fa-timer"></i>27/08/2023</time>
+                    </p>
+                </div>
+            </div>
+        </a>
         <a href="/blog/post24/" class="">
             <div
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
@@ -385,17 +396,6 @@
                 class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
                 <div class="px-2 ">
                     <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Pure Virtual Functions</div>
-                    <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
-                        <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
-                    </p>
-                </div>
-            </div>
-        </a>
-        <a href="/blog/post20/" class="">
-            <div
-                class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
-                <div class="px-2 ">
-                    <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Virtual Functions</div>
                     <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
                         <time><i class="fa-sharp fa-solid fa-timer"></i>20/04/2023</time>
                     </p>

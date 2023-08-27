@@ -14,8 +14,10 @@
       
       <guid>https://anooptube.in/blog/post8/</guid>
       <description>In C++ programming, a namespace is a collection of names or identifiers related to one another.
-Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } } How to create a arithmetic namespace Step-1: Create a header file named arithmetic.h Add header guards.
-// arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H #endif Add namespace declaration. // arithmetic.h #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H namespace arithmetic { } #endif Add required functions.</description>
+Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } }  
+ (adsbygoogle = window.adsbygoogle || []).push({});  How to create a arithmetic namespace Step-1:   Create a header file named  arithmetic.h 
+  Add header guards.
+  // arithmetic.</description>
     </item>
     
   </channel>
