@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reference on #anooptube</title>
+    <link>https://anooptube.in/tags/reference/</link>
+    <description>Recent content in reference on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Aug 2023 18:56:49 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Referencs</title>
+      <link>https://anooptube.in/blog/post25/</link>
+      <pubDate>Sun, 27 Aug 2023 18:56:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post25/</guid>
+      <description>In C++, references are a way to create an alias for an existing variable. They provide an alternative name to access the same memory location as the original variable. References are often used for passing arguments to functions, especially to avoid making copies of large objects.
+There are two main types of references in C++:
+ references (also known as lvalue references) const references.  1. Reference (&amp;amp;) Syntax: type &amp;amp;referenceName = existingVariable; A reference must be initialized when declared.</description>
+    </item>
+    
+  </channel>
+</rss>
