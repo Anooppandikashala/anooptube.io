@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>const on #anooptube</title>
+    <link>https://anooptube.in/tags/const/</link>
+    <description>Recent content in const on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Sep 2023 14:20:20 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/const/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Constants (const)</title>
+      <link>https://anooptube.in/blog/post26/</link>
+      <pubDate>Sat, 09 Sep 2023 14:20:20 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post26/</guid>
+      <description>In C++, the const keyword is used to declare a constant or to specify that a variable or function parameter should not be modified.
+It can be applied to
+ variables function parameters member functions member variables of classes  Here&amp;rsquo;s how const is used in various contexts:
+1. Constant Variables: Constant variables, often referred to as constants, are variables in C++ whose values cannot be changed after they have been initialized.</description>
+    </item>
+    
+  </channel>
+</rss>
