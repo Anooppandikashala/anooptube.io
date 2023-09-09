@@ -15,8 +15,7 @@
       <guid>https://anooptube.in/blog/post10/</guid>
       <description>1. Abstraction Data Abstraction involves presenting only the essential details to the outside world, i.e., representing only the essential details inside the program, and hiding the other details.
 How to achieve Abstraction 1. By Header files. Example:
- Create a header file person.h   
- (adsbygoogle = window.adsbygoogle || []).push({});  // person.h  #ifndef ANOOP_TUBE_PERSON_H #define ANOOP_TUBE_PERSON_H  #include&amp;lt;iostream&amp;gt; class Person { public: Person(std::string name_); std::string getName(); void setName(std::string name_); private: std::string name; }; #endif create a file person.</description>
+ Create a header file person.h  // person.h  #ifndef ANOOP_TUBE_PERSON_H #define ANOOP_TUBE_PERSON_H  #include&amp;lt;iostream&amp;gt; class Person { public: Person(std::string name_); std::string getName(); void setName(std::string name_); private: std::string name; }; #endif create a file person.</description>
     </item>
     
   </channel>

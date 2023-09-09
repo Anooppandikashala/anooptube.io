@@ -39,7 +39,7 @@
  <meta itemprop="name" content="Create Header Files">
 <meta itemprop="description" content="Header files in C&#43;&#43;"><meta itemprop="datePublished" content="2022-12-03T12:49:20+05:30" />
 <meta itemprop="dateModified" content="2022-12-03T12:49:20+05:30" />
-<meta itemprop="wordCount" content="349">
+<meta itemprop="wordCount" content="329">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,header_guard,header_file," /> 
 
     
@@ -169,7 +169,7 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 349&nbsp;words   
+                </svg> 329&nbsp;words   
                 </h5>
                  <p>A header file contains the declarations and definitions of functions and macros.</p>
 <h2 id="types">Types:</h2>
@@ -181,13 +181,6 @@
 <li>User defined header files.</li>
 </ol>
 <h2 id="how-to-use-header-files">How to use header files</h2>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
 <p>We use a special pre-processor directive called <mark>#include</mark> to use/include header files.</p>
 <h4 id="syntax-for-system-header-files">Syntax for System header files:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;header_file_name&gt;</span></code></pre></div>
@@ -200,13 +193,6 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;anooptube.h&#34;</span><span style="color:#ff79c6">
 </span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;my_header_file.h</span></code></pre></div>
 <h2 id="make-your-own-header-file-and-use-it">Make your own header file and use it.</h2>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
 <h4 id="example-markarithmetichmark">Example <mark>arithmetic.h</mark></h4>
 <h4 id="step-1">Step-1:</h4>
 <p>Create a file <code>arithmetic.h</code></p>
@@ -235,13 +221,6 @@
   <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
 }</code></pre></div>
 <h3 id="issue-of-multiple-definition-error">Issue of multiple definition error</h3>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
 <ol>
 <li>If you make a second header file <mark>sum.h</mark> and include <code>arithmetic.h</code> file</li>
 </ol>
@@ -277,13 +256,6 @@
 </ol>
 <p>To avoid this error we have to use header guards</p>
 <h3 id="header-gurads">Header Gurads</h3>
-<!-- ADS start here -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-<p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9749303862760552" data-ad-slot="9710206232"></ins></p>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- ADS end here -->
 <h4 id="syntax">Syntax:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#ifndef UNIQUE_NAME
 </span><span style="color:#ff79c6">#define UNIQUE_NAME
