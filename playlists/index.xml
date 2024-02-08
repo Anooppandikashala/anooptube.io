@@ -6,7 +6,16 @@
     <description>Recent content in Playlists on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Sep 2023 14:20:20 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Feb 2024 21:49:14 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>To-Do List App</title>
+      <link>https://anooptube.in/playlists/to-do-list-app/</link>
+      <pubDate>Thu, 08 Feb 2024 21:49:14 +0530</pubDate>
+      
+      <guid>https://anooptube.in/playlists/to-do-list-app/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Basics of CPP Development</title>
       <link>https://anooptube.in/playlists/basics-of-cpp-development/</link>
