@@ -6,7 +6,20 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Feb 2024 16:02:05 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 13:31:26 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YouTube Thumbnail changes with Python</title>
+      <link>https://anooptube.in/blog/post29/</link>
+      <pubDate>Tue, 20 Feb 2024 13:31:26 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post29/</guid>
+      <description>YouTube thumbnails play a crucial role in attracting viewers and conveying the essence of your video.
+Regularly updating your video thumbnails can enhance the visual appeal of your channel and encourage more clicks.
+In this tutorial, we will explore how to automate YouTube thumbnail changes using a Python script.
+Full video link: https://youtu.be/04qniyyFJt4 Prerequisites Before diving into the scripting process, make sure you have the following:
+1. Google API Key: Generate an API key from the Google Cloud Console with access to the YouTube Data API.</description>
+    </item>
+    
     <item>
       <title>Mastering Linux Commands</title>
       <link>https://anooptube.in/blog/post28/</link>
@@ -20,7 +33,7 @@ Let&amp;rsquo;s explore each command in detail.</description>
     </item>
     
     <item>
-      <title>To-Do List App - Part-1</title>
+      <title>To-Do List App in Python</title>
       <link>https://anooptube.in/blog/post27/</link>
       <pubDate>Thu, 08 Feb 2024 21:49:14 +0530</pubDate>
       
