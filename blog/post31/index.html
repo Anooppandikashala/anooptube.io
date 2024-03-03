@@ -38,7 +38,7 @@
  <meta itemprop="name" content="Mastering AWK in Linux">
 <meta itemprop="description" content="Mastering AWK in Linux: A Comprehensive Guide for Beginners"><meta itemprop="datePublished" content="2024-03-03T17:15:32+05:30" />
 <meta itemprop="dateModified" content="2024-03-03T17:15:32+05:30" />
-<meta itemprop="wordCount" content="1090">
+<meta itemprop="wordCount" content="1091">
 <meta itemprop="keywords" content="linux,commands," /> 
 
     
@@ -170,11 +170,11 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 1090&nbsp;words   
+                </svg> 1091&nbsp;words   
                 </h5>
-                 <p><code>Awk</code> is a powerful programming language and command-line utility in Unix and Unix-like operating systems, including Linux.</p>
+                 <p><code>Awk</code> is a powerful <code>programming language</code> and <code>command-line</code> utility in Unix and Unix-like operating systems, including Linux.</p>
 <p>It is primarily used for pattern scanning and processing.</p>
-<p>Awk operates on text files and can process data line by line.</p>
+<p>Awk operates on <code>text files</code> and can process data <code>line by line</code>.</p>
 <p>Here&rsquo;s a comprehensive overview of its usage and commands:</p>
 <h2 id="basic-structure">Basic Structure:</h2>
 <p>The basic structure of an awk command is as follows:</p>
@@ -187,14 +187,14 @@
 <h2 id="inbuilt-variables">Inbuilt Variables</h2>
 <ol>
 <li><code>$0</code> : Represents the entire input line.</li>
-<li><code>$1</code>, <code>$2</code>, &hellip;: Represent fields in the input line, separated by a delimiter (default is space/tab).</li>
+<li><code>$1</code>, <code>$2</code>, &hellip; : Represent fields in the input line, separated by a delimiter (default is space/tab).</li>
 <li><code>NF</code> : Number of fields in the current line.</li>
 <li><code>NR</code> : Current record (line) number.</li>
 <li><code>FS</code> : Field separator (default is whitespace).</li>
 <li><code>RS</code> : Record separator (default is newline).</li>
 </ol>
 <h2 id="multiple-commands">Multiple Commands:</h2>
-<p>You can separate multiple commands with semicolons or use a script file:</p>
+<p>You can separate multiple commands with <code>semicolons</code> or use a <code>script file</code>s:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">awk <span style="color:#f1fa8c">&#39;{print $1; if ($2 &gt; 50) print &#34;High&#34;}&#39;</span> filename
 <span style="color:#6272a4"># or</span>
 awk <span style="color:#ff79c6">-</span>f script.awk filename
@@ -259,7 +259,7 @@ awk <span style="color:#ff79c6">-</span>f script.awk filename
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">{<span style="color:#ff79c6">delete</span> array[<span style="color:#ff79c6">$</span><span style="color:#bd93f9">1</span>]}
 </code></pre></div><hr>
 <h2 id="example-commands">Example Commands:</h2>
-<p>Let&rsquo;s consider an example file named sample.txt with the following content:</p>
+<p>Let&rsquo;s consider an example file named <code>sample.txt</code> with the following content:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Name,Age,Score
 John,25,80
 Alice,30,92
@@ -301,17 +301,17 @@ Eve,35,88
 </code></pre></div><hr>
 <h2 id="arrays">Arrays</h2>
 <h3 id="declaration-and-initialization">Declaration and Initialization:</h3>
-<p>In Awk, arrays are a fundamental data structure that allows you to store and manipulate data in a structured way.</p>
+<p>In awk, arrays are a fundamental data structure that allows you to store and manipulate data in a structured way.</p>
 <p>Here are some key points about managing arrays in Awk:</p>
 <ol>
-<li>In Awk, arrays are <code>associative</code>, meaning you can use arbitrary indices (keys) for your array elements.
+<li>In Awk, arrays are <code>associative</code>, meaning you can use arbitrary indices (<code>keys</code>) for your array elements.
 You don&rsquo;t need to declare the size of the array explicitly.</li>
 <li>Arrays are automatically created when you use them.
 There is no separate declaration needed.</li>
 </ol>
 <h3 id="accessing-array-elements">Accessing Array Elements:</h3>
 <h4 id="indexing">Indexing:</h4>
-<p>Array elements are accessed using their indices (keys).</p>
+<p>Array elements are accessed using their indices (<code>keys</code>).</p>
 <p>The <code>first index is 1</code> by default. If you don&rsquo;t specify an index, it&rsquo;s treated as 1.</p>
 <p>Example</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">names[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Alice&#34;</span>
@@ -393,19 +393,7 @@ Eve 88 90 85
         <span style="color:#ff79c6">printf</span> <span style="color:#f1fa8c">&#34;%s\t%.2f\n&#34;</span>, student,average
     }
 }
-</code></pre></div><p>You can then run this Awk program on the grades.txt file using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk -f calculate_average.awk grades.txt
-</code></pre></div><h3 id="expected-output">Expected Output:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-------Average Marks------
-Name	AvgMark
-Alice	79.00
-Charlie	91.67
-Eve	87.67
-Bob	78.67
-David	71.00
-</code></pre></div><p>This example demonstrates the use of Awk to perform calculations and generate meaningful output based on the input data.</p>
-<p>You can adapt and modify Awk programs to suit various data processing tasks.</p>
-<h2 id="full-program">Full Program</h2>
+</code></pre></div><h2 id="full-program">Full Program</h2>
 <p><code>calculate_average.awk</code> file</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk"><span style="color:#6272a4"># Begin only execute once</span>
 <span style="color:#8be9fd;font-style:italic">BEGIN</span> 
@@ -436,7 +424,19 @@ David	71.00
         <span style="color:#ff79c6">printf</span> <span style="color:#f1fa8c">&#34;%s\t%.2f\n&#34;</span>, student,average
     }
 }
-</code></pre></div>
+</code></pre></div><p>You can then run this Awk program on the <code>grades.txt</code> file using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk -f calculate_average.awk grades.txt
+</code></pre></div><h3 id="expected-output">Expected Output:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-------Average Marks------
+Name	AvgMark
+Alice	79.00
+Charlie	91.67
+Eve	87.67
+Bob	78.67
+David	71.00
+</code></pre></div><p>This example demonstrates the use of Awk to perform calculations and generate meaningful output based on the input data.</p>
+<p>You can adapt and modify Awk programs to suit various data processing tasks.</p>
+
         </article>
 
 
