@@ -6,7 +6,21 @@
     <description>Recent content in commands on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2024 13:31:26 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/commands/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Mar 2024 17:15:32 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/commands/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering AWK in Linux</title>
+      <link>https://anooptube.in/blog/post31/</link>
+      <pubDate>Sun, 03 Mar 2024 17:15:32 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post31/</guid>
+      <description>Awk is a powerful programming language and command-line utility in Unix and Unix-like operating systems, including Linux.
+It is primarily used for pattern scanning and processing.
+Awk operates on text files and can process data line by line.
+Here&amp;rsquo;s a comprehensive overview of its usage and commands:
+Basic Structure: The basic structure of an awk command is as follows:
+awk &amp;#39;pattern { action }&amp;#39; filename  Pattern: Specifies the condition for the action to be performed.</description>
+    </item>
+    
     <item>
       <title>YouTube Thumbnail changes with Python</title>
       <link>https://anooptube.in/blog/post29/</link>

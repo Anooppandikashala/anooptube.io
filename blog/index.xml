@@ -6,14 +6,28 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2024 17:42:17 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Mar 2024 17:15:32 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering AWK in Linux</title>
+      <link>https://anooptube.in/blog/post31/</link>
+      <pubDate>Sun, 03 Mar 2024 17:15:32 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post31/</guid>
+      <description>Awk is a powerful programming language and command-line utility in Unix and Unix-like operating systems, including Linux.
+It is primarily used for pattern scanning and processing.
+Awk operates on text files and can process data line by line.
+Here&amp;rsquo;s a comprehensive overview of its usage and commands:
+Basic Structure: The basic structure of an awk command is as follows:
+awk &amp;#39;pattern { action }&amp;#39; filename  Pattern: Specifies the condition for the action to be performed.</description>
+    </item>
+    
     <item>
       <title>Install Python-3 on Ubuntu and PyCharm Community Edition</title>
       <link>https://anooptube.in/blog/post30/</link>
       <pubDate>Tue, 20 Feb 2024 17:42:17 +0530</pubDate>
       
       <guid>https://anooptube.in/blog/post30/</guid>
-      <description>Python is a versatile and widely-used programming language, and Ubuntu is one of the most popular Linux distributions.
+      <description>https://doruffleton.com/4/7118622 Python is a versatile and widely-used programming language, and Ubuntu is one of the most popular Linux distributions.
 In this blog post, we will walk you through the process of
  Installing Python 3 on Ubuntu Setting up PyCharm Community Edition, a powerful Python IDE.  Part 1: Installing Python 3 on Ubuntu Step 1: Update Package Lists Before installing Python 3, it&amp;rsquo;s a good practice to update the package lists to ensure you get the latest information.</description>
     </item>
