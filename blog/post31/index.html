@@ -248,12 +248,12 @@ awk <span style="color:#ff79c6">-</span>f script.awk filename
 </code></pre></div><h4 id="7-getline">7. getline:</h4>
 <p>Reads the next input record.</p>
 <p>Example:</p>
-<pre tabindex="0"><code>{getline nextLine; print $0, nextLine}
-</code></pre><h4 id="8-close">8. close:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">{<span style="color:#ff79c6">getline</span> nextLine; <span style="color:#ff79c6">print</span> <span style="color:#ff79c6">$</span><span style="color:#bd93f9">0</span>, nextLine}
+</code></pre></div><h4 id="8-close">8. close:</h4>
 <p>Closes a file or a pipe opened by getline.</p>
 <p>Example:</p>
-<pre tabindex="0"><code>{getline nextLine; close(&quot;file.txt&quot;); print $0, nextLine}
-</code></pre><h4 id="9-delete">9. delete:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">{<span style="color:#ff79c6">getline</span> nextLine; <span style="color:#ff79c6">close</span>(<span style="color:#f1fa8c">&#34;file.txt&#34;</span>); <span style="color:#ff79c6">print</span> <span style="color:#ff79c6">$</span><span style="color:#bd93f9">0</span>, nextLine}
+</code></pre></div><h4 id="9-delete">9. delete:</h4>
 <p>Deletes an element from an array.</p>
 <p>Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">{<span style="color:#ff79c6">delete</span> array[<span style="color:#ff79c6">$</span><span style="color:#bd93f9">1</span>]}
@@ -289,8 +289,8 @@ Eve,35,88
 </code></pre></div><h4 id="4-calculate-and-print-the-average-score">4. Calculate and print the average Score:</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">awk <span style="color:#ff79c6">-</span>F<span style="color:#f1fa8c">&#39;,&#39;</span> <span style="color:#f1fa8c">&#39;{sum+=$3} END {print &#34;Average Score:&#34;, sum/NR}&#39;</span> sample.txt
 </code></pre></div><p>Output:</p>
-<pre tabindex="0"><code>Average Score: 83.75
-</code></pre><h4 id="5-print-lines-with-a-specific-pattern-containing-alice">5. Print lines with a specific pattern (containing &ldquo;Alice&rdquo;):</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Average Score: 83.75
+</code></pre></div><h4 id="5-print-lines-with-a-specific-pattern-containing-alice">5. Print lines with a specific pattern (containing &ldquo;Alice&rdquo;):</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">awk <span style="color:#ff79c6">-</span>F<span style="color:#f1fa8c">&#39;,&#39;</span> <span style="color:#f1fa8c">&#39;/Alice/ {print}&#39;</span> sample.txt
 </code></pre></div><p>Output:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Alice,30,92
