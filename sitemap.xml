@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/blog/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/playlists/</loc>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/playlists/python/</loc>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/python/</loc>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/blog/post32/</loc>
+    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/commands/</loc>
     <lastmod>2024-03-03T17:15:32+05:30</lastmod>
@@ -20,22 +35,10 @@
     <loc>https://anooptube.in/blog/post31/</loc>
     <lastmod>2024-03-03T17:15:32+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/playlists/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url><url>
     <loc>https://anooptube.in/blog/post30/</loc>
     <lastmod>2024-02-20T17:42:17+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/pycharm/</loc>
-    <lastmod>2024-02-20T17:42:17+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/playlists/python/</loc>
-    <lastmod>2024-02-20T17:42:17+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/python/</loc>
     <lastmod>2024-02-20T17:42:17+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/ubuntu/</loc>
@@ -214,6 +217,12 @@
   </url><url>
     <loc>https://anooptube.in/privacy/</loc>
     <lastmod>2022-11-29T17:51:34+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/markdown/</loc>
+    <lastmod>2022-11-18T22:51:49+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/blog/post7/</loc>
+    <lastmod>2022-11-18T22:51:49+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/boolean/</loc>
     <lastmod>2022-11-18T22:51:46+05:30</lastmod>

@@ -6,7 +6,19 @@
     <description>Recent content in python on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2024 17:42:17 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2024 22:01:01 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You should know these 5 Powerful functions in Python!</title>
+      <link>https://anooptube.in/blog/post32/</link>
+      <pubDate>Sun, 10 Mar 2024 22:01:01 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post32/</guid>
+      <description>Welcome to our comprehensive guide on mastering essential Python functions that every developer should know.
+Whether you&amp;rsquo;re just starting your programming journey or looking to enhance your skills, these fundamental functions are key to becoming a proficient Python coder.
+Let&amp;rsquo;s dive into each function and explore real-world examples to solidify your understanding.
+1. Enumerate: Enhancing Iteration The enumerate() function is a game-changer when it comes to iterating through sequences while keeping track of indices.</description>
+    </item>
+    
     <item>
       <title>Install Python-3 on Ubuntu and PyCharm Community Edition</title>
       <link>https://anooptube.in/blog/post30/</link>

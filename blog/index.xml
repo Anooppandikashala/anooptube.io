@@ -6,7 +6,19 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Mar 2024 17:15:32 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2024 22:01:01 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You should know these 5 Powerful functions in Python!</title>
+      <link>https://anooptube.in/blog/post32/</link>
+      <pubDate>Sun, 10 Mar 2024 22:01:01 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post32/</guid>
+      <description>Welcome to our comprehensive guide on mastering essential Python functions that every developer should know.
+Whether you&amp;rsquo;re just starting your programming journey or looking to enhance your skills, these fundamental functions are key to becoming a proficient Python coder.
+Let&amp;rsquo;s dive into each function and explore real-world examples to solidify your understanding.
+1. Enumerate: Enhancing Iteration The enumerate() function is a game-changer when it comes to iterating through sequences while keeping track of indices.</description>
+    </item>
+    
     <item>
       <title>Mastering AWK in Linux</title>
       <link>https://anooptube.in/blog/post31/</link>
@@ -271,6 +283,15 @@ Syntax for System header files: #include &amp;lt;header_file_name&amp;gt; Exampl
 Syntax: namespace namespace_name { // code here } Example: namespace anooptube_namespace { int getName() { std::cout &amp;lt;&amp;lt; &amp;#34;#anooptube&amp;#34; &amp;lt;&amp;lt; std::endl; } } How to create a arithmetic namespace Step-1:   Create a header file named  arithmetic.h 
   Add header guards.
   // arithmetic.h  #ifndef ANOOPTUBE_ARITHMETIC_H #define ANOOPTUBE_ARITHMETIC_H  #endif Add namespace declaration.</description>
+    </item>
+    
+    <item>
+      <title>Markdown syntax</title>
+      <link>https://anooptube.in/blog/post7/</link>
+      <pubDate>Fri, 18 Nov 2022 22:51:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post7/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
     <item>
