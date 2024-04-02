@@ -27,14 +27,5 @@
       <description>This math game is called &amp;ldquo;The Ghost Hunter&amp;rdquo;. In this game, a ghost appears with a math problem that has two numbers and an operation, such as &amp;ldquo;7 + 3&amp;rdquo;. The player then needs to match the correct answer with a witch who is holding a sign with the answer, such as &amp;ldquo;10&amp;rdquo;. The player needs to match the ghost with the correct witch holding the correct answer as quickly as possible to score points.</description>
     </item>
     
-    <item>
-      <title>Markdown syntax</title>
-      <link>https://anooptube.in/blog/post7/</link>
-      <pubDate>Fri, 18 Nov 2022 22:51:49 +0530</pubDate>
-      
-      <guid>https://anooptube.in/blog/post7/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>
