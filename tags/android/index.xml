@@ -6,7 +6,18 @@
     <description>Recent content in android on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jan 2025 21:16:51 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jan 2025 16:34:48 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Stateless and Stateful Widgets in Flutter</title>
+      <link>https://anooptube.in/blog/post34/</link>
+      <pubDate>Mon, 20 Jan 2025 16:34:48 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post34/</guid>
+      <description>Flutter, Google&amp;rsquo;s UI toolkit, enables developers to build natively compiled applications for mobile, web, and desktop from a single codebase.
+At the heart of Flutter&amp;rsquo;s UI framework are widgets, which form the building blocks of any application. In this article, we will explore two fundamental types of widgets in Flutter:
+ Stateless Widgets Stateful Widgets.   What Are Widgets in Flutter? In Flutter, everything you see on the screen is a widget.</description>
+    </item>
+    
     <item>
       <title>Build Your First Mobile-App in Flutter</title>
       <link>https://anooptube.in/blog/post33/</link>
