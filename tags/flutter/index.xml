@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post34/</guid>
       <description>Flutter, Google&amp;rsquo;s UI toolkit, enables developers to build natively compiled applications for mobile, web, and desktop from a single codebase.
 At the heart of Flutter&amp;rsquo;s UI framework are widgets, which form the building blocks of any application. In this article, we will explore two fundamental types of widgets in Flutter:
- Stateless Widgets Stateful Widgets.   What Are Widgets in Flutter? In Flutter, everything you see on the screen is a widget.</description>
+ Stateless Widgets Stateful Widgets.      What Are Widgets in Flutter? In Flutter, everything you see on the screen is a widget.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@ At the heart of Flutter&amp;rsquo;s UI framework are widgets, which form the bui
       <guid>https://anooptube.in/blog/post33/</guid>
       <description>What is Flutter? Flutter is a UI toolkit that is open-source and created by Google, enabling developers to build natively compiled applications for various platforms using a single codebase.
 It supports building apps for:
- Mobile: Android and iOS Web: Modern browsers Desktop: Windows, macOS, and Linux Embedded Devices  Key Features of Flutter  Single Codebase: Write one codebase for all platforms. Hot Reload: Instantly see changes in your code without restarting the app.</description>
+ Mobile: Android and iOS Web: Modern browsers Desktop: Windows, macOS, and Linux Embedded Devices      Key Features of Flutter  Single Codebase: Write one codebase for all platforms. Hot Reload: Instantly see changes in your code without restarting the app.</description>
     </item>
     
   </channel>
