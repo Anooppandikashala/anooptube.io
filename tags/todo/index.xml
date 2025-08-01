@@ -15,8 +15,7 @@
       <guid>https://anooptube.in/blog/post27/</guid>
       <description>Creating a Todo List Command Line Application in Python Prerequisites : Make sure you have Python installed on your system.
 In this tutorial, we will create a simple command-line Todo List application using Python. The application allows users to
- add tasks, list tasks, remove tasks, add labels to tasks, and clear all tasks.      The tasks are stored in a text file for persistence.
-It supports the following commands:</description>
+ add tasks, list tasks, remove tasks, add labels to tasks, and clear all tasks.    .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .</description>
     </item>
     
   </channel>

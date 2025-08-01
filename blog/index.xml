@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post34/</guid>
       <description>Flutter, Google&amp;rsquo;s UI toolkit, enables developers to build natively compiled applications for mobile, web, and desktop from a single codebase.
 At the heart of Flutter&amp;rsquo;s UI framework are widgets, which form the building blocks of any application. In this article, we will explore two fundamental types of widgets in Flutter:
- Stateless Widgets Stateful Widgets.      What Are Widgets in Flutter? In Flutter, everything you see on the screen is a widget.</description>
+ Stateless Widgets Stateful Widgets.    .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@ At the heart of Flutter&amp;rsquo;s UI framework are widgets, which form the bui
       <guid>https://anooptube.in/blog/post33/</guid>
       <description>What is Flutter? Flutter is a UI toolkit that is open-source and created by Google, enabling developers to build natively compiled applications for various platforms using a single codebase.
 It supports building apps for:
- Mobile: Android and iOS Web: Modern browsers Desktop: Windows, macOS, and Linux Embedded Devices      Key Features of Flutter  Single Codebase: Write one codebase for all platforms. Hot Reload: Instantly see changes in your code without restarting the app.</description>
+ Mobile: Android and iOS Web: Modern browsers Desktop: Windows, macOS, and Linux Embedded Devices    .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ It supports building apps for:
       <description>Welcome to our comprehensive guide on mastering essential Python functions that every developer should know.
 Whether you&amp;rsquo;re just starting your programming journey or looking to enhance your skills, these fundamental functions are key to becoming a proficient Python coder.
 Let&amp;rsquo;s dive into each function and explore real-world examples to solidify your understanding.
-    1. Enumerate: Enhancing Iteration The enumerate() function is a game-changer when it comes to iterating through sequences while keeping track of indices.</description>
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.</description>
     </item>
     
     <item>
@@ -49,10 +49,7 @@ Let&amp;rsquo;s dive into each function and explore real-world examples to solid
       <guid>https://anooptube.in/blog/post31/</guid>
       <description>Awk is a powerful programming language and command-line utility in Unix and Unix-like operating systems, including Linux.
 It is primarily used for pattern scanning and processing.
-    Awk operates on text files and can process data line by line.
-Here&amp;rsquo;s a comprehensive overview of its usage and commands:
-Basic Structure: The basic structure of an awk command is as follows:
-awk &amp;#39;pattern { action }&amp;#39; filename  Pattern: Specifies the condition for the action to be performed.</description>
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
     </item>
     
     <item>
@@ -63,7 +60,7 @@ awk &amp;#39;pattern { action }&amp;#39; filename  Pattern: Specifies the condit
       <guid>https://anooptube.in/blog/post30/</guid>
       <description>https://doruffleton.com/4/7118622 Python is a versatile and widely-used programming language, and Ubuntu is one of the most popular Linux distributions.
 In this blog post, we will walk you through the process of
- Installing Python 3 on Ubuntu Setting up PyCharm Community Edition, a powerful Python IDE.      Part 1: Installing Python 3 on Ubuntu Step 1: Update Package Lists Before installing Python 3, it&amp;rsquo;s a good practice to update the package lists to ensure you get the latest information.</description>
+ Installing Python 3 on Ubuntu Setting up PyCharm Community Edition, a powerful Python IDE.    .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.</description>
     </item>
     
     <item>
@@ -75,8 +72,7 @@ In this blog post, we will walk you through the process of
       <description>YouTube thumbnails play a crucial role in attracting viewers and conveying the essence of your video.
 Regularly updating your video thumbnails can enhance the visual appeal of your channel and encourage more clicks.
 In this tutorial, we will explore how to automate YouTube thumbnail changes using a Python script.
-    Prerequisites Before diving into the scripting process, make sure you have the following:
-1. Google API Key: Generate an API key from the Google Cloud Console with access to the YouTube Data API.</description>
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.</description>
     </item>
     
     <item>
@@ -88,7 +84,7 @@ In this tutorial, we will explore how to automate YouTube thumbnail changes usin
       <description>Mastering Linux Commands: A Comprehensive Guide for Beginners Welcome to the world of Linux, where the command line is your gateway to a powerful and efficient operating system.
 In this blog post, we will delve into essential Linux commands that every user, especially beginners, should master.
 These commands form the foundation of navigating and manipulating the Linux file system, enabling you to become proficient in managing files and directories.
-    Let&amp;rsquo;s explore each command in detail.</description>
+  .</description>
     </item>
     
     <item>
@@ -99,8 +95,7 @@ These commands form the foundation of navigating and manipulating the Linux file
       <guid>https://anooptube.in/blog/post27/</guid>
       <description>Creating a Todo List Command Line Application in Python Prerequisites : Make sure you have Python installed on your system.
 In this tutorial, we will create a simple command-line Todo List application using Python. The application allows users to
- add tasks, list tasks, remove tasks, add labels to tasks, and clear all tasks.      The tasks are stored in a text file for persistence.
-It supports the following commands:</description>
+ add tasks, list tasks, remove tasks, add labels to tasks, and clear all tasks.    .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .</description>
     </item>
     
     <item>
@@ -110,9 +105,7 @@ It supports the following commands:</description>
       
       <guid>https://anooptube.in/blog/post26/</guid>
       <description>In C++, the const keyword is used to declare a constant or to specify that a variable or function parameter should not be modified.
-    It can be applied to
- variables function parameters member functions member variables of classes  Here&amp;rsquo;s how const is used in various contexts:
-1. Constant Variables: Constant variables, often referred to as constants, are variables in C++ whose values cannot be changed after they have been initialized.</description>
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
     </item>
     
     <item>

@@ -15,10 +15,7 @@
       <guid>https://anooptube.in/blog/post31/</guid>
       <description>Awk is a powerful programming language and command-line utility in Unix and Unix-like operating systems, including Linux.
 It is primarily used for pattern scanning and processing.
-    Awk operates on text files and can process data line by line.
-Here&amp;rsquo;s a comprehensive overview of its usage and commands:
-Basic Structure: The basic structure of an awk command is as follows:
-awk &amp;#39;pattern { action }&amp;#39; filename  Pattern: Specifies the condition for the action to be performed.</description>
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
     </item>
     
     <item>
@@ -30,8 +27,7 @@ awk &amp;#39;pattern { action }&amp;#39; filename  Pattern: Specifies the condit
       <description>YouTube thumbnails play a crucial role in attracting viewers and conveying the essence of your video.
 Regularly updating your video thumbnails can enhance the visual appeal of your channel and encourage more clicks.
 In this tutorial, we will explore how to automate YouTube thumbnail changes using a Python script.
-    Prerequisites Before diving into the scripting process, make sure you have the following:
-1. Google API Key: Generate an API key from the Google Cloud Console with access to the YouTube Data API.</description>
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.</description>
     </item>
     
     <item>
@@ -43,7 +39,7 @@ In this tutorial, we will explore how to automate YouTube thumbnail changes usin
       <description>Mastering Linux Commands: A Comprehensive Guide for Beginners Welcome to the world of Linux, where the command line is your gateway to a powerful and efficient operating system.
 In this blog post, we will delve into essential Linux commands that every user, especially beginners, should master.
 These commands form the foundation of navigating and manipulating the Linux file system, enabling you to become proficient in managing files and directories.
-    Let&amp;rsquo;s explore each command in detail.</description>
+  .</description>
     </item>
     
   </channel>
