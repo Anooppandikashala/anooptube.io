@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>std::tuple on #anooptube</title>
+    <link>https://anooptube.in/tags/stdtuple/</link>
+    <description>Recent content in std::tuple on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Aug 2025 10:35:10 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/stdtuple/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>std::pair and std::tuple in C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post36/</link>
+      <pubDate>Sat, 09 Aug 2025 10:35:10 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post36/</guid>
+      <description>When working with C++, sometimes you need to group multiple values together without creating a full-fledged struct or class. That’s where std::pair and std::tuple come in.
+Both are part of the Standard Template Library (STL) and help store multiple elements in a single object — but they differ in flexibility and size.
+In this blog, we’ll explore their syntax, features, and practical examples so you can use them effectively in your C++ projects.</description>
+    </item>
+    
+  </channel>
+</rss>

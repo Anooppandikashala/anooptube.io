@@ -6,7 +6,28 @@
     <description>Recent content in Basics of CPP Development on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Sep 2023 14:20:20 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/basics-of-cpp-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Aug 2025 10:35:10 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/basics-of-cpp-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>std::pair and std::tuple in C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post36/</link>
+      <pubDate>Sat, 09 Aug 2025 10:35:10 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post36/</guid>
+      <description>When working with C++, sometimes you need to group multiple values together without creating a full-fledged struct or class. That’s where std::pair and std::tuple come in.
+Both are part of the Standard Template Library (STL) and help store multiple elements in a single object — but they differ in flexibility and size.
+In this blog, we’ll explore their syntax, features, and practical examples so you can use them effectively in your C++ projects.</description>
+    </item>
+    
+    <item>
+      <title>std::vector | Vector in C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post35/</link>
+      <pubDate>Fri, 08 Aug 2025 20:22:41 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post35/</guid>
+      <description>In C++, std::vector is a dynamic array provided by the Standard Template Library (STL). Unlike traditional arrays with fixed size, a vector can grow or shrink at runtime, making it one of the most widely used containers in modern C++ programming.
+  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    </item>
+    
     <item>
       <title>Constants (const)</title>
       <link>https://anooptube.in/blog/post26/</link>
