@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>std::map on #anooptube</title>
+    <link>https://anooptube.in/tags/stdmap/</link>
+    <description>Recent content in std::map on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Aug 2025 18:14:55 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/stdmap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>std::map in C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post37/</link>
+      <pubDate>Sat, 09 Aug 2025 18:14:55 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post37/</guid>
+      <description>When you need to store key-value pairs in C++ while maintaining the keys in sorted order, the STL’s std::map is your go-to container.
+It’s part of the associative containers family, using a balanced binary search tree (typically a Red-Black Tree ) under the hood.
+ .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    </item>
+    
+  </channel>
+</rss>
