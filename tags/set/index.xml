@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>set on #anooptube</title>
+    <link>https://anooptube.in/tags/set/</link>
+    <description>Recent content in set on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Aug 2025 10:17:49 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/set/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering std::set in C&#43;&#43;</title>
+      <link>https://anooptube.in/blog/post38/</link>
+      <pubDate>Sun, 10 Aug 2025 10:17:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post38/</guid>
+      <description>The std::set container in C++ is part of the Standard Template Library (STL) and is used to store unique elements in a sorted order.
+It’s a powerful associative container when you need quick lookups, automatic sorting, and no duplicate values.
+ .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    </item>
+    
+  </channel>
+</rss>

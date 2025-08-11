@@ -6,11 +6,11 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Aug 2025 18:14:55 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Aug 2025 10:32:09 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c&#43;&#43;</title>
       <link>https://anooptube.in/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 09 Aug 2025 18:14:55 +0530</pubDate>
+      <pubDate>Mon, 11 Aug 2025 10:32:09 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/c&#43;&#43;/</guid>
       <description></description>
@@ -19,9 +19,45 @@
     <item>
       <title>cpp</title>
       <link>https://anooptube.in/tags/cpp/</link>
-      <pubDate>Sat, 09 Aug 2025 18:14:55 +0530</pubDate>
+      <pubDate>Mon, 11 Aug 2025 10:32:09 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>list</title>
+      <link>https://anooptube.in/tags/list/</link>
+      <pubDate>Mon, 11 Aug 2025 10:32:09 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>std::list</title>
+      <link>https://anooptube.in/tags/stdlist/</link>
+      <pubDate>Mon, 11 Aug 2025 10:32:09 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/stdlist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>set</title>
+      <link>https://anooptube.in/tags/set/</link>
+      <pubDate>Sun, 10 Aug 2025 10:17:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/set/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>std::set</title>
+      <link>https://anooptube.in/tags/stdset/</link>
+      <pubDate>Sun, 10 Aug 2025 10:17:49 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/stdset/</guid>
       <description></description>
     </item>
     
