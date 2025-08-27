@@ -6,7 +6,28 @@
     <description>Recent content in cpp on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Aug 2025 10:32:09 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Aug 2025 22:15:04 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adapter Design Pattern</title>
+      <link>https://anooptube.in/blog/post41/</link>
+      <pubDate>Tue, 26 Aug 2025 22:15:04 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post41/</guid>
+      <description>In software development, we often face situations where we need to integrate existing code with new code. However, the interfaces may not always match. Instead of rewriting existing code, we can use the Adapter Design Pattern to bridge the gap.
+The Adapter Pattern acts as a bridge between two incompatible interfaces. It allows a class with a specific interface to be used with another class expecting a different interface.
+ .</description>
+    </item>
+    
+    <item>
+      <title>Prototype Design Pattern</title>
+      <link>https://anooptube.in/blog/post40/</link>
+      <pubDate>Tue, 26 Aug 2025 22:06:20 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post40/</guid>
+      <description>The Prototype Design Pattern is a creational design pattern that allows creating new objects by copying existing ones (prototypes). Instead of instantiating a new object directly, you clone an existing object, which can be more efficient in terms of performance and flexibility.
+ .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    </item>
+    
     <item>
       <title>Mastering std::list in C&#43;&#43;</title>
       <link>https://anooptube.in/blog/post39/</link>

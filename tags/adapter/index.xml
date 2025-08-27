@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>adapter on #anooptube</title>
+    <link>https://anooptube.in/tags/adapter/</link>
+    <description>Recent content in adapter on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Aug 2025 22:15:04 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/adapter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adapter Design Pattern</title>
+      <link>https://anooptube.in/blog/post41/</link>
+      <pubDate>Tue, 26 Aug 2025 22:15:04 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post41/</guid>
+      <description>In software development, we often face situations where we need to integrate existing code with new code. However, the interfaces may not always match. Instead of rewriting existing code, we can use the Adapter Design Pattern to bridge the gap.
+The Adapter Pattern acts as a bridge between two incompatible interfaces. It allows a class with a specific interface to be used with another class expecting a different interface.
+ .</description>
+    </item>
+    
+  </channel>
+</rss>
