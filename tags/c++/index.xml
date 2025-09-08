@@ -14,7 +14,7 @@
       
       <guid>https://anooptube.in/blog/post42/</guid>
       <description>The Observer Design Pattern is one of the most widely used behavioral patterns in software design. It defines a one-to-many dependency between objects, so that when one object (called the Subject) changes its state, all of its dependents (called Observers) are notified automatically.
-This pattern is extremely useful when you want to build loosely coupled systems where multiple parts of the application need to react to changes without being tightly bound together.</description>
+ .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
     </item>
     
     <item>

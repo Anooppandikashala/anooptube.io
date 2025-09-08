@@ -43,7 +43,7 @@
  <meta itemprop="name" content="Observer Design Pattern">
 <meta itemprop="description" content="Observer Design Pattern in C&#43;&#43; Explained with Examples"><meta itemprop="datePublished" content="2025-08-29T09:35:43+05:30" />
 <meta itemprop="dateModified" content="2025-08-29T09:35:43+05:30" />
-<meta itemprop="wordCount" content="738">
+<meta itemprop="wordCount" content="1129">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,design pattern,observer," /> 
 
     
@@ -205,7 +205,7 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <circle cx="12" cy="12" r="9" />
                 <polyline points="12 7 12 12 15 15" />
-                </svg> 4&nbsp;minutes &nbsp;&bull;
+                </svg> 6&nbsp;minutes &nbsp;&bull;
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
@@ -213,7 +213,7 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 738&nbsp;words   
+                </svg> 1129&nbsp;words   
                 </h5>
                  
                 <script type="text/javascript">
@@ -227,6 +227,65 @@
                 </script>
                 <script type="text/javascript" src="//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js"></script>
                 <p>The <strong>Observer Design Pattern</strong> is one of the most widely used behavioral patterns in software design. It defines a <strong>one-to-many dependency</strong> between objects, so that when one object (called the <em>Subject</em>) changes its state, all of its dependents (called <code>Observers</code>) are notified automatically.</p>
+<style>
+.youtube-thumbnail-container {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.youtube-thumbnail-container img.thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.youtube-thumbnail-container .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 0, 0, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.youtube-thumbnail-container .play-button svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+ 
+.youtube-thumbnail-container:hover img.thumbnail {
+  transform: scale(1.05);
+}
+
+.youtube-thumbnail-container:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+}
+</style>
+
+<a href="https://www.youtube.com/watch?v=" target="_blank" rel="noopener noreferrer">
+  <div class="youtube-thumbnail-container">
+    <img class="thumbnail" src="https://img.youtube.com/vi//0.jpg" alt="YouTube video thumbnail">
+    <div class="play-button">
+      <svg viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
 <p>This pattern is extremely useful when you want to build <strong>loosely coupled systems</strong> where multiple parts of the application need to react to changes without being tightly bound together.</p>
 <ul>
 <li>Think of <strong>Twitter</strong>: When you (Subject) tweet, all your followers (Observers) get notified.</li>
@@ -314,7 +373,9 @@
             }), _observers.end());
 
         <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">auto</span><span style="color:#ff79c6">&amp;</span> <span style="color:#8be9fd;font-style:italic">obs</span> : snapshot) 
+        {
             obs<span style="color:#ff79c6">-&gt;</span>onPriceChanged(price);
+        }
     }
 
 <span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
@@ -354,7 +415,9 @@
     <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onPriceChanged</span>(<span style="color:#8be9fd">double</span> p) <span style="color:#ff79c6">override</span> 
     {
         <span style="color:#ff79c6">if</span> (p <span style="color:#ff79c6">&gt;</span> _threshold) 
+        {
             std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;[Alert] Crossed &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> _threshold <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> p <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+        }
     }
 <span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
     <span style="color:#8be9fd">double</span> _threshold;
@@ -427,10 +490,14 @@
         {
             std<span style="color:#ff79c6">::</span>lock_guard<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>mutex<span style="color:#ff79c6">&gt;</span> lock(_m);
             <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">auto</span><span style="color:#ff79c6">&amp;</span> <span style="color:#8be9fd;font-style:italic">it</span> : _slots) 
+            {
                 snapshot.push_back(it.second);
+            }
         }
         <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">auto</span><span style="color:#ff79c6">&amp;</span> <span style="color:#8be9fd;font-style:italic">s</span> : snapshot) 
+        {
             s(args...);
+        }
     }
 
 <span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
@@ -470,7 +537,9 @@
         <span style="color:#ff79c6">auto</span> c2 <span style="color:#ff79c6">=</span> t.onPrice.connect([](<span style="color:#8be9fd">double</span> p)
         { 
             <span style="color:#ff79c6">if</span> (p<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">105</span>) 
-                std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Alert: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> p <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>; 
+            {
+                std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Alert: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> p <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+            } 
         });
         t.setPrice(<span style="color:#bd93f9">100</span>);
         t.setPrice(<span style="color:#bd93f9">106</span>);
@@ -492,7 +561,111 @@
 </ul>
 <p>The Observer Pattern in C++ is <strong>powerful for building reactive systems</strong>. By leveraging modern C++ features (<code>weak_ptr</code>, RAII, lambdas), we can avoid common pitfalls like memory leaks and dangling pointers.</p>
 <p>It’s an essential tool in your <strong>design patterns toolkit</strong> for creating clean, modular, and decoupled applications.</p>
+<h3 id="example-in-youtube-video">Example in Youtube Video</h3>
+<p><strong>Observer Interface</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">AbstractSubscriber</span>
+{
+    <span style="color:#ff79c6">virtual</span> <span style="color:#ff79c6">~</span>AbstractSubscriber() <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">default</span>;
+    <span style="color:#ff79c6">virtual</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onNewVideoPublished</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> title) <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+    <span style="color:#ff79c6">virtual</span> <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> getName() <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+};
+</code></pre></div><p><strong>Subject (YouTuber)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">YouTuber</span> 
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">explicit</span> YouTuber(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> n) <span style="color:#ff79c6">:</span> name(n) {}
 
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">subscribe</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>AbstractSubscriber<span style="color:#ff79c6">&gt;&amp;</span> sub) 
+    {
+        subscribers.push_back(sub);
+    }
+
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">unsubscribe</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>AbstractSubscriber<span style="color:#ff79c6">&gt;&amp;</span> sub) 
+    {
+        <span style="color:#ff79c6">auto</span> raw <span style="color:#ff79c6">=</span> sub.get();
+        subscribers.erase(std<span style="color:#ff79c6">::</span>remove_if(subscribers.begin(), subscribers.end(),
+            [<span style="color:#ff79c6">&amp;</span>](<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>weak_ptr<span style="color:#ff79c6">&lt;</span>AbstractSubscriber<span style="color:#ff79c6">&gt;&amp;</span> w) 
+            {
+                <span style="color:#ff79c6">auto</span> s <span style="color:#ff79c6">=</span> w.lock();
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">!</span>s <span style="color:#ff79c6">||</span> s.get() <span style="color:#ff79c6">==</span> raw;
+            }), subscribers.end());
+    }
+
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">uploadAndPublishVideo</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> title) 
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> name <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; uploaded a new video: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> title <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+        notify(title);
+    }
+
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">void</span> notify(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> title) 
+    {
+        std<span style="color:#ff79c6">::</span>vector<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>AbstractSubscriber<span style="color:#ff79c6">&gt;&gt;</span> tempList;
+        subscribers.erase(std<span style="color:#ff79c6">::</span>remove_if(subscribers.begin(), subscribers.end(),
+            [<span style="color:#ff79c6">&amp;</span>](<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>weak_ptr<span style="color:#ff79c6">&lt;</span>AbstractSubscriber<span style="color:#ff79c6">&gt;&amp;</span> w) 
+            {
+                <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">auto</span> s <span style="color:#ff79c6">=</span> w.lock()) 
+                { 
+                    tempList.push_back(s);
+                    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">false</span>; 
+                }
+                <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+            }), subscribers.end());
+
+        <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">auto</span><span style="color:#ff79c6">&amp;</span> <span style="color:#8be9fd;font-style:italic">sub</span> : tempList)
+        {
+            sub<span style="color:#ff79c6">-&gt;</span>onNewVideoPublished(title);
+        }
+    }
+    
+    std<span style="color:#ff79c6">::</span>string name;
+    std<span style="color:#ff79c6">::</span>vector<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>weak_ptr<span style="color:#ff79c6">&lt;</span>AbstractSubscriber<span style="color:#ff79c6">&gt;&gt;</span> subscribers;
+};
+</code></pre></div><p><strong>Concrete Observers (Subscribers)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">MobileUser</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> AbstractSubscriber 
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">explicit</span> MobileUser(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> name) <span style="color:#ff79c6">:</span> username(name) {}
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onNewVideoPublished</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> title) <span style="color:#ff79c6">override</span> 
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Mobile : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> username <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; got notification: New video - &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> title <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    }
+    <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> getName() <span style="color:#ff79c6">const</span> { <span style="color:#ff79c6">return</span> username;}
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    std<span style="color:#ff79c6">::</span>string username;
+};
+
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">EmailUser</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> AbstractSubscriber 
+{
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">explicit</span> EmailUser(std<span style="color:#ff79c6">::</span>string mail) <span style="color:#ff79c6">:</span> email(std<span style="color:#ff79c6">::</span>move(mail)) {}
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onNewVideoPublished</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> title) <span style="color:#ff79c6">override</span> 
+    {
+        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Email sent to &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> email <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;: New video - &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> title <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+    }
+    <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> getName() <span style="color:#ff79c6">const</span> { <span style="color:#ff79c6">return</span> email;}
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    std<span style="color:#ff79c6">::</span>string email;
+};
+</code></pre></div><p><strong>main function</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() 
+{
+    <span style="color:#ff79c6">auto</span> user1 <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_shared<span style="color:#ff79c6">&lt;</span>MobileUser<span style="color:#ff79c6">&gt;</span>(<span style="color:#f1fa8c">&#34;Arun&#34;</span>);
+    <span style="color:#ff79c6">auto</span> user2 <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_shared<span style="color:#ff79c6">&lt;</span>EmailUser<span style="color:#ff79c6">&gt;</span>(<span style="color:#f1fa8c">&#34;xyz@gmail.com&#34;</span>);
+
+    YouTuber youtuber(<span style="color:#f1fa8c">&#34;#anooptube&#34;</span>);
+    youtuber.subscribe(user1);
+    youtuber.subscribe(user2);
+
+    youtuber.uploadAndPublishVideo(<span style="color:#f1fa8c">&#34;Adapter Pattern in C++&#34;</span>);
+
+    <span style="color:#6272a4">// Unsubscribe one user
+</span><span style="color:#6272a4"></span>    youtuber.unsubscribe(user1);
+    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Unsubscribed User : &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> user1<span style="color:#ff79c6">-&gt;</span>getName() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+
+    youtuber.uploadAndPublishVideo(<span style="color:#f1fa8c">&#34;Observer Pattern Explained in C++&#34;</span>);
+}
+</code></pre></div>
         </article>
 
 
