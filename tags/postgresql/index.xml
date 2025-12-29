@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postgresql on #anooptube</title>
+    <link>https://anooptube.in/tags/postgresql/</link>
+    <description>Recent content in postgresql on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Dec 2025 18:56:06 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL CRUD App with Python &amp; Neon</title>
+      <link>https://anooptube.in/blog/post43/</link>
+      <pubDate>Mon, 29 Dec 2025 18:56:06 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post43/</guid>
+      <description>In this session, we’ll build a clean, object-oriented PostgreSQL CRUD application using Python and Neon, a modern serverless PostgreSQL platform. The best part? No local PostgreSQL installation is required.
+ .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    </item>
+    
+  </channel>
+</rss>
