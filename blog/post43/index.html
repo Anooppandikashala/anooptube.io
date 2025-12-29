@@ -43,7 +43,7 @@
  <meta itemprop="name" content="PostgreSQL CRUD App with Python &amp; Neon">
 <meta itemprop="description" content="PostgreSQL CRUD App with Python &amp; Neon | Build a Clean Backend (No Local DB!)"><meta itemprop="datePublished" content="2025-12-29T18:56:06+05:30" />
 <meta itemprop="dateModified" content="2025-12-29T18:56:06+05:30" />
-<meta itemprop="wordCount" content="829">
+<meta itemprop="wordCount" content="843">
 <meta itemprop="keywords" content="python,postgres,postgresql,database," /> 
 
     
@@ -213,7 +213,7 @@
                 <line x1="3" y1="6" x2="3" y2="19" />
                 <line x1="12" y1="6" x2="12" y2="19" />
                 <line x1="21" y1="6" x2="21" y2="19" />
-                </svg> 829&nbsp;words   
+                </svg> 843&nbsp;words   
                 </h5>
                  
                 <script type="text/javascript">
@@ -348,18 +348,25 @@
 <hr>
 <h2 id="step-1-database-connection-dbpy">Step 1: Database Connection (db.py)</h2>
 <p>We centralize the database connection logic using a factory-style class.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">import</span> psycopg2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">from</span> dotenv <span style="color:#ff79c6">import</span> load_dotenv
+<span style="color:#ff79c6">import</span> os
+<span style="color:#ff79c6">from</span> urllib.parse <span style="color:#ff79c6">import</span> urlparse
+<span style="color:#ff79c6">import</span> psycopg2
+
+load_dotenv()
+
 
 <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Database</span>:
     @staticmethod
     <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">get_connection</span>():
+        postSQL <span style="color:#ff79c6">=</span> urlparse(os<span style="color:#ff79c6">.</span>getenv(<span style="color:#f1fa8c">&#34;DATABASE_URL&#34;</span>))
         <span style="color:#ff79c6">return</span> psycopg2<span style="color:#ff79c6">.</span>connect(
-            host<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;YOUR_NEON_HOST&#34;</span>,
-            database<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;YOUR_DATABASE&#34;</span>,
-            user<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;YOUR_USERNAME&#34;</span>,
-            password<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;YOUR_PASSWORD&#34;</span>,
-            sslmode<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;require&#34;</span>
-        )
+            host<span style="color:#ff79c6">=</span>postSQL<span style="color:#ff79c6">.</span>hostname,
+            user<span style="color:#ff79c6">=</span>postSQL<span style="color:#ff79c6">.</span>username,
+            password<span style="color:#ff79c6">=</span>postSQL<span style="color:#ff79c6">.</span>password,
+            database<span style="color:#ff79c6">=</span>postSQL<span style="color:#ff79c6">.</span>path<span style="color:#ff79c6">.</span>replace(<span style="color:#f1fa8c">&#34;/&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>),
+            sslmode<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;require&#34;</span>)
+
 </code></pre></div><p>Neon requires SSL, so <code>sslmode=&quot;require&quot;</code> is mandatory.</p>
 <hr>
 <h2 id="step-2-user-model-modelpy">Step 2: User Model (model.py)</h2>
