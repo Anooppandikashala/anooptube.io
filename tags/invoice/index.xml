@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>invoice on #anooptube</title>
+    <link>https://anooptube.in/tags/invoice/</link>
+    <description>Recent content in invoice on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Mar 2026 09:15:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/invoice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Built a Free, Offline Invoice App with Flutter</title>
+      <link>https://anooptube.in/blog/post44/</link>
+      <pubDate>Fri, 13 Mar 2026 09:15:24 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post44/</guid>
+      <description>Every time I needed to invoice a client, I ran into the same wall: every decent invoice tool either locks your data in the cloud, wants a monthly subscription, or both. I just wanted something that works offline, keeps my data on my machine, and doesn&amp;rsquo;t cost me anything.
+So I built it.
+Invoiso  is a free, open-source desktop invoice app for Windows and Linux. No account. No internet. No recurring fee.</description>
+    </item>
+    
+  </channel>
+</rss>
