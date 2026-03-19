@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on #anooptube</title>
+    <link>https://anooptube.in/playlists/android/</link>
+    <description>Recent content in Android on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Mar 2026 10:38:42 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Built an Android App Because Android Kept Deleting My Clipboard</title>
+      <link>https://anooptube.in/blog/post45/</link>
+      <pubDate>Thu, 19 Mar 2026 10:38:42 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post45/</guid>
+      <description>Here&amp;rsquo;s something that has happened to all of us.
+You copy a link. Then you copy someone&amp;rsquo;s phone number. You go to paste the link - and it&amp;rsquo;s gone. Replaced by the phone number. Android only remembers the last thing you copied. That&amp;rsquo;s it. One item. Always.
+I kept running into this. Copying a piece of text, copying something else on top of it, then needing the first thing back with no way to get it.</description>
+    </item>
+    
+  </channel>
+</rss>

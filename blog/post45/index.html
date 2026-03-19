@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <title>
+        I Built an Android App Because Android Kept Deleting My Clipboard - #anooptube
+    </title>
+    <meta name="description" content="How I built CopyDuo - a free Android clipboard history manager that saves everything you copy, works fully offline, and adds a Save to CopyDuo button directly in the text selection menu. The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected." />
+    <meta name="keywords" content="Android clipboard history manager, clipboard history app Android, CopyDuo Android app, save clipboard history Android, Android copy paste history app, offline Android productivity app, Android text selection menu custom action, Android 12 background service clipboard, foreground service Android clipboard, Android clipboard restriction workaround, free clipboard manager Android, clipboard history no cloud no account, Android 12 clipboard privacy restriction, process text Android app, save selected text Android" /> 
+    
+    <meta name="author" content="ANOOP P" /> 
+    <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.0c99e97e0fa9afd93648e2ce8f8e8d3a285ff2a4a1ff58129b1a1378c9a4098b.css" integrity="sha256-DJnpfg+pr9k2SOLOj46NOihf8qSh/1gSmxoTeMmkCYs=" /> 
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    
+ 
+    
+     <meta property="og:title" content="I Built an Android App Because Android Kept Deleting My Clipboard" />
+<meta property="og:description" content="The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post45/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-03-19T10:38:42+05:30" />
+<meta property="article:modified_time" content="2026-03-19T10:38:42+05:30" />
+
+ <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="I Built an Android App Because Android Kept Deleting My Clipboard"/>
+<meta name="twitter:description" content="The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected."/>
+ <meta itemprop="name" content="I Built an Android App Because Android Kept Deleting My Clipboard">
+<meta itemprop="description" content="The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected."><meta itemprop="datePublished" content="2026-03-19T10:38:42+05:30" />
+<meta itemprop="dateModified" content="2026-03-19T10:38:42+05:30" />
+<meta itemprop="wordCount" content="928">
+<meta itemprop="keywords" content="android,productivity,invoice," /> 
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CT7Q0CNLC2');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+    
+    
+    
+    
+
+    
+
+        
+    
+
+        
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex max-w-6xl justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative anooptube-sticky">
+    <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+    
+  </a>
+    <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+    <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+        
+        <li>
+            <a href="/"
+              
+              >
+              Home
+            </a>
+        </li>
+        
+        <li>
+            <a href="/blog"
+              
+              >
+              Blog
+            </a>
+        </li>
+        
+        <li>
+            <a href="/playlists"
+              
+              >
+              Playlists
+            </a>
+        </li>
+        
+        <li>
+            <a href="/page/projects/"
+              
+              >
+              Projects
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://anooppandikashala.github.io/anoop/"
+              target="_blank"
+              rel="noopener">
+              Portfolio
+            </a>
+        </li>
+        
+         
+        
+        <li class="grid place-items-center">
+            <span class="open-search inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+        </svg>
+      </span>
+        </li>
+         
+        <li class="grid place-items-center">
+            <span class="toggle-dark-mode inline-block cursor-pointer" id="anooptube-dark-mode-toggle">
+        
+      </span>
+        </li>
+        
+    </ul>
+</header><main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4">
+
+    <div class="rounded-lg dark:bg-gray-900">
+        <img src="/thumbs/copy_duo_banner.webp" class="rounded-lg shadow-sm w-full object-contain h-70" /> 
+    </div>
+
+    <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+        
+  
+    March 19, 2026
+  
+
+
+    </div>
+    
+</div>
+
+
+
+
+<div class="container p-6 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-4">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-4">
+
+            <h2 class="text-xl font-semibold mb-1 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">I Built an Android App Because Android Kept Deleting My Clipboard</h2>
+                
+                <h5 class="text-sm flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <rect x="4" y="5" width="16" height="16" rx="2" />
+                <line x1="16" y1="3" x2="16" y2="7" />
+                <line x1="8" y1="3" x2="8" y2="7" />
+                <line x1="4" y1="11" x2="20" y2="11" />
+                <rect x="8" y="15" width="2" height="2" />
+                </svg> Posted on 
+  
+    March 19, 2026
+  
+
+  &nbsp;&bull;&nbsp; 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+                </svg> 5&nbsp;minutes &nbsp;&bull;
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <line x1="3" y1="6" x2="3" y2="19" />
+                <line x1="12" y1="6" x2="12" y2="19" />
+                <line x1="21" y1="6" x2="21" y2="19" />
+                </svg> 928&nbsp;words   
+                </h5>
+                 
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '502480a173cea121c3fa59819e26fc88',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js"></script>
+                <p>Here&rsquo;s something that has happened to all of us.</p>
+<p>You copy a link. Then you copy someone&rsquo;s phone number. You go to paste the link - and it&rsquo;s gone. Replaced by the phone number. Android only remembers the last thing you copied. That&rsquo;s it. One item. Always.</p>
+<p>I kept running into this. Copying a piece of text, copying something else on top of it, then needing the first thing back with no way to get it. I&rsquo;d go back to the original source, find it again, copy it again. Every time. It was a small annoyance, but it happened constantly.</p>
+<p>So I built <a href="https://anooppandikashala.github.io/copyduo.app/" target="_blank" rel="noopener">CopyDuo</a>
+.</p>
+<hr>
+<h2 id="what-copyduo-does">What CopyDuo Does</h2>
+<p>CopyDuo runs quietly in the background and saves everything you copy - up to 50 items. Whenever you need something you copied earlier, you open the app, find it in the list, and tap it to copy it back to your clipboard.</p>
+<p>That&rsquo;s it. No accounts. No cloud. No internet connection. Your clipboard history stays on your device, private and instant.</p>
+<p>It also handles something I found genuinely annoying about other clipboard apps: duplicates. If you copy the same text twice, CopyDuo stores it only once. Your history stays clean.</p>
+<hr>
+<h2 id="why-this-problem-is-harder-to-solve-than-it-looks">Why This Problem Is Harder to Solve Than It Looks</h2>
+<p>When I started building this, I thought it would be straightforward - just listen for clipboard changes and save them to a local database. Simple, right?</p>
+<p>Not quite.</p>
+<h3 id="android-12-made-background-services-much-harder">Android 12 Made Background Services Much Harder</h3>
+<p>To capture clipboard items when the app isn&rsquo;t open, I needed a background service - a piece of code that keeps running even when you&rsquo;re not actively using the app. On older Android versions, this was manageable.</p>
+<p>On Android 12 and above, Google introduced strict restrictions on background services. Apps can no longer just run freely in the background. There are limits on when a service can start, and if you don&rsquo;t handle it correctly, the system kills your service entirely - meaning you miss clipboard items.</p>
+<p>Getting this right took significant work. CopyDuo uses a <strong>foreground service</strong> (the kind Android officially supports for long-running tasks) with a persistent notification. This keeps the service alive reliably without fighting the system - and without draining your battery.</p>
+<h3 id="on-new-devices-apps-cant-read-your-clipboard-in-the-background">On New Devices, Apps Can&rsquo;t Read Your Clipboard in the Background</h3>
+<p>This one genuinely surprised me.</p>
+<p>Starting with Android 10, Google added a privacy restriction: apps can only read clipboard data when they are <strong>actively in use</strong> - meaning they&rsquo;re the foreground app the user is currently interacting with. A background service can&rsquo;t silently read your clipboard anymore.</p>
+<p>This is actually a good privacy decision. You don&rsquo;t want random apps reading everything you copy in the background. But it created a real problem for a clipboard manager.</p>
+<p>I had to find another way.</p>
+<p><strong>The solution:</strong> a button in the notification panel.</p>
+<p><img src="https://anooppandikashala.github.io/copyduo.app/notification.jpeg" alt="Notification Panel"></p>
+<p>When CopyDuo is running, it shows a persistent notification. That notification has a <strong>&ldquo;SAVE TEXT&rdquo;</strong> button. When you tap it, the app briefly comes to the foreground, reads your current clipboard content, saves it, and steps back. It&rsquo;s a one-tap action that takes less than a second.</p>
+<p>It&rsquo;s not the invisible magic I originally wanted, but it works reliably on every Android version - including the latest ones - without any workarounds that could break with future updates.</p>
+<hr>
+<h2 id="what-it-looks-like-in-practice">What It Looks Like in Practice</h2>
+<p>Your day-to-day usage looks like this:</p>
+<ul>
+<li>You copy something → CopyDuo saves it automatically (on older devices) or you tap the notification button (on newer devices)</li>
+<li>You copy something else on top of it → no problem, both are saved</li>
+<li>Ten minutes later you need the first thing → open CopyDuo, tap it, done</li>
+</ul>
+<p>The list shows your most recent 50 items. You can delete individual ones or clear everything at once.</p>
+<hr>
+<h2 id="another-way-to-save-the-text-selection-menu">Another Way to Save: the Text Selection Menu</h2>
+<p>While working around the Android 10+ clipboard restriction, I found another clean solution that fits even more naturally into how people actually use their phones.</p>
+<p>When you long-press any text in any app — a browser, a PDF reader, a messaging app — Android shows a floating toolbar with options like Copy, Cut, and Share. CopyDuo adds its own button to that menu: <strong>&ldquo;Save to CopyDuo&rdquo;</strong>.</p>
+<p><img src="https://anooppandikashala.github.io/copyduo.app/save_to_copyduo.webp" alt="Save to Copyduo"></p>
+<p>Select any text → tap Save to CopyDuo → it&rsquo;s in your history. No need to copy first. No need to open the notification. No steps in between.</p>
+<p>This works everywhere Android shows the text selection menu. Reading an article and want to save a quote? Select it, tap Save to CopyDuo. Found a useful command in a tutorial? Same flow.</p>
+<p>Between the notification button and the text selection action, CopyDuo covers every scenario — whether you&rsquo;re copy-pasting quickly or deliberately saving something you just read.</p>
+<hr>
+<h2 id="why-i-kept-it-offline">Why I Kept It Offline</h2>
+<p>A lot of productivity apps want your data in the cloud. Sync across devices, access from anywhere - it sounds convenient.</p>
+<p>But your clipboard is where passwords live. Phone numbers. Bank account details. Private messages. One-time codes. The idea of that data leaving your device and sitting on someone&rsquo;s server made me uncomfortable - and I figured it would make you uncomfortable too.</p>
+<p>CopyDuo has <strong>no internet permission</strong>. It physically cannot send your data anywhere. Everything is stored locally using a lightweight on-device database, and it never leaves your phone.</p>
+<hr>
+<h2 id="download-copyduo">Download CopyDuo</h2>
+<p>It&rsquo;s free on the Google Play Store.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.anoop.myprojects.copyduo" target="_blank" rel="noopener"> Get CopyDuo on Google Play </a>
+</p>
+<p>Works on Android 8.0 and above. No account required. No subscription.</p>
+<hr>
+<p>If you&rsquo;ve ever lost something you copied, give it a try. It solves exactly one problem - but it solves it well.</p>
+
+        </article>
+
+
+    </div><div class="hidden lg:block lg:col-span-1">
+    
+    
+            
+            
+
+<div class="rounded anooptube-corner-rad bg-white panel mb-3 pb-5 bg-blue-100 dark:bg-gray-900">
+    <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300 font-bold">Recent Posts</p>
+    <div class="mx-6">
+            <a href="/blog/post45/" class="">
+                <div
+                    class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                    <div class="px-2 ">
+                        <div class="text-gray-900 font-regular text-lg dark:text-gray-800">I Built an Android App Because Android Kept Deleting My Clipboard</div>
+                        <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                            <time><i class="fa-sharp fa-solid fa-timer"></i>19/03/2026</time>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/post44/" class="">
+                <div
+                    class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                    <div class="px-2 ">
+                        <div class="text-gray-900 font-regular text-lg dark:text-gray-800">I Built a Free, Offline Invoice App with Flutter</div>
+                        <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                            <time><i class="fa-sharp fa-solid fa-timer"></i>13/03/2026</time>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/post43/" class="">
+                <div
+                    class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                    <div class="px-2 ">
+                        <div class="text-gray-900 font-regular text-lg dark:text-gray-800">PostgreSQL CRUD App with Python &amp; Neon</div>
+                        <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                            <time><i class="fa-sharp fa-solid fa-timer"></i>29/12/2025</time>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/post42/" class="">
+                <div
+                    class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                    <div class="px-2 ">
+                        <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Observer Design Pattern</div>
+                        <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                            <time><i class="fa-sharp fa-solid fa-timer"></i>29/08/2025</time>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/post41/" class="">
+                <div
+                    class="rounded anooptube-corner-rad-05 w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-900 dark:hover:bg-warmgray-800">
+                    <div class="px-2 ">
+                        <div class="text-gray-900 font-regular text-lg dark:text-gray-800">Adapter Design Pattern</div>
+                        <p class="text-xs text-gray-600 flex items-center pb-1 dark:text-gray-400">
+                            <time><i class="fa-sharp fa-solid fa-timer"></i>26/08/2025</time>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+    </div>
+</div>
+
+        
+    
+</div></div>
+
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div>
+    </main><footer class="container p-6 mx-auto max-w-6xl flex justify-between items-center">
+    <span class="text-sm font-light">
+    
+    Copyright © 2025 - #anooptube · All rights reserved
+    
+  </span>
+    <a href="https://anooptube.in/privacy"><u>Privacy Policy</u></a>
+    <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <span class="p-2 absolute right-0 top-0 cursor-pointer close-search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </span>
+    </div>
+
+    <input type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="17.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+
+        
+        
+        copy.addEventListener("click", handleCopyClick)
+            
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea") 
+        el.value = str 
+        el.setAttribute("readonly", "") 
+        el.style.position = "absolute"
+        el.style.left = "-9999px" 
+        document.body.appendChild(el) 
+        const selected =
+            document.getSelection().rangeCount > 0 
+            ?
+            document.getSelection().getRangeAt(0) 
+            :
+            false 
+        el.select() 
+        document.execCommand("copy") 
+        document.body.removeChild(el) 
+        if (selected) {
+            
+            document.getSelection().removeAllRanges() 
+            document.getSelection().addRange(selected) 
+        }
+
+    }
+
+    function handleCopyClick(evt) {
+        
+        const {
+            children
+        } = evt.target.parentElement
+            
+            
+        const {
+            innerText
+        } = Array.from(children)[0]
+            
+        copyToClipboard(innerText)
+            
+            
+
+        const parent = evt.target.parentElement
+        console.log(parent)
+
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+    }
+</script>
+
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script></body>
+
+</html>

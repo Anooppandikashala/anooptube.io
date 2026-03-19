@@ -3,10 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2026-03-13T09:15:24+05:30</lastmod>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/playlists/android/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/android/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/blog/</loc>
-    <lastmod>2026-03-13T09:15:24+05:30</lastmod>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/blog/post45/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/invoice/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/playlists/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/productivity/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
+  </url><url>
+    <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/playlists/flutter/</loc>
     <lastmod>2026-03-13T09:15:24+05:30</lastmod>
@@ -17,16 +38,7 @@
     <loc>https://anooptube.in/blog/post44/</loc>
     <lastmod>2026-03-13T09:15:24+05:30</lastmod>
   </url><url>
-    <loc>https://anooptube.in/tags/invoice/</loc>
-    <lastmod>2026-03-13T09:15:24+05:30</lastmod>
-  </url><url>
     <loc>https://anooptube.in/tags/opensource/</loc>
-    <lastmod>2026-03-13T09:15:24+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/playlists/</loc>
-    <lastmod>2026-03-13T09:15:24+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/</loc>
     <lastmod>2026-03-13T09:15:24+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/tags/database/</loc>
@@ -130,9 +142,6 @@
   </url><url>
     <loc>https://anooptube.in/tags/vector/</loc>
     <lastmod>2025-08-08T20:22:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/android/</loc>
-    <lastmod>2025-01-20T16:34:48+05:30</lastmod>
   </url><url>
     <loc>https://anooptube.in/blog/post34/</loc>
     <lastmod>2025-01-20T16:34:48+05:30</lastmod>

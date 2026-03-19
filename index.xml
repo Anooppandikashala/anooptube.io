@@ -6,7 +6,18 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Mar 2026 09:15:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Mar 2026 10:38:42 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Built an Android App Because Android Kept Deleting My Clipboard</title>
+      <link>https://anooptube.in/blog/post45/</link>
+      <pubDate>Thu, 19 Mar 2026 10:38:42 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post45/</guid>
+      <description>Here&amp;rsquo;s something that has happened to all of us.
+You copy a link. Then you copy someone&amp;rsquo;s phone number. You go to paste the link - and it&amp;rsquo;s gone. Replaced by the phone number. Android only remembers the last thing you copied. That&amp;rsquo;s it. One item. Always.
+I kept running into this. Copying a piece of text, copying something else on top of it, then needing the first thing back with no way to get it.</description>
+    </item>
+    
     <item>
       <title>I Built a Free, Offline Invoice App with Flutter</title>
       <link>https://anooptube.in/blog/post44/</link>
