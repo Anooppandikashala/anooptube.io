@@ -3,81 +3,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    
     <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post31/" />
+
     <title>
         Mastering AWK in Linux - #anooptube
-    </title>
-    <meta name="description" content=" Mastering AWK in Linux: A Comprehensive Guide for Beginners" /><meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.0d79614646c731a925f201a0ff3af4dac7377c545688718c7570e49363f36c2a.css" integrity="sha256-DXlhRkbHMakl8gGg/zr02sc3fFRWiHGMdXDkk2PzbCo=" /> 
+    </title><meta name="description" content="Mastering AWK in Linux: A Comprehensive Guide for Beginners" /><meta name="author" content="ANOOP P" />
+
+    <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.149aaf8a434f2504ed18455624c7cb95e1630fc2d8bcb3096ee4d0d126fc14ba.css" integrity="sha256-FJqvikNPJQTtGEVWJMfLleFjD8LYvLMJbuTQ0Sb8FLo=" />
     
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
     
- 
     
-     <meta property="og:title" content="Mastering AWK in Linux" />
+
+    <meta property="og:title" content="Mastering AWK in Linux" />
 <meta property="og:description" content="Mastering AWK in Linux: A Comprehensive Guide for Beginners" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anooptube.in/blog/post31/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2024-03-03T17:15:32+05:30" />
 <meta property="article:modified_time" content="2024-03-03T17:15:32+05:30" />
 
- <meta name="twitter:card" content="summary"/>
+
+    <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mastering AWK in Linux"/>
 <meta name="twitter:description" content="Mastering AWK in Linux: A Comprehensive Guide for Beginners"/>
- <meta itemprop="name" content="Mastering AWK in Linux">
+
+    <meta itemprop="name" content="Mastering AWK in Linux">
 <meta itemprop="description" content="Mastering AWK in Linux: A Comprehensive Guide for Beginners"><meta itemprop="datePublished" content="2024-03-03T17:15:32+05:30" />
 <meta itemprop="dateModified" content="2024-03-03T17:15:32+05:30" />
 <meta itemprop="wordCount" content="1226">
-<meta itemprop="keywords" content="linux,commands," /> 
+<meta itemprop="keywords" content="linux,commands," />
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/awk.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/awk.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+    
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-CT7Q0CNLC2');
     </script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
-    
-    
-    
-    
-
-    
-
-        
-    
-
-        
-    
-
-    
-    
-
-    
-    
-
-    
-    
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
 
 </head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
 <header class="anooptube-sticky">
@@ -88,15 +72,15 @@
             
         </a>
 
-        <button class="mobile-menu-button md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <line x1="4" y1="8" x2="20" y2="8" />
                 <line x1="4" y1="16" x2="20" y2="16" />
             </svg>
         </button>
 
-        <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
 
             
             <li>
@@ -145,8 +129,8 @@
 
             
             <li class="grid place-items-center">
-                <span class="toggle-dark-mode inline-block cursor-pointer opacity-60 hover:opacity-100 transition-opacity" id="anooptube-dark-mode-toggle">
-                </span>
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
             </li>
             
         </ul>
@@ -155,7 +139,7 @@
 <main class="flex-1">   
 <div class="relative max-w-6xl mx-auto px-4 md:px-6">
     <div class="rounded-xl overflow-hidden">
-        <img src="/thumbs/awk.webp" class="w-full object-contain" style="max-height: 28rem;" />
+        <img src="/thumbs/awk.webp" alt="Mastering AWK in Linux" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
         
         <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
             
@@ -177,17 +161,51 @@
 
         <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
     <a href="/">Home</a>
-    <span class="post-breadcrumbs-sep">›</span>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
     <a href="/blog">Blog</a>
     
     
     
-    <span class="post-breadcrumbs-sep">›</span>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
     <a href="/playlists/linux">Linux</a>
     
-    <span class="post-breadcrumbs-sep">›</span>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
     <span class="post-breadcrumbs-current" title="Mastering AWK in Linux">Mastering AWK in Linux</span>
 </nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/en/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Linux\"",
+      "item": "\"https://anooptube.in/en/playlists/linux/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"Mastering AWK in Linux\"",
+      "item": "\"https://anooptube.in/blog/post31/\""
+    }
+    
+  ]
+}
+</script>
 <h2 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Mastering AWK in Linux</h2>
                 
                 <div class="post-meta-strip">
@@ -232,17 +250,110 @@
                       
                 </div>
                  
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '502480a173cea121c3fa59819e26fc88',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
+                <div id="ad-post-top"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
                     };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
                 </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js"></script>
-                <p><code>Awk</code> is a powerful <code>programming language</code> and <code>command-line</code> utility in Unix and Unix-like operating systems, including Linux.</p>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Linux</span>
+          </span>
+          <span class="series-nav-badge">2 / 2</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post28/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">Mastering Linux Commands</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">Mastering AWK in Linux</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/en/playlists/linux/" class="series-nav-footer-link">
+          View all in "Linux" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+<p><code>Awk</code> is a powerful <code>programming language</code> and <code>command-line</code> utility in Unix and Unix-like operating systems, including Linux.</p>
 <p>It is primarily used for pattern scanning and processing.</p>
 <hr>
 <style>
@@ -1162,7 +1273,24 @@ function postCopyLink(btn) {
               
         </ul>
     </div>
-</div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "\"Mastering AWK in Linux\"",
+  "description": "\"Mastering AWK in Linux: A Comprehensive Guide for Beginners\"",
+  "datePublished": "2024-03-03T17:15:32\u002b05:30",
+  "dateModified": "2024-03-03T17:15:32\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\""
+  },
+  "image": "\"https://anooptube.in/thumbs/awk.webp\"",
+  "url": "\"https://anooptube.in/blog/post31/\""
+}
+</script>
+
+
     </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
     <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <span class="text-sm text-gray-400 dark:text-gray-500">
@@ -1188,17 +1316,18 @@ function postCopyLink(btn) {
     <div class="relative">
       <div class="my-4 text-center text-2xl font-bold">Search</div>
 
-      <span class="p-2 absolute right-0 top-0 cursor-pointer close-search">
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
-          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
-      </span>
+      </button>
     </div>
 
-    <input type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
       placeholder="Enter search query" />
 
     <div class="search-results text-lg font-medium my-4 hidden">Results</div>
