@@ -262,9 +262,9 @@
                     <script>
                     window.addEventListener('load', function () {
                         fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
-                            .then(function (r) { return r.json(); })
+                            .then(function (r) { return r.ok ? r.json() : null; })
                             .then(function (d) {
-                                if (d && d.count) {
+                                if (d && parseInt(d.count, 10) > 0) {
                                     document.getElementById('post-view-count-text').textContent = d.count + ' views';
                                     document.getElementById('post-view-count').style.removeProperty('display');
                                 }
