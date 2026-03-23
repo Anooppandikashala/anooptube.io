@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post39/</guid>
       <description>The std::list container in C++ is part of the Standard Template Library (STL) and implements a doubly linked list.
 It allows fast insertion and deletion anywhere in the sequence, but does not allow random access like vectors.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    Watch on YouTube    Key Characteristics  Doubly linked list implementation. Elements are not stored contiguously in memory. Fast insertion and deletion at any position — O(1) if the iterator is known.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@ It allows fast insertion and deletion anywhere in the sequence, but does not all
       <guid>https://anooptube.in/blog/post38/</guid>
       <description>The std::set container in C++ is part of the Standard Template Library (STL) and is used to store unique elements in a sorted order.
 It’s a powerful associative container when you need quick lookups, automatic sorting, and no duplicate values.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    Watch on YouTube    Key Characteristics  Stores only unique elements (duplicates are not allowed). Sorted order of elements (by default, ascending). Fast search, insertion, and deletion — average O(log n) complexity.</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ It’s a powerful associative container when you need quick lookups, automatic s
       <guid>https://anooptube.in/blog/post37/</guid>
       <description>When you need to store key-value pairs in C++ while maintaining the keys in sorted order, the STL’s std::map is your go-to container.
 It’s part of the associative containers family, using a balanced binary search tree (typically a Red-Black Tree ) under the hood.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    Watch on YouTube    1. Overview of std::map Key Features  Stores elements as key → value pairs Keys are unique (duplicates are not allowed) Automatically sorts keys in ascending order (custom comparators allowed) Logarithmic time complexity for insert, search, and delete Uses &amp;lt;map&amp;gt; header  Syntax:</description>
     </item>
     
     <item>
@@ -58,7 +58,8 @@ In this blog, we’ll explore their syntax, features, and practical examples so 
       
       <guid>https://anooptube.in/blog/post35/</guid>
       <description>In C++, std::vector is a dynamic array provided by the Standard Template Library (STL). Unlike traditional arrays with fixed size, a vector can grow or shrink at runtime, making it one of the most widely used containers in modern C++ programming.
-  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+     Watch on YouTube     Key Points:   Stores elements contiguously in memory (like arrays).
+  Automatically manages memory allocation.</description>
     </item>
     
     <item>
@@ -68,7 +69,9 @@ In this blog, we’ll explore their syntax, features, and practical examples so 
       
       <guid>https://anooptube.in/blog/post26/</guid>
       <description>In C++, the const keyword is used to declare a constant or to specify that a variable or function parameter should not be modified.
-  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+     Watch on YouTube     It can be applied to
+ variables function parameters member functions member variables of classes  Here&amp;rsquo;s how const is used in various contexts:
+1. Constant Variables: Constant variables, often referred to as constants, are variables in C++ whose values cannot be changed after they have been initialized.</description>
     </item>
     
     <item>

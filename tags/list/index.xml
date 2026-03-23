@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post39/</guid>
       <description>The std::list container in C++ is part of the Standard Template Library (STL) and implements a doubly linked list.
 It allows fast insertion and deletion anywhere in the sequence, but does not allow random access like vectors.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    Watch on YouTube    Key Characteristics  Doubly linked list implementation. Elements are not stored contiguously in memory. Fast insertion and deletion at any position — O(1) if the iterator is known.</description>
     </item>
     
   </channel>

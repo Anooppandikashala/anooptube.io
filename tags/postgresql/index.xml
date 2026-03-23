@@ -14,7 +14,8 @@
       
       <guid>https://anooptube.in/blog/post43/</guid>
       <description>In this session, we’ll build a clean, object-oriented PostgreSQL CRUD application using Python and Neon, a modern serverless PostgreSQL platform. The best part? No local PostgreSQL installation is required.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    Watch on YouTube    This article is perfect for:
+ Python developers learning databases Backend beginners Developers preparing for interviews Anyone exploring cloud PostgreSQL with Neon   Why Neon PostgreSQL? Neon is a serverless, cloud-based PostgreSQL provider that removes the pain of local database setup.</description>
     </item>
     
   </channel>

@@ -14,7 +14,8 @@
       
       <guid>https://anooptube.in/blog/post35/</guid>
       <description>In C++, std::vector is a dynamic array provided by the Standard Template Library (STL). Unlike traditional arrays with fixed size, a vector can grow or shrink at runtime, making it one of the most widely used containers in modern C++ programming.
-  .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+     Watch on YouTube     Key Points:   Stores elements contiguously in memory (like arrays).
+  Automatically manages memory allocation.</description>
     </item>
     
   </channel>

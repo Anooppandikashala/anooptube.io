@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post37/</guid>
       <description>When you need to store key-value pairs in C++ while maintaining the keys in sorted order, the STL’s std::map is your go-to container.
 It’s part of the associative containers family, using a balanced binary search tree (typically a Red-Black Tree ) under the hood.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    Watch on YouTube    1. Overview of std::map Key Features  Stores elements as key → value pairs Keys are unique (duplicates are not allowed) Automatically sorts keys in ascending order (custom comparators allowed) Logarithmic time complexity for insert, search, and delete Uses &amp;lt;map&amp;gt; header  Syntax:</description>
     </item>
     
   </channel>

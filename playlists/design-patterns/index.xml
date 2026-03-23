@@ -14,7 +14,7 @@
       
       <guid>https://anooptube.in/blog/post42/</guid>
       <description>The Observer Design Pattern is one of the most widely used behavioral patterns in software design. It defines a one-to-many dependency between objects, so that when one object (called the Subject) changes its state, all of its dependents (called Observers) are notified automatically.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    Watch on YouTube    This pattern is extremely useful when you want to build loosely coupled systems where multiple parts of the application need to react to changes without being tightly bound together.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <guid>https://anooptube.in/blog/post41/</guid>
       <description>In software development, we often face situations where we need to integrate existing code with new code. However, the interfaces may not always match. Instead of rewriting existing code, we can use the Adapter Design Pattern to bridge the gap.
 The Adapter Pattern acts as a bridge between two incompatible interfaces. It allows a class with a specific interface to be used with another class expecting a different interface.
- .</description>
+    Watch on YouTube    Real-Life Analogy Think of a power adapter.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ The Adapter Pattern acts as a bridge between two incompatible interfaces. It all
       
       <guid>https://anooptube.in/blog/post40/</guid>
       <description>The Prototype Design Pattern is a creational design pattern that allows creating new objects by copying existing ones (prototypes). Instead of instantiating a new object directly, you clone an existing object, which can be more efficient in terms of performance and flexibility.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    Watch on YouTube    Why Use the Prototype Pattern?  Object Creation is Expensive: When creating a new object is costly in terms of resources (e.</description>
     </item>
     
   </channel>

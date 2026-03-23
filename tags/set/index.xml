@@ -15,7 +15,7 @@
       <guid>https://anooptube.in/blog/post38/</guid>
       <description>The std::set container in C++ is part of the Standard Template Library (STL) and is used to store unique elements in a sorted order.
 It’s a powerful associative container when you need quick lookups, automatic sorting, and no duplicate values.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .youtube-thumbnail-container .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 0, 0, 0.</description>
+    Watch on YouTube    Key Characteristics  Stores only unique elements (duplicates are not allowed). Sorted order of elements (by default, ascending). Fast search, insertion, and deletion — average O(log n) complexity.</description>
     </item>
     
   </channel>

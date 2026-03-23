@@ -12,7 +12,7 @@
     <meta name="keywords" content="std::map, map in C&#43;&#43;, C&#43;&#43; STL map, C&#43;&#43; associative container, key-value pairs C&#43;&#43;, map example, map find, map insert, map erase, map lower_bound" />
     <meta name="author" content="ANOOP P" />
 
-    <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.149aaf8a434f2504ed18455624c7cb95e1630fc2d8bcb3096ee4d0d126fc14ba.css" integrity="sha256-FJqvikNPJQTtGEVWJMfLleFjD8LYvLMJbuTQ0Sb8FLo=" />
+    <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.ac9f64bfa527d2b35291aed4e1574c1b07d4dab00149e9cb2702a1bb002dd0c9.css" integrity="sha256-rJ9kv6Un0rNSka7U4VdMGwfU2rABSenLJwKhuwAt0Mk=" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,7 @@
     <meta itemprop="name" content="std::map in C&#43;&#43;">
 <meta itemprop="description" content="Mastering std::map in C&#43;&#43; – Complete Guide with Examples"><meta itemprop="datePublished" content="2025-08-09T18:14:55+05:30" />
 <meta itemprop="dateModified" content="2025-08-09T18:14:55+05:30" />
-<meta itemprop="wordCount" content="704">
+<meta itemprop="wordCount" content="610">
 <meta itemprop="keywords" content="cpp,c&#43;&#43;,map,std::map," />
 
     
@@ -68,6 +68,51 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
     <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
 
 </head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
 <header class="anooptube-sticky">
@@ -238,7 +283,7 @@
                             <circle cx="12" cy="12" r="9"/>
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
-                        4 min read
+                        3 min read
                     </span>
                     
                     <span class="flex items-center gap-1">
@@ -250,7 +295,7 @@
                             <line x1="12" y1="6" x2="12" y2="19"/>
                             <line x1="21" y1="6" x2="21" y2="19"/>
                         </svg>
-                        704 words
+                        610 words
                     </span>
                     
                     <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
@@ -278,7 +323,7 @@
                       
                 </div>
                  
-                <div id="ad-post-top"></div>
+                <div id="ad-post-top" class="ad-container"></div>
                 <script>
                 window.addEventListener('load', function () {
                     window.atOptions = {
@@ -693,64 +738,40 @@
     </script>
   
 
+
+<a href="https://www.youtube.com/watch?v=ESRQ6IasQI0" target="_blank" rel="noopener" class="youtube-cta-banner">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48" aria-hidden="true">
+    <path fill="#fff" d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"/>
+    <path fill="#c4302b" d="M20 31L20 17 32 24z"/>
+  </svg>
+  <span>Prefer video? Watch this tutorial on YouTube →</span>
+</a>
+
 <p>When you need to store <strong>key-value pairs</strong> in C++ while maintaining the keys in <strong>sorted order</strong>, the STL’s <code>std::map</code> is your go-to container.</p>
 <p>It’s part of the <strong>associative containers</strong> family, using a balanced binary search tree (typically a <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" target="_blank" rel="noopener">Red-Black Tree</a>
 ) under the hood.</p>
-<style>
-.youtube-thumbnail-container {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.youtube-thumbnail-container img.thumbnail {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.youtube-thumbnail-container .play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 0, 0, 0.8);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.youtube-thumbnail-container .play-button svg {
-  width: 32px;
-  height: 32px;
-  fill: white;
-}
-
- 
-.youtube-thumbnail-container:hover img.thumbnail {
-  transform: scale(1.05);
-}
-
-.youtube-thumbnail-container:hover .play-button {
-  transform: translate(-50%, -50%) scale(1.2);
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-}
-</style>
-
-<a href="https://www.youtube.com/watch?v=ESRQ6IasQI0" target="_blank" rel="noopener noreferrer">
-  <div class="youtube-thumbnail-container">
-    <img class="thumbnail" src="https://img.youtube.com/vi/ESRQ6IasQI0/0.jpg" alt="YouTube video thumbnail">
-    <div class="play-button">
-      <svg viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z" />
+<a href="https://www.youtube.com/watch?v=ESRQ6IasQI0" target="_blank" rel="noopener noreferrer" class="yt-embed">
+  <div class="yt-embed__wrap">
+    <img
+      class="yt-embed__thumb"
+      src="https://img.youtube.com/vi/ESRQ6IasQI0/maxresdefault.jpg"
+      onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ESRQ6IasQI0/mqdefault.jpg'"
+      alt="Watch on YouTube"
+      loading="lazy"
+    />
+    <div class="yt-embed__overlay"></div>
+    <div class="yt-embed__play">
+      <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg" class="yt-embed__play-svg">
+        <path class="yt-embed__play-bg" d="M66.52,7.74C65.55,4.1,62.74,1.3,59.1,0.33C53.97-1,34,0,34,0S14.03-1,8.9,0.33C5.26,1.3,2.45,4.1,1.48,7.74C0,13,0,24,0,24s0,11,1.48,16.26c0.97,3.64,3.78,6.44,7.42,7.41C14.03,49,34,49,34,49s19.97,0,25.1-1.33c3.64-0.97,6.45-3.77,7.42-7.41C68,35,68,24,68,24S68,13,66.52,7.74z"/>
+        <path class="yt-embed__play-arrow" d="M45,24 27,14 27,34"/>
       </svg>
+    </div>
+    <div class="yt-embed__footer">
+      <svg class="yt-embed__yt-icon" viewBox="0 0 28.57 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 0 14.285 0 14.285 0C14.285 0 5.35042 0 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C0 5.35042 0 10 0 10C0 10 0 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z" fill="#FF0000"/>
+        <path d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z" fill="white"/>
+      </svg>
+      <span>Watch on YouTube</span>
     </div>
   </div>
 </a>
@@ -1372,6 +1393,7 @@ function postCopyLink(btn) {
 
 </div>
 
+<div class="ad-container">
 <script type="text/javascript">
     atOptions = {
         'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
@@ -1382,6 +1404,7 @@ function postCopyLink(btn) {
     };
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
 
             
         
@@ -1920,6 +1943,22 @@ function postCopyLink(btn) {
         mobileMenuButton.addEventListener('click', toggleMenu)
     }
 </script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
 </body>
 
 </html>

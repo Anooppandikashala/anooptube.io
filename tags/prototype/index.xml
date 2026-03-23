@@ -14,7 +14,7 @@
       
       <guid>https://anooptube.in/blog/post40/</guid>
       <description>The Prototype Design Pattern is a creational design pattern that allows creating new objects by copying existing ones (prototypes). Instead of instantiating a new object directly, you clone an existing object, which can be more efficient in terms of performance and flexibility.
- .youtube-thumbnail-container { position: relative; display: inline-block; max-width: 100%; cursor: pointer; overflow: hidden; } .youtube-thumbnail-container img.thumbnail { display: block; width: 100%; height: auto; transition: transform 0.3s ease; } .</description>
+    Watch on YouTube    Why Use the Prototype Pattern?  Object Creation is Expensive: When creating a new object is costly in terms of resources (e.</description>
     </item>
     
   </channel>
