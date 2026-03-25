@@ -344,6 +344,87 @@
   
   
   
+    
+    
+
+    
+    
+    
+      
+        
+      
+    
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Android</span>
+          </span>
+          <span class="series-nav-badge">1 / 2</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">I Built an Android App Because Android Kept Deleting My Clipboard</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post46/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">I built a free Android soundboard that works with a External keyboard</span>
+              </a>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/en/playlists/android/" class="series-nav-footer-link">
+          View all in "Android" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
 
 
 <p>Here&rsquo;s something that has happened to all of us.</p>
@@ -466,7 +547,36 @@ function postCopyLink(btn) {
             
             
         
+            
+                
+            
+            
+            
+        
 
+        
+        <div class="post-nav">
+
+            
+            <div></div>
+            
+
+            
+            <a href="/blog/post46/" class="post-nav-link post-nav-next">
+                <span class="post-nav-label">
+                    Next
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+                <span class="post-nav-playlist">Android</span>
+                <span class="post-nav-title">I built a free Android soundboard that works with a External keyboard</span>
+            </a>
+            
+
+        </div>
         
     
 
@@ -513,6 +623,25 @@ function postCopyLink(btn) {
         <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
         <div class="recent-widget-line"></div>
     </div>
+    <a href="/blog/post46/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with a External keyboard" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">I built a free Android soundboard that works with a External keyboard</div>
+            <div class="recent-post-date">
+                
+  
+    Mar 25, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
     <a href="/blog/post45/" class="recent-post-item">
 
         
@@ -582,25 +711,6 @@ function postCopyLink(btn) {
                 
   
     Aug 29, 25
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post41/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/adapter.webp" alt="Adapter Design Pattern" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">Adapter Design Pattern</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 26, 25
   
 
 
@@ -693,6 +803,68 @@ function postCopyLink(btn) {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post46/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with a External keyboard" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 25, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/sound" class="card-tag">sound</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post46/" class="card-content-link">
+            <div class="card-title">I built a free Android soundboard that works with a External keyboard</div>
+
+            
+            <div class="card-desc">Turn your keyboard into a soundboard - free for Android. </div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
 
     
     <a href="https://anooptube.in/blog/post44/" class="card-img-wrap" style="text-decoration:none;display:block;">
@@ -803,68 +975,6 @@ function postCopyLink(btn) {
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
                         3 min read
-                    </span>
-                </span>
-                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                </svg>
-            </div>
-        </a>
-
-    </div>
-
-      
-
-</article>
-<article class="blog-card">
-
-    
-    <a href="https://anooptube.in/blog/post33/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/flutter_development_1.webp" alt="Build Your First Mobile-App in Flutter" loading="lazy" />
-        
-        <span class="card-date-badge">
-            
-  
-    Jan 13, 25
-  
-
-
-        </span>
-        
-    </a>
-    
-
-    <div class="card-body">
-
-        
-        <div class="card-tags">
-            
-            <a href="/tags/flutter" class="card-tag">flutter</a>
-            
-            <a href="/tags/android" class="card-tag">android</a>
-            
-        </div>
-        
-
-        <a href="https://anooptube.in/blog/post33/" class="card-content-link">
-            <div class="card-title">Build Your First Mobile-App in Flutter</div>
-
-            
-            <div class="card-desc">Build a Simple Login Page and Home Page Application in Flutter</div>
-            
-
-            <div class="card-footer">
-                <span class="flex items-center gap-1.5 flex-wrap">
-                    
-                    <span class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9"/>
-                            <polyline points="12 7 12 12 15 15"/>
-                        </svg>
-                        4 min read
                     </span>
                 </span>
                 <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

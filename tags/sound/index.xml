@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sound on #anooptube</title>
+    <link>https://anooptube.in/tags/sound/</link>
+    <description>Recent content in sound on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Mar 2026 16:44:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/sound/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I built a free Android soundboard that works with a External keyboard</title>
+      <link>https://anooptube.in/blog/post46/</link>
+      <pubDate>Wed, 25 Mar 2026 16:44:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post46/</guid>
+      <description>A few months ago I needed a simple soundboard for a live session. I wanted to trigger audio clips from a Bluetooth keyboard connected to my Android phone - just press a key, hear the sound, instantly.
+Every app I found was either subscription-based, required an account, or didn&amp;rsquo;t support physical keyboards at all. So I built CTunes.
+ What CTunes does CTunes maps keyboard keys (A-Z and 0-9) to audio files on your device.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2026 10:38:42 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2026 16:44:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I built a free Android soundboard that works with a External keyboard</title>
+      <link>https://anooptube.in/blog/post46/</link>
+      <pubDate>Wed, 25 Mar 2026 16:44:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post46/</guid>
+      <description>A few months ago I needed a simple soundboard for a live session. I wanted to trigger audio clips from a Bluetooth keyboard connected to my Android phone - just press a key, hear the sound, instantly.
+Every app I found was either subscription-based, required an account, or didn&amp;rsquo;t support physical keyboards at all. So I built CTunes.
+ What CTunes does CTunes maps keyboard keys (A-Z and 0-9) to audio files on your device.</description>
+    </item>
+    
     <item>
       <title>I Built an Android App Because Android Kept Deleting My Clipboard</title>
       <link>https://anooptube.in/blog/post45/</link>

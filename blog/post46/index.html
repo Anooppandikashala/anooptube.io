@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post46/" />
+
+    <title>
+        I built a free Android soundboard that works with a External keyboard - #anooptube
+    </title><meta name="description" content="Turn your keyboard into a soundboard - free for Android. " /><meta name="author" content="ANOOP P" />
+
+    <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.ac9f64bfa527d2b35291aed4e1574c1b07d4dab00149e9cb2702a1bb002dd0c9.css" integrity="sha256-rJ9kv6Un0rNSka7U4VdMGwfU2rABSenLJwKhuwAt0Mk=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="I built a free Android soundboard that works with a External keyboard" />
+<meta property="og:description" content="Turn your keyboard into a soundboard - free for Android. " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post46/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-03-25T16:44:00+05:30" />
+<meta property="article:modified_time" content="2026-03-25T16:44:00+05:30" />
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="I built a free Android soundboard that works with a External keyboard"/>
+<meta name="twitter:description" content="Turn your keyboard into a soundboard - free for Android. "/>
+
+    <meta itemprop="name" content="I built a free Android soundboard that works with a External keyboard">
+<meta itemprop="description" content="Turn your keyboard into a soundboard - free for Android. "><meta itemprop="datePublished" content="2026-03-25T16:44:00+05:30" />
+<meta itemprop="dateModified" content="2026-03-25T16:44:00+05:30" />
+<meta itemprop="wordCount" content="665">
+<meta itemprop="keywords" content="android,sound," />
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/ctunes.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/ctunes.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2');
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with a External keyboard" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    March 25, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/android">Android</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="I built a free Android soundboard that works with a External keyboard">I built a free Android soundboard that works with a External keyboard</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/en/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Android\"",
+      "item": "\"https://anooptube.in/en/playlists/android/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"I built a free Android soundboard that works with a External keyboard\"",
+      "item": "\"https://anooptube.in/blog/post46/\""
+    }
+    
+  ]
+}
+</script>
+<h2 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">I built a free Android soundboard that works with a External keyboard</h2>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    March 25, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        665 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    window.addEventListener('load', function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Android</span>
+          </span>
+          <span class="series-nav-badge">2 / 2</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post45/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">I Built an Android App Because Android Kept Deleting My Clipboard</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">I built a free Android soundboard that works with a External keyboard</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/en/playlists/android/" class="series-nav-footer-link">
+          View all in "Android" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+<p>A few months ago I needed a simple soundboard for a live session. I wanted to trigger audio clips from a Bluetooth keyboard connected to my Android phone - just press a key, hear the sound, instantly.</p>
+<p>Every app I found was either subscription-based, required an account, or didn&rsquo;t support physical keyboards at all. So I built <strong>CTunes</strong>.</p>
+<hr>
+<h3 id="what-ctunes-does">What CTunes does</h3>
+<p>CTunes maps keyboard keys (A-Z and 0-9) to audio files on your device. Tap the on-screen button or press the physical key - the sound plays immediately.</p>
+<p>That&rsquo;s the whole pitch. 36 keys. Any audio file. Zero lag.</p>
+<p><strong>Core features:</strong></p>
+<ul>
+<li><strong>Key mapping</strong> - pick any audio file from your device and assign it to a key</li>
+<li><strong>Dual input</strong> - works with on-screen taps and physical Bluetooth keyboards</li>
+<li><strong>18-color palette</strong> - each key gets a unique color so you can read the board at a glance</li>
+<li><strong>Import / Export</strong> - your entire layout serialises to a single JSON file. Back it up, share it, restore it on a new device.</li>
+<li><strong>Persistent storage</strong> - mappings survive reboots and reinstalls via SQLite + <code>takePersistableUriPermission()</code></li>
+<li><strong>Free</strong> - ad-supported, no subscription, no sign-in, works fully offline</li>
+</ul>
+<hr>
+<h3 id="the-tech-stack">The tech stack</h3>
+<p>CTunes is a native Android app written in <strong>Java</strong> (yes, Java - not Kotlin). Here&rsquo;s how the main pieces fit together:</p>
+<p><strong>Architecture:</strong></p>
+<ul>
+<li>Single-module project, Activities only - no Fragments, no Navigation component</li>
+<li>SQLite via a hand-rolled <code>SQLiteOpenHelper</code> for key mappings</li>
+<li><code>SharedPreferences</code> for UI settings (grid size, column count, keyboard visibility)</li>
+</ul>
+<p><strong>Audio playback:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">// A new MediaPlayer is created per keypress
+</span><span style="color:#6272a4">// The previous one is released first to avoid leaks
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>currentPlayer <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+    currentPlayer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">release</span><span style="color:#ff79c6">();</span>
+<span style="color:#ff79c6">}</span>
+MediaPlayer mp <span style="color:#ff79c6">=</span> MediaPlayer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">,</span> uri<span style="color:#ff79c6">);</span>
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mp <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+    mp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setOnCompletionListener</span><span style="color:#ff79c6">(</span>MediaPlayer<span style="color:#ff79c6">::</span>release<span style="color:#ff79c6">);</span>
+    mp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">();</span>
+    currentPlayer <span style="color:#ff79c6">=</span> mp<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>Using <code>MediaPlayer.create()</code> per press keeps it simple. For a soundboard with occasional clips this is fine - you&rsquo;re not building a DAW.</p>
+<p><strong>File access:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">// Persist URI permission so the file remains accessible after reboot
+</span><span style="color:#6272a4"></span>getContentResolver<span style="color:#ff79c6">().</span><span style="color:#50fa7b">takePersistableUriPermission</span><span style="color:#ff79c6">(</span>
+    uri<span style="color:#ff79c6">,</span>
+    Intent<span style="color:#ff79c6">.</span><span style="color:#50fa7b">FLAG_GRANT_READ_URI_PERMISSION</span>
+<span style="color:#ff79c6">);</span>
+</code></pre></div><p>This was the gotcha I hit early on. Android&rsquo;s Storage Access Framework grants temporary URI permissions by default. Without <code>takePersistableUriPermission()</code>, all your mappings silently break after the user reboots their phone.</p>
+<p><strong>Import / Export:</strong>
+The export format is a simple JSON envelope:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;version&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;exported_at&#34;</span>: <span style="color:#f1fa8c">&#34;2026-03-25T10:00:00Z&#34;</span>,
+  <span style="color:#ff79c6">&#34;mappings&#34;</span>: [
+    { <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;A&#34;</span>, <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Kick&#34;</span>, <span style="color:#ff79c6">&#34;uri&#34;</span>: <span style="color:#f1fa8c">&#34;content://...&#34;</span> },
+    { <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;B&#34;</span>, <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Snare&#34;</span>, <span style="color:#ff79c6">&#34;uri&#34;</span>: <span style="color:#f1fa8c">&#34;content://...&#34;</span> }
+  ]
+}
+</code></pre></div><p>Import is atomic - the entire database is cleared before inserting the new set. Simple and predictable.</p>
+<p><strong>Ads:</strong>
+The app is ad-supported using Google AdMob. One thing worth noting: always initialise <code>MobileAds</code> <em>after</em> the UMP (User Messaging Platform) consent flow resolves - not in <code>Application.onCreate()</code>. Use an <code>AtomicBoolean</code> guard to prevent double-initialisation across the UMP callbacks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> AtomicBoolean mobileAdsInitialized <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> AtomicBoolean<span style="color:#ff79c6">(</span><span style="color:#ff79c6">false</span><span style="color:#ff79c6">);</span>
+
+<span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">initializeMobileAds</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mobileAdsInitialized<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAndSet</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">true</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+    MobileAds<span style="color:#ff79c6">.</span><span style="color:#50fa7b">initialize</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">,</span> status <span style="color:#ff79c6">-&gt;</span> loadNativeAd<span style="color:#ff79c6">());</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><hr>
+<h3 id="what-i-learned">What I learned</h3>
+<p><strong>1. <code>takePersistableUriPermission</code> is not optional.</strong>
+If you let users pick files via <code>ACTION_OPEN_DOCUMENT</code>, you <em>must</em> persist the URI or your app breaks silently on reboot. Took me an embarrassing amount of time to track this down.</p>
+<p><strong>2. Activity lifecycle leaks in ad callbacks.</strong>
+AdMob&rsquo;s <code>NativeAd.OnNativeAdLoadedListener</code> fires on a background thread. By the time it fires, the Activity might already be destroyed. Always guard:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>isDestroyed<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">||</span> isFinishing<span style="color:#ff79c6">())</span> <span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+</code></pre></div><p><strong>3. Keep the architecture boring.</strong>
+No Fragments, no Navigation component, no MVVM. For an app this size, plain Activities with direct SQLite calls are completely fine. Resisting the urge to over-architect saved a lot of time.</p>
+<p><strong>4. Physical keyboard support is free on Android.</strong>
+Override <code>onKeyDown()</code> in your Activity and you get Bluetooth keyboard input with zero extra dependencies. Android routes hardware key events to the focused window automatically.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">@Override
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">onKeyDown</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> keyCode<span style="color:#ff79c6">,</span> KeyEvent event<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd">char</span> c <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">char</span><span style="color:#ff79c6">)</span> event<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getUnicodeChar</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>Character<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isLetterOrDigit</span><span style="color:#ff79c6">(</span>c<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+        playKeySound<span style="color:#ff79c6">(</span>Character<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toUpperCase</span><span style="color:#ff79c6">(</span>c<span style="color:#ff79c6">));</span>
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">onKeyDown</span><span style="color:#ff79c6">(</span>keyCode<span style="color:#ff79c6">,</span> event<span style="color:#ff79c6">);</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><hr>
+<h3 id="try-it">Try it</h3>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.anoop.myprojects.ctunes" target="_blank" rel="noopener">Google Play:</a>
+</li>
+<li><a href="https://anooppandikashala.github.io/ctunes.app/" target="_blank" rel="noopener">Landing page:</a>
+</li>
+</ul>
+<p>I&rsquo;d love feedback - especially from anyone who uses soundboards for live performance, streaming, or teaching. What features would make this more useful for your workflow?</p>
+<hr>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=I&#43;built&#43;a&#43;free&#43;Android&#43;soundboard&#43;that&#43;works&#43;with&#43;a&#43;External&#43;keyboard&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost46%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost46%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post45/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Android</span>
+                <span class="post-nav-title">I Built an Android App Because Android Kept Deleting My Clipboard</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-ctunes-does">What CTunes does</a></li>
+        <li><a href="#the-tech-stack">The tech stack</a></li>
+        <li><a href="#what-i-learned">What I learned</a></li>
+        <li><a href="#try-it">Try it</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post46/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with a External keyboard" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">I built a free Android soundboard that works with a External keyboard</div>
+            <div class="recent-post-date">
+                
+  
+    Mar 25, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post45/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/copy_duo_banner.webp" alt="I Built an Android App Because Android Kept Deleting My Clipboard" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">I Built an Android App Because Android Kept Deleting My Clipboard</div>
+            <div class="recent-post-date">
+                
+  
+    Mar 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post44/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/invoiso_banner.png" alt="I Built a Free, Offline Invoice App with Flutter" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">I Built a Free, Offline Invoice App with Flutter</div>
+            <div class="recent-post-date">
+                
+  
+    Mar 13, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post43/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/postgresql_crud.webp" alt="PostgreSQL CRUD App with Python &amp; Neon" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">PostgreSQL CRUD App with Python &amp; Neon</div>
+            <div class="recent-post-date">
+                
+  
+    Dec 29, 25
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post42/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/observer_design_pattern.webp" alt="Observer Design Pattern" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Observer Design Pattern</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 29, 25
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post45/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/copy_duo_banner.webp" alt="I Built an Android App Because Android Kept Deleting My Clipboard" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 19, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/productivity" class="card-tag">productivity</a>
+            
+            <a href="/tags/invoice" class="card-tag">invoice</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post45/" class="card-content-link">
+            <div class="card-title">I Built an Android App Because Android Kept Deleting My Clipboard</div>
+
+            
+            <div class="card-desc">The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        5 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post34/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/flutter_widgets.webp" alt="Understanding Stateless and Stateful Widgets in Flutter" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Jan 20, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post34/" class="card-content-link">
+            <div class="card-title">Understanding Stateless and Stateful Widgets in Flutter</div>
+
+            
+            <div class="card-desc">Flutter Widgets: Understanding Stateless and Stateful Widgets</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        3 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post33/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/flutter_development_1.webp" alt="Build Your First Mobile-App in Flutter" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Jan 13, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post33/" class="card-content-link">
+            <div class="card-title">Build Your First Mobile-App in Flutter</div>
+
+            
+            <div class="card-desc">Build a Simple Login Page and Home Page Application in Flutter</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "\"I built a free Android soundboard that works with a External keyboard\"",
+  "description": "\"Turn your keyboard into a soundboard - free for Android. \"",
+  "datePublished": "2026-03-25T16:44:00\u002b05:30",
+  "dateModified": "2026-03-25T16:44:00\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\""
+  },
+  "image": "\"https://anooptube.in/thumbs/ctunes.webp\"",
+  "url": "\"https://anooptube.in/blog/post46/\""
+}
+</script>
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>
