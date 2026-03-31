@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software on #anooptube</title>
+    <link>https://anooptube.in/playlists/software/</link>
+    <description>Recent content in software on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Mar 2026 19:21:55 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Shipped This Month Building Invoiso (v3.4.2)</title>
+      <link>https://anooptube.in/blog/post47/</link>
+      <pubDate>Tue, 31 Mar 2026 19:21:55 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post47/</guid>
+      <description>One of the best things about working on Invoiso, a free offline invoice and billing tool available for Windows and Linux operating systems, has been “building in public.” This month has been particularly fruitful as a mix of long-pending features, quality-of-life enhancements, and critical bug fixes were included.
+All Changes in v3.4.2 👇  🔗 GitHub · Website · Download   💡 The Focus This Month This release is all about:</description>
+    </item>
+    
+  </channel>
+</rss>

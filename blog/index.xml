@@ -6,7 +6,17 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2026 16:44:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Mar 2026 19:21:55 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Shipped This Month Building Invoiso (v3.4.2)</title>
+      <link>https://anooptube.in/blog/post47/</link>
+      <pubDate>Tue, 31 Mar 2026 19:21:55 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post47/</guid>
+      <description>One of the best things about working on Invoiso, a free offline invoice and billing tool available for Windows and Linux operating systems, has been “building in public.” This month has been particularly fruitful as a mix of long-pending features, quality-of-life enhancements, and critical bug fixes were included.
+All Changes in v3.4.2 👇  🔗 GitHub · Website · Download   💡 The Focus This Month This release is all about:</description>
+    </item>
+    
     <item>
       <title>I built a free Android soundboard that works with a External keyboard</title>
       <link>https://anooptube.in/blog/post46/</link>

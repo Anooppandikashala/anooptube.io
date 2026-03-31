@@ -6,7 +6,17 @@
     <description>Recent content in opensource on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Mar 2026 09:15:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Mar 2026 19:21:55 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Shipped This Month Building Invoiso (v3.4.2)</title>
+      <link>https://anooptube.in/blog/post47/</link>
+      <pubDate>Tue, 31 Mar 2026 19:21:55 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post47/</guid>
+      <description>One of the best things about working on Invoiso, a free offline invoice and billing tool available for Windows and Linux operating systems, has been “building in public.” This month has been particularly fruitful as a mix of long-pending features, quality-of-life enhancements, and critical bug fixes were included.
+All Changes in v3.4.2 👇  🔗 GitHub · Website · Download   💡 The Focus This Month This release is all about:</description>
+    </item>
+    
     <item>
       <title>I Built a Free, Offline Invoice App with Flutter</title>
       <link>https://anooptube.in/blog/post44/</link>
