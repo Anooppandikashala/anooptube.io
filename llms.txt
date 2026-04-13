@@ -1,0 +1,30 @@
+# anooptube.in
+
+> Coding tutorials and developer content by Anoop P — software developer and educator based in Palakkad, Kerala, India. Topics: Python, C++, Java, Flutter, Android, PostgreSQL, Git, Linux, and Design Patterns.
+
+## Key Pages
+
+- [Home](https://anooptube.in/): Latest posts and playlist overview
+- [Blog](https://anooptube.in/blog/): All tutorial posts
+- [About](https://anooptube.in/page/about/): Author background and credentials
+- [Projects](https://anooptube.in/page/projects/): Open-source apps by Anoop P
+
+## Tutorial Playlists
+
+- [C++ Basics](https://anooptube.in/playlists/basics-of-cpp-development/): Fundamentals through advanced C++
+- [Flutter](https://anooptube.in/playlists/flutter/): Cross-platform mobile development with Dart
+- [Python](https://anooptube.in/playlists/python/): Scripting and application development
+- [Design Patterns](https://anooptube.in/playlists/design-patterns/): Observer, Adapter, Prototype in C++
+- [PostgreSQL](https://anooptube.in/playlists/postgresql/): Database CRUD with Python and Neon
+- [Android](https://anooptube.in/playlists/android/): Native Android app development in Java
+- [Linux](https://anooptube.in/playlists/linux/): Command-line tools, AWK, Ubuntu
+
+## Author
+
+- Name: Anoop P (ANOOP P)
+- Role: Software Developer & Educator, Associate Software Developer at Kefas
+- Location: Palakkad, Kerala, India
+- YouTube: https://www.youtube.com/anooptube
+- GitHub: https://github.com/Anooppandikashala
+- LinkedIn: https://www.linkedin.com/in/anooppandikashala/
+- Instagram: https://www.instagram.com/anoop_p_krishnan/

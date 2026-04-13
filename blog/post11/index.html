@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="en"><head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
 
     <link rel="icon" href="https://anooptube.in/favicon.svg">
     <link rel="canonical" href="https://anooptube.in/blog/post11/" />
 
     <title>
         C&#43;&#43; Input and Output Functions - #anooptube
-    </title><meta name="description" content="Basic input and output functions(IO Functions)" /><meta name="author" content="ANOOP P" />
-
-    <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.ac9f64bfa527d2b35291aed4e1574c1b07d4dab00149e9cb2702a1bb002dd0c9.css" integrity="sha256-rJ9kv6Un0rNSka7U4VdMGwfU2rABSenLJwKhuwAt0Mk=" />
+    </title><meta name="description" content="Basic input and output functions(IO Functions)" /><meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.75397851b0a6b461ea49efb16addfc5569efd996bfda018428ea9d1613383e89.css" integrity="sha256-dTl4UbCmtGHqSe+xat38VWnv2Za/2gGEKOqdFhM4Pok=" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
 
     
     
@@ -27,15 +27,7 @@
 <meta property="article:modified_time" content="2022-12-14T19:36:41+05:30" />
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="C&#43;&#43; Input and Output Functions"/>
-<meta name="twitter:description" content="Basic input and output functions(IO Functions)"/>
 
-    <meta itemprop="name" content="C&#43;&#43; Input and Output Functions">
-<meta itemprop="description" content="Basic input and output functions(IO Functions)"><meta itemprop="datePublished" content="2022-12-14T19:36:41+05:30" />
-<meta itemprop="dateModified" content="2022-12-14T19:36:41+05:30" />
-<meta itemprop="wordCount" content="234">
-<meta itemprop="keywords" content="cpp,c&#43;&#43;,IO,io,input,output," />
 
     
 
@@ -49,7 +41,6 @@
     
 
     
-    
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
@@ -57,7 +48,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-CT7Q0CNLC2');
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
     </script>
 
     
@@ -145,6 +136,14 @@
                   
                   >
                   Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
                 </a>
             </li>
             
@@ -237,13 +236,13 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "\"https://anooptube.in/en/blog/\""
+      "item": "\"https://anooptube.in/blog/\""
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "\"Basics of CPP Development\"",
-      "item": "\"https://anooptube.in/en/playlists/basics-of-cpp-development/\""
+      "item": "\"https://anooptube.in/playlists/basics-of-cpp-development/\""
     },
     {
       "@type": "ListItem",
@@ -255,7 +254,7 @@
   ]
 }
 </script>
-<h2 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">C&#43;&#43; Input and Output Functions</h2>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">C&#43;&#43; Input and Output Functions</h1>
                 
                 <div class="post-meta-strip">
                     
@@ -305,7 +304,7 @@
                         <span id="post-view-count-text"></span>
                     </span>
                     <script>
-                    window.addEventListener('load', function () {
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
                         fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
                             .then(function (r) { return r.ok ? r.json() : null; })
                             .then(function (d) {
@@ -478,7 +477,7 @@
               
               <a href="https://anooptube.in/blog/post6/" class="series-nav-link">
                 <span class="series-nav-num">6</span>
-                <span class="series-nav-name">String snd Boolean</span>
+                <span class="series-nav-name">String and Boolean</span>
               </a>
               
             </li>
@@ -1153,11 +1152,11 @@ function postCopyLink(btn) {
     <a href="/blog/post46/" class="recent-post-item">
 
         
-        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with a External keyboard" loading="lazy" />
+        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with an External keyboard" loading="lazy" />
         
 
         <div class="recent-post-info">
-            <div class="recent-post-title">I built a free Android soundboard that works with a External keyboard</div>
+            <div class="recent-post-title">I built a free Android soundboard that works with an External keyboard</div>
             <div class="recent-post-date">
                 
   
@@ -1239,7 +1238,7 @@ function postCopyLink(btn) {
         'params' : {}
     };
 </script>
-<script type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
 </div>
 
             
@@ -1410,7 +1409,7 @@ function postCopyLink(btn) {
             <div class="card-title">Abstraction &amp; Encapsulation</div>
 
             
-            <div class="card-desc">Abstarction and Encapsulation in C&#43;&#43;</div>
+            <div class="card-desc">Abstraction and Encapsulation in C&#43;&#43;</div>
             
 
             <div class="card-footer">
@@ -1551,18 +1550,44 @@ function postCopyLink(btn) {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post11/\""
+  },
   "headline": "\"C++ Input and Output Functions\"",
   "description": "\"Basic input and output functions(IO Functions)\"",
   "datePublished": "2022-12-14T19:36:41\u002b05:30",
   "dateModified": "2022-12-14T19:36:41\u002b05:30",
   "author": {
     "@type": "Person",
-    "name": "\"ANOOP P\""
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
   },
-  "image": "\"https://anooptube.in/thumbs/basic_io.webp\"",
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/basic_io.webp\""
+  },
   "url": "\"https://anooptube.in/blog/post11/\""
 }
 </script>
+
+
+
+
 
 
     </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
@@ -1739,7 +1764,13 @@ function postCopyLink(btn) {
             var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
         }
-        window.addEventListener('scroll', update, { passive: true });
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
         update();
     })();
 </script>
