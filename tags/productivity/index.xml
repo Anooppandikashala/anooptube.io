@@ -6,7 +6,17 @@
     <description>Recent content in productivity on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2026 10:38:42 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Aug 2026 19:48:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vibe Coding Is Dead, Long Live Agentic Engineering</title>
+      <link>https://anooptube.in/blog/post48/</link>
+      <pubDate>Sat, 15 Aug 2026 19:48:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post48/</guid>
+      <description>Six months ago &amp;ldquo;vibe coding&amp;rdquo; meant typing a vague prompt and hoping the output compiled. I did it. It worked until it didn&amp;rsquo;t — the moment a codebase got past toy-project size, prompt-and-hope fell apart. What replaced it, quietly, wasn&amp;rsquo;t a better prompt. It was a different job description.
+The shift nobody announced I still write code every day. I just don&amp;rsquo;t type most of it anymore. The work moved up a level: instead of implementing a function, I write a spec for what the function needs to do, constraints it has to respect, and then I watch an agent build it.</description>
+    </item>
+    
     <item>
       <title>I Built an Android App Because Android Kept Deleting My Clipboard</title>
       <link>https://anooptube.in/blog/post45/</link>

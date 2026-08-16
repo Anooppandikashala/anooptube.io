@@ -1,407 +1,279 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/basics-of-cpp-development/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post50/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/c&#43;&#43;/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post49/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/cpp/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/python/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/python/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post48/</loc>
+    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/flutter/</loc>
     <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/flutter/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/invoice/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/opensource/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/playlists/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/software/</loc>
     <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post47/</loc>
     <lastmod>2026-03-31T19:21:55+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/android/</loc>
     <lastmod>2026-03-25T16:44:00+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/android/</loc>
-    <lastmod>2026-03-25T16:44:00+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post46/</loc>
     <lastmod>2026-03-25T16:44:00+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/sound/</loc>
-    <lastmod>2026-03-25T16:44:00+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/privacy/</loc>
     <lastmod>2026-03-23T00:00:00+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post45/</loc>
     <lastmod>2026-03-19T10:38:42+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/productivity/</loc>
-    <lastmod>2026-03-19T10:38:42+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post44/</loc>
     <lastmod>2026-03-13T09:15:24+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/database/</loc>
-    <lastmod>2025-12-29T18:56:06+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/postgres/</loc>
-    <lastmod>2025-12-29T18:56:06+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/postgresql/</loc>
     <lastmod>2025-12-29T18:56:06+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/postgresql/</loc>
-    <lastmod>2025-12-29T18:56:06+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post43/</loc>
     <lastmod>2025-12-29T18:56:06+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/python/</loc>
-    <lastmod>2025-12-29T18:56:06+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/c&#43;&#43;/</loc>
-    <lastmod>2025-08-29T09:35:43+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/cpp/</loc>
-    <lastmod>2025-08-29T09:35:43+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/design-pattern/</loc>
-    <lastmod>2025-08-29T09:35:43+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/design-patterns/</loc>
     <lastmod>2025-08-29T09:35:43+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/observer/</loc>
-    <lastmod>2025-08-29T09:35:43+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post42/</loc>
     <lastmod>2025-08-29T09:35:43+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/adapter/</loc>
-    <lastmod>2025-08-26T22:15:04+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post41/</loc>
     <lastmod>2025-08-26T22:15:04+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/prototype/</loc>
-    <lastmod>2025-08-26T22:06:20+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post40/</loc>
     <lastmod>2025-08-26T22:06:20+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/playlists/basics-of-cpp-development/</loc>
-    <lastmod>2025-08-11T10:32:09+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/list/</loc>
-    <lastmod>2025-08-11T10:32:09+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post39/</loc>
     <lastmod>2025-08-11T10:32:09+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/stdlist/</loc>
-    <lastmod>2025-08-11T10:32:09+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post38/</loc>
     <lastmod>2025-08-10T10:17:49+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/set/</loc>
-    <lastmod>2025-08-10T10:17:49+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/stdset/</loc>
-    <lastmod>2025-08-10T10:17:49+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/map/</loc>
-    <lastmod>2025-08-09T18:14:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/stdmap/</loc>
-    <lastmod>2025-08-09T18:14:55+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post37/</loc>
     <lastmod>2025-08-09T18:14:55+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/pair/</loc>
-    <lastmod>2025-08-09T10:35:10+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/stdpair/</loc>
-    <lastmod>2025-08-09T10:35:10+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post36/</loc>
     <lastmod>2025-08-09T10:35:10+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/stdtuple/</loc>
-    <lastmod>2025-08-09T10:35:10+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/tuple/</loc>
-    <lastmod>2025-08-09T10:35:10+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/stdvector/</loc>
-    <lastmod>2025-08-08T20:22:41+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post35/</loc>
     <lastmod>2025-08-08T20:22:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/vector/</loc>
-    <lastmod>2025-08-08T20:22:41+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post34/</loc>
     <lastmod>2025-01-20T16:34:48+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post33/</loc>
     <lastmod>2025-01-13T21:16:51+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/page/projects/</loc>
     <lastmod>2024-10-10T17:07:00+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/page/</loc>
-    <lastmod>2024-10-10T17:07:00+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/playlists/python/</loc>
-    <lastmod>2024-03-10T22:01:01+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post32/</loc>
     <lastmod>2024-03-10T22:01:01+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/commands/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/linux/</loc>
     <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/tags/linux/</loc>
     <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post31/</loc>
     <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post30/</loc>
     <lastmod>2024-02-20T17:42:17+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/pycharm/</loc>
-    <lastmod>2024-02-20T17:42:17+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/ubuntu/</loc>
-    <lastmod>2024-02-20T17:42:17+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post29/</loc>
     <lastmod>2024-02-20T13:31:26+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post28/</loc>
     <lastmod>2024-02-12T16:02:05+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post27/</loc>
     <lastmod>2024-02-08T21:49:14+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/todo/</loc>
-    <lastmod>2024-02-08T21:49:14+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/const/</loc>
-    <lastmod>2023-09-09T14:20:20+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/constants/</loc>
-    <lastmod>2023-09-09T14:20:20+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post26/</loc>
     <lastmod>2023-09-09T14:20:20+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post25/</loc>
     <lastmod>2023-08-27T18:56:49+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/reference/</loc>
-    <lastmod>2023-08-27T18:56:49+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/function_objects/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/functor/</loc>
-    <lastmod>2023-06-17T22:06:52+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post24/</loc>
     <lastmod>2023-06-17T22:06:52+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post23/</loc>
     <lastmod>2023-06-02T21:48:13+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/friend/</loc>
-    <lastmod>2023-04-24T18:34:49+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post22/</loc>
     <lastmod>2023-04-24T18:34:49+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/function/</loc>
-    <lastmod>2023-04-24T18:34:49+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post21/</loc>
     <lastmod>2023-04-20T21:51:16+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/virtual/</loc>
-    <lastmod>2023-04-20T21:51:16+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post20/</loc>
     <lastmod>2023-04-20T18:58:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/css/</loc>
-    <lastmod>2023-04-16T18:38:24+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/game/</loc>
-    <lastmod>2023-04-16T18:38:24+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/playlists/game-development/</loc>
     <lastmod>2023-04-16T18:38:24+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post19/</loc>
     <lastmod>2023-04-16T18:38:24+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/html/</loc>
-    <lastmod>2023-04-16T18:38:24+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/js/</loc>
-    <lastmod>2023-04-16T18:38:24+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post18/</loc>
     <lastmod>2023-04-14T21:38:33+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/arrow/</loc>
-    <lastmod>2023-04-01T19:50:04+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post17/</loc>
     <lastmod>2023-04-01T19:50:04+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/new/</loc>
-    <lastmod>2023-04-01T19:50:04+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/pointers/</loc>
-    <lastmod>2023-04-01T19:50:04+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/delete/</loc>
-    <lastmod>2023-03-29T19:23:16+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post16/</loc>
     <lastmod>2023-03-29T19:23:16+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post15/</loc>
     <lastmod>2023-03-18T19:41:47+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post14/</loc>
     <lastmod>2023-03-15T23:08:47+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/oop/</loc>
-    <lastmod>2023-03-15T23:08:47+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/overriding/</loc>
-    <lastmod>2023-03-15T23:08:47+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post13/</loc>
     <lastmod>2023-01-05T15:50:10+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/inheritance/</loc>
-    <lastmod>2023-01-05T15:50:10+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/c/</loc>
-    <lastmod>2022-12-26T19:07:45+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post12/</loc>
     <lastmod>2022-12-26T19:07:45+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/c-vs-cpp/</loc>
-    <lastmod>2022-12-26T19:07:45+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/difference/</loc>
-    <lastmod>2022-12-26T19:07:45+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post11/</loc>
     <lastmod>2022-12-14T19:36:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/input/</loc>
-    <lastmod>2022-12-14T19:36:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/io/</loc>
-    <lastmod>2022-12-14T19:36:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/output/</loc>
-    <lastmod>2022-12-14T19:36:41+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/abstraction/</loc>
-    <lastmod>2022-12-03T14:52:58+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post10/</loc>
     <lastmod>2022-12-03T14:52:58+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/encapsulation/</loc>
-    <lastmod>2022-12-03T14:52:58+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post9/</loc>
     <lastmod>2022-12-03T12:49:20+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/header_file/</loc>
-    <lastmod>2022-12-03T12:49:20+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/header_guard/</loc>
-    <lastmod>2022-12-03T12:49:20+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post8/</loc>
     <lastmod>2022-11-30T19:13:59+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/namespace/</loc>
-    <lastmod>2022-11-30T19:13:59+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/boolean/</loc>
-    <lastmod>2022-11-18T22:51:46+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/string/</loc>
-    <lastmod>2022-11-18T22:51:46+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post6/</loc>
     <lastmod>2022-11-18T22:51:46+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/class/</loc>
-    <lastmod>2022-11-18T22:45:30+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post5/</loc>
     <lastmod>2022-11-18T22:45:30+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/objects/</loc>
-    <lastmod>2022-11-18T22:45:30+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/oops/</loc>
-    <lastmod>2022-11-18T22:45:30+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post4/</loc>
     <lastmod>2022-11-18T22:45:26+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/overloading/</loc>
-    <lastmod>2022-11-18T22:45:26+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post3/</loc>
     <lastmod>2022-11-18T22:45:15+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post2/</loc>
     <lastmod>2022-11-18T20:04:52+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/page/about/</loc>
     <lastmod>2022-11-17T23:12:29+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/about/</loc>
-    <lastmod>2022-11-17T23:12:29+05:30</lastmod>
-  </url><url>
+  </url>
+  <url>
     <loc>https://anooptube.in/blog/post1/</loc>
-    <lastmod>2022-11-17T23:12:05+05:30</lastmod>
-  </url><url>
-    <loc>https://anooptube.in/tags/access_modifiers/</loc>
     <lastmod>2022-11-17T23:12:05+05:30</lastmod>
   </url>
 </urlset>
