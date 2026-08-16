@@ -6,7 +6,16 @@
     <description>Recent content in performance on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 19:48:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</title>
+      <link>https://anooptube.in/blog/post52/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post52/</guid>
+      <description>A headline went around a few weeks ago claiming Linux Kernel 7.0 &amp;ldquo;halved PostgreSQL throughput.&amp;rdquo; If you run any kind of production database on Linux, that&amp;rsquo;s the kind of sentence that ruins your afternoon. I dug into it because I was about to upgrade a few boxes myself, and the real story is a lot less scary than the headline. It&amp;rsquo;s also a much better story if you actually care about where Linux is heading, because the headline buried the genuinely interesting part — stable Rust support landing in the kernel — under a benchmark scare that mostly wasn&amp;rsquo;t about the kernel at all.</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</title>
       <link>https://anooptube.in/blog/post49/</link>
@@ -14,7 +23,7 @@
       
       <guid>https://anooptube.in/blog/post49/</guid>
       <description>Every few months someone asks me the same question: &amp;ldquo;should I learn Rust or just stick with C++?&amp;rdquo; Lately Go gets thrown into that question too. I&amp;rsquo;ve written a lot of C++, poked at Rust, and shipped small things in Go — so here&amp;rsquo;s my honest 2026 take, backed by what&amp;rsquo;s actually happening in the ecosystem right now, not vibes.
-Where each language stands today C++ is still No. 3 on the TIOBE index this month, right behind Python and C.</description>
+Why this comparison actually matters in 2026 This isn&amp;rsquo;t an academic exercise.</description>
     </item>
     
   </channel>

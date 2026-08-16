@@ -6,7 +6,26 @@
     <description>Recent content in ai on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 19:48:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</title>
+      <link>https://anooptube.in/blog/post51/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post51/</guid>
+      <description>I&amp;rsquo;ve been rotating between three AI coding tools for the past few weeks, and every time someone asks me &amp;ldquo;which one should I use,&amp;rdquo; my answer starts with &amp;ldquo;depends what you&amp;rsquo;re actually trying to do&amp;rdquo; — because these three aren&amp;rsquo;t really competing for the same job anymore.
+That answer used to annoy people. They wanted a single winner. But after using all three on real projects — not demos, not toy repos, actual client work and my own side projects — I&amp;rsquo;ve come around to the idea that the &amp;ldquo;best AI coding assistant&amp;rdquo; question is the wrong question.</description>
+    </item>
+    
+    <item>
+      <title>What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</title>
+      <link>https://anooptube.in/blog/post53/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post53/</guid>
+      <description>Flutter 3.44 has been out since May, and by the time I got around to actually upgrading a project, I realized I&amp;rsquo;d been ignoring the more interesting half of the release. It&amp;rsquo;s not just UI widgets anymore — it&amp;rsquo;s AI tooling baked straight into the framework. I spent a weekend actually using Agentic Hot Reload, wiring up a Genkit flow, and pointing an AI coding assistant at the new Dart and Flutter MCP Server.</description>
+    </item>
+    
     <item>
       <title>Build a Simple AI Agent in Python (No Framework Needed)</title>
       <link>https://anooptube.in/blog/post50/</link>
@@ -14,8 +33,7 @@
       
       <guid>https://anooptube.in/blog/post50/</guid>
       <description>Every &amp;ldquo;build an AI agent&amp;rdquo; tutorial I ran into lately starts with pip install langchain or pip install langgraph. Useful tools, but they hide the actual mechanism. Before reaching for a framework, I wanted to see the loop with my own eyes — so I built the smallest working agent I could, in plain Python.
-Turns out it&amp;rsquo;s not much code. The core loop fits in about 60 lines.
-What an &amp;ldquo;agent&amp;rdquo; actually is Strip away the marketing and an AI agent is one thing: a loop where the model can call functions, look at the results, and decide what to do next — instead of just returning text once.</description>
+Turns out it&amp;rsquo;s not much code. The core loop fits in about 60 lines. This post walks through building that loop from scratch: what an agent actually is, what the ReAct pattern means in practice, the full working code, a real trace of it reasoning through a task, the ways it breaks, and when you should stop doing this yourself and reach for a framework.</description>
     </item>
     
     <item>

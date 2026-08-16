@@ -2,14 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
   </url>
   <url>
-    <loc>https://anooptube.in/playlists/basics-of-cpp-development/</loc>
-    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
+    <loc>https://anooptube.in/blog/post51/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/blog/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/flutter/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/flutter/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/linux/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/linux/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post52/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post53/</loc>
+    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/basics-of-cpp-development/</loc>
     <lastmod>2026-08-15T19:48:00+05:30</lastmod>
   </url>
   <url>
@@ -29,10 +65,6 @@
     <lastmod>2026-08-15T19:48:00+05:30</lastmod>
   </url>
   <url>
-    <loc>https://anooptube.in/playlists/</loc>
-    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
-  </url>
-  <url>
     <loc>https://anooptube.in/playlists/python/</loc>
     <lastmod>2026-08-15T19:48:00+05:30</lastmod>
   </url>
@@ -41,16 +73,8 @@
     <lastmod>2026-08-15T19:48:00+05:30</lastmod>
   </url>
   <url>
-    <loc>https://anooptube.in/tags/</loc>
-    <lastmod>2026-08-15T19:48:00+05:30</lastmod>
-  </url>
-  <url>
     <loc>https://anooptube.in/blog/post48/</loc>
     <lastmod>2026-08-15T19:48:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/playlists/flutter/</loc>
-    <lastmod>2026-03-31T19:21:55+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/playlists/software/</loc>
@@ -139,14 +163,6 @@
   <url>
     <loc>https://anooptube.in/blog/post32/</loc>
     <lastmod>2024-03-10T22:01:01+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/playlists/linux/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/tags/linux/</loc>
-    <lastmod>2024-03-03T17:15:32+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/blog/post31/</loc>

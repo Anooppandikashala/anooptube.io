@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post52/" />
+
+    <title>
+        Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened - #anooptube
+    </title><meta name="description" content="Linux Kernel 7.0 shipped a stable Rust implementation in April 2026, then a viral claim said it halved PostgreSQL throughput. Here&#39;s what the benchmarks actually show." />
+    <meta name="keywords" content="Linux kernel 7.0 PostgreSQL performance, Linux 7.0 Rust kernel, PostgreSQL throughput regression, Ubuntu 26.04 LTS PostgreSQL performance, Linux kernel 7.0 release, Postgres performance regression 2026, kernel upgrade database performance, Rust for Linux stable, Linux kernel Rust memory safety, PostgreSQL 18 io_uring, PostgreSQL 18 async I/O, io scheduler NVMe Linux, postgresql.conf tuning after kernel upgrade, benchmark PostgreSQL before upgrading kernel, is Rust replacing C in Linux kernel, Linux kernel 7.0 stability" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.75397851b0a6b461ea49efb16addfc5569efd996bfda018428ea9d1613383e89.css" integrity="sha256-dTl4UbCmtGHqSe+xat38VWnv2Za/2gGEKOqdFhM4Pok=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" />
+<meta property="og:description" content="Linux Kernel 7.0 shipped a stable Rust implementation in April 2026, then a viral claim said it halved PostgreSQL throughput. Here&#39;s what the benchmarks actually show." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post52/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-08-16T13:11:18+05:30" />
+<meta property="article:modified_time" content="2026-08-16T13:11:18+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/linux_kernal.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/linux_kernal.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    August 16, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/linux">Linux</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Linux\"",
+      "item": "\"https://anooptube.in/playlists/linux/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"Linux Kernel 7.0 Didn't Halve PostgreSQL Throughput — Here's What Actually Happened\"",
+      "item": "\"https://anooptube.in/blog/post52/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    August 16, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        13 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2731 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Linux</span>
+          </span>
+          <span class="series-nav-badge">3 / 3</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post28/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">Mastering Linux Commands</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post31/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">Mastering AWK in Linux</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/linux/" class="series-nav-footer-link">
+          View all in "Linux" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+<p>A headline went around a few weeks ago claiming Linux Kernel 7.0 &ldquo;halved PostgreSQL throughput.&rdquo; If you run any kind of production database on Linux, that&rsquo;s the kind of sentence that ruins your afternoon. I dug into it because I was about to upgrade a few boxes myself, and the real story is a lot less scary than the headline. It&rsquo;s also a much better story if you actually care about where Linux is heading, because the headline buried the genuinely interesting part — stable Rust support landing in the kernel — under a benchmark scare that mostly wasn&rsquo;t about the kernel at all.</p>
+<p>This post is the long version of what I found: what Linux Kernel 7.0 actually shipped, how the PostgreSQL throughput panic started and spread, a factor-by-factor breakdown of what was really going on, a practical way to benchmark your own upgrade before you trust anyone&rsquo;s headline (including mine), and what Rust-in-the-kernel means for where Linux stability is headed next.</p>
+<h2 id="what-actually-shipped-in-linux-kernel-70">What Actually Shipped in Linux Kernel 7.0</h2>
+<p>Linux 7.0 landed in April 2026, and the headline feature — the one that actually matters for the next decade of kernel development — is a stable Rust implementation inside the kernel. Not a toy module bolted onto the side, not an experimental build flag you had to explicitly opt into. Production-grade Rust code sitting alongside C in core subsystems, with a stable-enough ABI and tooling story that distributions felt comfortable shipping it by default.</p>
+<h3 id="a-decade-in-the-making">A Decade in the Making</h3>
+<p>Rust-for-Linux wasn&rsquo;t a surprise. Linus Torvalds first entertained the idea publicly around 2020–2021, and the project spent years fighting through the unglamorous parts of getting a second language into a 30-million-line C codebase: build system integration, cross-architecture toolchain support, getting <code>bindgen</code> to generate usable bindings against a kernel API surface that was never designed to be language-agnostic, and — maybe hardest of all — convincing skeptical C maintainers that this wasn&rsquo;t going to fork the project&rsquo;s culture in half. Rust support merged experimentally around Linux 6.1 in late 2022, and for years afterward it lived behind a <code>CONFIG_RUST</code> flag that most distro kernels left off. Kernel 7.0 is the point where that flag effectively goes away for a growing set of subsystems — the abstractions matured, the maintainer review process solidified, and enough real drivers shipped in Rust that the &ldquo;is this actually going to happen&rdquo; question stopped being interesting.</p>
+<h3 id="which-subsystems-actually-got-rust">Which Subsystems Actually Got Rust</h3>
+<p>This is the part people skip past to get to the drama, but it matters for the throughput story later. Rust in Kernel 7.0 isn&rsquo;t rewriting the scheduler or the VFS in Rust. It&rsquo;s concentrated in places where memory-safety bugs have historically been the most expensive and the most exploitable: driver code. Network card drivers, some NVMe driver infrastructure, GPU driver components, and a chunk of the Android binder subsystem either shipped as new Rust code or gained Rust-based alternatives sitting next to the existing C implementations. Core hot paths — the block layer, the VFS, most of the network stack, process scheduling — are still C, and will be C for a very long time. That distinction turns out to be central to debunking the throughput claim, because if you&rsquo;re looking for a Rust-caused slowdown in PostgreSQL&rsquo;s actual I/O path, you&rsquo;re looking at code that, for the most part, wasn&rsquo;t rewritten in Rust at all.</p>
+<h3 id="why-memory-safety-is-the-actual-point">Why Memory Safety Is the Actual Point</h3>
+<p>The reason any of this matters isn&rsquo;t speed — Rust in the kernel isn&rsquo;t meaningfully faster than equivalent C in the paths that matter, and nobody serious claimed it would be. The point is that somewhere around 60-70% of historically disclosed Linux kernel CVEs trace back to memory-safety bugs: use-after-free, buffer overflows, double-frees, data races in code that&rsquo;s supposed to be careful about concurrency and mostly manages it, until it doesn&rsquo;t. Rust&rsquo;s ownership model catches entire categories of those bugs at compile time. Driver code is disproportionately where this bites, because drivers are written by a much wider pool of contributors with much less scrutiny than core subsystems, and drivers run in kernel context with full privileges. Moving new driver code to Rust doesn&rsquo;t eliminate the C surface area, but it stops the bleeding in the place that&rsquo;s bled the most.</p>
+<p><img src="/blogs-images/linux-kernel-7-rust-subsystems-diagram.webp" alt="Linux kernel architecture diagram showing Rust driver subsystems alongside C core"></p>
+<h2 id="how-the-throughput-panic-started-and-spread">How the Throughput Panic Started and Spread</h2>
+<p>The scare specifically hit people running PostgreSQL on Ubuntu 26.04 LTS after upgrading — Ubuntu&rsquo;s first LTS to ship Kernel 7.0 by default, which put it in front of a huge number of production database servers all at once. The pattern was depressingly familiar if you&rsquo;ve watched a viral tech claim propagate before:</p>
+<ol>
+<li>A handful of teams ran their existing benchmark suite against the new kernel post-upgrade and saw numbers that looked like roughly half the throughput of before.</li>
+<li>Someone posted the raw numbers to a forum/socials without much methodology detail — no storage backend noted, no PostgreSQL version pinned, no mention of whether <code>postgresql.conf</code> had been touched.</li>
+<li>The framing &ldquo;Linux Kernel 7.0 halved PostgreSQL throughput&rdquo; is a much better headline than &ldquo;our benchmark regressed and we haven&rsquo;t isolated why yet,&rdquo; so that&rsquo;s the version that got quoted, screenshotted, and reposted.</li>
+<li>By the time people with actual reproduction setups tried to confirm it, the claim had already hardened into &ldquo;received wisdom&rdquo; that Kernel 7.0 was bad for databases — and a lot of the pushback and nuance in replies never got the same reach as the original claim.</li>
+</ol>
+<p>This is the standard shape of a benchmark panic: a real, measured regression on somebody&rsquo;s specific box, generalized into a universal claim, decoupled from the messy configuration details that would have explained it. None of that means nothing regressed anywhere — it means the causal story (&ldquo;the kernel did this&rdquo;) was wrong or at least badly incomplete.</p>
+<h2 id="breaking-down-each-contributing-factor">Breaking Down Each Contributing Factor</h2>
+<p>I went through as many of the public benchmark threads as I could find, plus reproduced a version of the setup myself on a couple of spare NVMe-backed VMs. Three things were tangled together, and disentangling them is most of the actual story.</p>
+<h3 id="io-scheduler-defaults-per-storage-backend">I/O Scheduler Defaults Per Storage Backend</h3>
+<p>Linux&rsquo;s block layer picks an I/O scheduler per block device, and the &ldquo;best&rdquo; choice has always depended heavily on the underlying storage. Kernel 7.0 changed some default scheduler selection heuristics — not the schedulers themselves, but which one gets auto-assigned to which device class on first boot. For NVMe devices, <code>none</code> (pure FIFO, letting the device&rsquo;s own internal queueing do the work) has been the sane default for years because NVMe hardware queues are deep and fast enough that software scheduling mostly just adds overhead. For rotational disks, <code>bfq</code> or <code>mq-deadline</code> still make sense because seek cost is real. For virtualized/cloud block storage (EBS-style volumes, Azure managed disks), the right answer is murkier and depends on the hypervisor&rsquo;s own queueing behavior.</p>
+<p>Some Ubuntu 26.04 images shipped with a scheduler auto-detection change that, on certain virtualized NVMe-emulated devices, picked a scheduler tuned for physical NVMe when the underlying cloud storage behaved more like network-attached storage with higher and more variable latency. That mismatch alone can produce a very real, very measurable throughput drop under high-concurrency write workloads — the kind PostgreSQL benchmarks specifically stress. Checking this is a one-liner:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Current scheduler per block device (the one in brackets is active)</span>
+<span style="color:#ff79c6">for</span> dev in /sys/block/*/queue/scheduler; <span style="color:#ff79c6">do</span>
+  <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$dev</span><span style="color:#f1fa8c">: </span><span style="color:#ff79c6">$(</span>cat <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$dev</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<span style="color:#ff79c6">done</span>
+
+<span style="color:#6272a4"># Example output:</span>
+<span style="color:#6272a4"># /sys/block/nvme0n1/queue/scheduler: [none] mq-deadline</span>
+</code></pre></div><p>If you see a scheduler you didn&rsquo;t choose and don&rsquo;t recognize as appropriate for your storage, that&rsquo;s factor one, ruled in or out in about ten seconds.</p>
+<h3 id="configuration-drift-postgresqlconf-tuning">Configuration Drift: postgresql.conf Tuning</h3>
+<p>Several of the worst-looking numbers came from systems where <code>postgresql.conf</code> tuning simply hadn&rsquo;t been revisited after the OS upgrade. <code>work_mem</code>, <code>shared_buffers</code>, <code>effective_io_concurrency</code>, and <code>maintenance_work_mem</code> are all values people tune once, based on the I/O and memory characteristics of a specific kernel/storage combination, and then never touch again. When the underlying I/O path changes — new scheduler defaults, new async I/O behavior — those old values can stop being the right answer without anyone noticing, because nothing &ldquo;broke&rdquo; in an obvious way. The database still starts, queries still run, they&rsquo;re just slower, and the kernel upgrade is the most recent change so it gets blamed.</p>
+<p><code>effective_io_concurrency</code> in particular is exactly the kind of setting that quietly rots: it tells the planner how many concurrent I/O requests it can reasonably issue for bitmap heap scans, and the &ldquo;reasonable&rdquo; number is a function of how deep your storage&rsquo;s queue actually is. A value tuned for a spinning-disk-era default of <code>2</code> sitting untouched on hardware that can comfortably handle <code>200</code> under async I/O is real money left on the table — and it looks exactly like a mystery regression if you don&rsquo;t know to check it.</p>
+<h3 id="postgresql-18s-new-io-subsystem-and-how-it-interacts-with-kernel-changes">PostgreSQL 18&rsquo;s New I/O Subsystem, and How It Interacts With Kernel Changes</h3>
+<p>This is the part that got the most lost in the noise, and it&rsquo;s the most interesting one. PostgreSQL 18 shipped its own new asynchronous I/O subsystem around the same window as Kernel 7.0 — a rework that, depending on platform and <code>io_method</code> setting, can use <code>io_uring</code> on Linux to batch and pipeline reads instead of the traditional synchronous-per-backend read path. Under the right conditions this is a genuinely large win, with read-heavy workloads seeing up to roughly 3x improvement in some published benchmarks. Under the wrong conditions — a default <code>io_method</code> that doesn&rsquo;t match your kernel&rsquo;s io_uring support level, or a workload that doesn&rsquo;t benefit from batching the way sequential-scan-heavy benchmarks do — the new path can behave differently enough from the PG17-era synchronous behavior that a benchmark tuned for the old defaults regresses.</p>
+<p>Some of the &ldquo;kernel caused a 2x regression&rdquo; reports were, on closer inspection, PostgreSQL 18&rsquo;s new AIO path interacting badly with untuned settings, running on top of a kernel upgrade that happened at the same time — two independent changes, stacked, misattributed entirely to the one that made the news. Separating them means testing them independently:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6272a4">-- Check current I/O method (PostgreSQL 18+)
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">SHOW</span> io_method;
+
+<span style="color:#6272a4">-- Options are typically: sync, worker, io_uring
+</span><span style="color:#6272a4">-- Try forcing the traditional synchronous path to isolate the variable
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">ALTER</span> <span style="color:#ff79c6">SYSTEM</span> <span style="color:#ff79c6">SET</span> io_method <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;sync&#39;</span>;
+<span style="color:#ff79c6">SELECT</span> pg_reload_conf();
+</code></pre></div><p>If your &ldquo;regression&rdquo; disappears when you pin <code>io_method</code> back to <code>sync</code>, you&rsquo;ve found a PostgreSQL 18 I/O tuning issue, not a kernel defect — and you can then re-enable <code>io_uring</code> deliberately and tune around it instead of reverting the whole upgrade out of fear.</p>
+<p><img src="/blogs-images/postgresql-18-io-uring-benchmark-comparison.webp" alt="PostgreSQL benchmark graph comparing io_uring async I/O against synchronous I/O throughput"></p>
+<h2 id="how-to-benchmark-your-own-kernel-upgrade-safely">How to Benchmark Your Own Kernel Upgrade Safely</h2>
+<p>Here&rsquo;s the process I&rsquo;d actually run before trusting any headline about a kernel upgrade breaking a database — mine included.</p>
+<p><strong>1. Baseline on the old kernel first, with your real workload.</strong> Generic <code>sysbench</code> numbers tell you about <code>sysbench</code>, not about your application. Use <code>pgbench</code> with a custom script built from your actual slow-query log if you have one, or at minimum a realistic mix of reads and writes at your real concurrency level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># Initialize a scaled test database</span>
+pgbench -i -s <span style="color:#bd93f9">100</span> postgres_bench
+
+<span style="color:#6272a4"># Run a mixed read/write workload at realistic concurrency,</span>
+<span style="color:#6272a4"># 10 minutes, reporting per-transaction latency</span>
+pgbench -c <span style="color:#bd93f9">32</span> -j <span style="color:#bd93f9">8</span> -T <span style="color:#bd93f9">600</span> -P <span style="color:#bd93f9">30</span> --report-latencies postgres_bench
+</code></pre></div><p><strong>2. Record the environment, not just the numbers.</strong> Kernel version, I/O scheduler per device, PostgreSQL version, <code>io_method</code>, and the full output of <code>postgresql.conf</code> non-default settings (<code>SELECT name, setting FROM pg_settings WHERE source != 'default';</code>). A number without this context is not reproducible and shouldn&rsquo;t move anyone&rsquo;s decision, including your own next month.</p>
+<p><strong>3. Upgrade a canary node only.</strong> Not the fleet, not even the read replica everyone forgot mattered. One node, same hardware class as production, same data volume if at all feasible.</p>
+<p><strong>4. Re-run the identical benchmark on the canary, then diff the environment before you diff the numbers.</strong> Check the scheduler:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /sys/block/nvme0n1/queue/scheduler
+</code></pre></div><p>Check <code>io_method</code> if you&rsquo;re on PostgreSQL 18+. Check whether any <code>postgresql.conf</code> values got reset to package defaults during the upgrade — this happens more often than people expect when a packaging script touches the config file.</p>
+<p><strong>5. Change one variable at a time.</strong> If the canary regresses, don&rsquo;t immediately roll back the kernel — first try reverting just the I/O scheduler to your old default, or just the <code>io_method</code>, and re-benchmark. This is the only way to actually attribute a regression instead of guessing.</p>
+<p><strong>6. Only then roll out fleet-wide</strong>, ideally with the same monitoring dashboards open that caught the regression in the first place, so a real problem doesn&rsquo;t hide behind &ldquo;it&rsquo;s probably fine now.&rdquo;</p>
+<p>This is boring advice. It&rsquo;s boring because it works, and because skipping it is exactly how a scheduler default and an untouched config file turn into a viral kernel-blaming headline.</p>
+<h2 id="what-rust-in-the-kernel-means-for-the-future-of-linux-stability">What Rust in the Kernel Means for the Future of Linux Stability</h2>
+<p>Stepping back from the PostgreSQL scare, the actually durable news in Kernel 7.0 is what stable Rust support signals for where Linux stability is headed. Kernel panics and security patches disproportionately trace back to driver bugs — and drivers are exactly where Rust adoption is concentrated right now. Every driver subsystem that moves to Rust, or gains a Rust-based alternative implementation, is a chunk of surface area where an entire bug class — use-after-free, buffer overrun, data race — becomes a compile-time error instead of a 2 a.m. page. That&rsquo;s not a performance story, it&rsquo;s a reliability story, and it compounds: fewer driver crashes means fewer kernel panics on exotic hardware, fewer emergency CVE patches, fewer distros needing to backport urgent fixes to LTS branches.</p>
+<p>It also changes who can safely contribute to the kernel. C kernel development has an infamously long on-ramp specifically because the failure modes are so unforgiving and so hard to catch in review. Rust&rsquo;s compiler catches a meaningful fraction of what used to require a maintainer&rsquo;s years of pattern-matched experience to spot in a diff. That doesn&rsquo;t make kernel development easy, but it lowers the floor for new driver contributors without lowering the safety bar — which, for a project that&rsquo;s always been bottlenecked on maintainer review bandwidth, is a genuinely big structural change, not just a language preference.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Does Linux Kernel 7.0 slow down PostgreSQL?</strong>
+Not inherently, and not in the core kernel code path PostgreSQL actually exercises. The measured regressions people saw traced to I/O scheduler default mismatches on specific virtualized storage, stale <code>postgresql.conf</code> tuning left over from a previous kernel/storage combination, and PostgreSQL 18&rsquo;s own new async I/O subsystem interacting with untuned settings — not to anything in the kernel&rsquo;s new Rust code.</p>
+<p><strong>Is Rust replacing C in the Linux kernel?</strong>
+No, and nobody credible in the Rust-for-Linux effort is claiming that&rsquo;s the goal. Rust is being added alongside C, concentrated in new driver code and a handful of subsystems where memory-safety bugs have historically been costliest. Core hot paths — scheduler, VFS, most of the network stack, the block layer — remain C and will stay C for the foreseeable future. It&rsquo;s addition, not replacement.</p>
+<p><strong>Should I hold off upgrading to Kernel 7.0 on my database servers?</strong>
+Not on the basis of this claim specifically — the underlying regressions were configuration issues, not kernel defects, and they&rsquo;re fixable without reverting the kernel. That said, &ldquo;benchmark your own workload on a canary before a fleet-wide upgrade&rdquo; is good advice for every kernel upgrade, Rust or not, and doubly true right after a major PostgreSQL version bump that changes its own I/O behavior.</p>
+<p><strong>How do I tell if a slowdown is the kernel or PostgreSQL 18&rsquo;s new I/O subsystem?</strong>
+Isolate the variables. Check <code>SHOW io_method;</code> and try pinning it to <code>sync</code> to rule PostgreSQL&rsquo;s async I/O path in or out, and check <code>/sys/block/*/queue/scheduler</code> to rule the kernel&rsquo;s I/O scheduler in or out. If reverting one variable at a time fixes it, you&rsquo;ve found your actual cause instead of the convenient one.</p>
+<h2 id="closing-thought">Closing Thought</h2>
+<p>Rust-in-the-kernel is a real milestone, and it&rsquo;s worth paying attention to for entirely different reasons than the ones that made it trend — memory safety and long-term maintainer bandwidth, not raw throughput. The PostgreSQL throughput scare was mostly a configuration and timing coincidence: an I/O scheduler default that didn&rsquo;t fit certain virtualized storage, tuning values nobody revisited, and a brand-new PostgreSQL I/O subsystem landing in the same season and getting blamed on its neighbor. Upgrade, but benchmark your own workload on your own hardware before you trust a headline about what a kernel release did to a database — including this one.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=Linux&#43;Kernel&#43;7.0&#43;Didn%27t&#43;Halve&#43;PostgreSQL&#43;Throughput&#43;%E2%80%94&#43;Here%27s&#43;What&#43;Actually&#43;Happened&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost52%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost52%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post31/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Linux</span>
+                <span class="post-nav-title">Mastering AWK in Linux</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-actually-shipped-in-linux-kernel-70">What Actually Shipped in Linux Kernel 7.0</a>
+      <ul>
+        <li><a href="#a-decade-in-the-making">A Decade in the Making</a></li>
+        <li><a href="#which-subsystems-actually-got-rust">Which Subsystems Actually Got Rust</a></li>
+        <li><a href="#why-memory-safety-is-the-actual-point">Why Memory Safety Is the Actual Point</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-the-throughput-panic-started-and-spread">How the Throughput Panic Started and Spread</a></li>
+    <li><a href="#breaking-down-each-contributing-factor">Breaking Down Each Contributing Factor</a>
+      <ul>
+        <li><a href="#io-scheduler-defaults-per-storage-backend">I/O Scheduler Defaults Per Storage Backend</a></li>
+        <li><a href="#configuration-drift-postgresqlconf-tuning">Configuration Drift: postgresql.conf Tuning</a></li>
+        <li><a href="#postgresql-18s-new-io-subsystem-and-how-it-interacts-with-kernel-changes">PostgreSQL 18&rsquo;s New I/O Subsystem, and How It Interacts With Kernel Changes</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-benchmark-your-own-kernel-upgrade-safely">How to Benchmark Your Own Kernel Upgrade Safely</a></li>
+    <li><a href="#what-rust-in-the-kernel-means-for-the-future-of-linux-stability">What Rust in the Kernel Means for the Future of Linux Stability</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing Thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post53/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post50/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/simple_ai_agent.webp" alt="Build a Simple AI Agent in Python (No Framework Needed)" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Build a Simple AI Agent in Python (No Framework Needed)</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 15, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post49/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/cpp_rust_go.webp" alt="C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 15, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post31/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/awk.webp" alt="Mastering AWK in Linux" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 3, 24
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/linux" class="card-tag">linux</a>
+            
+            <a href="/tags/commands" class="card-tag">commands</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post31/" class="card-content-link">
+            <div class="card-title">Mastering AWK in Linux</div>
+
+            
+            <div class="card-desc">Mastering AWK in Linux: A Comprehensive Guide for Beginners</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        6 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post28/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/linux_commands.webp" alt="Mastering Linux Commands" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Feb 12, 24
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/linux" class="card-tag">linux</a>
+            
+            <a href="/tags/commands" class="card-tag">commands</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post28/" class="card-content-link">
+            <div class="card-title">Mastering Linux Commands</div>
+
+            
+            <div class="card-desc">Mastering Linux Commands for Exams and Interviews</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        3 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post49/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/cpp_rust_go.webp" alt="C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 15, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/rust" class="card-tag">rust</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post49/" class="card-content-link">
+            <div class="card-title">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</div>
+
+            
+            <div class="card-desc">C&#43;&#43; vs Rust vs Go in 2026 compared for performance, memory safety, and real use cases — which systems language is worth learning right now.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post52/\""
+  },
+  "headline": "\"Linux Kernel 7.0 Didn't Halve PostgreSQL Throughput — Here's What Actually Happened\"",
+  "description": "\"Linux Kernel 7.0 shipped a stable Rust implementation in April 2026, then a viral claim said it halved PostgreSQL throughput. Here's what the benchmarks actually show.\"",
+  "datePublished": "2026-08-16T13:11:18\u002b05:30",
+  "dateModified": "2026-08-16T13:11:18\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/linux_kernal.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post52/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

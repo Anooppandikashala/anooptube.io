@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post53/" />
+
+    <title>
+        What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI - #anooptube
+    </title><meta name="description" content="Flutter 3.44 and Dart 3.12 bring Agentic Hot Reload and Genkit AI integration for building AI-ready apps — here&#39;s what changed and how to try it." />
+    <meta name="keywords" content="Flutter 3.44 new features, Dart 3.12 release notes, Agentic Hot Reload Flutter, Genkit Dart AI, Flutter AI-powered apps 2026, Dart and Flutter MCP Server, Create with AI Flutter, Gemini Code Assist Flutter, Model Context Protocol Flutter, Flutter AI agent tooling, flutter upgrade 3.44, Dart 3.12 features, Genkit flow example Dart, Flutter MCP server setup, AI-native Flutter development" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.75397851b0a6b461ea49efb16addfc5569efd996bfda018428ea9d1613383e89.css" integrity="sha256-dTl4UbCmtGHqSe+xat38VWnv2Za/2gGEKOqdFhM4Pok=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" />
+<meta property="og:description" content="Flutter 3.44 and Dart 3.12 bring Agentic Hot Reload and Genkit AI integration for building AI-ready apps — here&#39;s what changed and how to try it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post53/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-08-16T13:11:18+05:30" />
+<meta property="article:modified_time" content="2026-08-16T13:11:18+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/flutter_3_4_4.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/flutter_3_4_4.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    August 16, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/flutter">Flutter</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Flutter\"",
+      "item": "\"https://anooptube.in/playlists/flutter/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"What's New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI\"",
+      "item": "\"https://anooptube.in/blog/post53/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    August 16, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2235 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Flutter</span>
+          </span>
+          <span class="series-nav-badge">5 / 5</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post33/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">Build Your First Mobile-App in Flutter</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post34/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">Understanding Stateless and Stateful Widgets in Flutter</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post44/" class="series-nav-link">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">I Built a Free, Offline Invoice App with Flutter</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post47/" class="series-nav-link">
+                <span class="series-nav-num">4</span>
+                <span class="series-nav-name">What I Shipped This Month Building Invoiso (v3.4.2)</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">5</span>
+                <span class="series-nav-name">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/flutter/" class="series-nav-footer-link">
+          View all in "Flutter" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+<p>Flutter 3.44 has been out since May, and by the time I got around to actually upgrading a project, I realized I&rsquo;d been ignoring the more interesting half of the release. It&rsquo;s not just UI widgets anymore — it&rsquo;s AI tooling baked straight into the framework. I spent a weekend actually using Agentic Hot Reload, wiring up a Genkit flow, and pointing an AI coding assistant at the new Dart and Flutter MCP Server. This post is the long version of what I found, including the code, the setup commands, and where I think this stuff is actually useful versus where it&rsquo;s still rough.</p>
+<h2 id="flutter-344-and-dart-312-the-overview-and-why-it-matters">Flutter 3.44 and Dart 3.12: the overview and why it matters</h2>
+<p>Every Flutter release brings the usual pile of widget tweaks, rendering engine fixes, and platform channel updates. Flutter 3.44 and Dart 3.12 have those too, but the headline story is different — this is the release where the Flutter team leaned all the way into &ldquo;AI-native development&rdquo; as a first-class concern instead of a side project.</p>
+<p>Three things define this release for me:</p>
+<ul>
+<li><strong>Agentic Hot Reload</strong> — the classic hot reload loop, but exposed in a way AI coding agents can drive and verify against, not just humans.</li>
+<li><strong>Genkit for Dart</strong> — Google&rsquo;s AI orchestration framework, previously JS/Go only, now has a proper Dart implementation that runs in the same process as your Flutter app.</li>
+<li><strong>The Dart &amp; Flutter MCP Server</strong> — a Model Context Protocol server that gives AI tools structured, semantic access to your Flutter project instead of forcing them to grep through source files.</li>
+</ul>
+<p>Why does this matter beyond &ldquo;cool, more AI buzzwords&rdquo;? Because the actual pain point these three features attack is real: AI coding agents are increasingly writing Flutter code, but until now they&rsquo;ve been flying half-blind — no fast feedback loop, no native way to call an LLM without leaving Dart, and no structured understanding of what a Flutter project even looks like. Flutter 3.44 closes all three gaps in the same release, which is why I think it&rsquo;s more significant than a typical point release even though the widget-level changes are modest.</p>
+<p><img src="/blogs-images/flutter-3-44-dart-3-12-overview.webp" alt="Flutter 3.44 and Dart 3.12 release overview diagram"></p>
+<h2 id="agentic-hot-reload-how-it-works-and-why-its-different-from-regular-hot-reload">Agentic Hot Reload: how it works and why it&rsquo;s different from regular hot reload</h2>
+<p>Hot reload has always been Flutter&rsquo;s party trick — change code, see it update in under a second, no full rebuild, no lost app state. That loop is why Flutter development feels fast even on complex UIs. Agentic Hot Reload extends that same instant-feedback mechanism to AI coding agents working inside your Flutter project, but the mechanics of <em>why</em> it matters are worth unpacking.</p>
+<p>Under the hood, regular hot reload works by injecting updated Dart code into the running Dart VM and re-running <code>build()</code> methods, without restarting the app or losing widget state. It&rsquo;s fast because it skips the compile-link-launch cycle entirely. Agentic Hot Reload exposes that same VM-level injection path through a structured interface an agent can call programmatically — the agent doesn&rsquo;t need to shell out to <code>flutter run</code> and parse terminal output to know if a change worked. It gets a direct signal: reload succeeded, here&rsquo;s the resulting widget tree state, here&rsquo;s whether an exception was thrown during rebuild.</p>
+<p>That distinction — a structured success/failure signal instead of scraped terminal output — is the actual engineering improvement. It sounds small, but it changes the shape of an agent&rsquo;s workflow entirely.</p>
+<h3 id="beforeafter-what-changes-in-the-actual-workflow">Before/after: what changes in the actual workflow</h3>
+<p><strong>Before Agentic Hot Reload</strong>, an AI coding agent editing a Flutter widget had to:</p>
+<ol>
+<li>Write the code change to a file.</li>
+<li>Trigger a full <code>flutter run</code> or restart, or ask the human to confirm it looks right.</li>
+<li>Parse console output or a screenshot to guess whether the change worked.</li>
+<li>Repeat, with no reliable way to distinguish &ldquo;compiled fine but looks wrong&rdquo; from &ldquo;crashed.&rdquo;</li>
+</ol>
+<p><strong>After Agentic Hot Reload</strong>, the same loop looks like:</p>
+<ol>
+<li>Write the code change to a file.</li>
+<li>Call the reload endpoint directly — no full rebuild, sub-second turnaround.</li>
+<li>Get back a structured result: reload succeeded/failed, any rebuild exceptions, and (depending on tooling) a widget tree diff.</li>
+<li>Iterate immediately on the next fix if something&rsquo;s still off, in the same session, without waiting on a human to eyeball a screenshot.</li>
+</ol>
+<p>If you&rsquo;ve ever watched an AI agent &ldquo;fix&rdquo; a layout bug, declare success, and then be wrong because it never actually saw the rendered result, this is the feature that closes that gap. It&rsquo;s the difference between an agent <em>guessing</em> a fix worked and <em>observing</em> that it worked, in the same tight loop a human developer already relies on.</p>
+<h2 id="genkit-for-dart-what-it-is-and-a-fuller-working-example">Genkit for Dart: what it is and a fuller working example</h2>
+<p>Genkit is Google&rsquo;s open-source framework for building AI-powered application logic — flows, prompts, tool calls, retrieval steps — with a consistent structure regardless of which model or vector store backs it. It started life as a JS and Go framework used mostly for backend AI services. The genuinely new part in this release is that Genkit now has a first-class Dart implementation that runs <em>inside</em> your Flutter app&rsquo;s own process, using the same <code>pubspec.yaml</code>-managed dependencies as everything else.</p>
+<p>Practically, that means you can wire an LLM call, a tool-calling flow, or a RAG-style retrieval step into a Flutter app using the same idioms you already use for the rest of your Dart code — no separate Node or Python microservice just to make one Gemini call.</p>
+<p>Here&rsquo;s the simple case, a single summarization flow:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;package:genkit/genkit.dart&#39;</span>;
+
+<span style="color:#8be9fd;font-style:italic">final</span> summarizeFlow <span style="color:#ff79c6">=</span> defineFlow(
+  <span style="color:#8be9fd;font-style:italic">name:</span> <span style="color:#f1fa8c">&#39;summarize&#39;</span>,
+  <span style="color:#8be9fd;font-style:italic">inputSchema:</span> StringSchema(),
+  <span style="color:#8be9fd;font-style:italic">outputSchema:</span> StringSchema(),
+  <span style="color:#8be9fd;font-style:italic">handler:</span> (input) <span style="color:#8be9fd;font-style:italic">async</span> {
+    <span style="color:#8be9fd;font-style:italic">final</span> response <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">await</span> generate(
+      <span style="color:#8be9fd;font-style:italic">model:</span> geminiPro,
+      <span style="color:#8be9fd;font-style:italic">prompt:</span> <span style="color:#f1fa8c">&#39;Summarize this: </span><span style="color:#f1fa8c">$</span>input<span style="color:#f1fa8c">&#39;</span>,
+    );
+    <span style="color:#ff79c6">return</span> response.text;
+  },
+);
+</code></pre></div><p>That&rsquo;s fine for a demo, but it doesn&rsquo;t show what actually makes Genkit interesting: composing a tool call and a retrieval step into one flow. Here&rsquo;s a fuller example — a support-ticket triage flow that looks up related past tickets (a RAG-style step) and calls a tool to check current system status before generating a response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;package:genkit/genkit.dart&#39;</span>;
+
+<span style="color:#6272a4">// A tool the model can decide to call mid-flow.
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">final</span> checkSystemStatusTool <span style="color:#ff79c6">=</span> defineTool(
+  <span style="color:#8be9fd;font-style:italic">name:</span> <span style="color:#f1fa8c">&#39;checkSystemStatus&#39;</span>,
+  <span style="color:#8be9fd;font-style:italic">description:</span> <span style="color:#f1fa8c">&#39;Returns current status of backend services&#39;</span>,
+  <span style="color:#8be9fd;font-style:italic">inputSchema:</span> ObjectSchema({<span style="color:#f1fa8c">&#39;service&#39;</span><span style="color:#ff79c6">:</span> StringSchema()}),
+  <span style="color:#8be9fd;font-style:italic">outputSchema:</span> StringSchema(),
+  <span style="color:#8be9fd;font-style:italic">handler:</span> (input) <span style="color:#8be9fd;font-style:italic">async</span> {
+    <span style="color:#8be9fd;font-style:italic">final</span> service <span style="color:#ff79c6">=</span> input[<span style="color:#f1fa8c">&#39;service&#39;</span>] <span style="color:#ff79c6">as</span> <span style="color:#8be9fd">String</span>;
+    <span style="color:#6272a4">// In a real app this hits your status API.
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> service <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;auth&#39;</span> <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">&#39;degraded&#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;operational&#39;</span>;
+  },
+);
+
+<span style="color:#6272a4">// A RAG-style retrieval step against a vector store of past tickets.
+</span><span style="color:#6272a4"></span>Future<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">&gt;&gt;</span> retrieveSimilarTickets(<span style="color:#8be9fd">String</span> query) <span style="color:#8be9fd;font-style:italic">async</span> {
+  <span style="color:#8be9fd;font-style:italic">final</span> results <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">await</span> vectorStore.similaritySearch(
+    <span style="color:#8be9fd;font-style:italic">query:</span> query,
+    <span style="color:#8be9fd;font-style:italic">topK:</span> <span style="color:#bd93f9">3</span>,
+  );
+  <span style="color:#ff79c6">return</span> results.map((r) <span style="color:#ff79c6">=&gt;</span> r.content).toList();
+}
+
+<span style="color:#8be9fd;font-style:italic">final</span> triageFlow <span style="color:#ff79c6">=</span> defineFlow(
+  <span style="color:#8be9fd;font-style:italic">name:</span> <span style="color:#f1fa8c">&#39;triageTicket&#39;</span>,
+  <span style="color:#8be9fd;font-style:italic">inputSchema:</span> StringSchema(),
+  <span style="color:#8be9fd;font-style:italic">outputSchema:</span> StringSchema(),
+  <span style="color:#8be9fd;font-style:italic">handler:</span> (ticketText) <span style="color:#8be9fd;font-style:italic">async</span> {
+    <span style="color:#8be9fd;font-style:italic">final</span> similarTickets <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">await</span> retrieveSimilarTickets(ticketText);
+
+    <span style="color:#8be9fd;font-style:italic">final</span> response <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">await</span> generate(
+      <span style="color:#8be9fd;font-style:italic">model:</span> geminiPro,
+      <span style="color:#8be9fd;font-style:italic">tools:</span> [checkSystemStatusTool],
+      <span style="color:#8be9fd;font-style:italic">prompt:</span> <span style="color:#f1fa8c">&#39;&#39;&#39;
+</span><span style="color:#f1fa8c">        New support ticket: </span><span style="color:#f1fa8c">$</span>ticketText<span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">        Similar past tickets for context:
+</span><span style="color:#f1fa8c">        </span><span style="color:#f1fa8c">${</span>similarTickets.join(<span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">---</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>)<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">        Check relevant system status if needed, then draft a
+</span><span style="color:#f1fa8c">        triage note with severity and suggested next step.
+</span><span style="color:#f1fa8c">      &#39;&#39;&#39;</span>,
+    );
+
+    <span style="color:#ff79c6">return</span> response.text;
+  },
+);
+</code></pre></div><p>Run it from anywhere in your Flutter app — a button handler, a background isolate, a Cloud Function calling into shared Dart code — with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#8be9fd;font-style:italic">final</span> result <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">await</span> triageFlow(<span style="color:#f1fa8c">&#39;Users can&#39;</span>t log <span style="color:#ff79c6">in</span> since <span style="color:#ff79c6">this</span> morning<span style="color:#f1fa8c">&#39;);</span>
+print(result);
+</code></pre></div><p>The model here can decide, on its own, to call <code>checkSystemStatusTool</code> before answering, and it has retrieved context from <code>retrieveSimilarTickets</code> already folded into the prompt. That&rsquo;s the actual shape of Genkit&rsquo;s value: flows, tools, and retrieval composed as ordinary Dart functions and schemas, type-checked at compile time, instead of hand-rolled JSON prompt strings glued together in a separate service.</p>
+<p>That&rsquo;s a genuinely new category of Flutter app — not &ldquo;app with a chat widget bolted on,&rdquo; but AI as a native part of the app&rsquo;s logic layer, versioned and tested alongside the UI code that calls it.</p>
+<p><img src="/blogs-images/genkit-dart-flow-tool-call-rag.webp" alt="Genkit Dart AI flow diagram with tool calling and retrieval"></p>
+<h2 id="the-dart--flutter-mcp-server-explained">The Dart &amp; Flutter MCP Server, explained</h2>
+<p>If you haven&rsquo;t run into Model Context Protocol (MCP) yet: it&rsquo;s an open protocol, originally from Anthropic, for giving AI tools structured access to context and actions — think of it as a standard plug shape so any MCP-aware AI assistant can talk to any MCP-exposing tool or data source without custom integration code for each pair.</p>
+<p>The Dart and Flutter MCP Server is Google&rsquo;s MCP server for Flutter projects specifically. Instead of an AI coding assistant reading raw <code>.dart</code> files and guessing at your project&rsquo;s shape, the MCP server exposes structured, semantic information: your widget tree, <code>pubspec.yaml</code> dependencies and their versions, configured platform targets, active routes, and (combined with Agentic Hot Reload) live reload status.</p>
+<p>Concretely, this is what changes for you day to day:</p>
+<ul>
+<li><strong>Fewer hallucinated APIs.</strong> An agent querying the MCP server knows exactly which package versions are in your <code>pubspec.yaml</code>, so it stops suggesting APIs from a Riverpod version you&rsquo;re not using.</li>
+<li><strong>Project-aware suggestions.</strong> Ask an MCP-connected assistant to &ldquo;add a new screen&rdquo; and it already knows your routing setup and folder conventions instead of inventing its own.</li>
+<li><strong>Faster diagnosis.</strong> Combined with Agentic Hot Reload, an agent can query live widget tree state through MCP, spot the actual broken node, and target a fix — rather than pattern-matching on an error string.</li>
+</ul>
+<p>If you&rsquo;re using an AI coding assistant like Gemini Code Assist or Gemini CLI on a Flutter codebase, this is what makes its suggestions genuinely Flutter-aware instead of generic Dart guesses bolted onto a general-purpose model.</p>
+<h2 id="how-to-try-this-today-step-by-step-setup">How to try this today: step-by-step setup</h2>
+<p>Here&rsquo;s the actual migration path I used, in order.</p>
+<p><strong>1. Check your current version and upgrade Flutter:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flutter --version
+flutter channel stable
+flutter upgrade
+</code></pre></div><p>Confirm you&rsquo;re on Flutter 3.44.x and Dart 3.12.x:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flutter --version
+<span style="color:#6272a4"># Flutter 3.44.x • Dart 3.12.x</span>
+</code></pre></div><p><strong>2. Add Genkit to your project&rsquo;s <code>pubspec.yaml</code>:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">dependencies</span>:
+  <span style="color:#ff79c6">flutter</span>:
+    <span style="color:#ff79c6">sdk</span>: flutter
+  <span style="color:#ff79c6">genkit</span>: ^1.0.0
+  <span style="color:#ff79c6">genkit_google_ai</span>: ^1.0.0
+</code></pre></div><p>Then fetch packages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flutter pub get
+</code></pre></div><p><strong>3. Set your model provider API key</strong> (Gemini, in this example) as an environment variable rather than hardcoding it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">GEMINI_API_KEY</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;your-key-here&#34;</span>
+</code></pre></div><p><strong>4. Enable the Dart &amp; Flutter MCP Server</strong> for your editor/agent of choice. For an MCP-compatible client, add an entry pointing at the Dart MCP server binary — typically via your editor&rsquo;s MCP server configuration file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;mcpServers&#34;</span>: {
+    <span style="color:#ff79c6">&#34;dart&#34;</span>: {
+      <span style="color:#ff79c6">&#34;command&#34;</span>: <span style="color:#f1fa8c">&#34;dart&#34;</span>,
+      <span style="color:#ff79c6">&#34;args&#34;</span>: [<span style="color:#f1fa8c">&#34;mcp-server&#34;</span>]
+    }
+  }
+}
+</code></pre></div><p>Restart your editor or AI CLI tool after saving that config so it picks up the new server.</p>
+<p><strong>5. Verify Agentic Hot Reload is active</strong> by running your app in debug mode as usual:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flutter run
+</code></pre></div><p>An MCP-aware agent connected to the running session should now be able to trigger reloads and read back structured results without you manually confirming each change in a screenshot.</p>
+<p>That&rsquo;s the whole migration for a typical existing project — no breaking API changes forced the upgrade for me, which matched what the changelog promised.</p>
+<h2 id="other-notable-changes-in-344-and-312-worth-mentioning">Other notable changes in 3.44 and 3.12 worth mentioning</h2>
+<p>Beyond the three headline features, a few smaller changes are worth knowing about if you&rsquo;re upgrading anyway:</p>
+<ul>
+<li><strong>Dart 3.12 pattern matching refinements</strong> — small ergonomic improvements to destructuring in <code>switch</code> expressions, reducing boilerplate in state-management code that leans on sealed classes.</li>
+<li><strong>Improved DevTools integration for AI sessions</strong> — DevTools can now show which changes came from an agent-driven Agentic Hot Reload call versus a manual edit, useful when you&rsquo;re pairing with an agent and want an audit trail.</li>
+<li><strong>Incremental build performance tweaks</strong> — not AI-related at all, just a general reduction in cold build times on larger projects, which is welcome regardless of whether you touch any of the new AI tooling.</li>
+<li><strong>Create with AI workflow</strong> — a scaffolding flow in supported IDEs that uses the MCP server plus Genkit to generate a starter screen from a natural-language description, wired directly into your existing project conventions rather than a generic template.</li>
+</ul>
+<p>None of these are release-defining on their own, but they round out the release as more than just &ldquo;the AI update.&rdquo;</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is Flutter 3.44 stable?</strong>
+Yes. It&rsquo;s been on the stable channel since May and is already several patch releases in (3.44.7 as of this writing), so the rough edges from the initial release have had time to settle.</p>
+<p><strong>What is Genkit in Dart?</strong>
+Genkit is Google&rsquo;s framework for building AI application logic — LLM calls, tool calling, and retrieval-augmented flows — defined as typed, composable Dart functions. The Dart implementation runs in-process with your Flutter app instead of requiring a separate backend service.</p>
+<p><strong>Do I need the MCP server to use Genkit or Agentic Hot Reload?</strong>
+No, they&rsquo;re independent. Genkit is a runtime dependency you add to your app. Agentic Hot Reload is part of the Flutter tooling itself. The MCP server is a separate, optional piece that makes AI coding assistants smarter about your project — you can adopt any of the three without the others.</p>
+<p><strong>Will upgrading to 3.44 break my existing app?</strong>
+For most projects, no — this wasn&rsquo;t a breaking-change-heavy release for existing widget and rendering APIs. The usual advice applies: run your test suite after upgrading and check any package dependencies that pin older Flutter/Dart SDK constraints.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>I&rsquo;m moving my next project onto 3.44 specifically to try Genkit instead of standing up a separate Node backend just to make one LLM call. Less infrastructure, same language end to end, and now an actual fast feedback loop for the AI agent helping me write it — that&rsquo;s the part I actually care about. The widget-level changes in this release are forgettable. The AI tooling isn&rsquo;t, and I think this is the release people point back to when &ldquo;AI-native Flutter development&rdquo; stops being a phrase and starts being how most of us actually build.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=What%27s&#43;New&#43;in&#43;Flutter&#43;3.44&#43;and&#43;Dart&#43;3.12%3A&#43;Agentic&#43;Hot&#43;Reload&#43;and&#43;Genkit&#43;AI&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost53%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost53%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post47/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Flutter</span>
+                <span class="post-nav-title">What I Shipped This Month Building Invoiso (v3.4.2)</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#flutter-344-and-dart-312-the-overview-and-why-it-matters">Flutter 3.44 and Dart 3.12: the overview and why it matters</a></li>
+    <li><a href="#agentic-hot-reload-how-it-works-and-why-its-different-from-regular-hot-reload">Agentic Hot Reload: how it works and why it&rsquo;s different from regular hot reload</a>
+      <ul>
+        <li><a href="#beforeafter-what-changes-in-the-actual-workflow">Before/after: what changes in the actual workflow</a></li>
+      </ul>
+    </li>
+    <li><a href="#genkit-for-dart-what-it-is-and-a-fuller-working-example">Genkit for Dart: what it is and a fuller working example</a></li>
+    <li><a href="#the-dart--flutter-mcp-server-explained">The Dart &amp; Flutter MCP Server, explained</a></li>
+    <li><a href="#how-to-try-this-today-step-by-step-setup">How to try this today: step-by-step setup</a></li>
+    <li><a href="#other-notable-changes-in-344-and-312-worth-mentioning">Other notable changes in 3.44 and 3.12 worth mentioning</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post53/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post50/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/simple_ai_agent.webp" alt="Build a Simple AI Agent in Python (No Framework Needed)" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Build a Simple AI Agent in Python (No Framework Needed)</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 15, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post49/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/cpp_rust_go.webp" alt="C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 15, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post47/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/invoiso_banner.webp" alt="What I Shipped This Month Building Invoiso (v3.4.2)" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 31, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/opensource" class="card-tag">opensource</a>
+            
+            <a href="/tags/invoice" class="card-tag">invoice</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post47/" class="card-content-link">
+            <div class="card-title">What I Shipped This Month Building Invoiso (v3.4.2)</div>
+
+            
+            <div class="card-desc">A full breakdown of everything shipped in Invoiso v3.4.2 - multi-currency, payment tracking, UPI QR codes, RBAC, and more. Building in public</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post44/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/invoiso_banner.png" alt="I Built a Free, Offline Invoice App with Flutter" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 13, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/opensource" class="card-tag">opensource</a>
+            
+            <a href="/tags/invoice" class="card-tag">invoice</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post44/" class="card-content-link">
+            <div class="card-title">I Built a Free, Offline Invoice App with Flutter</div>
+
+            
+            <div class="card-desc">How I built Invoiso — a fully offline, open-source desktop invoice app for Windows and Linux</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        5 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post34/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/flutter_widgets.webp" alt="Understanding Stateless and Stateful Widgets in Flutter" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Jan 20, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post34/" class="card-content-link">
+            <div class="card-title">Understanding Stateless and Stateful Widgets in Flutter</div>
+
+            
+            <div class="card-desc">Flutter Widgets: Understanding Stateless and Stateful Widgets</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        3 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post53/\""
+  },
+  "headline": "\"What's New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI\"",
+  "description": "\"Flutter 3.44 and Dart 3.12 bring Agentic Hot Reload and Genkit AI integration for building AI-ready apps — here's what changed and how to try it.\"",
+  "datePublished": "2026-08-16T13:11:18\u002b05:30",
+  "dateModified": "2026-08-16T13:11:18\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/flutter_3_4_4.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post53/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

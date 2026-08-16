@@ -11,7 +11,7 @@
     <title>
         C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn? - #anooptube
     </title><meta name="description" content="C&#43;&#43; vs Rust vs Go in 2026 compared for performance, memory safety, and real use cases — which systems language is worth learning right now." />
-    <meta name="keywords" content="C&#43;&#43; vs Rust vs Go 2026, Rust vs Go benchmark 2026, C&#43;&#43; vs Rust comparison, Rust memory safety without garbage collector, TIOBE index C&#43;&#43; ranking 2026, Go for network layer Rust for compute-intensive core, systems programming language 2026, which language should I learn 2026" />
+    <meta name="keywords" content="C&#43;&#43; vs Rust vs Go 2026, Rust vs Go benchmark 2026, C&#43;&#43; vs Rust comparison, Rust memory safety without garbage collector, TIOBE index C&#43;&#43; ranking 2026, Go for network layer Rust for compute-intensive core, systems programming language 2026, which language should I learn 2026, is Rust replacing C&#43;&#43;, is Go good for systems programming, Rust ownership and borrowing explained, C&#43;&#43; vs Rust performance benchmark, Go garbage collector latency, best systems programming language to learn, Rust vs C&#43;&#43; for embedded systems, Go vs Rust for backend services, memory safety without garbage collection, learning curve Rust vs C&#43;&#43; vs Go" />
     <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.75397851b0a6b461ea49efb16addfc5569efd996bfda018428ea9d1613383e89.css" integrity="sha256-dTl4UbCmtGHqSe+xat38VWnv2Za/2gGEKOqdFhM4Pok=" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -282,7 +282,7 @@
                             <circle cx="12" cy="12" r="9"/>
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
-                        3 min read
+                        10 min read
                     </span>
                     
                     <span class="flex items-center gap-1">
@@ -294,7 +294,7 @@
                             <line x1="12" y1="6" x2="12" y2="19"/>
                             <line x1="21" y1="6" x2="21" y2="19"/>
                         </svg>
-                        572 words
+                        2083 words
                     </span>
                     
                     <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
@@ -751,29 +751,71 @@
 
 
 <p>Every few months someone asks me the same question: &ldquo;should I learn Rust or just stick with C++?&rdquo; Lately Go gets thrown into that question too. I&rsquo;ve written a lot of C++, poked at Rust, and shipped small things in Go — so here&rsquo;s my honest 2026 take, backed by what&rsquo;s actually happening in the ecosystem right now, not vibes.</p>
-<h2 id="where-each-language-stands-today">Where each language stands today</h2>
-<p>C++ is still No. 3 on the TIOBE index this month, right behind Python and C. It&rsquo;s not going anywhere — every game engine, every embedded system, every latency-critical trading desk still runs on it. Rust entered the TIOBE top 10 for the first time in July and held No. 10 in August, rating climbing from 1.34% to 1.45%. Small number, but the trend line matters more than the position.</p>
-<p>Go doesn&rsquo;t chase the same spot on that chart, and it doesn&rsquo;t need to — it won a different fight entirely: backend services, APIs, infra tooling.</p>
-<h2 id="the-core-tradeoff-control-vs-safety-vs-simplicity">The core tradeoff: control vs. safety vs. simplicity</h2>
-<p><strong>C++</strong> gives you total control and zero runtime overhead, but every <code>new</code> without a matching <code>delete</code>, every dangling pointer, is on you.</p>
+<h2 id="why-this-comparison-actually-matters-in-2026">Why this comparison actually matters in 2026</h2>
+<p>This isn&rsquo;t an academic exercise. Every year the &ldquo;systems programming language&rdquo; conversation gets louder, and every year half the internet declares C++ dead and the other half declares Rust a fad. Neither is true, and the data backs that up.</p>
+<p>C++ is still No. 3 on the TIOBE index this month, right behind Python and C. It&rsquo;s not going anywhere — every game engine, every embedded system, every latency-critical trading desk still runs on it. Rust entered the TIOBE top 10 for the first time in July and held No. 10 in August, rating climbing from 1.34% to 1.45%. Small number, but the trend line matters more than the position — it&rsquo;s the fastest a &ldquo;safety-first&rdquo; systems language has ever climbed that index.</p>
+<p>Go doesn&rsquo;t chase the same spot on that chart, and it doesn&rsquo;t need to — it won a different fight entirely: backend services, APIs, infra tooling. Kubernetes, Docker, Terraform, most of the modern cloud-native stack — that&rsquo;s Go&rsquo;s home turf, and it built it almost from scratch in a decade.</p>
+<p>So the real question in 2026 isn&rsquo;t &ldquo;which language wins.&rdquo; It&rsquo;s &ldquo;which one do I reach for, and why does it matter enough to spend six months getting good at it.&rdquo; That&rsquo;s what this post actually answers.</p>
+<p><img src="/blogs-images/cpp-rust-go-systems-programming-2026.webp" alt="C++ Rust and Go logos compared side by side for systems programming"></p>
+<h2 id="c-in-2026-still-the-default-for-raw-control">C++ in 2026: still the default for raw control</h2>
+<p>C++ gives you total control and zero mandatory runtime overhead. No garbage collector, no runtime checks unless you opt into them, direct access to memory layout, and four decades of compiler optimization work behind it. That&rsquo;s exactly why it still runs game engines (Unreal, most AAA studios), embedded firmware, HFT systems, and huge chunks of browser and OS internals — Chrome, most of Windows, large parts of Linux driver code, the works.</p>
+<p>The cost of that control is that memory management is entirely on you.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> data <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span>[<span style="color:#bd93f9">100</span>];
 <span style="color:#6272a4">// ... forget to delete[] data; -&gt; leak, no compiler warning
-</span></code></pre></div><p><strong>Rust</strong> gets you close to C++ performance while catching most of that class of bug at compile time — no garbage collector, just ownership and borrowing rules enforced by the compiler.</p>
+</span><span style="color:#6272a4">// or worse: another thread frees it first -&gt; use-after-free
+</span></code></pre></div><p>No compiler in the world will stop that leak from shipping. Modern C++ (C++20/23) gives you smart pointers, RAII, and static analyzers that catch a lot of this — but none of it is enforced by the language itself. Discipline and code review are still doing a huge share of the safety work in 2026, which is exactly why memory-safety CVEs in C++ codebases keep showing up in security audits at Google, Microsoft, and the NSA&rsquo;s own advisories.</p>
+<p><strong>Tooling and ecosystem:</strong> mature beyond anything else on this list — CMake, vcpkg, Conan, decades of libraries, every major IDE has first-class support. <strong>Learning curve:</strong> steep, and it doesn&rsquo;t flatten — undefined behavior, template metaprogramming, and manual memory management keep teaching you new ways to shoot yourself in the foot for years.</p>
+<h2 id="rust-in-2026-memory-safety-without-giving-up-performance">Rust in 2026: memory safety without giving up performance</h2>
+<p>Rust&rsquo;s whole pitch is that you shouldn&rsquo;t have to choose between &ldquo;fast&rdquo; and &ldquo;safe.&rdquo; The ownership and borrowing system is enforced entirely at compile time — there&rsquo;s no garbage collector, no runtime tax, just a stricter compiler that refuses to build code with dangling references, data races, or double frees.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#8be9fd;font-style:italic">let</span> data <span style="color:#ff79c6">=</span> vec![<span style="color:#bd93f9">0</span>; <span style="color:#bd93f9">100</span>];
 <span style="color:#6272a4">// dropped automatically when it goes out of scope — no manual free, no leak
-</span></code></pre></div><p><strong>Go</strong> trades some of that raw performance for a garbage collector and dead-simple syntax. You write less code, onboard teammates faster, ship sooner.</p>
+</span><span style="color:#6272a4">// try to use it from two threads without synchronization -&gt; compile error, not a 3am page
+</span></code></pre></div><p>That last line is the entire value proposition. The bug classes that cause the majority of C++ CVEs — use-after-free, buffer overflows, data races — are, for the most part, structurally impossible in safe Rust. You still have <code>unsafe</code> blocks for the rare case you need raw pointer access, but they&rsquo;re opt-in and grep-able, which means code review can actually focus attention where it&rsquo;s warranted.</p>
+<p>Real production use in 2026: parts of the Linux kernel now accept Rust drivers, Microsoft rewrote chunks of Windows low-level components in it, Discord&rsquo;s backend infra, AWS&rsquo;s Firecracker VMM, Cloudflare&rsquo;s edge networking, and Google now ships Rust in Android&rsquo;s low-level stack alongside C++. This isn&rsquo;t experimental anymore — it&rsquo;s production infrastructure at companies that cannot afford downtime.</p>
+<p><strong>Tooling and ecosystem:</strong> Cargo is genuinely one of the best package managers/build tools of any language, full stop — dependency resolution, testing, formatting, linting all built in. The library ecosystem (crates.io) has matured enormously but still has gaps compared to C++&rsquo;s forty-year head start. <strong>Learning curve:</strong> the borrow checker fights you hard for the first few months — that&rsquo;s not a bug, it&rsquo;s the entire point, but it does mean Rust takes longer to feel productive in than Go, and often longer than C++ for someone who already knows systems programming.</p>
+<h2 id="go-in-2026-simplicity-and-speed-of-shipping">Go in 2026: simplicity and speed of shipping</h2>
+<p>Go trades some raw performance for a garbage collector and deliberately minimal syntax. It was designed at Google specifically to solve a people problem — large teams, high turnover, needing new engineers productive fast on shared codebases. It succeeded at that better than almost any language ever has.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">data <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">100</span>)
 <span style="color:#6272a4">// GC handles cleanup — you never think about it
-</span></code></pre></div><h2 id="what-the-benchmarks-actually-say">What the benchmarks actually say</h2>
-<p>Rust and C++ trade blows depending on the workload — comparable performance, but Rust removes an entire category of runtime bugs that in C++ depend purely on programmer discipline. Against Go, Rust pulls ahead on CPU-bound work specifically because it has no GC pause and the compiler optimizes more aggressively. Go&rsquo;s overhead shows up exactly where you&rsquo;d expect: tight loops, heavy allocation, anything CPU-bound rather than I/O-bound.</p>
-<h2 id="so-which-one-do-you-learn">So which one do you learn?</h2>
-<p>Here&rsquo;s the pattern I keep seeing play out in real systems in 2026: <strong>Go for the network layer, Rust for the compute-intensive core</strong> — plenty of large-scale systems now run both, each doing what it&rsquo;s good at, instead of picking one language for everything.</p>
-<p>My actual recommendation, no hedging:</p>
+</span><span style="color:#6272a4">// data races on shared state are still possible -&gt; go run -race catches them, but only at runtime
+</span></code></pre></div><p>That last comment matters: Go is memory-safe in the sense that you can&rsquo;t corrupt memory or get a dangling pointer, but it does <em>not</em> prevent data races the way Rust&rsquo;s borrow checker does at compile time — the race detector is a runtime tool, not a compile-time guarantee. That&rsquo;s a meaningfully different safety model, and it&rsquo;s worth being precise about it instead of lumping Go and Rust together as &ldquo;both memory safe.&rdquo;</p>
+<p>Real production use: essentially the entire modern cloud-native stack — Kubernetes, Docker, Terraform, Prometheus, etcd — plus huge swaths of backend services at Uber, Twitch, Cloudflare (for control-plane tooling specifically, distinct from their Rust data-plane work), and Google&rsquo;s own internal infrastructure.</p>
+<p><strong>Tooling and ecosystem:</strong> <code>go build</code>, <code>go test</code>, <code>go fmt</code>, <code>go mod</code> — batteries included, minimal bikeshedding, fast compile times even on huge codebases. <strong>Learning curve:</strong> by far the easiest of the three. You can be reasonably productive in a week. The tradeoff is that Go&rsquo;s simplicity is also a ceiling — no generics-heavy abstractions (though generics did land), no manual memory control, and GC pauses that, while short, are non-zero and non-negotiable.</p>
+<p><img src="/blogs-images/rust-cpp-go-benchmark-comparison-2026.webp" alt="benchmark comparison chart of Rust C++ and Go performance for CPU bound workloads"></p>
+<h2 id="head-to-head-what-the-benchmarks-actually-say">Head-to-head: what the benchmarks actually say</h2>
+<p>I&rsquo;m not going to hand you fabricated precise numbers pretending to be a peer-reviewed paper — anyone doing that from memory is making it up. What I can tell you is the shape of the results that shows up consistently across independent benchmark suites (Techempower, language shootout-style comparisons, and internal engineering blog posts from companies that migrated production services):</p>
 <ul>
-<li><strong>Already write C++ professionally?</strong> Don&rsquo;t panic-switch to Rust. Learn it alongside — it&rsquo;ll make you write safer C++ too, since the ownership model forces you to think about lifetimes explicitly.</li>
-<li><strong>Building a new backend service, API, or CLI tool?</strong> Go. You&rsquo;ll ship faster and the performance ceiling is high enough for almost everything network-bound.</li>
-<li><strong>Writing something CPU-bound from scratch — a parser, a game engine subsystem, a database engine?</strong> Rust is the more defensible choice going into 2026, specifically because the compiler catches the bugs that used to only show up in production at 3am.</li>
+<li><strong>C++ vs Rust on raw CPU-bound compute</strong> (parsers, codecs, numeric kernels): these two trade blows depending on workload and how aggressively the code is tuned. Rust&rsquo;s LLVM backend gets it into the same performance tier as well-written modern C++, generally within single-digit percentage points either way. The real difference isn&rsquo;t speed — it&rsquo;s that Rust removes an entire category of runtime bugs that in C++ depend purely on programmer discipline.</li>
+<li><strong>Rust vs Go on CPU-bound work</strong>: Rust pulls ahead consistently, often by a wide margin (multiples, not percentages) on tight loops, heavy allocation, and anything compute-bound rather than I/O-bound. This is almost entirely explained by Go&rsquo;s GC overhead and less aggressive inlining/optimization compared to LLVM.</li>
+<li><strong>Go vs the other two on I/O-bound, concurrent workloads</strong> (typical web services, API gateways): the gap shrinks dramatically or disappears. Once your bottleneck is the network or the database, the language&rsquo;s compute performance stops mattering, and Go&rsquo;s goroutine model plus low cognitive overhead wins on developer velocity.</li>
+<li><strong>Memory footprint</strong>: C++ and Rust both give you precise control and predictable low memory use. Go&rsquo;s GC needs headroom — production Go services typically run with noticeably higher baseline memory to give the collector room to work, which matters at container-density scale.</li>
 </ul>
+<p>The honest summary: <strong>Rust and C++ are in the same performance league; Go is in a different one for CPU-bound work, but frequently irrelevant for I/O-bound work.</strong></p>
+<h2 id="the-decision-framework-which-language-for-which-job">The decision framework: which language for which job</h2>
+<p>Rather than a single winner, here&rsquo;s how I&rsquo;d map real jobs to languages, because that&rsquo;s the actual decision most people are making:</p>
+<ul>
+<li><strong>Embedded / firmware / bare-metal</strong>: still overwhelmingly C++, with Rust rapidly gaining ground where the toolchain and hardware support exist (Rust&rsquo;s embedded-hal ecosystem is real but younger). If your target chip&rsquo;s SDK is C/C++ only, that decides it for you.</li>
+<li><strong>Network services / APIs / infra tooling</strong>: Go, almost by default. Fast to write, fast to onboard new engineers, more than fast enough once I/O dominates.</li>
+<li><strong>Performance-critical compute</strong> (game engines, codecs, physics, databases, compilers): Rust is the most defensible new choice in 2026; C++ remains completely valid if you already have the codebase, libraries, and team expertise.</li>
+<li><strong>Existing large C++ codebase</strong>: don&rsquo;t panic-rewrite. Rust interop via FFI at the edges (new modules, new services) is the realistic 2026 migration pattern — see what Android and parts of Windows are doing — not a big-bang rewrite.</li>
+<li><strong>Security-critical systems handling untrusted input</strong> (parsers, network-facing daemons, browser components): Rust&rsquo;s compile-time guarantees earn their keep hardest exactly here, which is why browser vendors and OS kernels are the ones adopting it fastest.</li>
+<li><strong>A team that needs to onboard junior engineers fast and ship this quarter</strong>: Go, without much debate.</li>
+</ul>
+<h2 id="common-misconceptions-worth-clearing-up">Common misconceptions worth clearing up</h2>
+<p><strong>&ldquo;Rust makes your code bug-free.&quot;</strong> No — it eliminates specific bug <em>classes</em> (memory safety, data races in safe code). Logic bugs, deadlocks (in some forms), and incorrect algorithms are entirely still possible. Memory safety isn&rsquo;t correctness.</p>
+<p><strong>&ldquo;C++ is legacy and dying.&quot;</strong> The TIOBE ranking alone disproves this — it&rsquo;s still #3 globally, and the amount of new C++ being written in game development, HFT, and embedded work in 2026 is not shrinking. &ldquo;Old&rdquo; and &ldquo;declining&rdquo; are not the same thing.</p>
+<p><strong>&ldquo;Go isn&rsquo;t a real systems language.&quot;</strong> Depends on your definition. Go was never designed to compete with C++/Rust for kernel-level or embedded work — no manual memory control, a mandatory runtime, GC pauses. But it&rsquo;s absolutely a systems language in the &ldquo;build the systems that run your infrastructure&rdquo; sense — just not the &ldquo;run without an OS&rdquo; sense.</p>
+<p><strong>&ldquo;You only need to know one of these.&quot;</strong> Increasingly false. Mixed codebases — Go for the network layer, Rust or C++ for the compute-intensive core — are now common enough that being fluent in at least two is a realistic expectation for senior systems roles.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is Rust replacing C++?</strong>
+Not wholesale, and probably never entirely. Rust is winning new projects and edge components in existing C++ systems (Linux kernel drivers, Windows components, Android internals), but the installed base of C++ — game engines, embedded firmware, decades of financial and scientific software — is too large and too stable to be &ldquo;replaced&rdquo; in any near-term sense. Think steady displacement at the margins, not a takeover.</p>
+<p><strong>Is Go good for systems programming?</strong>
+For network services, infrastructure tooling, and control-plane systems — yes, demonstrably, look at Kubernetes and Docker. For kernel-level, embedded, or hard-real-time systems — no, it was never built for that, and the GC and runtime rule it out.</p>
+<p><strong>Do I need to learn all three?</strong>
+No, but knowing the tradeoffs of all three well enough to read code in each is increasingly the baseline for senior systems and infra roles. Depth in one, working fluency in a second, is a realistic goal.</p>
+<p><strong>Which one should a beginner start with in 2026?</strong>
+If you&rsquo;re new to programming entirely, Go&rsquo;s simplicity makes it the gentlest on-ramp to real, production-shippable systems work. If you already know a lower-level language and want to go deeper into how memory actually works, learn C++ first, then Rust — the contrast is what makes Rust&rsquo;s ownership model click.</p>
+<h2 id="closing-thought">Closing thought</h2>
 <p>None of these languages are going away. The real skill in 2026 isn&rsquo;t picking a winner — it&rsquo;s knowing which one to reach for on a given problem, and being able to read at least two of the three well enough to work in a mixed codebase, because increasingly that&rsquo;s exactly what you&rsquo;ll be handed.</p>
 <div class="post-share-strip">
     <span class="post-share-label">Share</span>
@@ -1047,10 +1089,15 @@ function postCopyLink(btn) {
             </div>
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#where-each-language-stands-today">Where each language stands today</a></li>
-    <li><a href="#the-core-tradeoff-control-vs-safety-vs-simplicity">The core tradeoff: control vs. safety vs. simplicity</a></li>
-    <li><a href="#what-the-benchmarks-actually-say">What the benchmarks actually say</a></li>
-    <li><a href="#so-which-one-do-you-learn">So which one do you learn?</a></li>
+    <li><a href="#why-this-comparison-actually-matters-in-2026">Why this comparison actually matters in 2026</a></li>
+    <li><a href="#c-in-2026-still-the-default-for-raw-control">C++ in 2026: still the default for raw control</a></li>
+    <li><a href="#rust-in-2026-memory-safety-without-giving-up-performance">Rust in 2026: memory safety without giving up performance</a></li>
+    <li><a href="#go-in-2026-simplicity-and-speed-of-shipping">Go in 2026: simplicity and speed of shipping</a></li>
+    <li><a href="#head-to-head-what-the-benchmarks-actually-say">Head-to-head: what the benchmarks actually say</a></li>
+    <li><a href="#the-decision-framework-which-language-for-which-job">The decision framework: which language for which job</a></li>
+    <li><a href="#common-misconceptions-worth-clearing-up">Common misconceptions worth clearing up</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
   </ul>
 </nav>
         </div>
@@ -1067,6 +1114,63 @@ function postCopyLink(btn) {
         <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
         <div class="recent-widget-line"></div>
     </div>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post53/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
     <a href="/blog/post50/" class="recent-post-item">
 
         
@@ -1098,63 +1202,6 @@ function postCopyLink(btn) {
                 
   
     Aug 15, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post48/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/vibe_coding.webp" alt="Vibe Coding Is Dead, Long Live Agentic Engineering" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">Vibe Coding Is Dead, Long Live Agentic Engineering</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 15, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post47/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/invoiso_banner.webp" alt="What I Shipped This Month Building Invoiso (v3.4.2)" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">What I Shipped This Month Building Invoiso (v3.4.2)</div>
-            <div class="recent-post-date">
-                
-  
-    Mar 31, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post46/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with an External keyboard" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">I built a free Android soundboard that works with an External keyboard</div>
-            <div class="recent-post-date">
-                
-  
-    Mar 25, 26
   
 
 

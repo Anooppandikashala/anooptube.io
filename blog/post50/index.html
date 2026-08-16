@@ -11,7 +11,7 @@
     <title>
         Build a Simple AI Agent in Python (No Framework Needed) - #anooptube
     </title><meta name="description" content="Step-by-step guide to building an AI agent in Python from scratch using the ReAct pattern — no LangChain, no LangGraph, just Python and an LLM API." />
-    <meta name="keywords" content="build AI agent from scratch python, AI agent tutorial python 2026, python AI agent no framework, ReAct pattern agent python, AI agent tool calling loop, LangChain vs LangGraph 2026, minimal working AI agent python, python AI agent frameworks 2026" />
+    <meta name="keywords" content="build AI agent from scratch python, AI agent tutorial python 2026, python AI agent no framework, ReAct pattern agent python, AI agent tool calling loop, LangChain vs LangGraph 2026, minimal working AI agent python, python AI agent frameworks 2026, how to build an AI agent without langchain, ReAct reasoning act observe loop explained, python function calling agent example, AI agent infinite loop bug fix, when to use langchain vs custom agent, do I need langchain to build an ai agent, simple tool calling loop python, AI agent stopping condition python, malformed tool call json error handling, AI agent context window management" />
     <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.75397851b0a6b461ea49efb16addfc5569efd996bfda018428ea9d1613383e89.css" integrity="sha256-dTl4UbCmtGHqSe+xat38VWnv2Za/2gGEKOqdFhM4Pok=" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -282,7 +282,7 @@
                             <circle cx="12" cy="12" r="9"/>
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
-                        3 min read
+                        15 min read
                     </span>
                     
                     <span class="flex items-center gap-1">
@@ -294,7 +294,7 @@
                             <line x1="12" y1="6" x2="12" y2="19"/>
                             <line x1="21" y1="6" x2="21" y2="19"/>
                         </svg>
-                        577 words
+                        3081 words
                     </span>
                     
                     <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
@@ -463,15 +463,33 @@
 
 
 <p>Every &ldquo;build an AI agent&rdquo; tutorial I ran into lately starts with <code>pip install langchain</code> or <code>pip install langgraph</code>. Useful tools, but they hide the actual mechanism. Before reaching for a framework, I wanted to see the loop with my own eyes — so I built the smallest working agent I could, in plain Python.</p>
-<p>Turns out it&rsquo;s not much code. The core loop fits in about 60 lines.</p>
+<p>Turns out it&rsquo;s not much code. The core loop fits in about 60 lines. This post walks through building that loop from scratch: what an agent actually is, what the ReAct pattern means in practice, the full working code, a real trace of it reasoning through a task, the ways it breaks, and when you should stop doing this yourself and reach for a framework.</p>
 <h2 id="what-an-agent-actually-is">What an &ldquo;agent&rdquo; actually is</h2>
-<p>Strip away the marketing and an AI agent is one thing: a loop where the model can call functions, look at the results, and decide what to do next — instead of just returning text once. This is the <strong>ReAct pattern</strong> (Reason + Act) — the model reasons about what it needs, calls a tool, observes the output, and repeats until it has an answer.</p>
+<p>Strip away the marketing and an AI agent is one thing: a loop where the model can call functions, look at the results, and decide what to do next — instead of just returning text once. A plain LLM call is a single request-response round trip. An agent is that same call wrapped in a <code>while</code> loop, with the model given the option to say &ldquo;before I answer, let me check something&rdquo; and have your code actually go check it.</p>
+<p>That&rsquo;s the entire trick. There&rsquo;s no hidden intelligence layer, no separate &ldquo;planning module&rdquo; bolted on. The model already knows how to reason step by step — what an agent framework adds is the plumbing: parsing the model&rsquo;s request to call a tool, running that tool, feeding the result back, and looping until the model is satisfied. Once you&rsquo;ve built that plumbing yourself once, every agent framework you look at afterward reads as &ldquo;oh, this is the same loop with more configuration options.&rdquo;</p>
+<h2 id="why-i-skipped-a-framework">Why I skipped a framework</h2>
+<p>Three reasons, in order of how much they mattered to me:</p>
+<p><strong>Control.</strong> When something in a LangChain agent misbehaves — it calls the wrong tool, it loops forever, it hallucinates a tool name — the failure is buried under several layers of abstraction (chains, agents, executors, callback managers) before you get to the actual API call. When I write the loop myself, the failure is in a function I wrote, on a line I can read.</p>
+<p><strong>Fewer dependencies.</strong> <code>pip install langchain</code> pulls in a genuinely large dependency tree — parsing libraries, vector store clients, telemetry, integrations for services you&rsquo;ll never touch. A hand-rolled agent needs exactly one thing: an SDK for whichever LLM API you&rsquo;re calling. That&rsquo;s it. For a small script, a cron job, or a backend service where you control every line, that&rsquo;s a meaningful difference in attack surface and cold-start time.</p>
+<p><strong>Understanding the mechanics.</strong> This is the big one. If you&rsquo;ve never built the raw loop, a framework&rsquo;s abstractions read as magic — &ldquo;the agent decided to search,&rdquo; as if deciding were something that happens outside the code. Once you&rsquo;ve written the loop by hand, you know exactly where &ldquo;decide&rdquo; happens: it&rsquo;s a conditional checking whether the model&rsquo;s response contains a tool call. There&rsquo;s no magic, just a <code>for</code> loop and an <code>if</code> statement. That clarity makes debugging <em>any</em> agent — yours or a framework&rsquo;s — dramatically easier, because you know what to look for.</p>
+<p>None of this is an argument against frameworks in general — more on that near the end. It&rsquo;s an argument for building the raw version first, at least once, before you decide you need one.</p>
+<h2 id="the-react-pattern-explained">The ReAct pattern, explained</h2>
+<p>&ldquo;ReAct&rdquo; (Reason + Act, from the 2022 paper of the same name) describes the loop this whole post is about: the model <strong>reasons</strong> about what it needs to do, <strong>acts</strong> by calling a tool, <strong>observes</strong> the result, and repeats — reason, act, observe, reason, act, observe — until it has enough information to give a final answer instead of another tool call.</p>
+<p>Concretely, each iteration of a ReAct loop looks like this:</p>
+<ol>
+<li><strong>Reason</strong> — the model looks at the conversation so far (including any previous tool results) and decides what it needs next. This reasoning can happen implicitly (the model just picks a tool) or explicitly, if you ask it to narrate its thinking before acting.</li>
+<li><strong>Act</strong> — the model emits a structured request to call a specific tool with specific arguments. It doesn&rsquo;t run the tool itself — it can&rsquo;t; it has no hands. It just describes the call it wants made.</li>
+<li><strong>Observe</strong> — your code actually executes that tool call, and the result gets appended back into the conversation as if it were a new piece of information the model just learned.</li>
+</ol>
+<p>The loop repeats with that new information in context, so the model&rsquo;s next &ldquo;reason&rdquo; step can factor in what it just observed. It terminates the moment the model responds with plain text instead of a tool call — that&rsquo;s the model&rsquo;s way of saying &ldquo;I have what I need, here&rsquo;s the answer.&rdquo;</p>
+<p><img src="/blogs-images/react-pattern-loop-diagram.webp" alt="diagram of the ReAct reasoning act observe loop for an AI agent"></p>
+<p>The reason this pattern won over &ldquo;just ask the model to plan everything up front&rdquo; is that most real tasks aren&rsquo;t fully knowable in advance. You don&rsquo;t know what a search will return until you run it, and you don&rsquo;t know if you&rsquo;ll need a second search until you see the first result. ReAct lets the model adapt one step at a time instead of committing to a fixed plan before it has any information.</p>
 <h2 id="setup">Setup</h2>
-<p>You need Python 3.10+, an API key from a provider (OpenAI, Anthropic, etc.), and their SDK:</p>
+<p>You need Python 3.10+, an API key from an LLM provider, and their SDK. This post uses the OpenAI SDK&rsquo;s function-calling API because it&rsquo;s the most widely recognized shape for tool calling, but the loop below is identical in structure no matter which provider you use — only the request/response field names change.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install openai
 <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">OPENAI_API_KEY</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;your-key-here&#34;</span>
 </code></pre></div><h2 id="the-tools">The tools</h2>
-<p>An agent is useless without tools. Let&rsquo;s give it two: a calculator and a fake &ldquo;search&rdquo; function.</p>
+<p>An agent is useless without tools — a model that can only produce text is just a chatbot. Let&rsquo;s give it two: a calculator, and a fake &ldquo;search&rdquo; function standing in for a real search API.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculator</span>(expression: <span style="color:#8be9fd;font-style:italic">str</span>) <span style="color:#ff79c6">-&gt;</span> <span style="color:#8be9fd;font-style:italic">str</span>:
     <span style="color:#ff79c6">try</span>:
         <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">str</span>(<span style="color:#8be9fd;font-style:italic">eval</span>(expression, {<span style="color:#f1fa8c">&#34;__builtins__&#34;</span>: {}}))
@@ -486,8 +504,14 @@ TOOLS <span style="color:#ff79c6">=</span> {
     <span style="color:#f1fa8c">&#34;calculator&#34;</span>: calculator,
     <span style="color:#f1fa8c">&#34;search&#34;</span>: search,
 }
-</code></pre></div><h2 id="describing-tools-to-the-model">Describing tools to the model</h2>
-<p>The model needs to know what tools exist and how to call them:</p>
+</code></pre></div><p>A couple of things worth calling out here, because they matter once you swap in real tools:</p>
+<ul>
+<li><code>calculator</code> uses <code>eval()</code> with <code>__builtins__</code> stripped out — that blocks <code>eval(&quot;__import__('os').system('rm -rf /')&quot;)</code>-style attacks but is still not something you&rsquo;d want exposed to untrusted input in production. A real calculator tool should use a proper expression parser (<code>ast.literal_eval</code> won&rsquo;t work for arithmetic; a library like <code>numexpr</code> or a small recursive-descent parser is the safer route).</li>
+<li>Every tool returns a <strong>string</strong>. That&rsquo;s not incidental — the model only ever sees text, so whatever your tool does internally (hit an API, query a database, run a subprocess), the last step is always &ldquo;turn the result into a string the model can read.&rdquo;</li>
+<li><code>TOOLS</code> is a plain dict mapping the tool&rsquo;s <em>name</em> (as a string) to the actual Python function. This dict is the bridge between &ldquo;the model asked for a tool called <code>calculator</code>&rdquo; and &ldquo;here&rsquo;s the function to actually run.&rdquo;</li>
+</ul>
+<h2 id="describing-tools-to-the-model">Describing tools to the model</h2>
+<p>The model can&rsquo;t call <code>TOOLS[&quot;calculator&quot;]</code> directly — it never sees your Python code. It only sees a JSON schema describing what each tool does and what arguments it takes. This is the contract between your code and the model:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tool_schema <span style="color:#ff79c6">=</span> [
     {
         <span style="color:#f1fa8c">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;function&#34;</span>,
@@ -514,8 +538,9 @@ TOOLS <span style="color:#ff79c6">=</span> {
         },
     },
 ]
-</code></pre></div><h2 id="the-agent-loop">The agent loop</h2>
-<p>This is the whole thing — reason, act, observe, repeat:</p>
+</code></pre></div><p>The <code>description</code> fields matter more than they look. The model decides <em>whether</em> to call a tool, and <em>which</em> tool to call, almost entirely based on how well the description matches what it thinks it needs. A vague description (&ldquo;does math stuff&rdquo;) gets under-used or misused; a precise one (&ldquo;Evaluate a math expression and return the numeric result&rdquo;) gets called reliably when — and only when — it&rsquo;s actually needed.</p>
+<h2 id="the-agent-loop">The agent loop</h2>
+<p>This is the whole thing — reason, act, observe, repeat, with an explicit stopping condition so it can&rsquo;t run forever:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">from</span> openai <span style="color:#ff79c6">import</span> OpenAI
 <span style="color:#ff79c6">import</span> json
 
@@ -524,7 +549,7 @@ client <span style="color:#ff79c6">=</span> OpenAI()
 <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">run_agent</span>(user_input: <span style="color:#8be9fd;font-style:italic">str</span>, max_steps: <span style="color:#8be9fd;font-style:italic">int</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">-&gt;</span> <span style="color:#8be9fd;font-style:italic">str</span>:
     messages <span style="color:#ff79c6">=</span> [{<span style="color:#f1fa8c">&#34;role&#34;</span>: <span style="color:#f1fa8c">&#34;user&#34;</span>, <span style="color:#f1fa8c">&#34;content&#34;</span>: user_input}]
 
-    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(max_steps):
+    <span style="color:#ff79c6">for</span> step <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(max_steps):
         response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span>chat<span style="color:#ff79c6">.</span>completions<span style="color:#ff79c6">.</span>create(
             model<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gpt-4o-mini&#34;</span>,
             messages<span style="color:#ff79c6">=</span>messages,
@@ -537,9 +562,16 @@ client <span style="color:#ff79c6">=</span> OpenAI()
             <span style="color:#ff79c6">return</span> msg<span style="color:#ff79c6">.</span>content  <span style="color:#6272a4"># model is done, final answer</span>
 
         <span style="color:#ff79c6">for</span> call <span style="color:#ff79c6">in</span> msg<span style="color:#ff79c6">.</span>tool_calls:
-            fn <span style="color:#ff79c6">=</span> TOOLS[call<span style="color:#ff79c6">.</span>function<span style="color:#ff79c6">.</span>name]
-            args <span style="color:#ff79c6">=</span> json<span style="color:#ff79c6">.</span>loads(call<span style="color:#ff79c6">.</span>function<span style="color:#ff79c6">.</span>arguments)
-            result <span style="color:#ff79c6">=</span> fn(<span style="color:#ff79c6">**</span>args)
+            fn <span style="color:#ff79c6">=</span> TOOLS<span style="color:#ff79c6">.</span>get(call<span style="color:#ff79c6">.</span>function<span style="color:#ff79c6">.</span>name)
+            <span style="color:#ff79c6">if</span> fn <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">None</span>:
+                result <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;error: unknown tool &#39;</span><span style="color:#f1fa8c">{</span>call<span style="color:#ff79c6">.</span>function<span style="color:#ff79c6">.</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;&#34;</span>
+            <span style="color:#ff79c6">else</span>:
+                <span style="color:#ff79c6">try</span>:
+                    args <span style="color:#ff79c6">=</span> json<span style="color:#ff79c6">.</span>loads(call<span style="color:#ff79c6">.</span>function<span style="color:#ff79c6">.</span>arguments)
+                    result <span style="color:#ff79c6">=</span> fn(<span style="color:#ff79c6">**</span>args)
+                <span style="color:#ff79c6">except</span> (json<span style="color:#ff79c6">.</span>JSONDecodeError, TypeError) <span style="color:#ff79c6">as</span> e:
+                    result <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;error: malformed tool call - </span><span style="color:#f1fa8c">{</span>e<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>
+
             messages<span style="color:#ff79c6">.</span>append({
                 <span style="color:#f1fa8c">&#34;role&#34;</span>: <span style="color:#f1fa8c">&#34;tool&#34;</span>,
                 <span style="color:#f1fa8c">&#34;tool_call_id&#34;</span>: call<span style="color:#ff79c6">.</span>id,
@@ -547,14 +579,67 @@ client <span style="color:#ff79c6">=</span> OpenAI()
             })
 
     <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Max steps reached without a final answer.&#34;</span>
-</code></pre></div><p>Run it:</p>
+</code></pre></div><p>Walking through what each piece is actually doing:</p>
+<ul>
+<li><strong><code>messages</code></strong> is the entire conversation state — it&rsquo;s a plain list that grows by one or more entries every iteration. The model is stateless between calls; this list <em>is</em> the memory. If you don&rsquo;t append something to it, the model has no idea it happened.</li>
+<li><strong>The <code>for step in range(max_steps)</code> loop</strong> is the stopping condition. This is not optional — without a hard ceiling, a model that keeps deciding it needs &ldquo;just one more&rdquo; tool call will run (and bill you) indefinitely. <code>max_steps=5</code> is a reasonable default for a toy agent; production agents often need higher ceilings but should always have <em>some</em> ceiling.</li>
+<li><strong><code>if not msg.tool_calls: return msg.content</code></strong> is the &ldquo;reason&rdquo; step resolving into a final answer instead of another action. This is the natural exit — the loop ends the moment the model has nothing left to check.</li>
+<li><strong>The inner <code>for call in msg.tool_calls</code> loop</strong> is the &ldquo;act&rdquo; and &ldquo;observe&rdquo; steps. Note it&rsquo;s a loop, not a single call — the model can request multiple tool calls in one turn (e.g., two searches in parallel), and you need to answer every one of them before the next request, or the API will reject the conversation as malformed.</li>
+<li><strong>The <code>try</code>/<code>except</code> around <code>json.loads</code> and the tool call</strong> is the difference between a toy demo and something that survives contact with a real model. Models occasionally emit tool arguments that aren&rsquo;t valid JSON, or call a tool name that doesn&rsquo;t exist in <code>TOOLS</code>. Catching that and feeding the error back as the tool&rsquo;s &ldquo;result&rdquo; lets the model see its own mistake and self-correct on the next iteration, instead of crashing your whole process.</li>
+</ul>
+<p>Run it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(run_agent(<span style="color:#f1fa8c">&#34;What&#39;s 47 * 12, and search for what that number might mean?&#34;</span>))
-</code></pre></div><p>The model decides on its own to call <code>calculator</code>, sees the result, decides whether it needs <code>search</code> too, and only returns text once it&rsquo;s actually done — that&rsquo;s the whole agent.</p>
-<h2 id="where-frameworks-earn-their-keep">Where frameworks earn their keep</h2>
-<p>This toy loop breaks down fast in production: no retry logic, no persistent state across restarts, no human-in-the-loop pausing, no memory beyond the current run. That&rsquo;s exactly the gap LangChain and LangGraph fill — LangChain for fast prototyping with a huge integration library, LangGraph when the agent needs to pause, resume, or survive a crash with explicit state graphs instead of implicit chains.</p>
-<p>But building the raw loop first made picking between them a lot easier — I could see exactly which problem each one was solving instead of taking it on faith.</p>
-<h2 id="next-steps">Next steps</h2>
-<p>From here: add real memory (conversation history trimming), real tools (an actual search API, file access), and error handling around tool failures. At that point, a framework starts paying for itself — but you&rsquo;ll understand what it&rsquo;s doing under the hood.</p>
+</code></pre></div><h2 id="watching-it-reason-a-worked-example">Watching it reason: a worked example</h2>
+<p>It&rsquo;s worth seeing what actually happens turn by turn, because &ldquo;the model decides on its own&rdquo; undersells how mechanical this is once you&rsquo;re looking at the raw messages list. Here&rsquo;s a trace of the call above, roughly reconstructed from what each iteration appends to <code>messages</code>:</p>
+<pre tabindex="0"><code>Step 1 — Reason
+  Model sees: &quot;What's 47 * 12, and search for what that number might mean?&quot;
+  Model decides: it needs the multiplication result before it can search for anything.
+  Model acts: tool_call → calculator(expression=&quot;47 * 12&quot;)
+
+Step 1 — Observe
+  Tool runs: calculator(&quot;47 * 12&quot;) → &quot;564&quot;
+  Appended to messages as a &quot;tool&quot; role entry.
+
+Step 2 — Reason
+  Model sees: the original question + its own tool call + the result &quot;564&quot;.
+  Model decides: now it can search using that number.
+  Model acts: tool_call → search(query=&quot;564 meaning&quot;)
+
+Step 2 — Observe
+  Tool runs: search(&quot;564 meaning&quot;) → &quot;Top result for '564 meaning': (mocked) relevant info here.&quot;
+  Appended to messages.
+
+Step 3 — Reason
+  Model sees: both prior tool results now in context.
+  Model decides: it has everything it needs — no more tool calls.
+  Model acts: returns plain text.
+    → &quot;47 * 12 is 564. A quick search on '564 meaning' didn't turn up
+       anything especially notable — it doesn't appear to carry a widely
+       recognized cultural or numerical significance beyond being the
+       product of 47 and 12.&quot;
+</code></pre><p><img src="/blogs-images/ai-agent-reasoning-trace-example.webp" alt="example trace of an AI agent reasoning through tool calls step by step"></p>
+<p>Every one of those &ldquo;Model decides&rdquo; lines is invisible from the outside — it&rsquo;s not logged anywhere by default, it&rsquo;s just the model choosing to emit a tool call versus plain text based on everything currently in <code>messages</code>. If you want to actually see this happen, the cheapest debugging trick is printing <code>msg</code> (or <code>msg.tool_calls</code>) at the top of each loop iteration — you&rsquo;ll watch the agent&rsquo;s &ldquo;thinking&rdquo; unfold call by call.</p>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<p>A few things bite almost everyone building this for the first time:</p>
+<p><strong>Infinite loops (or near-infinite ones).</strong> Without <code>max_steps</code>, a model that gets into an uncertain state can call the same tool over and over, each time convincing itself it needs &ldquo;just one more check.&rdquo; This isn&rsquo;t a bug in the model so much as a natural consequence of the loop having no external notion of &ldquo;enough&rdquo; — it only stops when <em>it</em> decides to stop, and sometimes it doesn&rsquo;t. The fix is the hard ceiling shown above, plus (for anything beyond a toy) logging every tool call so you can spot a model stuck in a loop before it burns through your API budget.</p>
+<p><strong>Malformed tool calls.</strong> Models occasionally produce arguments that don&rsquo;t parse as JSON, omit a required field, or invoke a tool name that was never in your schema (this happens more often after you&rsquo;ve had a long conversation and the schema has scrolled far out of recent context). If your code assumes every tool call is well-formed and crashes on the first bad one, the whole agent dies on a single flaky response. Wrap the parse-and-call step in a try/except (as in the loop above) and feed the error back to the model as a normal tool result — it will almost always retry correctly on the next turn.</p>
+<p><strong>Context length creeping up.</strong> Every tool call and every tool result gets appended to <code>messages</code> and resent, in full, on every subsequent API call. A long-running agent that calls tools ten or twenty times can burn through a shocking number of tokens just resending its own history — and eventually hit the model&rsquo;s context window limit outright. For a toy script this doesn&rsquo;t matter; for anything long-running, you&rsquo;ll need a strategy (trimming old tool results, summarizing history, or capping how much of a large tool result actually gets appended) well before it becomes a production incident.</p>
+<p><strong>Tool descriptions that are too vague or too similar.</strong> If two tools have overlapping descriptions, the model will pick the wrong one unpredictably. This isn&rsquo;t really a &ldquo;bug&rdquo; in your loop — it&rsquo;s a prompt-engineering problem, and it&rsquo;s worth iterating on tool descriptions the same way you&rsquo;d iterate on a system prompt.</p>
+<h2 id="when-you-should-reach-for-a-framework-instead">When you should reach for a framework instead</h2>
+<p>This toy loop breaks down fast in production: no retry logic, no persistent state across restarts, no human-in-the-loop pausing, no memory beyond the current run, no built-in handling for the pitfalls above beyond what you write yourself. That&rsquo;s exactly the gap LangChain and LangGraph fill — LangChain for fast prototyping with a huge integration library (hundreds of prebuilt tools and connectors you&rsquo;d otherwise write by hand), LangGraph when the agent needs to pause, resume, or survive a crash with explicit state graphs instead of implicit chains.</p>
+<p>The honest signal for &ldquo;time to reach for a framework&rdquo; isn&rsquo;t complexity of the <em>task</em> — it&rsquo;s complexity of the <em>infrastructure around</em> the task: multiple agents that need to hand off to each other, state that must survive a process restart, a need for a visual or programmatic way to inspect and replay past runs, or a team where several people need a shared, documented way to add new tools without stepping on each other. If you&rsquo;re the only one touching the code and the agent runs start-to-finish in one process, the raw loop usually stays simpler for longer than people expect.</p>
+<p>But building the raw loop first made picking between frameworks a lot easier — I could see exactly which problem each one was solving instead of taking it on faith.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What is the ReAct pattern?</strong>
+It&rsquo;s the reason-act-observe loop described above: the model reasons about what it needs, acts by requesting a tool call, observes the result fed back into its context, and repeats until it can answer without another tool call. It comes from the 2022 &ldquo;ReAct: Synergizing Reasoning and Acting in Language Models&rdquo; paper, and it&rsquo;s the pattern underneath almost every tool-using LLM agent, framework or not.</p>
+<p><strong>Do I need LangChain to build an AI agent?</strong>
+No. Everything a basic tool-calling agent needs — a loop, a way to describe tools to the model, a way to route a tool call to the right function, and a stopping condition — is maybe 60 lines of plain Python plus whichever LLM SDK you&rsquo;re already using. LangChain and similar frameworks add value once you need things this raw loop doesn&rsquo;t have: retries, persistence, multi-agent orchestration, or a large library of prebuilt integrations.</p>
+<p><strong>Why does my agent keep calling the same tool forever?</strong>
+Almost always a missing or too-high <code>max_steps</code> ceiling combined with a tool description that&rsquo;s ambiguous enough for the model to keep thinking it hasn&rsquo;t gotten what it needs. Add a hard step limit, log every tool call so you can see the loop happening, and tighten the tool&rsquo;s description so the model can tell more clearly when it has enough information to stop.</p>
+<p><strong>Can I use this same loop with a different LLM provider?</strong>
+Yes — the shape doesn&rsquo;t change. Every major provider&rsquo;s tool-calling API follows the same reason → emit structured call → you execute it → feed the result back pattern; only the exact field names in the request and response differ. Swap the client and the response parsing, and everything else in this post — the tools dict, the stopping condition, the error handling — carries over unchanged.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>I went into this expecting the &ldquo;real&rdquo; agent loop to be hiding somewhere behind a framework&rsquo;s abstractions — some clever planning algorithm I just hadn&rsquo;t found yet. It isn&rsquo;t there. It&rsquo;s a <code>while</code> loop, a dictionary of functions, and a JSON schema describing them to the model. Everything a framework adds on top of that is real, useful engineering — but it&rsquo;s engineering <em>around</em> the loop, not the loop itself. Building it by hand once was worth more than reading a dozen framework docs, because now when something in an agent misbehaves, I know exactly which of these five or six moving parts to go check first.</p>
 <div class="post-share-strip">
     <span class="post-share-label">Share</span>
 
@@ -684,12 +769,17 @@ function postCopyLink(btn) {
             <nav id="TableOfContents">
   <ul>
     <li><a href="#what-an-agent-actually-is">What an &ldquo;agent&rdquo; actually is</a></li>
+    <li><a href="#why-i-skipped-a-framework">Why I skipped a framework</a></li>
+    <li><a href="#the-react-pattern-explained">The ReAct pattern, explained</a></li>
     <li><a href="#setup">Setup</a></li>
     <li><a href="#the-tools">The tools</a></li>
     <li><a href="#describing-tools-to-the-model">Describing tools to the model</a></li>
     <li><a href="#the-agent-loop">The agent loop</a></li>
-    <li><a href="#where-frameworks-earn-their-keep">Where frameworks earn their keep</a></li>
-    <li><a href="#next-steps">Next steps</a></li>
+    <li><a href="#watching-it-reason-a-worked-example">Watching it reason: a worked example</a></li>
+    <li><a href="#common-pitfalls">Common pitfalls</a></li>
+    <li><a href="#when-you-should-reach-for-a-framework-instead">When you should reach for a framework instead</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
   </ul>
 </nav>
         </div>
@@ -706,6 +796,63 @@ function postCopyLink(btn) {
         <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
         <div class="recent-widget-line"></div>
     </div>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post53/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
     <a href="/blog/post50/" class="recent-post-item">
 
         
@@ -737,63 +884,6 @@ function postCopyLink(btn) {
                 
   
     Aug 15, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post48/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/vibe_coding.webp" alt="Vibe Coding Is Dead, Long Live Agentic Engineering" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">Vibe Coding Is Dead, Long Live Agentic Engineering</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 15, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post47/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/invoiso_banner.webp" alt="What I Shipped This Month Building Invoiso (v3.4.2)" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">What I Shipped This Month Building Invoiso (v3.4.2)</div>
-            <div class="recent-post-date">
-                
-  
-    Mar 31, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post46/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with an External keyboard" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">I built a free Android soundboard that works with an External keyboard</div>
-            <div class="recent-post-date">
-                
-  
-    Mar 25, 26
   
 
 
@@ -886,6 +976,70 @@ function postCopyLink(btn) {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post51/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 16, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/ai" class="card-tag">ai</a>
+            
+            <a href="/tags/agent" class="card-tag">agent</a>
+            
+            <a href="/tags/productivity" class="card-tag">productivity</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post51/" class="card-content-link">
+            <div class="card-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+
+            
+            <div class="card-desc">A practical comparison of the top AI coding assistants in 2026 — Claude Code, Cursor, and the open-source Kilo Code — and which one actually fits your workflow.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
 
     
     <a href="https://anooptube.in/blog/post32/" class="card-img-wrap" style="text-decoration:none;display:block;">
@@ -994,70 +1148,6 @@ function postCopyLink(btn) {
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
                         2 min read
-                    </span>
-                </span>
-                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                </svg>
-            </div>
-        </a>
-
-    </div>
-
-      
-
-</article>
-<article class="blog-card">
-
-    
-    <a href="https://anooptube.in/blog/post27/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/todo_app.webp" alt="To-Do List App in Python" loading="lazy" />
-        
-        <span class="card-date-badge">
-            
-  
-    Feb 8, 24
-  
-
-
-        </span>
-        
-    </a>
-    
-
-    <div class="card-body">
-
-        
-        <div class="card-tags">
-            
-            <a href="/tags/linux" class="card-tag">linux</a>
-            
-            <a href="/tags/python" class="card-tag">python</a>
-            
-            <a href="/tags/todo" class="card-tag">todo</a>
-            
-        </div>
-        
-
-        <a href="https://anooptube.in/blog/post27/" class="card-content-link">
-            <div class="card-title">To-Do List App in Python</div>
-
-            
-            <div class="card-desc">Creating a Todo List Command Line Application in Python</div>
-            
-
-            <div class="card-footer">
-                <span class="flex items-center gap-1.5 flex-wrap">
-                    
-                    <span class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9"/>
-                            <polyline points="12 7 12 12 15 15"/>
-                        </svg>
-                        4 min read
                     </span>
                 </span>
                 <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

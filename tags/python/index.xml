@@ -14,8 +14,7 @@
       
       <guid>https://anooptube.in/blog/post50/</guid>
       <description>Every &amp;ldquo;build an AI agent&amp;rdquo; tutorial I ran into lately starts with pip install langchain or pip install langgraph. Useful tools, but they hide the actual mechanism. Before reaching for a framework, I wanted to see the loop with my own eyes — so I built the smallest working agent I could, in plain Python.
-Turns out it&amp;rsquo;s not much code. The core loop fits in about 60 lines.
-What an &amp;ldquo;agent&amp;rdquo; actually is Strip away the marketing and an AI agent is one thing: a loop where the model can call functions, look at the results, and decide what to do next — instead of just returning text once.</description>
+Turns out it&amp;rsquo;s not much code. The core loop fits in about 60 lines. This post walks through building that loop from scratch: what an agent actually is, what the ReAct pattern means in practice, the full working code, a real trace of it reasoning through a task, the ways it breaks, and when you should stop doing this yourself and reach for a framework.</description>
     </item>
     
     <item>

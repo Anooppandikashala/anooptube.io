@@ -6,7 +6,25 @@
     <description>Recent content in Playlists on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 19:48:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flutter</title>
+      <link>https://anooptube.in/playlists/flutter/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/playlists/flutter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://anooptube.in/playlists/linux/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/playlists/linux/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Basics of CPP Development</title>
       <link>https://anooptube.in/playlists/basics-of-cpp-development/</link>
@@ -22,15 +40,6 @@
       <pubDate>Sat, 15 Aug 2026 19:48:00 +0530</pubDate>
       
       <guid>https://anooptube.in/playlists/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Flutter</title>
-      <link>https://anooptube.in/playlists/flutter/</link>
-      <pubDate>Tue, 31 Mar 2026 19:21:55 +0530</pubDate>
-      
-      <guid>https://anooptube.in/playlists/flutter/</guid>
       <description></description>
     </item>
     
@@ -67,15 +76,6 @@
       <pubDate>Fri, 29 Aug 2025 09:35:43 +0530</pubDate>
       
       <guid>https://anooptube.in/playlists/design-patterns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://anooptube.in/playlists/linux/</link>
-      <pubDate>Sun, 03 Mar 2024 17:15:32 +0530</pubDate>
-      
-      <guid>https://anooptube.in/playlists/linux/</guid>
       <description></description>
     </item>
     

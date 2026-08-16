@@ -6,7 +6,16 @@
     <description>Recent content in Linux on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Mar 2024 17:15:32 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</title>
+      <link>https://anooptube.in/blog/post52/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post52/</guid>
+      <description>A headline went around a few weeks ago claiming Linux Kernel 7.0 &amp;ldquo;halved PostgreSQL throughput.&amp;rdquo; If you run any kind of production database on Linux, that&amp;rsquo;s the kind of sentence that ruins your afternoon. I dug into it because I was about to upgrade a few boxes myself, and the real story is a lot less scary than the headline. It&amp;rsquo;s also a much better story if you actually care about where Linux is heading, because the headline buried the genuinely interesting part — stable Rust support landing in the kernel — under a benchmark scare that mostly wasn&amp;rsquo;t about the kernel at all.</description>
+    </item>
+    
     <item>
       <title>Mastering AWK in Linux</title>
       <link>https://anooptube.in/blog/post31/</link>

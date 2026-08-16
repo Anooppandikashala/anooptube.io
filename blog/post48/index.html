@@ -11,7 +11,7 @@
     <title>
         Vibe Coding Is Dead, Long Live Agentic Engineering - #anooptube
     </title><meta name="description" content="What agentic AI development actually looks like day to day in 2026 — the Plan-Execute-Verify loop, multi-agent workflows, and where the human still matters." />
-    <meta name="keywords" content="vibe coding vs spec-driven development, agentic engineering 2026, PEV loop plan execute verify, AI coding workflow Claude Code Cursor, best agentic coding assistant 2026, AI as agent not autocomplete, multi-agent orchestration coding, supervising AI coding agents" />
+    <meta name="keywords" content="vibe coding vs spec-driven development, agentic engineering 2026, PEV loop plan execute verify, AI coding workflow Claude Code Cursor, best agentic coding assistant 2026, AI as agent not autocomplete, multi-agent orchestration coding, supervising AI coding agents, plan execute verify loop explained, agentic AI software development workflow, AI code review checklist for agents, spec-driven development with AI, multi-agent coding orchestration 2026, why vibe coding fails on large codebases, how to review AI generated code, AI pair programming vs agentic coding" />
     <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.75397851b0a6b461ea49efb16addfc5569efd996bfda018428ea9d1613383e89.css" integrity="sha256-dTl4UbCmtGHqSe+xat38VWnv2Za/2gGEKOqdFhM4Pok=" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -273,7 +273,7 @@
                             <circle cx="12" cy="12" r="9"/>
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
-                        3 min read
+                        13 min read
                     </span>
                     
                     <span class="flex items-center gap-1">
@@ -285,7 +285,7 @@
                             <line x1="12" y1="6" x2="12" y2="19"/>
                             <line x1="21" y1="6" x2="21" y2="19"/>
                         </svg>
-                        487 words
+                        2616 words
                     </span>
                     
                     <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
@@ -335,6 +335,11 @@
 <h2 id="the-shift-nobody-announced">The shift nobody announced</h2>
 <p>I still write code every day. I just don&rsquo;t type most of it anymore. The work moved up a level: instead of implementing a function, I write a spec for what the function needs to do, constraints it has to respect, and then I watch an agent build it. That&rsquo;s not vibe coding — that&rsquo;s what people are now calling agentic engineering, and the distinction matters more than it sounds.</p>
 <p>Vibe coding gives AI a prompt and ships whatever comes back. Agentic engineering gives AI a specification, project context, and a human gatekeeper who reviews every diff before it lands. Same tools, completely different discipline.</p>
+<h2 id="why-vibe-coding-fails-once-a-codebase-gets-real">Why vibe coding fails once a codebase gets real</h2>
+<p>Vibe coding worked fine on green-field toy projects because there was nothing to break. A single file, no existing conventions, no test suite depending on prior behavior — a vague prompt could barely go wrong. The moment you add a real codebase — hundreds of files, an established architecture, other people&rsquo;s assumptions baked into every module — that same vague prompt becomes a liability generator.</p>
+<p>I watched this happen on my own projects before I had a name for it. I&rsquo;d paste a prompt, get back code that looked plausible, run it, and it worked — for the happy path. Three days later a bug report would surface that traced straight back to an edge case the model never considered because I never told it to consider it. The failure wasn&rsquo;t the model being &ldquo;dumb.&rdquo; The failure was mine: I gave it a vibe instead of a spec, and it gave me back a vibe instead of a solution.</p>
+<p>This is the core reason vibe coding vs spec-driven development isn&rsquo;t really a stylistic debate — it&rsquo;s a reliability debate. A spec constrains the solution space. A vibe doesn&rsquo;t. When the blast radius of a wrong guess is a single file nobody depends on, that&rsquo;s fine. When the blast radius is a shared authentication module, it isn&rsquo;t.</p>
+<p><img src="/blogs-images/pev-loop-overview.webp" alt="agentic AI coding workflow diagram showing plan execute verify loop"></p>
 <h2 id="the-loop-that-actually-works-plan-execute-verify">The loop that actually works: Plan, Execute, Verify</h2>
 <p>The pattern I&rsquo;ve landed on — and apparently most serious teams have too — is what&rsquo;s being called the PEV loop:</p>
 <ul>
@@ -343,6 +348,52 @@
 <li><strong>Verify</strong> — tests, diff review, sometimes a second agent acting as reviewer or security scanner.</li>
 </ul>
 <p>The old workflow was: prompt, get code, paste it in, hope. The new one has a checkpoint before anything ships. That one change is why agentic output is trustworthy in a way vibe-coded output never was.</p>
+<h3 id="plan-execute-verify-loop-explained-step-by-step">Plan Execute Verify loop explained, step by step</h3>
+<p>It&rsquo;s worth breaking the PEV loop down further, because &ldquo;plan, execute, verify&rdquo; sounds obvious until you actually try to run it as a repeatable process rather than a vague philosophy.</p>
+<ol>
+<li><strong>Intake</strong> — I write the spec. Not prose, not a paragraph of vibes — a structured description of the goal, the constraints, the files likely in scope, and what &ldquo;done&rdquo; looks like. If I can&rsquo;t articulate what done looks like, that&rsquo;s a signal I&rsquo;m not ready to hand this to an agent yet.</li>
+<li><strong>Plan generation</strong> — the agent reads the spec plus whatever context it can gather (existing code, related tests, prior commits) and proposes a plan: which files it intends to touch, in what order, and why. This is the single most important artifact in the whole loop, because a wrong plan caught here costs nothing. A wrong plan caught after execution costs a revert and re-run.</li>
+<li><strong>Plan review</strong> — I read the plan like a design doc. Does it touch files it shouldn&rsquo;t? Does it skip a migration step? Does it assume an API shape that doesn&rsquo;t exist? This step takes two minutes and saves twenty.</li>
+<li><strong>Execute</strong> — once the plan is approved, the agent works through it: editing files, running the build, running tests, reading error output, adjusting. This is the part that looks like magic from the outside but is really just fast, tireless iteration on feedback the agent can see (compiler errors, failing assertions, lint output).</li>
+<li><strong>Self-verify</strong> — a competent agent doesn&rsquo;t just stop when the code &ldquo;looks done.&rdquo; It runs the test suite, checks the diff against the original plan, and flags anything it wasn&rsquo;t sure about.</li>
+<li><strong>Human verify</strong> — this is the step vibe coding skipped entirely. I review the actual diff, not just the description of the diff. I run the tests myself, or at minimum read them well enough to trust they&rsquo;re testing the right thing.</li>
+</ol>
+<p>Skip step 6 and you&rsquo;ve reinvented vibe coding with extra steps. The loop is only as good as the human checkpoint at the end of it.</p>
+<h2 id="a-worked-example-adding-a-rate-limiter">A worked example: adding a rate limiter</h2>
+<p>Abstract descriptions of the PEV loop are easy to nod along to and hard to actually picture. So here&rsquo;s a real trace of a task I ran recently — adding a token-bucket rate limiter to an internal API.</p>
+<p>The spec I handed the agent looked roughly like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Task: Add rate limiting to POST /api/comments
+Constraints:
+  - Token bucket algorithm, 5 requests/user/minute
+  - Must not affect GET endpoints
+  - Store bucket state in existing Redis connection (see src/cache/redis.ts)
+  - Add unit tests covering: normal traffic, burst traffic, bucket refill timing
+  - No new dependencies — use existing packages only
+Done when:
+  - npm test passes
+  - Manual curl burst test returns 429 after 5th request within a minute
+</code></pre></div><p>The agent&rsquo;s plan came back roughly as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Plan:
+1. Add RateLimiter class in src/middleware/rateLimiter.ts using token bucket,
+   backed by Redis INCR + EXPIRE (matches pattern in src/cache/sessionStore.ts)
+2. Wire middleware into POST /api/comments route only (src/routes/comments.ts)
+3. Add tests in src/middleware/__tests__/rateLimiter.test.ts
+4. No changes to GET routes or shared middleware stack
+</code></pre></div><p>I read that and caught one thing worth flagging before execution: it referenced <code>sessionStore.ts</code> as the pattern to follow, and I happened to know that file used a fixed window counter, not a token bucket — close enough in shape to be a reasonable reference for the Redis calls, but not an algorithmic match. I left a note: &ldquo;reuse the Redis connection pattern from sessionStore.ts, but the algorithm must be token bucket as specified, not fixed window.&rdquo; Cheap catch, made at the plan stage, costing ten seconds.</p>
+<p>Execution ran on its own — the agent wrote the middleware, wired it in, wrote the tests, ran <code>npm test</code>, saw one failing assertion about refill timing, fixed a boundary condition, reran, passed. Then it self-reported: &ldquo;All tests pass. Manual curl verification not run — recommend human confirms 429 behavior against a live server.&rdquo;</p>
+<p>That last line is the tell of a workflow that&rsquo;s actually trustworthy. The agent told me exactly where its confidence ended. I ran the curl burst test myself, confirmed the 429, and merged. Total time: maybe fifteen minutes of my attention spread across a task that would&rsquo;ve taken an hour of typing.</p>
+<h2 id="common-failure-modes-and-gotchas">Common failure modes and gotchas</h2>
+<p>None of this is magic, and pretending otherwise is how people get burned. The failure modes I run into most often, roughly in order of how often they bite:</p>
+<ul>
+<li><strong>Plausible-but-wrong plans.</strong> The agent proposes something that reads perfectly reasonable and is subtly incompatible with a constraint you didn&rsquo;t state explicitly. This is why the plan review step exists — catch it before code gets written, not after.</li>
+<li><strong>Scope creep during execution.</strong> An agent hits a related-but-unrequested improvement opportunity and &ldquo;helpfully&rdquo; refactors something adjacent. Good agentic coding assistants ask before doing this; not all of them do it well by default, so tight specs matter more than you&rsquo;d think.</li>
+<li><strong>Test theater.</strong> Tests that pass because they assert something trivially true, not because they actually exercise the behavior you care about. Read the tests, not just the pass/fail count.</li>
+<li><strong>Confident wrongness on ambiguous specs.</strong> If your spec has a gap, the agent fills it with an assumption and moves forward — it usually doesn&rsquo;t stop to ask unless the ambiguity is severe. The fix isn&rsquo;t a smarter agent, it&rsquo;s a tighter spec.</li>
+<li><strong>Context loss on long-running tasks.</strong> Very long executions can drift from the original plan, especially across many file edits. Checking the diff against the plan at the end catches this reliably.</li>
+<li><strong>Overtrusting a green test suite.</strong> Passing tests confirm the code does what the tests check. They don&rsquo;t confirm the tests check the right thing. This is the single most common way &ldquo;verified&rdquo; code still ships a real bug.</li>
+</ul>
+<p>None of these are reasons to go back to typing everything by hand. They&rsquo;re reasons the verify step in PEV isn&rsquo;t optional decoration — it&rsquo;s the whole point.</p>
+<p><img src="/blogs-images/reviewing-agent-diff.webp" alt="developer reviewing AI agent diff output on laptop screen"></p>
 <h2 id="what-my-day-actually-looks-like-now">What my day actually looks like now</h2>
 <ul>
 <li>Morning: write specs for 2-3 features, not code. Precise constraints, not vague vibes.</li>
@@ -352,9 +403,80 @@
 <li>Step away while long-running tasks execute. Come back to a diff, not a blank cursor.</li>
 </ul>
 <p>Some days that&rsquo;s one agent. Some days it&rsquo;s three or four running in parallel on unrelated pieces of the same codebase. The economics change completely once you&rsquo;re supervising instead of typing — it&rsquo;s less &ldquo;AI helped me code faster&rdquo; and more &ldquo;I stopped being the bottleneck.&rdquo;</p>
+<h2 id="how-multi-agent-orchestration-actually-works">How multi-agent orchestration actually works</h2>
+<p>The single-agent PEV loop is the unit of work. Multi-agent orchestration is what happens when you stack several of those units and run them concurrently without them stepping on each other. This is where a lot of the &ldquo;AI coding workflow&rdquo; conversation in 2026 has shifted — it&rsquo;s less about whether one agent is smart enough, and more about how you coordinate several of them safely.</p>
+<p>The mechanics that make this work in practice:</p>
+<ul>
+<li><strong>Isolated worktrees.</strong> Each agent gets its own git worktree, so file changes from one task can&rsquo;t collide with another mid-flight. This is the difference between &ldquo;four agents working in parallel&rdquo; and &ldquo;four agents fighting over the same files.&rdquo;</li>
+<li><strong>Scoped specs.</strong> A multi-agent run only works if each agent&rsquo;s task is genuinely independent — touching a disjoint set of files, or at least a set where conflicts are mechanical (formatting, imports) rather than semantic. Handing two agents overlapping, interdependent work is asking for a merge nightmare, agent or not.</li>
+<li><strong>A reviewer agent.</strong> Some workflows add a second agent whose only job is to review the first agent&rsquo;s diff — checking for security issues, style violations, or logic that contradicts the stated plan — before a human ever looks at it. This doesn&rsquo;t replace human review. It filters out the categories of mistake a second automated pass catches cheaply, so the human review that follows is faster and focused on judgment calls instead of typos.</li>
+<li><strong>A merge/integration step.</strong> Once each agent&rsquo;s branch passes its own verify stage, a human (or an orchestrating agent, with a human sign-off) merges them, running the full integration test suite once everything&rsquo;s combined — because independence at the file level doesn&rsquo;t guarantee independence at the behavioral level.</li>
+</ul>
+<p>The honest way to describe supervising AI coding agents at this scale: it feels less like programming and more like technical project management, except the team members work at machine speed and need extremely precise instructions to stay useful.</p>
 <h2 id="where-the-human-still-matters">Where the human still matters</h2>
 <p>None of this removes the need for judgment. Someone still has to decide what &ldquo;correct&rdquo; means, catch the plausible-but-wrong plan before execution, and own the architecture. The tools got better at typing. They didn&rsquo;t get better at deciding what&rsquo;s worth building. That part&rsquo;s still mine — and honestly, that&rsquo;s the part I always liked more anyway.</p>
-<p>If you&rsquo;re still stuck in prompt-and-hope mode: try writing the spec first, next time, before you touch the prompt box. The output quality difference is not subtle.</p>
+<p>Concretely, here&rsquo;s where I refuse to hand off the decision, no matter how good the agent&rsquo;s track record gets:</p>
+<ul>
+<li><strong>What to build, and why.</strong> Priorities, tradeoffs, what the user actually needs versus what&rsquo;s technically interesting to build — that&rsquo;s a human call, full stop.</li>
+<li><strong>Architecture and its long-term cost.</strong> An agent will happily generate a working solution inside whatever architecture already exists. It won&rsquo;t tell you the architecture itself is accumulating debt unless you specifically ask it to look for that.</li>
+<li><strong>Anything touching security, money, or irreversible data operations.</strong> Rate limiters, payment flows, migrations that drop columns — these get read line by line, every time, no exceptions.</li>
+<li><strong>The final &ldquo;does this actually solve the problem&rdquo; check.</strong> Tests passing and a clean diff are necessary, not sufficient. Someone has to look at the running result and ask if it actually does the thing the user needed.</li>
+</ul>
+<h2 id="vibe-coding-vs-agentic-engineering-a-direct-comparison">Vibe coding vs agentic engineering: a direct comparison</h2>
+<p>Laid side by side, the difference isn&rsquo;t &ldquo;AI got smarter.&rdquo; It&rsquo;s that the workflow around the AI got disciplined.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Vibe coding</th>
+<th>Agentic engineering (PEV loop)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Vague prompt</td>
+<td>Structured spec with constraints</td>
+</tr>
+<tr>
+<td>Checkpoint before code changes</td>
+<td>None</td>
+<td>Plan review</td>
+</tr>
+<tr>
+<td>Scale it works at</td>
+<td>Toy projects, single files</td>
+<td>Real codebases, multi-file changes</td>
+</tr>
+<tr>
+<td>Failure visibility</td>
+<td>Discovered in production</td>
+<td>Caught at plan or verify stage</td>
+</tr>
+<tr>
+<td>Human role</td>
+<td>Prompt writer</td>
+<td>Spec author, reviewer, architect</td>
+</tr>
+<tr>
+<td>Trust model</td>
+<td>Hope</td>
+<td>Verify</td>
+</tr>
+</tbody>
+</table>
+<p>That last row is really the whole article in one line. Vibe coding ran on hope. Agentic engineering runs on verification, and verification is a discipline you build, not a feature you install.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What is the Plan-Execute-Verify loop?</strong>
+It&rsquo;s a three-stage workflow for AI-assisted coding: the agent proposes a plan before touching any files, a human or automated check approves it, the agent executes and self-tests, and a human verifies the final diff before it ships. It replaces the &ldquo;prompt and hope&rdquo; pattern of vibe coding with an explicit checkpoint at each stage.</p>
+<p><strong>Is vibe coding actually dead, or just for beginners now?</strong>
+It&rsquo;s not dead as a way to explore an idea fast — it&rsquo;s dead as a way to ship anything that matters. Vibe coding still has a place for throwaway prototypes and single-file scripts where a wrong guess costs nothing. On any codebase with real users, real data, or other developers depending on it, spec-driven development with AI is what actually survives contact with production.</p>
+<p><strong>Do I need multiple agents, or is one enough?</strong>
+One agent running a disciplined PEV loop covers most day-to-day work. Multi-agent orchestration earns its complexity when you have genuinely independent tasks that can run in parallel without touching the same files — otherwise you&rsquo;re adding coordination overhead for no real speed gain.</p>
+<p><strong>How much should I actually review of what the agent produces?</strong>
+All of it, at least at the diff level, for anything shipping to production. You can skim confidently once an agent&rsquo;s track record on a given kind of task is well established, but security-sensitive, financial, or data-destructive changes get a full read every single time, regardless of how many times the agent has gotten it right before.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>The tools didn&rsquo;t make judgment obsolete — they made bad judgment more expensive to skip. Vibe coding let you get away with not having a spec because the cost of being wrong was invisible until it wasn&rsquo;t. Agentic engineering doesn&rsquo;t remove that cost, it just moves the moment you pay it earlier, back to the plan, where fixing a mistake takes a sentence instead of an incident report. That&rsquo;s the whole upgrade, really — not smarter code, just a cheaper place to be wrong.</p>
 <div class="post-share-strip">
     <span class="post-share-label">Share</span>
 
@@ -420,9 +542,20 @@ function postCopyLink(btn) {
             <nav id="TableOfContents">
   <ul>
     <li><a href="#the-shift-nobody-announced">The shift nobody announced</a></li>
-    <li><a href="#the-loop-that-actually-works-plan-execute-verify">The loop that actually works: Plan, Execute, Verify</a></li>
+    <li><a href="#why-vibe-coding-fails-once-a-codebase-gets-real">Why vibe coding fails once a codebase gets real</a></li>
+    <li><a href="#the-loop-that-actually-works-plan-execute-verify">The loop that actually works: Plan, Execute, Verify</a>
+      <ul>
+        <li><a href="#plan-execute-verify-loop-explained-step-by-step">Plan Execute Verify loop explained, step by step</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-worked-example-adding-a-rate-limiter">A worked example: adding a rate limiter</a></li>
+    <li><a href="#common-failure-modes-and-gotchas">Common failure modes and gotchas</a></li>
     <li><a href="#what-my-day-actually-looks-like-now">What my day actually looks like now</a></li>
+    <li><a href="#how-multi-agent-orchestration-actually-works">How multi-agent orchestration actually works</a></li>
     <li><a href="#where-the-human-still-matters">Where the human still matters</a></li>
+    <li><a href="#vibe-coding-vs-agentic-engineering-a-direct-comparison">Vibe coding vs agentic engineering: a direct comparison</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
   </ul>
 </nav>
         </div>
@@ -439,6 +572,63 @@ function postCopyLink(btn) {
         <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
         <div class="recent-widget-line"></div>
     </div>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post53/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
     <a href="/blog/post50/" class="recent-post-item">
 
         
@@ -470,63 +660,6 @@ function postCopyLink(btn) {
                 
   
     Aug 15, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post48/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/vibe_coding.webp" alt="Vibe Coding Is Dead, Long Live Agentic Engineering" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">Vibe Coding Is Dead, Long Live Agentic Engineering</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 15, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post47/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/invoiso_banner.webp" alt="What I Shipped This Month Building Invoiso (v3.4.2)" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">What I Shipped This Month Building Invoiso (v3.4.2)</div>
-            <div class="recent-post-date">
-                
-  
-    Mar 31, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post46/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with an External keyboard" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">I built a free Android soundboard that works with an External keyboard</div>
-            <div class="recent-post-date">
-                
-  
-    Mar 25, 26
   
 
 
@@ -621,6 +754,132 @@ function postCopyLink(btn) {
         <article class="blog-card">
 
     
+    <a href="https://anooptube.in/blog/post51/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 16, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/ai" class="card-tag">ai</a>
+            
+            <a href="/tags/agent" class="card-tag">agent</a>
+            
+            <a href="/tags/productivity" class="card-tag">productivity</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post51/" class="card-content-link">
+            <div class="card-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+
+            
+            <div class="card-desc">A practical comparison of the top AI coding assistants in 2026 — Claude Code, Cursor, and the open-source Kilo Code — and which one actually fits your workflow.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post53/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/flutter_3_4_4.webp" alt="What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 16, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/ai" class="card-tag">ai</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post53/" class="card-content-link">
+            <div class="card-title">What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</div>
+
+            
+            <div class="card-desc">Flutter 3.44 and Dart 3.12 bring Agentic Hot Reload and Genkit AI integration for building AI-ready apps — here&#39;s what changed and how to try it.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
     <a href="https://anooptube.in/blog/post50/" class="card-img-wrap" style="text-decoration:none;display:block;">
         <img src="/thumbs/simple_ai_agent.webp" alt="Build a Simple AI Agent in Python (No Framework Needed)" loading="lazy" />
         
@@ -666,71 +925,7 @@ function postCopyLink(btn) {
                             <circle cx="12" cy="12" r="9"/>
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
-                        3 min read
-                    </span>
-                </span>
-                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                </svg>
-            </div>
-        </a>
-
-    </div>
-
-      
-
-</article>
-<article class="blog-card">
-
-    
-    <a href="https://anooptube.in/blog/post45/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/copy_duo_banner.webp" alt="I Built an Android App Because Android Kept Deleting My Clipboard" loading="lazy" />
-        
-        <span class="card-date-badge">
-            
-  
-    Mar 19, 26
-  
-
-
-        </span>
-        
-    </a>
-    
-
-    <div class="card-body">
-
-        
-        <div class="card-tags">
-            
-            <a href="/tags/android" class="card-tag">android</a>
-            
-            <a href="/tags/productivity" class="card-tag">productivity</a>
-            
-            <a href="/tags/invoice" class="card-tag">invoice</a>
-            
-        </div>
-        
-
-        <a href="https://anooptube.in/blog/post45/" class="card-content-link">
-            <div class="card-title">I Built an Android App Because Android Kept Deleting My Clipboard</div>
-
-            
-            <div class="card-desc">The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected.</div>
-            
-
-            <div class="card-footer">
-                <span class="flex items-center gap-1.5 flex-wrap">
-                    
-                    <span class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9"/>
-                            <polyline points="12 7 12 12 15 15"/>
-                        </svg>
-                        5 min read
+                        15 min read
                     </span>
                 </span>
                 <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

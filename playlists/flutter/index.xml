@@ -6,7 +6,16 @@
     <description>Recent content in Flutter on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Mar 2026 19:21:55 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</title>
+      <link>https://anooptube.in/blog/post53/</link>
+      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post53/</guid>
+      <description>Flutter 3.44 has been out since May, and by the time I got around to actually upgrading a project, I realized I&amp;rsquo;d been ignoring the more interesting half of the release. It&amp;rsquo;s not just UI widgets anymore — it&amp;rsquo;s AI tooling baked straight into the framework. I spent a weekend actually using Agentic Hot Reload, wiring up a Genkit flow, and pointing an AI coding assistant at the new Dart and Flutter MCP Server.</description>
+    </item>
+    
     <item>
       <title>What I Shipped This Month Building Invoiso (v3.4.2)</title>
       <link>https://anooptube.in/blog/post47/</link>
