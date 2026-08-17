@@ -6,7 +6,34 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Aug 2026 15:00:17 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>5 Agentic AI Design Patterns Every Developer Should Know in 2026</title>
+      <link>https://anooptube.in/blog/post56/</link>
+      <pubDate>Mon, 17 Aug 2026 15:00:17 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post56/</guid>
+      <description>Every &amp;ldquo;how to build an AI agent&amp;rdquo; tutorial teaches you one loop and stops there. Fine for a demo, useless the first time you&amp;rsquo;re staring at a real system that needs to decide between five different ways of wiring an LLM into a workflow. What I kept missing was the thing every other corner of software engineering already has: a catalog. Not &amp;ldquo;here&amp;rsquo;s how to build an agent&amp;rdquo; — here&amp;rsquo;s the menu of patterns, when each one earns its complexity, and what breaks when you pick the wrong one.</description>
+    </item>
+    
+    <item>
+      <title>Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</title>
+      <link>https://anooptube.in/blog/post55/</link>
+      <pubDate>Mon, 17 Aug 2026 15:00:04 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post55/</guid>
+      <description>I spent last week migrating a legacy RecyclerView screen to Compose, and about halfway through I realized I wasn&amp;rsquo;t doing it because I felt like it anymore — I was doing it because Google just told the entire Android ecosystem that Views is no longer where new work happens. That&amp;rsquo;s a bigger deal than another Compose point release, so I want to walk through what actually changed at I/O 2026, what&amp;rsquo;s new in Compose 1.</description>
+    </item>
+    
+    <item>
+      <title>Modern CSS in 2026: Container Queries, :has(), and Cascade Layers</title>
+      <link>https://anooptube.in/blog/post54/</link>
+      <pubDate>Mon, 17 Aug 2026 14:59:57 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post54/</guid>
+      <description>I spent a chunk of last week ripping JavaScript out of a component library. Not because it was buggy — because it didn&amp;rsquo;t need to exist anymore. A resize observer that toggled a class based on container width, a form validation script that just added an &amp;ldquo;invalid&amp;rdquo; class to a parent div, a PostCSS plugin that faked layer-like ordering — all three jobs are now native CSS. This post is a walkthrough of the three features that made that possible: container queries, :has(), and cascade layers, plus native nesting and scroll-driven animations along the way, with real code for each.</description>
+    </item>
+    
     <item>
       <title>Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</title>
       <link>https://anooptube.in/blog/post51/</link>

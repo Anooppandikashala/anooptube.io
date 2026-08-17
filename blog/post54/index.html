@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post54/" />
+
+    <title>
+        Modern CSS in 2026: Container Queries, :has(), and Cascade Layers - #anooptube
+    </title><meta name="description" content="A practical guide to container queries, :has(), and cascade layers — the modern CSS features that let you delete the JS and build-tool workarounds you used to reach for." />
+    <meta name="keywords" content="modern CSS 2026, CSS container queries tutorial, CSS :has() selector examples, cascade layers @layer CSS, CSS nesting native, scroll-driven animations CSS, container query vs media query, parent selector CSS, CSS architecture without JS, @layer specificity order, CSS :has() parent selector, replace JavaScript with CSS 2026" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.4f1c8b0a47a9bd2125f4b0e6c5f5ce270f2760af843e6d995769ba893418fd9c.css" integrity="sha256-TxyLCkepvSEl9LDmxfXOJw8nYK+EPm2ZV2m6iTQY/Zw=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="Modern CSS in 2026: Container Queries, :has(), and Cascade Layers" />
+<meta property="og:description" content="A practical guide to container queries, :has(), and cascade layers — the modern CSS features that let you delete the JS and build-tool workarounds you used to reach for." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post54/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-08-17T14:59:57+05:30" />
+<meta property="article:modified_time" content="2026-08-17T14:59:57+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/modern_css_2026.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/modern_css_2026.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/modern_css_2026.webp" alt="Modern CSS in 2026: Container Queries, :has(), and Cascade Layers" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    August 17, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="Modern CSS in 2026: Container Queries, :has(), and Cascade Layers">Modern CSS in 2026: Container Queries, :has(), and Cascade Layers</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Modern CSS in 2026: Container Queries, :has(), and Cascade Layers\"",
+      "item": "\"https://anooptube.in/blog/post54/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Modern CSS in 2026: Container Queries, :has(), and Cascade Layers</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    August 17, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2311 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+
+<p>I spent a chunk of last week ripping JavaScript out of a component library. Not because it was buggy — because it didn&rsquo;t need to exist anymore. A resize observer that toggled a class based on container width, a form validation script that just added an &ldquo;invalid&rdquo; class to a parent div, a PostCSS plugin that faked layer-like ordering — all three jobs are now native CSS. This post is a walkthrough of the three features that made that possible: container queries, <code>:has()</code>, and cascade layers, plus native nesting and scroll-driven animations along the way, with real code for each.</p>
+<h2 id="why-modern-css-replaced-so-much-javascript-in-2026">Why modern CSS replaced so much JavaScript in 2026</h2>
+<p>For years, CSS could only react to the viewport. If you wanted a card to look different depending on the width of the <em>column</em> it sat in — not the browser window — you needed JavaScript: a <code>ResizeObserver</code> watching the container, a class toggled in response, and now your &ldquo;CSS&rdquo; component actually depends on a script tag to render correctly. Same story for anything that needed to style a parent based on a child&rsquo;s state, or for controlling which of two conflicting style rules should win without playing specificity Jenga with <code>!important</code>.</p>
+<p>Container queries, <code>:has()</code>, and cascade layers close those three gaps directly in the stylesheet. None of them are brand new as of this year, but 2026 is the point where all three have wide enough browser support — container queries alone are sitting around 92% global support — that reaching for a JS workaround instead is now the exception, not the default. Combined with native CSS nesting and scroll-driven animations, you can build genuinely responsive, stateful, well-ordered component systems in plain CSS, and delete a fair amount of glue code doing it.</p>
+<p><img src="/blogs-images/modern-css-2026-features-overview.webp" alt="modern CSS 2026 features overview diagram"></p>
+<h2 id="css-container-queries-tutorial-sizing-components-by-their-container-not-the-viewport">CSS container queries tutorial: sizing components by their container, not the viewport</h2>
+<p>A media query asks &ldquo;how wide is the browser window?&rdquo; A container query asks &ldquo;how wide is the box this component is actually sitting in?&rdquo; That distinction sounds small until you build something like a card component that gets dropped into a wide main column in one layout and a narrow sidebar in another. With media queries, that card can&rsquo;t tell the difference — the viewport is the same in both cases. With container queries, it can.</p>
+<h3 id="setting-up-a-containment-context">Setting up a containment context</h3>
+<p>Before you can query a container&rsquo;s size, you have to declare that element as a container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">card-grid</span> {
+  container-type: <span style="color:#ff79c6">inline</span><span style="color:#ff79c6">-</span><span style="color:#ff79c6">size</span>;
+  container-name: card-grid;
+}
+</code></pre></div><ul>
+<li><code>container-type: inline-size</code> tells the browser to track the element&rsquo;s width (the common case for responsive components). <code>size</code> tracks both width and height, but requires the element to have a defined height, which is rarer in practice.</li>
+<li><code>container-name</code> is optional but worth adding once you have more than one container type in a stylesheet — it lets you target a specific ancestor instead of just &ldquo;the nearest container.&rdquo;</li>
+</ul>
+<h3 id="querying-it">Querying it</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">card</span> {
+  <span style="color:#ff79c6">display</span>: <span style="color:#ff79c6">grid</span>;
+  <span style="color:#ff79c6">grid-template-columns</span>: <span style="color:#bd93f9">1</span>fr;
+  gap: <span style="color:#bd93f9">0.5</span><span style="color:#8be9fd">rem</span>;
+}
+
+@<span style="color:#ff79c6">container</span> <span style="color:#ff79c6">card-grid</span> <span style="color:#ff79c6">(</span><span style="color:#ff79c6">min-width</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">480px</span><span style="color:#ff79c6">)</span> {
+  .<span style="color:#50fa7b">card</span> {
+    <span style="color:#ff79c6">grid-template-columns</span>: <span style="color:#bd93f9">120</span><span style="color:#8be9fd">px</span> <span style="color:#bd93f9">1</span>fr;
+    gap: <span style="color:#bd93f9">1</span><span style="color:#8be9fd">rem</span>;
+  }
+}
+
+@<span style="color:#ff79c6">container</span> <span style="color:#ff79c6">card-grid</span> <span style="color:#ff79c6">(</span><span style="color:#ff79c6">min-width</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">700px</span><span style="color:#ff79c6">)</span> {
+  .<span style="color:#50fa7b">card</span> {
+    <span style="color:#ff79c6">grid-template-columns</span>: <span style="color:#bd93f9">160</span><span style="color:#8be9fd">px</span> <span style="color:#bd93f9">1</span>fr <span style="color:#ff79c6">auto</span>;
+  }
+}
+</code></pre></div><p>Drop <code>.card</code> into a 320px-wide sidebar and it stacks vertically. Drop the exact same markup and the exact same CSS into a 900px-wide main content area, and it lays out as a three-column row — no JavaScript, no duplicate component variant, no <code>ResizeObserver</code> anywhere in sight. This is the single biggest win container queries give you: <strong>one component definition that adapts to wherever it&rsquo;s placed</strong>, instead of a family of &ldquo;Card&rdquo; and &ldquo;CardCompact&rdquo; and &ldquo;CardWide&rdquo; components maintained in parallel.</p>
+<h3 id="container-query-units">Container query units</h3>
+<p>Alongside <code>@container</code> rules, you also get container-relative units — <code>cqw</code>, <code>cqh</code>, <code>cqi</code>, <code>cqb</code> — which behave like <code>vw</code>/<code>vh</code> but scale against the container instead of the viewport:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">card</span> <span style="color:#ff79c6">h2</span> {
+  <span style="color:#ff79c6">font-size</span>: <span style="color:#50fa7b">clamp</span>(<span style="color:#bd93f9">1</span><span style="color:#8be9fd">rem</span>, <span style="color:#bd93f9">4</span>cqi, <span style="color:#bd93f9">1.5</span><span style="color:#8be9fd">rem</span>);
+}
+</code></pre></div><p>That heading scales smoothly with the card&rsquo;s own width, not the page&rsquo;s, so it stays proportionate whether the card is 200px or 800px wide.</p>
+<h2 id="the-has-selector-styling-a-parent-based-on-its-children">The :has() selector: styling a parent based on its children</h2>
+<p>This is the one that used to be flatly impossible in CSS. Selectors have always worked downward — style a child based on its parent or an ancestor&rsquo;s class — never upward. If you wanted a form group to turn red when the input inside it was invalid, or a card to get a highlighted border when it contained an unread badge, you needed JavaScript to inspect the child and toggle a class on the parent.</p>
+<p><code>:has()</code> is a relational pseudo-class that lets a selector match an element <em>if</em> it contains (or is followed by, depending on the combinator) something matching the argument.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#6272a4">/* Style a form group based on its input&#39;s validity state */</span>
+.<span style="color:#50fa7b">form-group</span>:has<span style="color:#ff79c6">(</span><span style="color:#ff79c6">input</span>:invalid<span style="color:#ff79c6">)</span> {
+  <span style="color:#ff79c6">border-color</span>: <span style="color:#50fa7b">var</span>(<span style="color:#ff79c6">--</span><span style="color:#ff79c6">color</span><span style="color:#ff79c6">-</span>danger);
+  <span style="color:#ff79c6">background</span>: <span style="color:#50fa7b">var</span>(<span style="color:#ff79c6">--</span><span style="color:#ff79c6">color</span><span style="color:#ff79c6">-</span>danger<span style="color:#ff79c6">-</span>bg);
+}
+
+.<span style="color:#50fa7b">form-group</span>:has<span style="color:#ff79c6">(</span><span style="color:#ff79c6">input</span>:focus<span style="color:#ff79c6">)</span> {
+  <span style="color:#ff79c6">outline</span>: <span style="color:#bd93f9">2</span><span style="color:#8be9fd">px</span> <span style="color:#ff79c6">solid</span> <span style="color:#50fa7b">var</span>(<span style="color:#ff79c6">--</span><span style="color:#ff79c6">color</span><span style="color:#ff79c6">-</span>accent);
+}
+</code></pre></div><p>No JavaScript event listener, no class toggling — the browser already tracks <code>:invalid</code> and <code>:focus</code> on the input, and <code>:has()</code> lets the parent react to that state directly.</p>
+<h3 id="a-layout-trick-styling-a-grid-based-on-its-item-count">A layout trick: styling a grid based on its item count</h3>
+<p><code>:has()</code> combined with <code>:nth-child</code> unlocks layout decisions that used to require a script counting DOM children:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#6272a4">/* If a gallery has exactly one image, make it full width */</span>
+.<span style="color:#50fa7b">gallery</span>:has<span style="color:#ff79c6">(&gt;</span> <span style="color:#ff79c6">img</span>:only-child<span style="color:#ff79c6">)</span> {
+  <span style="color:#ff79c6">grid-template-columns</span>: <span style="color:#bd93f9">1</span>fr;
+}
+
+<span style="color:#6272a4">/* If a card contains a &#34;featured&#34; badge, bump its grid span */</span>
+.<span style="color:#50fa7b">card</span>:has<span style="color:#ff79c6">(</span>.<span style="color:#50fa7b">badge--featured</span><span style="color:#ff79c6">)</span> {
+  <span style="color:#ff79c6">grid-column</span>: span <span style="color:#bd93f9">2</span>;
+}
+</code></pre></div><h3 id="using-has-as-a-real-parent-selector">Using :has() as a real parent selector</h3>
+<p>The pattern that got me the most excited: styling a sibling based on a checkbox or radio state, without the old &ldquo;checkbox hack&rdquo; that relied on strict sibling ordering in the markup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">accordion</span>:has<span style="color:#ff79c6">(</span><span style="color:#ff79c6">input</span><span style="color:#ff79c6">[</span><span style="color:#ff79c6">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span><span style="color:#ff79c6">]</span>:checked<span style="color:#ff79c6">)</span> .<span style="color:#50fa7b">accordion-body</span> {
+  <span style="color:#ff79c6">max-height</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+  <span style="color:#ff79c6">opacity</span>: <span style="color:#bd93f9">1</span>;
+}
+</code></pre></div><p><code>:has()</code> reads naturally where the old adjacent-sibling checkbox hack read like a puzzle. That readability difference matters more than it sounds — code that&rsquo;s easy to read is code the next person (often future-you) won&rsquo;t break by accident.</p>
+<p><img src="/blogs-images/css-has-selector-parent-child-diagram.webp" alt="CSS has selector parent child relationship diagram"></p>
+<h2 id="cascade-layers-layer-explicit-ordering-above-specificity">Cascade layers (@layer): explicit ordering above specificity</h2>
+<p>Specificity wars are the single most common source of <code>!important</code> littered through a real-world stylesheet. Two rules target the same element, one has a more specific selector, and it wins — regardless of which one you actually wanted to take priority. Cascade layers fix this by adding an ordering mechanism that sits <em>above</em> specificity entirely.</p>
+<p>The rule is simple once it clicks: <strong>any rule in a later-declared layer beats any rule in an earlier layer, no matter how specific the earlier rule&rsquo;s selector is.</strong> Specificity only gets used to resolve conflicts <em>within</em> the same layer.</p>
+<h3 id="declaring-layer-order-up-front">Declaring layer order up front</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#ff79c6">layer</span> <span style="color:#ff79c6">reset</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">base</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">components</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">utilities</span>;
+</code></pre></div><p>That single line declares the order before any of the layers have content — reset loses to base, base loses to components, components loses to utilities. You can then fill each layer in any order, in any file, and the declared order still wins:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#ff79c6">layer</span> <span style="color:#ff79c6">reset</span> {
+  <span style="color:#ff79c6">*</span> { <span style="color:#ff79c6">margin</span>: <span style="color:#bd93f9">0</span>; <span style="color:#ff79c6">padding</span>: <span style="color:#bd93f9">0</span>; <span style="color:#ff79c6">box-sizing</span>: <span style="color:#ff79c6">border-box</span>; }
+}
+
+@<span style="color:#ff79c6">layer</span> <span style="color:#ff79c6">base</span> {
+  <span style="color:#ff79c6">body</span> { <span style="color:#ff79c6">font-family</span>: system-ui, <span style="color:#ff79c6">sans-serif</span>; <span style="color:#ff79c6">line-height</span>: <span style="color:#bd93f9">1.5</span>; }
+  <span style="color:#ff79c6">a</span> { <span style="color:#ff79c6">color</span>: <span style="color:#50fa7b">var</span>(<span style="color:#ff79c6">--</span><span style="color:#ff79c6">color</span><span style="color:#ff79c6">-</span>link); }
+}
+
+@<span style="color:#ff79c6">layer</span> <span style="color:#ff79c6">components</span> {
+  .<span style="color:#50fa7b">btn</span> {
+    <span style="color:#ff79c6">padding</span>: <span style="color:#bd93f9">0.5</span><span style="color:#8be9fd">rem</span> <span style="color:#bd93f9">1</span><span style="color:#8be9fd">rem</span>;
+    <span style="color:#ff79c6">border-radius</span>: <span style="color:#bd93f9">0.375</span><span style="color:#8be9fd">rem</span>;
+    <span style="color:#ff79c6">background</span>: <span style="color:#50fa7b">var</span>(<span style="color:#ff79c6">--</span><span style="color:#ff79c6">color</span><span style="color:#ff79c6">-</span>primary);
+  }
+}
+
+@<span style="color:#ff79c6">layer</span> <span style="color:#ff79c6">utilities</span> {
+  .<span style="color:#50fa7b">text-center</span> { <span style="color:#ff79c6">text-align</span>: <span style="color:#ff79c6">center</span> <span style="color:#ff79c6">!important</span>; }
+}
+</code></pre></div><p>Here&rsquo;s the payoff: even though <code>.btn</code> in <code>components</code> is more specific than a bare <code>a</code> selector in <code>base</code>, layer order — not specificity — decides the outcome whenever they conflict. And a low-specificity utility class like <code>.text-center</code> in the <code>utilities</code> layer still beats a highly specific component selector in <code>components</code>, because <code>utilities</code> was declared last. That&rsquo;s the exact job utility-first CSS frameworks used to need a build step and careful source-order discipline to fake — <code>@layer</code> gives it to you natively.</p>
+<h3 id="third-party-css-gets-its-own-layer-automatically">Third-party CSS gets its own layer automatically</h3>
+<p>Anything not wrapped in a named <code>@layer</code> block is treated as the <em>highest-priority unlayered layer</em> — it beats every named layer regardless of order. That&rsquo;s a deliberate design choice: it means your own layered architecture always loses to un-layered overrides by default, which is usually what you want for a quick one-off fix, but it also means third-party CSS you <em>do</em> want to layer needs to be wrapped explicitly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#ff79c6">layer</span> <span style="color:#ff79c6">vendor</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">reset</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">base</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">components</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">utilities</span>;
+
+@<span style="color:#ff79c6">import</span> <span style="color:#ff79c6">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;some-vendor-library.css&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">layer</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">vendor</span><span style="color:#ff79c6">)</span>;
+</code></pre></div><p>Now vendor styles sit at the bottom of your explicit order, instead of silently out-ranking everything else on the page.</p>
+<h2 id="native-css-nesting-no-preprocessor-required">Native CSS nesting: no preprocessor required</h2>
+<p>For a decade, nesting selectors meant reaching for Sass or Less. Native CSS nesting removes that dependency for the common cases:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">card</span> {
+  <span style="color:#ff79c6">padding</span>: <span style="color:#bd93f9">1</span><span style="color:#8be9fd">rem</span>;
+  <span style="color:#ff79c6">border-radius</span>: <span style="color:#bd93f9">0.5</span><span style="color:#8be9fd">rem</span>;
+
+  &amp; h2 {
+    <span style="color:#ff79c6">font-size</span>: <span style="color:#bd93f9">1.25</span><span style="color:#8be9fd">rem</span>;
+    <span style="color:#ff79c6">margin-bottom</span>: <span style="color:#bd93f9">0.5</span><span style="color:#8be9fd">rem</span>;
+  }
+
+  <span style="color:#ff79c6">&amp;</span>:hover {
+    <span style="color:#ff79c6">box-shadow</span>: <span style="color:#bd93f9">0</span> <span style="color:#bd93f9">4</span><span style="color:#8be9fd">px</span> <span style="color:#bd93f9">12</span><span style="color:#8be9fd">px</span> <span style="color:#8be9fd;font-style:italic">rgb</span>(<span style="color:#bd93f9">0</span> <span style="color:#bd93f9">0</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0.1</span>);
+  }
+
+  <span style="color:#ff79c6">&amp;</span> .<span style="color:#50fa7b">badge</span> {
+    <span style="color:#ff79c6">display</span>: <span style="color:#ff79c6">inline-block</span>;
+
+    &amp;--featured {
+      <span style="color:#ff79c6">background</span>: <span style="color:#50fa7b">var</span>(<span style="color:#ff79c6">--</span><span style="color:#ff79c6">color</span><span style="color:#ff79c6">-</span>accent);
+    }
+  }
+}
+</code></pre></div><p>The <code>&amp;</code> works the way it does in Sass — it&rsquo;s a placeholder for the parent selector, so <code>&amp;:hover</code> compiles conceptually to <code>.card:hover</code> and <code>&amp;--featured</code> inside <code>.badge</code> becomes <code>.badge--featured</code>. Combined with container queries, you can nest a <code>@container</code> rule directly inside a component&rsquo;s own block instead of writing it as a separate, disconnected rule elsewhere in the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">card</span> {
+  <span style="color:#ff79c6">display</span>: <span style="color:#ff79c6">grid</span>;
+  <span style="color:#ff79c6">grid-template-columns</span>: <span style="color:#bd93f9">1</span>fr;
+
+  @container card-grid (<span style="color:#ff79c6">min-width</span>: <span style="color:#bd93f9">480</span><span style="color:#8be9fd">px</span>) {
+    <span style="color:#ff79c6">grid-template-columns</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">120</span><span style="color:#8be9fd">px</span> <span style="color:#bd93f9">1</span>fr;
+  }
+}
+</code></pre></div><p>That keeps every rule affecting <code>.card</code> physically in one place, which is a real maintainability win once a stylesheet grows past a few hundred lines.</p>
+<h2 id="scroll-driven-animations-no-more-scroll-event-listeners">Scroll-driven animations: no more scroll event listeners</h2>
+<p>The other JS workaround that&rsquo;s quietly disappeared: animating something in response to scroll position — a progress bar, a parallax effect, a fade-in as an element enters the viewport — used to mean a <code>scroll</code> event listener, <code>requestAnimationFrame</code> throttling, and manual math to compute a percentage. <code>animation-timeline</code> does the same job natively:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#ff79c6">keyframes</span> <span style="color:#ff79c6">fade-in</span> {
+  <span style="color:#ff79c6">from</span> { <span style="color:#ff79c6">opacity</span>: <span style="color:#bd93f9">0</span>; <span style="color:#ff79c6">transform</span>: <span style="color:#8be9fd;font-style:italic">translateY</span>(<span style="color:#bd93f9">24</span><span style="color:#8be9fd">px</span>); }
+  <span style="color:#ff79c6">to</span>   { <span style="color:#ff79c6">opacity</span>: <span style="color:#bd93f9">1</span>; <span style="color:#ff79c6">transform</span>: <span style="color:#8be9fd;font-style:italic">translateY</span>(<span style="color:#bd93f9">0</span>); }
+}
+
+.<span style="color:#50fa7b">reveal</span> {
+  <span style="color:#ff79c6">animation</span>: fade-in <span style="color:#ff79c6">linear</span> <span style="color:#ff79c6">both</span>;
+  animation-timeline: <span style="color:#50fa7b">view</span>();
+  animation-range: entry <span style="color:#bd93f9">0</span><span style="color:#8be9fd">%</span> <span style="color:#ff79c6">cover</span> <span style="color:#bd93f9">40</span><span style="color:#8be9fd">%</span>;
+}
+</code></pre></div><p><code>animation-timeline: view()</code> ties the animation&rsquo;s progress to the element&rsquo;s position as it scrolls through the viewport, instead of to elapsed time. No listener, no manual <code>IntersectionObserver</code> wiring, no jank from a scroll handler running on the main thread — the browser&rsquo;s compositor drives it directly.</p>
+<h2 id="container-queries-vs-media-queries-when-to-use-each">Container queries vs media queries: when to use each</h2>
+<p>A question I get a lot, so worth answering directly:</p>
+<ul>
+<li><strong>Use a media query</strong> when the thing you care about is genuinely tied to the viewport or device — page-level layout shifts, print styles, <code>prefers-color-scheme</code>, <code>prefers-reduced-motion</code>.</li>
+<li><strong>Use a container query</strong> when the thing you care about is a <em>component</em> that might be reused at different widths across a layout — cards, sidebars widgets, nav items, form groups. If the component doesn&rsquo;t know or care where it&rsquo;s rendered, container queries are almost always the better fit.</li>
+</ul>
+<p>They&rsquo;re not competitors — a real component library ends up using both, media queries for the page shell and container queries for everything that lives inside it.</p>
+<h2 id="common-gotchas-with-container-queries-has-and-layer">Common gotchas with container queries, :has(), and @layer</h2>
+<p>A few things that tripped me up moving old code over:</p>
+<ul>
+<li><strong><code>container-type: size</code> needs an explicit height.</strong> If the container has no defined height (the common case for a block that just grows with its content), <code>size</code> containment collapses it to zero height. Use <code>inline-size</code> unless you specifically need to query height too, and you&rsquo;ve given the element a real height.</li>
+<li><strong><code>:has()</code> has a performance cost.</strong> Because it can match based on descendant state, the browser has to re-evaluate it more aggressively than a simple selector. It&rsquo;s fine for the moderate DOM sizes most real pages have, but avoid <code>:has()</code> inside a selector that runs against thousands of nodes on every keystroke.</li>
+<li><strong>Unlayered CSS always wins.</strong> If a component suddenly stops respecting your <code>@layer</code> order after adding a third-party stylesheet or inline <code>&lt;style&gt;</code> block, check whether that CSS is wrapped in a layer — unlayered rules beat every named layer by default, which surprises people the first time they hit it.</li>
+<li><strong>Container queries need an ancestor with containment, not just any wrapper.</strong> If <code>@container</code> rules seem to be silently ignored, check that some ancestor actually has <code>container-type</code> set — a missing containment context fails silently rather than throwing an error.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>What browser support do CSS container queries have in 2026?</strong>
+Around 92% global support as of this year across evergreen browsers, which puts them solidly in &ldquo;safe to use as a primary layout tool&rdquo; territory for most production sites, with a graceful fallback to your existing layout for the small remaining slice of older browsers.</p>
+<p><strong>Can :has() replace JavaScript for form validation styling?</strong>
+For purely visual, state-driven cases — yes. <code>.form-group:has(input:invalid)</code> reacts to the browser&rsquo;s own validity state without any script. You&rsquo;ll still want JavaScript for anything involving custom validation logic beyond what HTML&rsquo;s built-in constraint validation covers, or for submitting/blocking the form itself.</p>
+<p><strong>Do cascade layers replace the need for !important?</strong>
+Mostly. <code>@layer</code> order settles the vast majority of conflicts that used to get &ldquo;solved&rdquo; with <code>!important</code> stacked on top of increasingly specific selectors. <code>!important</code> still exists and still has its place (a genuine emergency override), but a well-structured layer order should make it rare rather than routine.</p>
+<p><strong>Can I use container queries and media queries together?</strong>
+Yes, and you usually should — media queries for page-level, viewport-driven layout; container queries for components that need to adapt to wherever they&rsquo;re placed. They compose without conflict.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>None of these four features are flashy on their own — a query, a selector, an at-rule, a syntax shortcut. What&rsquo;s changed is that together they cover enough ground that CSS stopped being &ldquo;the styling layer you sprinkle JS workarounds around&rdquo; and started being an actual architecture tool you can reason about on its own terms: components that adapt to their container, styles that react to state without a script, and an explicit, readable ordering system instead of a specificity guessing game. I didn&rsquo;t set out to delete a <code>ResizeObserver</code>, a validation script, and a PostCSS plugin in the same week — it just turned out none of them were pulling their weight anymore.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=Modern&#43;CSS&#43;in&#43;2026%3A&#43;Container&#43;Queries%2C&#43;%3Ahas%28%29%2C&#43;and&#43;Cascade&#43;Layers&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost54%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost54%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-modern-css-replaced-so-much-javascript-in-2026">Why modern CSS replaced so much JavaScript in 2026</a></li>
+    <li><a href="#css-container-queries-tutorial-sizing-components-by-their-container-not-the-viewport">CSS container queries tutorial: sizing components by their container, not the viewport</a>
+      <ul>
+        <li><a href="#setting-up-a-containment-context">Setting up a containment context</a></li>
+        <li><a href="#querying-it">Querying it</a></li>
+        <li><a href="#container-query-units">Container query units</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-has-selector-styling-a-parent-based-on-its-children">The :has() selector: styling a parent based on its children</a>
+      <ul>
+        <li><a href="#a-layout-trick-styling-a-grid-based-on-its-item-count">A layout trick: styling a grid based on its item count</a></li>
+        <li><a href="#using-has-as-a-real-parent-selector">Using :has() as a real parent selector</a></li>
+      </ul>
+    </li>
+    <li><a href="#cascade-layers-layer-explicit-ordering-above-specificity">Cascade layers (@layer): explicit ordering above specificity</a>
+      <ul>
+        <li><a href="#declaring-layer-order-up-front">Declaring layer order up front</a></li>
+        <li><a href="#third-party-css-gets-its-own-layer-automatically">Third-party CSS gets its own layer automatically</a></li>
+      </ul>
+    </li>
+    <li><a href="#native-css-nesting-no-preprocessor-required">Native CSS nesting: no preprocessor required</a></li>
+    <li><a href="#scroll-driven-animations-no-more-scroll-event-listeners">Scroll-driven animations: no more scroll event listeners</a></li>
+    <li><a href="#container-queries-vs-media-queries-when-to-use-each">Container queries vs media queries: when to use each</a></li>
+    <li><a href="#common-gotchas-with-container-queries-has-and-layer">Common gotchas with container queries, :has(), and @layer</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post56/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/agentic_design_patterns.webp" alt="5 Agentic AI Design Patterns Every Developer Should Know in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">5 Agentic AI Design Patterns Every Developer Should Know in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post55/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/compose_first_2026.webp" alt="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post54/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/modern_css_2026.webp" alt="Modern CSS in 2026: Container Queries, :has(), and Cascade Layers" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Modern CSS in 2026: Container Queries, :has(), and Cascade Layers</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post19/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/game_development_2.webp" alt="Ghost Hunter Game - Part-2" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Apr 16, 23
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/html" class="card-tag">html</a>
+            
+            <a href="/tags/css" class="card-tag">css</a>
+            
+            <a href="/tags/js" class="card-tag">js</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post19/" class="card-content-link">
+            <div class="card-title">Ghost Hunter Game - Part-2</div>
+
+            
+            <div class="card-desc">Build a Ghost Hunter browser game from scratch — Part 2: JavaScript game logic, collision detection, and score tracking.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        12 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post18/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/game_development_1.webp" alt="Ghost Hunter Game - Part-1" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Apr 14, 23
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/html" class="card-tag">html</a>
+            
+            <a href="/tags/css" class="card-tag">css</a>
+            
+            <a href="/tags/js" class="card-tag">js</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post18/" class="card-content-link">
+            <div class="card-title">Ghost Hunter Game - Part-1</div>
+
+            
+            <div class="card-desc">Build a Ghost Hunter browser game from scratch — Part 1: HTML structure, CSS styling, and game layout setup.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post54/\""
+  },
+  "headline": "\"Modern CSS in 2026: Container Queries, :has(), and Cascade Layers\"",
+  "description": "\"A practical guide to container queries, :has(), and cascade layers — the modern CSS features that let you delete the JS and build-tool workarounds you used to reach for.\"",
+  "datePublished": "2026-08-17T14:59:57\u002b05:30",
+  "dateModified": "2026-08-17T14:59:57\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/modern_css_2026.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post54/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

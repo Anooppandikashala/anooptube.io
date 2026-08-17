@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post55/" />
+
+    <title>
+        Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know - #anooptube
+    </title><meta name="description" content="Google declared Android UI development Compose-first at I/O 2026. Here&#39;s what Jetpack Compose 1.12, Kotlin 2.2, and the Views maintenance-mode shift mean for you." />
+    <meta name="keywords" content="Jetpack Compose 2026, Compose-first Android development, Jetpack Compose 1.12 new features, Android Views maintenance mode, Kotlin 2.2 Compose compiler, Compose stability inference, named grid areas Jetpack Compose, Mesh Gradient Compose, Wide Color Gamut Android, Credential Manager Jetpack Compose, Compose Multiplatform 2026, migrate Views to Compose" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.4f1c8b0a47a9bd2125f4b0e6c5f5ce270f2760af843e6d995769ba893418fd9c.css" integrity="sha256-TxyLCkepvSEl9LDmxfXOJw8nYK+EPm2ZV2m6iTQY/Zw=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" />
+<meta property="og:description" content="Google declared Android UI development Compose-first at I/O 2026. Here&#39;s what Jetpack Compose 1.12, Kotlin 2.2, and the Views maintenance-mode shift mean for you." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post55/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-08-17T15:00:04+05:30" />
+<meta property="article:modified_time" content="2026-08-17T15:00:04+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/compose_first_2026.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/compose_first_2026.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/compose_first_2026.webp" alt="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    August 17, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/android">Android</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Android\"",
+      "item": "\"https://anooptube.in/playlists/android/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know\"",
+      "item": "\"https://anooptube.in/blog/post55/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    August 17, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2030 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Android</span>
+          </span>
+          <span class="series-nav-badge">3 / 3</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post45/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">I Built an Android App Because Android Kept Deleting My Clipboard</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post46/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">I built a free Android soundboard that works with an External keyboard</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/android/" class="series-nav-footer-link">
+          View all in "Android" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+<p>I spent last week migrating a legacy <code>RecyclerView</code> screen to Compose, and about halfway through I realized I wasn&rsquo;t doing it because I felt like it anymore — I was doing it because Google just told the entire Android ecosystem that Views is no longer where new work happens. That&rsquo;s a bigger deal than another Compose point release, so I want to walk through what actually changed at I/O 2026, what&rsquo;s new in Compose 1.12, and what it means for how you write Android UI code starting now.</p>
+<h2 id="why-compose-first-is-the-real-headline-of-io-2026">Why &ldquo;Compose-first&rdquo; is the real headline of I/O 2026</h2>
+<p>Every year Google ships new Jetpack Compose APIs and every year some of us treat it as optional homework — Views still worked, Compose interop was fine, and migrating an app wholesale felt like a nice-to-have. That calculus changed at I/O 2026. Google announced that Android UI development is now <strong>Compose-first</strong>: all new UI capabilities, new design system integrations, and new platform features will ship in Compose first, and the classic View toolkit has formally entered maintenance mode. Views isn&rsquo;t disappearing tomorrow — decades of production code depend on it — but it stops being where the interesting work happens.</p>
+<p>The number that made this concrete for me: <strong>over 75% of new production Android apps now build their UI in Compose first</strong>, not as an experiment layered over XML. That&rsquo;s not early-adopter territory anymore, that&rsquo;s the default. If you&rsquo;re starting a new screen, a new module, or a new app in 2026, Compose isn&rsquo;t the modern alternative — it&rsquo;s the expected baseline, and Views is what you reach for only when you&rsquo;re maintaining something that predates this shift.</p>
+<p>For working Android developers, &ldquo;Compose-first&rdquo; translates into three concrete things:</p>
+<ul>
+<li>New Jetpack libraries (Credential Manager, CameraX extensions, WindowManager) design their primary integration surface for Compose, with View-based interop treated as a secondary path.</li>
+<li>Google&rsquo;s own sample apps, codelabs, and architecture guidance assume Compose as the starting point.</li>
+<li>Hiring and code review norms are shifting — expect &ldquo;why isn&rsquo;t this a composable&rdquo; to become a more common review comment than &ldquo;why did you use Compose here.&rdquo;</li>
+</ul>
+<p><img src="/blogs-images/jetpack-compose-compose-first-2026-overview.webp" alt="Jetpack Compose Compose-first 2026 announcement overview"></p>
+<h2 id="whats-new-in-jetpack-compose-112">What&rsquo;s new in Jetpack Compose 1.12</h2>
+<p>Compose 1.12 landed stable in August 2026, and it&rsquo;s a meatier release than the version number suggests. The headline additions:</p>
+<ul>
+<li><strong>Mesh Gradients</strong> — a new gradient primitive that goes beyond linear/radial/sweep, letting you define a grid of color points with smooth interpolation between them. Useful for the kind of soft, organic background treatments that used to require a custom <code>Shader</code> or a third-party library.</li>
+<li><strong>Wide Color Gamut (WCG) support</strong> — Compose can now render and interpolate colors in wider color spaces (like Display P3) on devices with WCG-capable screens, instead of being implicitly clamped to sRGB. This matters most for photo-heavy and design-forward apps where color fidelity is part of the product.</li>
+<li><strong>Named areas in Grid layout</strong> — <code>LazyGrid</code> and the newer <code>Grid</code> composable now support CSS-Grid-style named template areas, so you can lay out a dashboard or a complex screen by name instead of juggling row/column spans by index.</li>
+<li><strong>Credential Manager integration</strong> — first-class Compose APIs for passkey and credential UI flows, replacing the awkward &ldquo;drop into an Activity result launcher&rdquo; pattern that Compose apps had to lean on before.</li>
+<li><strong>Testing and performance improvements</strong> — better semantics tree diffing for Compose UI tests, and continued work on reducing unnecessary recomposition scope, which pairs directly with the Kotlin 2.2 changes below.</li>
+</ul>
+<p>Let&rsquo;s go through the two I think are most immediately useful: named grid areas and Credential Manager.</p>
+<h3 id="named-grid-areas-in-practice">Named grid areas in practice</h3>
+<p>If you&rsquo;ve ever built a dashboard-style screen in Compose, you know the pain of <code>LazyVerticalGrid</code> with manual <code>span</code> calculations that break the moment you rearrange sections. Named areas fix that by letting you describe the layout declaratively, the same way CSS Grid template areas work on the web:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Composable
+<span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">DashboardScreen</span>() {
+    Grid(
+        modifier = Modifier.fillMaxSize(),
+        templateAreas = <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">            &#34;header header&#34;
+</span><span style="color:#f1fa8c">            &#34;sidebar content&#34;
+</span><span style="color:#f1fa8c">            &#34;sidebar footer&#34;
+</span><span style="color:#f1fa8c">        &#34;&#34;&#34;</span>,
+        columns = GridCells.Fixed(<span style="color:#bd93f9">2</span>)
+    ) {
+        item(area = <span style="color:#f1fa8c">&#34;header&#34;</span>) { DashboardHeader() }
+        item(area = <span style="color:#f1fa8c">&#34;sidebar&#34;</span>) { DashboardSidebar() }
+        item(area = <span style="color:#f1fa8c">&#34;content&#34;</span>) { DashboardContent() }
+        item(area = <span style="color:#f1fa8c">&#34;footer&#34;</span>) { DashboardFooter() }
+    }
+}
+</code></pre></div><p>Rearranging the layout is now a one-line change to the <code>templateAreas</code> string instead of recalculating spans across every item. For anyone who&rsquo;s maintained a tablet/foldable-responsive dashboard where the layout genuinely changes shape across window size classes, this is the feature I was waiting for — you can swap the template string per <code>WindowSizeClass</code> and get a structurally different layout without rewriting the item logic underneath it.</p>
+<h3 id="credential-manager-the-compose-native-way">Credential Manager, the Compose-native way</h3>
+<p>Before 1.12, wiring up passkeys or saved-password sign-in in a Compose screen meant reaching out to an <code>Activity</code>-scoped launcher, which always felt like breaking out of the Compose mental model just to handle auth UI. The new integration keeps it in composable land:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Composable
+<span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">SignInButton</span>(onCredentialResult: (Credential) <span style="color:#ff79c6">-&gt;</span> Unit) {
+    <span style="color:#ff79c6">val</span> credentialState = rememberCredentialManagerState()
+
+    Button(onClick = {
+        credentialState.launchSignIn(
+            request = GetCredentialRequest(
+                credentialOptions = listOf(GetPasskeyOption())
+            ),
+            onResult = onCredentialResult,
+            onError = { <span style="color:#6272a4">/* handle failure, fall back to password */</span> }
+        )
+    }) {
+        Text(<span style="color:#f1fa8c">&#34;Sign in with passkey&#34;</span>)
+    }
+}
+</code></pre></div><p>Small API, but it removes a real seam — you no longer need to thread an <code>Activity</code> reference or a <code>rememberLauncherForActivityResult</code> callback through a ViewModel just to trigger a credential prompt. It&rsquo;s a good example of what &ldquo;Compose-first&rdquo; means in practice: the auth team designed the primary API surface for composables, not for Activities with Compose bolted on top.</p>
+<p><img src="/blogs-images/compose-1-12-mesh-gradient-wide-color-gamut.webp" alt="Jetpack Compose 1.12 Mesh Gradients and Wide Color Gamut rendering example"></p>
+<h2 id="kotlin-22-the-k2-compiler-and-fewer-unnecessary-recompositions">Kotlin 2.2, the K2 compiler, and fewer unnecessary recompositions</h2>
+<p>The other half of this story isn&rsquo;t a Compose release at all — it&rsquo;s Kotlin 2.2, and specifically what the K2 compiler enables for the Compose compiler plugin. Kotlin 2.2 brought improved type inference, smarter compiler warnings, and context parameters, but the part that matters most for Compose performance is subtler: K2 gives the Compose compiler plugin a much better view into whether a type is actually stable.</p>
+<p>Compose&rsquo;s recomposition skipping only works when it can prove a composable&rsquo;s parameters are stable — unstable types force recomposition even when nothing observable changed. Historically, this &ldquo;stability inference&rdquo; was conservative and sometimes wrong in ways that were hard to diagnose; a data class with a <code>List&lt;T&gt;</code> field, for instance, often got marked unstable even when you never mutated it. With K2&rsquo;s improved analysis, the Compose compiler plugin infers stability more accurately, and teams upgrading to Kotlin 2.2 have reported <strong>15-20% fewer unnecessary recompositions on list-heavy screens</strong> — feeds, chat threads, dashboards — purely from the compiler understanding their existing data classes better, with zero code changes required.</p>
+<p>That said, you still get the best results by writing state in a way that plays well with stability inference rather than fighting it. Here&rsquo;s the pattern I use now for list-heavy screens:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">@Immutable
+<span style="color:#ff79c6">data</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FeedItemUi</span>(
+    <span style="color:#ff79c6">val</span> id: String,
+    <span style="color:#ff79c6">val</span> title: String,
+    <span style="color:#ff79c6">val</span> isLiked: Boolean
+)
+
+@Stable
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FeedUiState</span>(
+    items: List&lt;FeedItemUi&gt;,
+    isLoading: Boolean
+) {
+    <span style="color:#ff79c6">var</span> items <span style="color:#ff79c6">by</span> mutableStateOf(items)
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">set</span>
+    <span style="color:#ff79c6">var</span> isLoading <span style="color:#ff79c6">by</span> mutableStateOf(isLoading)
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">set</span>
+
+    <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">updateItems</span>(newItems: List&lt;FeedItemUi&gt;) {
+        items = newItems
+    }
+}
+
+@Composable
+<span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">FeedList</span>(state: FeedUiState) {
+    LazyColumn {
+        items(state.items, key = { <span style="color:#ff79c6">it</span>.id }) { item <span style="color:#ff79c6">-&gt;</span>
+            FeedRow(item) <span style="color:#6272a4">// stable param, skips recomposition when unchanged
+</span><span style="color:#6272a4"></span>        }
+    }
+}
+</code></pre></div><p>Two things do the actual work here:</p>
+<ul>
+<li><code>@Immutable</code> on <code>FeedItemUi</code> tells the compiler this type never changes after construction, which is a stronger guarantee than &ldquo;the compiler inferred it&rsquo;s probably fine.&rdquo;</li>
+<li><code>@Stable</code> on <code>FeedUiState</code>, combined with <code>mutableStateOf</code>-backed properties, means Compose can track exactly which reads matter and skip recomposition for rows whose underlying item didn&rsquo;t change — especially important combined with the <code>key</code> parameter in <code>items()</code>, which lets Compose diff by identity instead of by list position.</li>
+</ul>
+<p>Neither annotation is new to 2026, but they matter more now because K2&rsquo;s improved inference means the compiler trusts your explicit annotations more precisely and stops silently downgrading types it used to treat as suspect. If you were annotating defensively before because inference was unreliable, Kotlin 2.2 is a good moment to revisit whether you still need every <code>@Immutable</code> you added out of caution — some of that ceremony is now redundant.</p>
+<h2 id="compose-multiplatform-one-androidkotlin-codebase-four-targets">Compose Multiplatform: one Android/Kotlin codebase, four targets</h2>
+<p>The other piece of the 2026 Compose story that&rsquo;s easy to miss if you&rsquo;re Android-only: <strong>Compose Multiplatform now supports Android, iOS, Desktop, and Web from a single codebase.</strong> This isn&rsquo;t a new project — Compose Multiplatform has been maturing for a few years — but by mid-2026 the story is genuinely production-ready across all four targets rather than &ldquo;Android and Desktop work, iOS is experimental.&rdquo;</p>
+<p>For a lot of Android teams, this changes the build-vs-share calculus for internal tools and even consumer surfaces. A settings screen, an admin dashboard, a companion desktop app — code you&rsquo;d previously have written three times (Android, iOS, web) can now live once, in Kotlin, using the same composables and the same stability patterns described above. The Compose-first shift on the Android side and the Compose Multiplatform maturity are clearly the same strategic bet from Google/JetBrains: Compose isn&rsquo;t just &ldquo;Android&rsquo;s modern UI toolkit&rdquo; anymore, it&rsquo;s positioned as Kotlin&rsquo;s cross-platform UI answer, full stop.</p>
+<p><img src="/blogs-images/compose-multiplatform-android-ios-desktop-web.webp" alt="Compose Multiplatform running on Android, iOS, Desktop, and Web from one Kotlin codebase"></p>
+<h2 id="should-you-migrate-your-views-based-app-now">Should you migrate your Views-based app now?</h2>
+<p>This is the question I keep getting asked, and the honest answer depends on where your app sits:</p>
+<ul>
+<li><strong>New screens in an existing app</strong> — write them in Compose. There&rsquo;s no longer a credible argument for starting a new screen in XML in 2026; you&rsquo;d be building on a toolkit in maintenance mode from day one.</li>
+<li><strong>Actively changing legacy screens</strong> — migrate opportunistically. Use <code>ComposeView</code> interop to convert screens as you touch them for other reasons, rather than freezing feature work for a big-bang rewrite.</li>
+<li><strong>Stable, rarely-touched legacy screens</strong> — leave them. Views in maintenance mode still means <em>maintained</em> — security patches and critical bug fixes keep flowing, it just won&rsquo;t get new capabilities. There&rsquo;s no urgency to rewrite code that isn&rsquo;t causing problems.</li>
+<li><strong>Brand-new apps</strong> — Compose-first, full stop, and worth evaluating whether Compose Multiplatform makes sense if you know you&rsquo;ll need iOS or desktop down the line.</li>
+</ul>
+<p>The mistake I&rsquo;d avoid is treating &ldquo;Compose-first&rdquo; as a mandate to rewrite everything this quarter. It&rsquo;s a signal about where new investment goes, not a deadline.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is Jetpack Compose 1.12 stable?</strong>
+Yes — it shipped stable in August 2026 with Mesh Gradients, Wide Color Gamut support, named Grid layout areas, Credential Manager integration, and testing/performance improvements.</p>
+<p><strong>What does &ldquo;Compose-first&rdquo; actually mean for the Android Views toolkit?</strong>
+Views has entered maintenance mode. It still receives critical fixes, but all new Android UI capabilities and Jetpack library integrations are designed for Compose first, with View-based support as secondary or not offered at all going forward.</p>
+<p><strong>Does upgrading to Kotlin 2.2 improve Compose performance automatically?</strong>
+Largely yes, for existing code — teams have reported 15-20% fewer unnecessary recompositions on list-heavy screens purely from K2&rsquo;s improved stability inference, without code changes. You still get the most benefit by pairing the upgrade with <code>@Immutable</code>/<code>@Stable</code> annotations on your UI state classes.</p>
+<p><strong>What is Compose Multiplatform used for in 2026?</strong>
+Building Android, iOS, Desktop, and Web UI from one shared Kotlin/Compose codebase. It&rsquo;s matured to the point where all four targets are considered production-viable, not just Android and Desktop.</p>
+<p><strong>Do I need to rewrite my whole app in Compose right now?</strong>
+No. Migrate opportunistically — new screens in Compose, legacy screens converted as you touch them for other reasons, and stable screens left alone until there&rsquo;s a real reason to change them.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>The Views-to-Compose transition has been &ldquo;coming eventually&rdquo; for long enough that it was easy to keep deprioritizing it. I/O 2026 removed that option — Compose-first is now the platform&rsquo;s stated direction, not a recommendation. What actually convinced me this cycle is real, though, isn&rsquo;t the announcement itself, it&rsquo;s that the tooling underneath it got genuinely better at the same time: named grid areas solve a layout problem I&rsquo;ve hit on every dashboard screen I&rsquo;ve built, and the Kotlin 2.2 stability inference improvements gave me measurable recomposition wins on a list screen without touching a line of UI code. That combination — a strategic mandate plus a compiler that actually earns it — is why I&rsquo;m treating this migration as work worth doing now instead of another year of &ldquo;eventually.&rdquo;</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=Jetpack&#43;Compose&#43;Goes&#43;Compose-First&#43;in&#43;2026%3A&#43;What&#43;Android&#43;Developers&#43;Need&#43;to&#43;Know&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost55%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost55%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post46/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Android</span>
+                <span class="post-nav-title">I built a free Android soundboard that works with an External keyboard</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-compose-first-is-the-real-headline-of-io-2026">Why &ldquo;Compose-first&rdquo; is the real headline of I/O 2026</a></li>
+    <li><a href="#whats-new-in-jetpack-compose-112">What&rsquo;s new in Jetpack Compose 1.12</a>
+      <ul>
+        <li><a href="#named-grid-areas-in-practice">Named grid areas in practice</a></li>
+        <li><a href="#credential-manager-the-compose-native-way">Credential Manager, the Compose-native way</a></li>
+      </ul>
+    </li>
+    <li><a href="#kotlin-22-the-k2-compiler-and-fewer-unnecessary-recompositions">Kotlin 2.2, the K2 compiler, and fewer unnecessary recompositions</a></li>
+    <li><a href="#compose-multiplatform-one-androidkotlin-codebase-four-targets">Compose Multiplatform: one Android/Kotlin codebase, four targets</a></li>
+    <li><a href="#should-you-migrate-your-views-based-app-now">Should you migrate your Views-based app now?</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post56/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/agentic_design_patterns.webp" alt="5 Agentic AI Design Patterns Every Developer Should Know in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">5 Agentic AI Design Patterns Every Developer Should Know in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post55/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/compose_first_2026.webp" alt="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post54/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/modern_css_2026.webp" alt="Modern CSS in 2026: Container Queries, :has(), and Cascade Layers" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Modern CSS in 2026: Container Queries, :has(), and Cascade Layers</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post51/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/best_ai_coding_assistants.webp" alt="Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Best AI Coding Assistants in 2026: Claude Code vs Cursor vs Kilo Code</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post52/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post46/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with an External keyboard" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 25, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/sound" class="card-tag">sound</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post46/" class="card-content-link">
+            <div class="card-title">I built a free Android soundboard that works with an External keyboard</div>
+
+            
+            <div class="card-desc">Turn your keyboard into a soundboard - free for Android. </div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post45/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/copy_duo_banner.webp" alt="I Built an Android App Because Android Kept Deleting My Clipboard" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 19, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/productivity" class="card-tag">productivity</a>
+            
+            <a href="/tags/invoice" class="card-tag">invoice</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post45/" class="card-content-link">
+            <div class="card-title">I Built an Android App Because Android Kept Deleting My Clipboard</div>
+
+            
+            <div class="card-desc">The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        5 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post34/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/flutter_widgets.webp" alt="Understanding Stateless and Stateful Widgets in Flutter" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Jan 20, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/flutter" class="card-tag">flutter</a>
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post34/" class="card-content-link">
+            <div class="card-title">Understanding Stateless and Stateful Widgets in Flutter</div>
+
+            
+            <div class="card-desc">Flutter Widgets: Understanding Stateless and Stateful Widgets</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        3 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post55/\""
+  },
+  "headline": "\"Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know\"",
+  "description": "\"Google declared Android UI development Compose-first at I/O 2026. Here's what Jetpack Compose 1.12, Kotlin 2.2, and the Views maintenance-mode shift mean for you.\"",
+  "datePublished": "2026-08-17T15:00:04\u002b05:30",
+  "dateModified": "2026-08-17T15:00:04\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/compose_first_2026.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post55/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

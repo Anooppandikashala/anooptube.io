@@ -6,7 +6,16 @@
     <description>Recent content in Android on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2026 16:44:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Aug 2026 15:00:04 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</title>
+      <link>https://anooptube.in/blog/post55/</link>
+      <pubDate>Mon, 17 Aug 2026 15:00:04 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post55/</guid>
+      <description>I spent last week migrating a legacy RecyclerView screen to Compose, and about halfway through I realized I wasn&amp;rsquo;t doing it because I felt like it anymore — I was doing it because Google just told the entire Android ecosystem that Views is no longer where new work happens. That&amp;rsquo;s a bigger deal than another Compose point release, so I want to walk through what actually changed at I/O 2026, what&amp;rsquo;s new in Compose 1.</description>
+    </item>
+    
     <item>
       <title>I built a free Android soundboard that works with an External keyboard</title>
       <link>https://anooptube.in/blog/post46/</link>
