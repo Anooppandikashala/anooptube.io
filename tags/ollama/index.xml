@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ollama on #anooptube</title>
+    <link>https://anooptube.in/tags/ollama/</link>
+    <description>Recent content in ollama on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/ollama/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
+      <link>https://anooptube.in/blog/post59/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:45 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post59/</guid>
+      <description>Every time I open a new tab it&amp;rsquo;s another SaaS wrapper around someone else&amp;rsquo;s API key. At some point I got tired of paying per-token for things I could run on hardware already sitting on my desk. So I spent a weekend actually setting up local LLMs properly — not just running one toy demo, but figuring out what hardware you actually need, which models are worth pulling, and where the real bottlenecks are.</description>
+    </item>
+    
+  </channel>
+</rss>

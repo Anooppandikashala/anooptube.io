@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automation on #anooptube</title>
+    <link>https://anooptube.in/tags/automation/</link>
+    <description>Recent content in automation on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Aug 2026 15:00:21 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenClaw: The Open-Source Project That Exploded to 200K&#43; GitHub Stars in 2026</title>
+      <link>https://anooptube.in/blog/post57/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:21 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post57/</guid>
+      <description>I keep a mental list of repos I check &amp;ldquo;just in case something&amp;rsquo;s happening.&amp;rdquo; OpenClaw wasn&amp;rsquo;t on that list until late January, when it jumped from roughly 9,000 stars to over 60,000 in a matter of days. That kind of curve doesn&amp;rsquo;t happen by accident on GitHub — it happens when a project hits a nerve. Months later, it&amp;rsquo;s sitting past 210,000 stars, and it&amp;rsquo;s worth actually understanding what it is, why it took off, and whether &amp;ldquo;everyone&amp;rsquo;s starring it&amp;rdquo; is a good enough reason for you to install it.</description>
+    </item>
+    
+  </channel>
+</rss>

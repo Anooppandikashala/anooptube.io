@@ -6,7 +6,16 @@
     <description>Recent content in linux on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
+      <link>https://anooptube.in/blog/post59/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:45 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post59/</guid>
+      <description>Every time I open a new tab it&amp;rsquo;s another SaaS wrapper around someone else&amp;rsquo;s API key. At some point I got tired of paying per-token for things I could run on hardware already sitting on my desk. So I spent a weekend actually setting up local LLMs properly — not just running one toy demo, but figuring out what hardware you actually need, which models are worth pulling, and where the real bottlenecks are.</description>
+    </item>
+    
     <item>
       <title>Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</title>
       <link>https://anooptube.in/blog/post52/</link>

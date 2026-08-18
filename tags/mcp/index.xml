@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mcp on #anooptube</title>
+    <link>https://anooptube.in/tags/mcp/</link>
+    <description>Recent content in mcp on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Aug 2026 15:00:34 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026</title>
+      <link>https://anooptube.in/blog/post58/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:34 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post58/</guid>
+      <description>Every AI product I use daily — Claude, ChatGPT, Gemini, Copilot, Cursor — quietly picked up support for the same protocol this year, and I kept running into it before I actually understood what it was. I&amp;rsquo;d see &amp;ldquo;MCP server&amp;rdquo; mentioned in a plugin&amp;rsquo;s README, or a coworker would say &amp;ldquo;just wire it up over MCP,&amp;rdquo; and I&amp;rsquo;d nod along without a clear mental model of what was actually happening under the hood.</description>
+    </item>
+    
+  </channel>
+</rss>

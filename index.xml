@@ -6,7 +6,34 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Aug 2026 15:00:17 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
+      <link>https://anooptube.in/blog/post59/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:45 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post59/</guid>
+      <description>Every time I open a new tab it&amp;rsquo;s another SaaS wrapper around someone else&amp;rsquo;s API key. At some point I got tired of paying per-token for things I could run on hardware already sitting on my desk. So I spent a weekend actually setting up local LLMs properly — not just running one toy demo, but figuring out what hardware you actually need, which models are worth pulling, and where the real bottlenecks are.</description>
+    </item>
+    
+    <item>
+      <title>What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026</title>
+      <link>https://anooptube.in/blog/post58/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:34 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post58/</guid>
+      <description>Every AI product I use daily — Claude, ChatGPT, Gemini, Copilot, Cursor — quietly picked up support for the same protocol this year, and I kept running into it before I actually understood what it was. I&amp;rsquo;d see &amp;ldquo;MCP server&amp;rdquo; mentioned in a plugin&amp;rsquo;s README, or a coworker would say &amp;ldquo;just wire it up over MCP,&amp;rdquo; and I&amp;rsquo;d nod along without a clear mental model of what was actually happening under the hood.</description>
+    </item>
+    
+    <item>
+      <title>OpenClaw: The Open-Source Project That Exploded to 200K&#43; GitHub Stars in 2026</title>
+      <link>https://anooptube.in/blog/post57/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:21 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post57/</guid>
+      <description>I keep a mental list of repos I check &amp;ldquo;just in case something&amp;rsquo;s happening.&amp;rdquo; OpenClaw wasn&amp;rsquo;t on that list until late January, when it jumped from roughly 9,000 stars to over 60,000 in a matter of days. That kind of curve doesn&amp;rsquo;t happen by accident on GitHub — it happens when a project hits a nerve. Months later, it&amp;rsquo;s sitting past 210,000 stars, and it&amp;rsquo;s worth actually understanding what it is, why it took off, and whether &amp;ldquo;everyone&amp;rsquo;s starring it&amp;rdquo; is a good enough reason for you to install it.</description>
+    </item>
+    
     <item>
       <title>5 Agentic AI Design Patterns Every Developer Should Know in 2026</title>
       <link>https://anooptube.in/blog/post56/</link>

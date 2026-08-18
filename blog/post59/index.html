@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post59/" />
+
+    <title>
+        How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model - #anooptube
+    </title><meta name="description" content="A practical 2026 guide to running local LLMs with Ollama — hardware requirements, VRAM math, and how to pick the right model for your laptop or GPU." />
+    <meta name="keywords" content="run local LLM 2026, Ollama tutorial 2026, local LLM hardware requirements, how much VRAM for local LLM, best local LLM model 2026, Ollama vs cloud API, run LLM on laptop, DeepSeek-R1 vs Llama local, Apple Silicon local LLM M4 M5, Ollama pull run commands, local AI privacy offline, which Ollama model to pick" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.4f1c8b0a47a9bd2125f4b0e6c5f5ce270f2760af843e6d995769ba893418fd9c.css" integrity="sha256-TxyLCkepvSEl9LDmxfXOJw8nYK+EPm2ZV2m6iTQY/Zw=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model" />
+<meta property="og:description" content="A practical 2026 guide to running local LLMs with Ollama — hardware requirements, VRAM math, and how to pick the right model for your laptop or GPU." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post59/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-08-18T15:00:45+05:30" />
+<meta property="article:modified_time" content="2026-08-18T15:00:45+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/local_llm_ollama.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/local_llm_ollama.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/local_llm_ollama.webp" alt="How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    August 18, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/linux">Linux</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model">How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Linux\"",
+      "item": "\"https://anooptube.in/playlists/linux/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model\"",
+      "item": "\"https://anooptube.in/blog/post59/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    August 18, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2102 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Linux</span>
+          </span>
+          <span class="series-nav-badge">4 / 4</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post28/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">Mastering Linux Commands</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post31/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">Mastering AWK in Linux</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post52/" class="series-nav-link">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">4</span>
+                <span class="series-nav-name">How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/linux/" class="series-nav-footer-link">
+          View all in "Linux" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+<p>Every time I open a new tab it&rsquo;s another SaaS wrapper around someone else&rsquo;s API key. At some point I got tired of paying per-token for things I could run on hardware already sitting on my desk. So I spent a weekend actually setting up local LLMs properly — not just running one toy demo, but figuring out what hardware you actually need, which models are worth pulling, and where the real bottlenecks are. This is the guide I wish I&rsquo;d had before I started.</p>
+<p>If you&rsquo;ve been putting off running an LLM locally because it sounds like a research-lab project, it isn&rsquo;t anymore. In 2026 it&rsquo;s a two-command install and a <code>pull</code>. The harder part is knowing which model fits your machine — that&rsquo;s what this post actually covers.</p>
+<h2 id="why-run-a-local-llm-in-2026-instead-of-just-using-an-api">Why run a local LLM in 2026 instead of just using an API</h2>
+<p>Three reasons keep coming up, and they&rsquo;re the same three reasons I landed on:</p>
+<p><strong>Privacy.</strong> Nothing you type leaves your machine. If you&rsquo;re feeding an LLM internal docs, client data, personal journal entries, or anything else you wouldn&rsquo;t paste into a random web form, that matters — no request logs sitting on someone else&rsquo;s server, no terms-of-service question about whether your prompts get used for training.</p>
+<p><strong>Offline functionality.</strong> A local model works on a plane, in a basement server room with no signal, or during an outage on your ISP&rsquo;s end. Cloud APIs go down; a model sitting on your own disk doesn&rsquo;t care about anyone&rsquo;s status page.</p>
+<p><strong>No ongoing bill.</strong> Once the model is downloaded, inference is free — no per-token metering, no surprise invoice because a script looped 200 times overnight. You pay once, in electricity and hardware you probably already own.</p>
+<p>None of this means local models beat frontier cloud models on raw capability — they don&rsquo;t, not yet, not for the hardest reasoning tasks. But for coding assistance, summarization, drafting, local RAG over your own documents, and general day-to-day use, a well-chosen local model is close enough that the tradeoff is worth it for a lot of people.</p>
+<h2 id="ollama-the-default-way-to-run-local-llms">Ollama: the default way to run local LLMs</h2>
+<p>Ollama has become the de facto tool for this — it&rsquo;s now past 174,000 GitHub stars, which tells you how far &ldquo;download and run an LLM&rdquo; has moved from research-lab territory into normal-developer territory. It wraps <code>llama.cpp</code> under the hood, handles model quantization and downloading for you, and exposes both a CLI and a local HTTP API on <code>localhost:11434</code> that&rsquo;s compatible with a lot of existing tooling.</p>
+<p>Install it on Linux:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -fsSL https://ollama.com/install.sh | sh
+</code></pre></div><p>That&rsquo;s the entire install. It sets up a systemd service, so Ollama starts on boot and just sits there listening until you actually pull and run a model — no idle GPU usage, no background inference eating your battery.</p>
+<p>Check it&rsquo;s running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl status ollama
+</code></pre></div><h2 id="checking-your-hardware-before-you-pick-a-model">Checking your hardware before you pick a model</h2>
+<p>This is the step most tutorials skip, and it&rsquo;s the one that actually determines whether your experience is &ldquo;wow, this is fast&rdquo; or &ldquo;why is my laptop fan screaming and the output crawling out one word every two seconds.&rdquo;</p>
+<p><strong>Check available RAM:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">free -h
+</code></pre></div><p><strong>Check GPU and VRAM (NVIDIA):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvidia-smi --query-gpu<span style="color:#ff79c6">=</span>name,memory.total,memory.used --format<span style="color:#ff79c6">=</span>csv
+</code></pre></div><p><strong>Check GPU and VRAM (AMD):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rocm-smi --showmeminfo vram
+</code></pre></div><p><strong>On Apple Silicon (macOS)</strong>, there&rsquo;s no separate VRAM to check — unified memory means the GPU shares system RAM directly, which is exactly why M-series Macs punch above their weight for this. Check total memory with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl hw.memsize
+</code></pre></div><p><img src="/blogs-images/nvidia-smi-vram-check-terminal.webp" alt="terminal output showing nvidia-smi VRAM check before running a local LLM"></p>
+<p>The number that matters most is <strong>how much memory (RAM or VRAM) is free</strong>, not raw specs on a spec sheet. A model needs to fit its weights plus a working buffer for context — if it doesn&rsquo;t fit in VRAM, Ollama will spill over to system RAM or CPU, and that&rsquo;s where the tenfold-slower experience comes from.</p>
+<h2 id="hardware-tiers-what-you-actually-need">Hardware tiers: what you actually need</h2>
+<p>This is where advice from before roughly March 2026 already reads as outdated — the ecosystem moved fast. NVIDIA&rsquo;s Blackwell RTX 50-series cards are the mainstream consumer GPU line now, and Apple&rsquo;s M4 and M5 chips with their unified memory architecture are the dominant choice on the Mac side. Here&rsquo;s how I&rsquo;d bucket things as of today:</p>
+<h3 id="tier-1--cpu-only-8gb-ram">Tier 1 — CPU only, 8GB+ RAM</h3>
+<p>A modern laptop with 8GB or more of system RAM can run small models purely on CPU. It&rsquo;s not fast, but it works — think a handful of tokens per second, fine for short Q&amp;A or drafting where you&rsquo;re not staring at the screen waiting on every token. This is the &ldquo;I just want to try it&rdquo; tier.</p>
+<h3 id="tier-2--8gb-vram-gpu-or-apple-silicon-unified-memory">Tier 2 — 8GB+ VRAM GPU or Apple Silicon unified memory</h3>
+<p>This is the sweet spot for 7B-class models — the size where local LLMs stop feeling like a novelty and start feeling like a real tool. A single consumer GPU (an RTX 40-series or 50-series card with 8GB+ VRAM) or an Apple Silicon laptop (M4/M5, 16GB+ unified memory) can comfortably push 20+ tokens per second on a 7B model. That&rsquo;s fast enough for interactive chat and even reasonably snappy code completion.</p>
+<h3 id="tier-3--24gb-vram-or-high-memory-apple-silicon">Tier 3 — 24GB+ VRAM or high-memory Apple Silicon</h3>
+<p>Once you&rsquo;re running 13B–34B models, or want more headroom for larger context windows (long documents, big codebases), you want 24GB or more of VRAM, or a Mac with 32–64GB+ of unified memory. This tier is where local models start genuinely competing with mid-tier cloud models on quality.</p>
+<h3 id="tier-4--multi-gpu-or-workstation-class-hardware">Tier 4 — Multi-GPU or workstation-class hardware</h3>
+<p>Running the largest open models at reasonable speed and context length means multiple GPUs or a workstation card with 48GB+ VRAM. Most people reading this don&rsquo;t need this tier — it&rsquo;s for people running local inference as infrastructure, not as a personal assistant.</p>
+<p><img src="/blogs-images/local-llm-hardware-tier-comparison.webp" alt="hardware tier comparison chart for running local LLMs on GPU vs Apple Silicon vs CPU"></p>
+<h2 id="picking-the-right-model-a-decision-framework">Picking the right model: a decision framework</h2>
+<p>Model choice should follow your hardware, not the other way around. Here&rsquo;s how I actually decide, and the three models worth knowing about by pull count on the Ollama library — Llama 3.1 (115.9M pulls), DeepSeek-R1 (87.7M pulls), and Llama 3.2 (72.7M pulls) — which roughly tells you what the community has converged on as reliable defaults.</p>
+<p><strong>If you&rsquo;re on Tier 1 (CPU, 8GB RAM):</strong> reach for Llama 3.2 in its smaller parameter sizes, or another compact model under ~3B parameters. You&rsquo;re optimizing for &ldquo;runs at all without swapping to disk,&rdquo; not for peak reasoning quality.</p>
+<p><strong>If you&rsquo;re on Tier 2 (8GB+ VRAM / Apple Silicon 16GB+):</strong> this is Llama 3.1 8B territory, or DeepSeek-R1&rsquo;s distilled variants around the same size. Both fit comfortably, both give you real conversational speed, and DeepSeek-R1 specifically is worth trying if your use case leans toward step-by-step reasoning (math, logic, debugging) rather than general chat — it was built around explicit chain-of-thought reasoning traces.</p>
+<p><strong>If you&rsquo;re on Tier 3 (24GB+ VRAM / 32-64GB unified memory):</strong> step up to the 13B-34B range, or run the smaller models at higher quantization (less compression, better quality) instead of the default. This is also where running two models side by side — one for chat, one for code — becomes practical without constantly swapping.</p>
+<p><strong>If you&rsquo;re on Tier 4:</strong> you&rsquo;re past the point where this post&rsquo;s advice is the bottleneck — at that scale you&rsquo;re choosing between full-precision weights of large open models and deciding how to split them across GPUs, which is a different, more infrastructure-flavored problem.</p>
+<p><strong>Reasoning-heavy tasks vs. general chat</strong> is the other axis worth thinking about independent of hardware. DeepSeek-R1&rsquo;s whole design point is showing its reasoning steps before answering, which tends to help on math, logic puzzles, and multi-step debugging questions. Llama 3.1 and 3.2 are more general-purpose, faster to a final answer, and better tuned for everyday assistant-style use. If you only have room for one model, general-purpose usually wins on versatility; if you have room for two, running both covers more ground than either alone.</p>
+<h2 id="pulling-and-running-your-first-model">Pulling and running your first model</h2>
+<p>Once Ollama is installed, getting a model running is two commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama pull llama3.1
+</code></pre></div><p>This downloads the model weights — expect anywhere from a couple gigabytes to tens of gigabytes depending on the size you pick. Ollama defaults to a sensibly quantized version so it fits typical consumer hardware without you having to think about quantization formats up front.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama run llama3.1
+</code></pre></div><p>That drops you into an interactive chat prompt right in your terminal. Type a question, get a streamed response, token by token, running entirely on your own hardware.</p>
+<p>To try a smaller model instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama pull llama3.2
+ollama run llama3.2
+</code></pre></div><p>Or the reasoning-focused option:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama pull deepseek-r1
+ollama run deepseek-r1
+</code></pre></div><p>List everything you&rsquo;ve downloaded so far:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama list
+</code></pre></div><p>Remove a model you&rsquo;re no longer using (they take up real disk space):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama rm llama3.2
+</code></pre></div><p><img src="/blogs-images/ollama-pull-run-cli-terminal.webp" alt="Ollama CLI terminal session showing ollama pull and ollama run commands for a local LLM"></p>
+<h2 id="measuring-your-actual-tokens-per-second">Measuring your actual tokens-per-second</h2>
+<p>Don&rsquo;t just trust a spec sheet number — measure what your specific setup gets. Ollama logs generation stats you can check with <code>--verbose</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ollama run llama3.1 --verbose
+</code></pre></div><p>After a response, it prints eval rate (tokens/sec), load duration, and prompt processing time. Run the same prompt a couple of times to get a stable read — the first run after a fresh pull is usually slower because the model isn&rsquo;t warm in memory yet.</p>
+<p>If you&rsquo;re consistently under 5 tokens/sec, that&rsquo;s a strong signal the model doesn&rsquo;t fit in VRAM and is spilling into system RAM or pure CPU — worth dropping to a smaller model or a more aggressively quantized version of the same one rather than fighting the hardware.</p>
+<h2 id="common-gotchas">Common gotchas</h2>
+<p><strong>Running out of VRAM mid-conversation.</strong> Long chats and large context windows eat memory beyond just the model weights. If a model that started fine slows to a crawl after a long back-and-forth, that&rsquo;s context growth pushing you past what fits. Trim the conversation or start a fresh session.</p>
+<p><strong>Confusing RAM with VRAM.</strong> A GPU with 8GB VRAM and a system with 32GB RAM are not the same &ldquo;8GB machine.&rdquo; Ollama will use the GPU if the model fits there; if it doesn&rsquo;t, it falls back to slower CPU/RAM inference, and it&rsquo;s easy to not notice this happened until you check the tokens/sec.</p>
+<p><strong>Assuming bigger always means better for your use case.</strong> A 34B model at low quantization can perform worse in practice than a 7B model at higher quantization, once you factor in speed and the fact that you&rsquo;ll actually wait for full responses instead of abandoning long generations halfway through.</p>
+<p><strong>Forgetting models take real disk space.</strong> These aren&rsquo;t small downloads — running <code>ollama list</code> and pruning models you tried once and never use again is worth doing periodically.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Do I need a GPU to run a local LLM?</strong>
+No. A modern laptop with 8GB+ RAM can run small models on CPU alone. It&rsquo;s slower — a handful of tokens per second rather than 20+ — but functional for short queries and drafting where you&rsquo;re not watching every token stream in real time.</p>
+<p><strong>How much VRAM do I need for a 7B model?</strong>
+8GB of VRAM (or 16GB+ of Apple Silicon unified memory) comfortably runs a 7B-class model like Llama 3.1 8B, typically producing 20+ tokens per second on a single consumer GPU or Apple Silicon laptop.</p>
+<p><strong>Is DeepSeek-R1 better than Llama for local use?</strong>
+Neither is strictly better — they&rsquo;re tuned differently. DeepSeek-R1 leans into explicit step-by-step reasoning, which helps on math and logic-heavy tasks. Llama 3.1/3.2 are more general-purpose and faster to a final answer for everyday chat and assistant use. Pick based on your primary use case, or run both if your hardware tier allows it.</p>
+<p><strong>Can I use Ollama with other tools, not just the CLI?</strong>
+Yes — Ollama exposes a local HTTP API on <code>localhost:11434</code> that&rsquo;s compatible with a lot of existing OpenAI-style client code, so you can point editor plugins, scripts, or your own apps at it instead of typing into the terminal chat directly.</p>
+<p><strong>Is running a local LLM actually cheaper than an API?</strong>
+If you already own the hardware, yes — inference is free after the download. If you&rsquo;d need to buy a GPU specifically for this, the math depends on how much you&rsquo;d otherwise spend on API calls; for occasional light use, a cloud API is probably still cheaper than a hardware purchase.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>I expected setting this up to be a weekend of fighting CUDA drivers and dependency hell. It wasn&rsquo;t — Ollama really is a curl command and a couple of <code>pull</code>/<code>run</code> calls. The actual work is the hardware-to-model matching this post walks through, and once you&rsquo;ve done that math once for your own machine, picking new models as they come out is just a <code>pull</code> away. Worth doing before your next API bill shows up.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=How&#43;to&#43;Run&#43;a&#43;Local&#43;LLM&#43;in&#43;2026%3A&#43;Ollama%2C&#43;Hardware&#43;Requirements%2C&#43;and&#43;Picking&#43;the&#43;Right&#43;Model&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost59%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost59%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post52/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Linux</span>
+                <span class="post-nav-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-run-a-local-llm-in-2026-instead-of-just-using-an-api">Why run a local LLM in 2026 instead of just using an API</a></li>
+    <li><a href="#ollama-the-default-way-to-run-local-llms">Ollama: the default way to run local LLMs</a></li>
+    <li><a href="#checking-your-hardware-before-you-pick-a-model">Checking your hardware before you pick a model</a></li>
+    <li><a href="#hardware-tiers-what-you-actually-need">Hardware tiers: what you actually need</a>
+      <ul>
+        <li><a href="#tier-1--cpu-only-8gb-ram">Tier 1 — CPU only, 8GB+ RAM</a></li>
+        <li><a href="#tier-2--8gb-vram-gpu-or-apple-silicon-unified-memory">Tier 2 — 8GB+ VRAM GPU or Apple Silicon unified memory</a></li>
+        <li><a href="#tier-3--24gb-vram-or-high-memory-apple-silicon">Tier 3 — 24GB+ VRAM or high-memory Apple Silicon</a></li>
+        <li><a href="#tier-4--multi-gpu-or-workstation-class-hardware">Tier 4 — Multi-GPU or workstation-class hardware</a></li>
+      </ul>
+    </li>
+    <li><a href="#picking-the-right-model-a-decision-framework">Picking the right model: a decision framework</a></li>
+    <li><a href="#pulling-and-running-your-first-model">Pulling and running your first model</a></li>
+    <li><a href="#measuring-your-actual-tokens-per-second">Measuring your actual tokens-per-second</a></li>
+    <li><a href="#common-gotchas">Common gotchas</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post59/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/local_llm_ollama.webp" alt="How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 18, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post58/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/mcp-explainer.webp" alt="What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 18, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post57/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/openclaw_github_stars.webp" alt="OpenClaw: The Open-Source Project That Exploded to 200K&#43; GitHub Stars in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">OpenClaw: The Open-Source Project That Exploded to 200K&#43; GitHub Stars in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 18, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post56/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/agentic_design_patterns.webp" alt="5 Agentic AI Design Patterns Every Developer Should Know in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">5 Agentic AI Design Patterns Every Developer Should Know in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post55/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/compose_first_2026.webp" alt="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 17, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post58/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/mcp-explainer.webp" alt="What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 18, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/ai" class="card-tag">ai</a>
+            
+            <a href="/tags/mcp" class="card-tag">mcp</a>
+            
+            <a href="/tags/llm" class="card-tag">llm</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post58/" class="card-content-link">
+            <div class="card-title">What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026</div>
+
+            
+            <div class="card-desc">MCP explained plainly: what the Model Context Protocol is, how it connects AI models to real data and tools, and why it became the standard every major AI product adopted.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post50/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/simple_ai_agent.webp" alt="Build a Simple AI Agent in Python (No Framework Needed)" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 15, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/python" class="card-tag">python</a>
+            
+            <a href="/tags/ai" class="card-tag">ai</a>
+            
+            <a href="/tags/agent" class="card-tag">agent</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post50/" class="card-content-link">
+            <div class="card-title">Build a Simple AI Agent in Python (No Framework Needed)</div>
+
+            
+            <div class="card-desc">Step-by-step guide to building an AI agent in Python from scratch using the ReAct pattern — no LangChain, no LangGraph, just Python and an LLM API.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        15 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post52/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 16, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/linux" class="card-tag">linux</a>
+            
+            <a href="/tags/postgresql" class="card-tag">postgresql</a>
+            
+            <a href="/tags/performance" class="card-tag">performance</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post52/" class="card-content-link">
+            <div class="card-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+
+            
+            <div class="card-desc">Linux Kernel 7.0 shipped a stable Rust implementation in April 2026, then a viral claim said it halved PostgreSQL throughput. Here&#39;s what the benchmarks actually show.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        13 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post59/\""
+  },
+  "headline": "\"How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model\"",
+  "description": "\"A practical 2026 guide to running local LLMs with Ollama — hardware requirements, VRAM math, and how to pick the right model for your laptop or GPU.\"",
+  "datePublished": "2026-08-18T15:00:45\u002b05:30",
+  "dateModified": "2026-08-18T15:00:45\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/local_llm_ollama.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post59/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,25 @@
     <description>Recent content in llm on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 19:48:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
+      <link>https://anooptube.in/blog/post59/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:45 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post59/</guid>
+      <description>Every time I open a new tab it&amp;rsquo;s another SaaS wrapper around someone else&amp;rsquo;s API key. At some point I got tired of paying per-token for things I could run on hardware already sitting on my desk. So I spent a weekend actually setting up local LLMs properly — not just running one toy demo, but figuring out what hardware you actually need, which models are worth pulling, and where the real bottlenecks are.</description>
+    </item>
+    
+    <item>
+      <title>What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026</title>
+      <link>https://anooptube.in/blog/post58/</link>
+      <pubDate>Tue, 18 Aug 2026 15:00:34 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post58/</guid>
+      <description>Every AI product I use daily — Claude, ChatGPT, Gemini, Copilot, Cursor — quietly picked up support for the same protocol this year, and I kept running into it before I actually understood what it was. I&amp;rsquo;d see &amp;ldquo;MCP server&amp;rdquo; mentioned in a plugin&amp;rsquo;s README, or a coworker would say &amp;ldquo;just wire it up over MCP,&amp;rdquo; and I&amp;rsquo;d nod along without a clear mental model of what was actually happening under the hood.</description>
+    </item>
+    
     <item>
       <title>Build a Simple AI Agent in Python (No Framework Needed)</title>
       <link>https://anooptube.in/blog/post50/</link>
