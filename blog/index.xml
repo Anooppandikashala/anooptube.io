@@ -6,7 +6,34 @@
     <description>Recent content in Blogs on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2026 09:45:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python 3.14: New Features Every Developer Should Know in 2026</title>
+      <link>https://anooptube.in/blog/post60/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:24 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post60/</guid>
+      <description>Every October brings a new CPython release and every October I skim the changelog, shrug, and move on — most releases are incremental. Python 3.14 is not one of those years. Between free-threaded Python losing its &amp;ldquo;experimental&amp;rdquo; label, a genuinely new string type, and subinterpreters finally becoming usable from plain Python code, this is the first release in a while where I actually rewrote some of my own code after reading the changelog.</description>
+    </item>
+    
+    <item>
+      <title>PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</title>
+      <link>https://anooptube.in/blog/post61/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post61/</guid>
+      <description>Every few months another vector database shows up with a slick landing page and a Series A. Meanwhile the database most of us already run in production quietly picked up everything it needed to do the same job. I spent the last couple of weeks moving a small RAG prototype off a dedicated vector store and onto plain PostgreSQL 18 with pgvector, mostly out of curiosity about whether it would actually hold up.</description>
+    </item>
+    
+    <item>
+      <title>Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise</title>
+      <link>https://anooptube.in/blog/post62/</link>
+      <pubDate>Wed, 19 Aug 2026 09:44:53 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post62/</guid>
+      <description>I&amp;rsquo;ve shipped the same login screen twice — once in Kotlin for Android, once in Swift for iOS — more times than I&amp;rsquo;d like to admit. Same validation rules, same API calls, same retry logic, written twice, tested twice, and inevitably drifting apart the moment one platform gets a bugfix the other doesn&amp;rsquo;t. Kotlin Multiplatform was supposed to fix that, and for a long time it felt like a promising side project more than a real answer.</description>
+    </item>
+    
     <item>
       <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
       <link>https://anooptube.in/blog/post59/</link>

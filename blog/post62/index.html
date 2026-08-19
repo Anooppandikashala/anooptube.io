@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post62/" />
+
+    <title>
+        Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise - #anooptube
+    </title><meta name="description" content="Kotlin Multiplatform in 2026 lets you share business logic between Android and iOS while keeping native UI or going fully shared with Compose Multiplatform." />
+    <meta name="keywords" content="Kotlin Multiplatform 2026, KMP Android iOS, share code Android iOS, Kotlin Multiplatform Mobile, Compose Multiplatform iOS, KMP expect actual, Kotlin Multiplatform vs native, KMP networking database, Ktor Kotlin Multiplatform, SQLDelight Kotlin Multiplatform, KMP production apps, is Kotlin Multiplatform production ready" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.4f1c8b0a47a9bd2125f4b0e6c5f5ce270f2760af843e6d995769ba893418fd9c.css" integrity="sha256-TxyLCkepvSEl9LDmxfXOJw8nYK+EPm2ZV2m6iTQY/Zw=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise" />
+<meta property="og:description" content="Kotlin Multiplatform in 2026 lets you share business logic between Android and iOS while keeping native UI or going fully shared with Compose Multiplatform." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post62/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-08-19T09:44:53+05:30" />
+<meta property="article:modified_time" content="2026-08-19T09:44:53+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/kotlin-multiplatform.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/kotlin-multiplatform.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/kotlin-multiplatform.webp" alt="Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    August 19, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/android">Android</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise">Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Android\"",
+      "item": "\"https://anooptube.in/playlists/android/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "\"Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise\"",
+      "item": "\"https://anooptube.in/blog/post62/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    August 19, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        9 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        1897 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Android</span>
+          </span>
+          <span class="series-nav-badge">4 / 4</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post45/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">I Built an Android App Because Android Kept Deleting My Clipboard</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post46/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">I built a free Android soundboard that works with an External keyboard</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post55/" class="series-nav-link">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">4</span>
+                <span class="series-nav-name">Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/android/" class="series-nav-footer-link">
+          View all in "Android" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+<p>I&rsquo;ve shipped the same login screen twice — once in Kotlin for Android, once in Swift for iOS — more times than I&rsquo;d like to admit. Same validation rules, same API calls, same retry logic, written twice, tested twice, and inevitably drifting apart the moment one platform gets a bugfix the other doesn&rsquo;t. Kotlin Multiplatform was supposed to fix that, and for a long time it felt like a promising side project more than a real answer. In 2026 that&rsquo;s changed. I spent the last couple of weeks pulling an existing Android app&rsquo;s data layer into a shared KMP module and pointing an iOS target at it, and I want to walk through what actually works now, what still has sharp edges, and how to think about where the platform boundary should sit.</p>
+<h2 id="what-kotlin-multiplatform-actually-is-in-2026">What Kotlin Multiplatform actually is in 2026</h2>
+<p>Kotlin Multiplatform (KMP) is not a cross-platform UI framework in the way Flutter or React Native are. It&rsquo;s a compilation strategy: you write Kotlin code once, and the Kotlin compiler produces a JVM/Android target, a native iOS target (via Kotlin/Native, compiled to an <code>.framework</code> you link into an Xcode project), plus JS/Wasm targets for web if you want them. The key mental model is that <strong>you choose what to share, not the framework</strong>. You can share just a data model, share a full networking and persistence layer, share your entire business logic and view-model layer, or go all the way and share UI with Compose Multiplatform. Nothing forces you further than you want to go.</p>
+<p>JetBrains has spent the last two years hardening this pipeline specifically for the Android-plus-iOS case — that&rsquo;s now officially branded as Kotlin Multiplatform for mobile use cases, with first-class support baked into Android Studio and a stable Xcode integration path via the <code>native.cocoapods</code> plugin or direct Swift Package Manager support (SPM support for KMP frameworks shipped as stable in the Kotlin 2.2 toolchain). If you tried KMP in 2021 and bounced off broken Gradle sync or missing IDE support, it&rsquo;s worth another look — that tooling gap is largely closed.</p>
+<p><img src="/blogs-images/kotlin-multiplatform-shared-module-architecture.webp" alt="Kotlin Multiplatform shared module architecture diagram showing Android and iOS targets"></p>
+<h2 id="the-expectactual-mechanism-how-platform-differences-get-handled">The <code>expect</code>/<code>actual</code> mechanism: how platform differences get handled</h2>
+<p>The core language feature that makes sharing possible without pretending platforms are identical is <code>expect</code>/<code>actual</code>. In your shared module, you declare what you need without saying how it&rsquo;s done:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#6272a4">// commonMain
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">expect</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PlatformInfo</span> {
+    <span style="color:#ff79c6">val</span> deviceName: String
+    <span style="color:#ff79c6">val</span> osVersion: String
+}
+
+<span style="color:#ff79c6">expect</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">currentTimeMillis</span>(): Long
+</code></pre></div><p>Then each platform provides its own implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#6272a4">// androidMain
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PlatformInfo</span> {
+    <span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">val</span> deviceName: String = Build.MODEL
+    <span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">val</span> osVersion: String = <span style="color:#f1fa8c">&#34;Android </span><span style="color:#f1fa8c">${Build.VERSION.SDK_INT}</span><span style="color:#f1fa8c">&#34;</span>
+}
+
+<span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">currentTimeMillis</span>(): Long = System.currentTimeMillis()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#6272a4">// iosMain
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PlatformInfo</span> {
+    <span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">val</span> deviceName: String = UIDevice.currentDevice.model
+    <span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">val</span> osVersion: String = UIDevice.currentDevice.systemVersion
+}
+
+<span style="color:#ff79c6">actual</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">currentTimeMillis</span>(): Long =
+    (NSDate().timeIntervalSince1970 * <span style="color:#bd93f9">1000</span>).toLong()
+}
+</code></pre></div><p>This is the whole trick. Anywhere your logic genuinely needs a platform API — file system paths, secure storage, date formatting quirks, permission dialogs — you declare the contract once in <code>commonMain</code> and satisfy it per platform. Everything else — parsing JSON, validating a form, computing a retry backoff, mapping a DTO to a domain model — just lives in <code>commonMain</code> and never gets duplicated again.</p>
+<h2 id="what-you-can-realistically-share-today">What you can realistically share today</h2>
+<p>In a 2026 KMP project, here&rsquo;s what typically moves into the shared module without a fight:</p>
+<ul>
+<li><strong>Networking</strong>: Ktor Client has multiplatform engines for OkHttp (Android) and Darwin/NSURLSession (iOS), so a single Ktor client configuration, request builder, and response-parsing layer works on both.</li>
+<li><strong>Persistence</strong>: SQLDelight generates typed Kotlin database APIs from <code>.sq</code> SQL files and compiles against SQLite on Android and the native SQLite bindings on iOS — one schema, one query set, two platforms.</li>
+<li><strong>Serialization</strong>: <code>kotlinx.serialization</code> handles JSON (and protobuf, CBOR) identically on both targets.</li>
+<li><strong>Business logic and view models</strong>: <code>kotlinx.coroutines</code> runs natively on iOS now via the multiplatform coroutines dispatcher, so your view-model layer — including <code>Flow</code>-based state — can live entirely in shared code and be observed from SwiftUI.</li>
+<li><strong>Dependency injection</strong>: Koin and Kodein both have stable multiplatform artifacts, so you can wire your shared services once.</li>
+</ul>
+<p>What most teams still keep native: the actual UI layer, platform-specific integrations (push notification registration, deep link handling at the OS level, in-app purchase flows), and anything tightly coupled to platform design language.</p>
+<h2 id="compose-multiplatform-for-ios-how-far-ui-sharing-has-come">Compose Multiplatform for iOS: how far UI sharing has come</h2>
+<p>This is the part that&rsquo;s changed the most since KMP first launched. Compose Multiplatform — JetBrains' adaptation of Jetpack Compose that also targets iOS, desktop, and web — reached iOS stability in late 2024, and by 2026 it&rsquo;s a legitimate option for teams that want to share UI, not just logic. It renders through Skia directly rather than translating to native UIKit or SwiftUI widgets, which means visual consistency across platforms is close to perfect, and you write one Compose UI tree that runs unmodified on both.</p>
+<p>The tradeoff is the one you&rsquo;d expect: because it isn&rsquo;t UIKit or SwiftUI under the hood, you don&rsquo;t automatically inherit iOS platform conventions — swipe-back gestures, native scroll physics, system-level accessibility behaviors — you either replicate them or ship something that feels slightly &ldquo;off&rdquo; to an iOS user who knows the difference. Teams building internal tools, dashboards, or apps where brand consistency matters more than platform-native feel (think a companion app for a SaaS product) get the most value here. Teams building a flagship consumer app where iOS users expect iOS-native polish still tend to keep native SwiftUI and Jetpack Compose UIs, sharing only the layer beneath them. Both are valid architectures in 2026 — the point is you now get to choose, rather than the tooling choosing for you.</p>
+<p><img src="/blogs-images/compose-multiplatform-ios-android-ui-sharing.webp" alt="Compose Multiplatform code sharing between Android Jetpack Compose and iOS SwiftUI screens"></p>
+<h2 id="a-worked-example-sharing-a-repository-layer">A worked example: sharing a repository layer</h2>
+<p>Here&rsquo;s a trimmed version of what a shared repository looks like in practice — the kind of code that used to exist twice in every app I&rsquo;ve worked on:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#6272a4">// commonMain
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">UserRepository</span>(
+    <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">val</span> httpClient: HttpClient,
+    <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">val</span> database: AppDatabase
+) {
+    <span style="color:#ff79c6">suspend</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">getUser</span>(id: String): Result&lt;User&gt; = runCatching {
+        <span style="color:#ff79c6">val</span> cached = database.userQueries.selectById(id).executeAsOneOrNull()
+        <span style="color:#ff79c6">if</span> (cached <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) <span style="color:#ff79c6">return</span>@runCatching cached.toDomain()
+
+        <span style="color:#ff79c6">val</span> response = httpClient.<span style="color:#ff79c6">get</span>(<span style="color:#f1fa8c">&#34;https://api.example.com/users/</span><span style="color:#f1fa8c">$id</span><span style="color:#f1fa8c">&#34;</span>)
+            .body&lt;UserDto&gt;()
+
+        database.userQueries.insert(response.toEntity())
+        response.toDomain()
+    }
+}
+</code></pre></div><p>That class compiles for Android and iOS with zero changes. On Android it&rsquo;s injected into a <code>ViewModel</code>; on iOS it&rsquo;s injected into an <code>ObservableObject</code> wrapper that bridges Kotlin <code>Flow</code> to SwiftUI&rsquo;s <code>@Published</code> state. Neither platform reimplements caching, retry, or the network call — they just consume the same tested repository.</p>
+<h2 id="where-the-sharp-edges-still-are">Where the sharp edges still are</h2>
+<p>It would be dishonest to present this as friction-free. A few things to budget time for:</p>
+<ul>
+<li><strong>Build times</strong>: Kotlin/Native compilation for iOS targets is noticeably slower than JVM compilation, especially on a cold build. CI pipelines building both Android and iOS artifacts from one shared module need real caching strategy (Gradle build cache plus Kotlin/Native&rsquo;s own compilation cache) or you&rsquo;ll be waiting a long time per PR.</li>
+<li><strong>Debugging across the boundary</strong>: stepping from Swift code into shared Kotlin code inside Xcode works, but the debugging experience is still a notch behind debugging pure Swift — breakpoints and variable inspection in <code>.kt</code> files opened from Xcode can be inconsistent depending on toolchain version.</li>
+<li><strong>Objective-C interop quirks</strong>: Kotlin/Native exposes your shared code to Swift through a generated Objective-C header, which means Kotlin&rsquo;s richer type system (sealed classes, default parameters, suspend functions) gets flattened into patterns that feel awkward from Swift — suspend functions become completion-handler closures unless you&rsquo;re using the newer Swift <code>async</code>/<code>await</code> bridging, which is better in 2026 but not seamless.</li>
+<li><strong>Binary size</strong>: shipping a Kotlin/Native framework adds meaningful size to an iOS app compared to pure Swift, largely from the Kotlin runtime and coroutines machinery getting statically linked in.</li>
+</ul>
+<p>None of these are dealbreakers for most teams, but they&rsquo;re real costs you&rsquo;re trading against not writing your business logic twice.</p>
+<h2 id="kmp-vs-writing-fully-native-android-and-ios-apps">KMP vs. writing fully native Android and iOS apps</h2>
+<p>The honest comparison isn&rsquo;t &ldquo;KMP vs Flutter&rdquo; or &ldquo;KMP vs React Native&rdquo; — it&rsquo;s &ldquo;KMP vs. two separate native codebases,&rdquo; because that&rsquo;s the actual alternative most teams weighing this are considering. Fully native gives you the smallest possible app, the deepest platform-API access, and no interop layer to reason about, at the cost of duplicating every piece of business logic and paying for it twice in engineering time and twice in bugs when the two implementations quietly diverge. KMP keeps your UI native (or shares it via Compose Multiplatform if you choose) while collapsing the logic layer into one implementation, one test suite, one source of truth for how your app behaves — the tradeoff is a build pipeline with more moving parts and an interop layer you have to understand well enough to debug.</p>
+<p>For a team already maintaining separate Android and iOS apps with meaningful business logic — anything with non-trivial networking, caching, offline sync, or domain rules — KMP in 2026 is a reasonable default to evaluate, not just an experiment. For a brand-new small app, or a team with only one platform&rsquo;s worth of native expertise on staff, the calculus is different, and that&rsquo;s exactly where Flutter or a fully native single-platform app can still be the simpler answer.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Is Kotlin Multiplatform production-ready in 2026?</strong>
+Yes for the core use case of sharing business logic — networking, persistence, and domain code. JetBrains and Google both back it, and companies including Netflix, McDonald&rsquo;s, Philips, and Forbes run shared KMP modules in production. Compose Multiplatform for iOS UI is production-ready for many app categories but is a more recent, less battle-tested layer than the logic-sharing side.</p>
+<p><strong>Do I need to know Swift to use Kotlin Multiplatform?</strong>
+You need enough Swift to build the iOS app shell and consume the shared Kotlin framework — writing the actual UI, wiring dependency injection, bridging <code>Flow</code> to Combine or <code>@Observable</code>. If you&rsquo;re sharing UI via Compose Multiplatform, you can get away with much less Swift, but some native glue is still typically needed for App Store requirements like push notification entitlements.</p>
+<p><strong>How much code can realistically be shared?</strong>
+Teams commonly report sharing 50-70% of their codebase when sharing business logic only, and higher when adopting Compose Multiplatform for UI too. The exact number depends heavily on how much platform-specific integration your app needs.</p>
+<p><strong>Is Compose Multiplatform the same as Jetpack Compose?</strong>
+It&rsquo;s built on the same Compose compiler and a similar API surface, so Android developers feel at home immediately, but it&rsquo;s a separate multiplatform artifact that renders via Skia across targets rather than being Jetpack Compose itself running on iOS.</p>
+<p><strong>What&rsquo;s the difference between Kotlin Multiplatform and Kotlin Multiplatform Mobile (KMM)?</strong>
+KMM was the earlier branding specifically for the Android/iOS use case. JetBrains folded that terminology back under the general &ldquo;Kotlin Multiplatform&rdquo; umbrella as the platform expanded to desktop, web, and server targets — functionally it&rsquo;s the same technology.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>The thing that convinced me KMP earned another look wasn&rsquo;t a benchmark or a keynote slide — it was noticing, halfway through moving that login flow into a shared module, that I&rsquo;d stopped thinking about &ldquo;the Android version&rdquo; and &ldquo;the iOS version&rdquo; of the validation logic. There was just the logic, tested once, running on both. Whether you stop there or go further into sharing UI with Compose Multiplatform is a real architectural decision worth making deliberately — but the option to stop at &ldquo;share the boring, correctness-critical stuff and keep the UI native&rdquo; is, on its own, worth the setup cost for most teams maintaining two mobile codebases in 2026.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=Kotlin&#43;Multiplatform&#43;in&#43;2026%3A&#43;Sharing&#43;Code&#43;Between&#43;Android&#43;and&#43;iOS&#43;Without&#43;Compromise&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost62%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost62%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post55/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Android</span>
+                <span class="post-nav-title">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-kotlin-multiplatform-actually-is-in-2026">What Kotlin Multiplatform actually is in 2026</a></li>
+    <li><a href="#the-expectactual-mechanism-how-platform-differences-get-handled">The <code>expect</code>/<code>actual</code> mechanism: how platform differences get handled</a></li>
+    <li><a href="#what-you-can-realistically-share-today">What you can realistically share today</a></li>
+    <li><a href="#compose-multiplatform-for-ios-how-far-ui-sharing-has-come">Compose Multiplatform for iOS: how far UI sharing has come</a></li>
+    <li><a href="#a-worked-example-sharing-a-repository-layer">A worked example: sharing a repository layer</a></li>
+    <li><a href="#where-the-sharp-edges-still-are">Where the sharp edges still are</a></li>
+    <li><a href="#kmp-vs-writing-fully-native-android-and-ios-apps">KMP vs. writing fully native Android and iOS apps</a></li>
+    <li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post60/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/python314.webp" alt="Python 3.14: New Features Every Developer Should Know in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Python 3.14: New Features Every Developer Should Know in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post61/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/pg18-pgvector.webp" alt="PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post62/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/kotlin-multiplatform.webp" alt="Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post59/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/local_llm_ollama.webp" alt="How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 18, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post58/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/mcp-explainer.webp" alt="What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What Is MCP (Model Context Protocol) and Why It Became AI&#39;s Most Important Protocol in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 18, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post55/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/compose_first_2026.webp" alt="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 17, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/kotlin" class="card-tag">kotlin</a>
+            
+            <a href="/tags/jetpack-compose" class="card-tag">jetpack-compose</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post55/" class="card-content-link">
+            <div class="card-title">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</div>
+
+            
+            <div class="card-desc">Google declared Android UI development Compose-first at I/O 2026. Here&#39;s what Jetpack Compose 1.12, Kotlin 2.2, and the Views maintenance-mode shift mean for you.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post46/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/ctunes.webp" alt="I built a free Android soundboard that works with an External keyboard" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 25, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/sound" class="card-tag">sound</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post46/" class="card-content-link">
+            <div class="card-title">I built a free Android soundboard that works with an External keyboard</div>
+
+            
+            <div class="card-desc">Turn your keyboard into a soundboard - free for Android. </div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post45/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/copy_duo_banner.webp" alt="I Built an Android App Because Android Kept Deleting My Clipboard" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Mar 19, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/android" class="card-tag">android</a>
+            
+            <a href="/tags/productivity" class="card-tag">productivity</a>
+            
+            <a href="/tags/invoice" class="card-tag">invoice</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post45/" class="card-content-link">
+            <div class="card-title">I Built an Android App Because Android Kept Deleting My Clipboard</div>
+
+            
+            <div class="card-desc">The story behind CopyDuo - a clipboard history manager I built after losing one too many copied texts. And why building it was harder than I expected.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        5 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post62/\""
+  },
+  "headline": "\"Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise\"",
+  "description": "\"Kotlin Multiplatform in 2026 lets you share business logic between Android and iOS while keeping native UI or going fully shared with Compose Multiplatform.\"",
+  "datePublished": "2026-08-19T09:44:53\u002b05:30",
+  "dateModified": "2026-08-19T09:44:53\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/kotlin-multiplatform.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post62/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

@@ -6,13 +6,103 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2026 09:45:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>programming</title>
+      <link>https://anooptube.in/tags/programming/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:24 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://anooptube.in/tags/python/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:24 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python3.14</title>
+      <link>https://anooptube.in/tags/python3.14/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:24 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/python3.14/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai</title>
       <link>https://anooptube.in/tags/ai/</link>
-      <pubDate>Tue, 18 Aug 2026 15:00:45 +0530</pubDate>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>https://anooptube.in/tags/database/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pgvector</title>
+      <link>https://anooptube.in/tags/pgvector/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/pgvector/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgres</title>
+      <link>https://anooptube.in/tags/postgres/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/postgres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgresql</title>
+      <link>https://anooptube.in/tags/postgresql/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://anooptube.in/tags/android/</link>
+      <pubDate>Wed, 19 Aug 2026 09:44:53 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kotlin</title>
+      <link>https://anooptube.in/tags/kotlin/</link>
+      <pubDate>Wed, 19 Aug 2026 09:44:53 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multiplatform</title>
+      <link>https://anooptube.in/tags/multiplatform/</link>
+      <pubDate>Wed, 19 Aug 2026 09:44:53 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/multiplatform/</guid>
       <description></description>
     </item>
     
@@ -89,29 +179,11 @@
     </item>
     
     <item>
-      <title>android</title>
-      <link>https://anooptube.in/tags/android/</link>
-      <pubDate>Mon, 17 Aug 2026 15:00:04 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/android/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>jetpack-compose</title>
       <link>https://anooptube.in/tags/jetpack-compose/</link>
       <pubDate>Mon, 17 Aug 2026 15:00:04 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/jetpack-compose/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kotlin</title>
-      <link>https://anooptube.in/tags/kotlin/</link>
-      <pubDate>Mon, 17 Aug 2026 15:00:04 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/kotlin/</guid>
       <description></description>
     </item>
     
@@ -179,15 +251,6 @@
     </item>
     
     <item>
-      <title>postgresql</title>
-      <link>https://anooptube.in/tags/postgresql/</link>
-      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/postgresql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>productivity</title>
       <link>https://anooptube.in/tags/productivity/</link>
       <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
@@ -224,15 +287,6 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://anooptube.in/tags/python/</link>
-      <pubDate>Sat, 15 Aug 2026 19:48:00 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>rust</title>
       <link>https://anooptube.in/tags/rust/</link>
       <pubDate>Sat, 15 Aug 2026 19:48:00 +0530</pubDate>
@@ -265,24 +319,6 @@
       <pubDate>Wed, 25 Mar 2026 16:44:00 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/sound/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>database</title>
-      <link>https://anooptube.in/tags/database/</link>
-      <pubDate>Mon, 29 Dec 2025 18:56:06 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>postgres</title>
-      <link>https://anooptube.in/tags/postgres/</link>
-      <pubDate>Mon, 29 Dec 2025 18:56:06 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/postgres/</guid>
       <description></description>
     </item>
     

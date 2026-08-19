@@ -6,7 +6,16 @@
     <description>Recent content in ai on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2026 09:45:08 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</title>
+      <link>https://anooptube.in/blog/post61/</link>
+      <pubDate>Wed, 19 Aug 2026 09:45:08 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post61/</guid>
+      <description>Every few months another vector database shows up with a slick landing page and a Series A. Meanwhile the database most of us already run in production quietly picked up everything it needed to do the same job. I spent the last couple of weeks moving a small RAG prototype off a dedicated vector store and onto plain PostgreSQL 18 with pgvector, mostly out of curiosity about whether it would actually hold up.</description>
+    </item>
+    
     <item>
       <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
       <link>https://anooptube.in/blog/post59/</link>

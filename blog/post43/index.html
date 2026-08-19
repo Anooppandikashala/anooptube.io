@@ -343,6 +343,87 @@
   
   
   
+    
+    
+
+    
+    
+    
+      
+        
+      
+    
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">PostgreSQL</span>
+          </span>
+          <span class="series-nav-badge">1 / 2</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">PostgreSQL CRUD App with Python &amp; Neon</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post61/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</span>
+              </a>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/postgresql/" class="series-nav-footer-link">
+          View all in "PostgreSQL" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
 
 
 <a href="https://www.youtube.com/watch?v=creQSHQdY-k" target="_blank" rel="noopener" class="youtube-cta-banner">
@@ -720,7 +801,36 @@ function postCopyLink(btn) {
             
             
         
+            
+                
+            
+            
+            
+        
 
+        
+        <div class="post-nav">
+
+            
+            <div></div>
+            
+
+            
+            <a href="/blog/post61/" class="post-nav-link post-nav-next">
+                <span class="post-nav-label">
+                    Next
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+                <span class="post-nav-playlist">PostgreSQL</span>
+                <span class="post-nav-title">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</span>
+            </a>
+            
+
+        </div>
         
     
 
@@ -774,6 +884,63 @@ function postCopyLink(btn) {
         <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
         <div class="recent-widget-line"></div>
     </div>
+    <a href="/blog/post60/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/python314.webp" alt="Python 3.14: New Features Every Developer Should Know in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Python 3.14: New Features Every Developer Should Know in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post61/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/pg18-pgvector.webp" alt="PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post62/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/kotlin-multiplatform.webp" alt="Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Kotlin Multiplatform in 2026: Sharing Code Between Android and iOS Without Compromise</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
     <a href="/blog/post59/" class="recent-post-item">
 
         
@@ -805,63 +972,6 @@ function postCopyLink(btn) {
                 
   
     Aug 18, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post57/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/openclaw_github_stars.webp" alt="OpenClaw: The Open-Source Project That Exploded to 200K&#43; GitHub Stars in 2026" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">OpenClaw: The Open-Source Project That Exploded to 200K&#43; GitHub Stars in 2026</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 18, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post56/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/agentic_design_patterns.webp" alt="5 Agentic AI Design Patterns Every Developer Should Know in 2026" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">5 Agentic AI Design Patterns Every Developer Should Know in 2026</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 17, 26
-  
-
-
-            </div>
-        </div>
-
-    </a>
-    <a href="/blog/post55/" class="recent-post-item">
-
-        
-        <img class="recent-post-thumb" src="/thumbs/compose_first_2026.webp" alt="Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know" loading="lazy" />
-        
-
-        <div class="recent-post-info">
-            <div class="recent-post-title">Jetpack Compose Goes Compose-First in 2026: What Android Developers Need to Know</div>
-            <div class="recent-post-date">
-                
-  
-    Aug 17, 26
   
 
 
@@ -956,6 +1066,134 @@ function postCopyLink(btn) {
         <article class="blog-card">
 
     
+    <a href="https://anooptube.in/blog/post61/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/pg18-pgvector.webp" alt="PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 19, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/postgresql" class="card-tag">postgresql</a>
+            
+            <a href="/tags/postgres" class="card-tag">postgres</a>
+            
+            <a href="/tags/pgvector" class="card-tag">pgvector</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post61/" class="card-content-link">
+            <div class="card-title">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</div>
+
+            
+            <div class="card-desc">How PostgreSQL 18&#39;s async I/O and pgvector&#39;s latest features turn Postgres into a real production vector database for RAG and AI apps in 2026.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post60/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/python314.webp" alt="Python 3.14: New Features Every Developer Should Know in 2026" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 19, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/python" class="card-tag">python</a>
+            
+            <a href="/tags/python3.14" class="card-tag">python3.14</a>
+            
+            <a href="/tags/programming" class="card-tag">programming</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post60/" class="card-content-link">
+            <div class="card-title">Python 3.14: New Features Every Developer Should Know in 2026</div>
+
+            
+            <div class="card-desc">Python 3.14&#39;s biggest language and runtime changes explained — template strings, free-threaded Python, subinterpreters, lazy annotations, and more.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        9 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
     <a href="https://anooptube.in/blog/post52/" class="card-img-wrap" style="text-decoration:none;display:block;">
         <img src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
         
@@ -1002,130 +1240,6 @@ function postCopyLink(btn) {
                             <polyline points="12 7 12 12 15 15"/>
                         </svg>
                         13 min read
-                    </span>
-                </span>
-                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                </svg>
-            </div>
-        </a>
-
-    </div>
-
-      
-
-</article>
-<article class="blog-card">
-
-    
-    <a href="https://anooptube.in/blog/post50/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/simple_ai_agent.webp" alt="Build a Simple AI Agent in Python (No Framework Needed)" loading="lazy" />
-        
-        <span class="card-date-badge">
-            
-  
-    Aug 15, 26
-  
-
-
-        </span>
-        
-    </a>
-    
-
-    <div class="card-body">
-
-        
-        <div class="card-tags">
-            
-            <a href="/tags/python" class="card-tag">python</a>
-            
-            <a href="/tags/ai" class="card-tag">ai</a>
-            
-            <a href="/tags/agent" class="card-tag">agent</a>
-            
-        </div>
-        
-
-        <a href="https://anooptube.in/blog/post50/" class="card-content-link">
-            <div class="card-title">Build a Simple AI Agent in Python (No Framework Needed)</div>
-
-            
-            <div class="card-desc">Step-by-step guide to building an AI agent in Python from scratch using the ReAct pattern — no LangChain, no LangGraph, just Python and an LLM API.</div>
-            
-
-            <div class="card-footer">
-                <span class="flex items-center gap-1.5 flex-wrap">
-                    
-                    <span class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9"/>
-                            <polyline points="12 7 12 12 15 15"/>
-                        </svg>
-                        15 min read
-                    </span>
-                </span>
-                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                </svg>
-            </div>
-        </a>
-
-    </div>
-
-      
-
-</article>
-<article class="blog-card">
-
-    
-    <a href="https://anooptube.in/blog/post32/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/powerful_functions.webp" alt="You should know these 5 Powerful functions in Python!" loading="lazy" />
-        
-        <span class="card-date-badge">
-            
-  
-    Mar 10, 24
-  
-
-
-        </span>
-        
-    </a>
-    
-
-    <div class="card-body">
-
-        
-        <div class="card-tags">
-            
-            <a href="/tags/python" class="card-tag">python</a>
-            
-        </div>
-        
-
-        <a href="https://anooptube.in/blog/post32/" class="card-content-link">
-            <div class="card-title">You should know these 5 Powerful functions in Python!</div>
-
-            
-            <div class="card-desc">Mastering Python: Essential Functions Every Developer Should Know</div>
-            
-
-            <div class="card-footer">
-                <span class="flex items-center gap-1.5 flex-wrap">
-                    
-                    <span class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9"/>
-                            <polyline points="12 7 12 12 15 15"/>
-                        </svg>
-                        3 min read
                     </span>
                 </span>
                 <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
