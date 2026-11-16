@@ -6,7 +6,16 @@
     <description>Recent content in Linux on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 15:00:45 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Aug 2026 15:45:26 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eBPF in 2026: The Linux Superpower Every Backend Developer Should Understand</title>
+      <link>https://anooptube.in/blog/post64/</link>
+      <pubDate>Sat, 22 Aug 2026 15:45:26 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post64/</guid>
+      <description>A few months back I had a Node service that was randomly stalling for a couple hundred milliseconds every few minutes. No exceptions, no error logs, nothing in the APM dashboard worth screenshotting. Application-level tracing was useless because the problem wasn&amp;rsquo;t in the application — it was somewhere between the syscall layer and the disk. The tool that actually cracked it open wasn&amp;rsquo;t a new logging library or a fancier metrics agent.</description>
+    </item>
+    
     <item>
       <title>How to Run a Local LLM in 2026: Ollama, Hardware Requirements, and Picking the Right Model</title>
       <link>https://anooptube.in/blog/post59/</link>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>architecture on #anooptube</title>
+    <link>https://anooptube.in/tags/architecture/</link>
+    <description>Recent content in architecture on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Aug 2026 16:10:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clean Architecture in the Age of AI-Generated Code: Why Structure Matters More Than Ever in 2026</title>
+      <link>https://anooptube.in/blog/post65/</link>
+      <pubDate>Sat, 22 Aug 2026 16:10:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post65/</guid>
+      <description>I used to think good architecture was a taste thing — something senior engineers cared about and everyone else tolerated. Then I started letting an AI agent write 70% of my code, and within two weeks I understood exactly why architecture existed in the first place. Not as a rulebook. As the only thing standing between &amp;ldquo;the agent shipped a working feature&amp;rdquo; and &amp;ldquo;the agent shipped a working feature that quietly wired the payment service directly into the UI layer.</description>
+    </item>
+    
+  </channel>
+</rss>

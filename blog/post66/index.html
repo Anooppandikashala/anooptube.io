@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post66/" />
+
+    <title>
+        Rust for Web Backends in 2026: Axum vs Actix vs Rocket - #anooptube
+    </title><meta name="description" content="Axum vs Actix-web vs Rocket compared for 2026 — performance, ergonomics, async runtime choices, and which Rust web framework to pick for your next backend." />
+    <meta name="keywords" content="Axum vs Actix vs Rocket, Rust web framework 2026, best Rust framework for backend, Axum tutorial 2026, Actix-web performance benchmark, Rocket framework Rust, Tokio async runtime Rust, Rust REST API framework comparison, which Rust web framework should I use, Axum vs Actix ergonomics, Rust backend performance 2026, tower middleware Rust, async Rust web server, Rust microservices framework" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.4f1c8b0a47a9bd2125f4b0e6c5f5ce270f2760af843e6d995769ba893418fd9c.css" integrity="sha256-TxyLCkepvSEl9LDmxfXOJw8nYK+EPm2ZV2m6iTQY/Zw=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="Rust for Web Backends in 2026: Axum vs Actix vs Rocket" />
+<meta property="og:description" content="Axum vs Actix-web vs Rocket compared for 2026 — performance, ergonomics, async runtime choices, and which Rust web framework to pick for your next backend." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post66/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-11-16T09:00:00+05:30" />
+<meta property="article:modified_time" content="2026-11-16T09:00:00+05:30" />
+
+
+
+
+    
+
+    
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/rust-web-backends.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/rust-web-backends.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
+            
+            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
+            
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/playlists"
+                  
+                  >
+                  Playlists
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/projects/"
+                  
+                  >
+                  Projects
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+<div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    <div class="rounded-xl overflow-hidden">
+        <img src="/thumbs/rust-web-backends.webp" alt="Rust for Web Backends in 2026: Axum vs Actix vs Rocket" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
+        
+        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
+            
+  
+    November 16, 2026
+  
+
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="Rust for Web Backends in 2026: Axum vs Actix vs Rocket">Rust for Web Backends in 2026: Axum vs Actix vs Rocket</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "\"https://anooptube.in/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "\"https://anooptube.in/blog/\""
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "\"Rust for Web Backends in 2026: Axum vs Actix vs Rocket\"",
+      "item": "\"https://anooptube.in/blog/post66/\""
+    }
+    
+  ]
+}
+</script>
+<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Rust for Web Backends in 2026: Axum vs Actix vs Rocket</h1>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    November 16, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2063 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                 
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+
+<p>I spent the last few months building three small but real backends — a webhook relay, an internal admin API, and a rate-limited proxy — each in a different Rust web framework, on purpose. Not a toy benchmark, actual services with auth, database pools, and traffic. The goal was simple: figure out which Rust web framework I&rsquo;d actually reach for by default in 2026, and which ones only make sense in specific situations. This post is that answer, backed by what broke, what didn&rsquo;t, and how much code each one asked of me.</p>
+<p>This isn&rsquo;t a &ldquo;Rust vs Go vs C++&rdquo; post — I already wrote that comparison at the language level. This one stays inside Rust and answers the narrower, more useful question: once you&rsquo;ve decided to build a backend in Rust, which framework do you reach for — Axum, Actix-web, or Rocket?</p>
+<h2 id="why-the-rust-web-framework-question-matters-more-in-2026">Why the Rust web framework question matters more in 2026</h2>
+<p>Three years ago, picking a Rust web framework meant picking between &ldquo;fast but rough&rdquo; and &ldquo;batteries-included but slower.&rdquo; That gap has mostly closed. Axum has become the de facto default for new projects backed by the Tokio team itself, Actix-web keeps winning raw throughput benchmarks and just crossed another major stability milestone, and Rocket has quietly become the most pleasant framework to write in if you don&rsquo;t need to squeeze out the last 10% of performance.</p>
+<p>Rust backends have also stopped being a niche choice. Discord, Cloudflare, AWS (Firecracker, S3&rsquo;s control plane components), and a growing list of fintech and infra companies run production HTTP services in Rust today — not as an experiment, but because they need predictable latency under load without a garbage collector pause showing up in their p99. If you&rsquo;re evaluating a Rust web framework for backend work in 2026, you&rsquo;re not making a bet on an immature ecosystem anymore. You&rsquo;re picking between three mature, opinionated options.</p>
+<p><img src="/blogs-images/rust-web-frameworks-axum-actix-rocket-2026.webp" alt="Axum Actix and Rocket Rust web framework logos compared for backend development"></p>
+<h2 id="the-shared-foundation-tokio-and-async-rust">The shared foundation: Tokio and async Rust</h2>
+<p>Before comparing the three, it&rsquo;s worth being precise about what they share. Axum and Actix-web both run on Tokio, Rust&rsquo;s dominant async runtime — Rocket added optional Tokio support a while back too, so all three now sit on the same async foundation rather than competing runtimes. That matters because it means the actual I/O layer — epoll on Linux, IOCP on Windows — is effectively identical across all three. The differences you feel are almost entirely in the framework layer on top: routing, extractors, middleware, and how much the framework does for you versus how much you wire up yourself.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">#[tokio::main]</span>
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#6272a4">// every framework in this post eventually calls something like this
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// the differences are what happens between here and your handler
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>That shared runtime also means benchmarks between them are closer than framework marketing pages suggest. The days of one Rust framework being 3x faster than another are mostly over — you&rsquo;re now choosing based on ergonomics, ecosystem fit, and how the framework wants you to structure your app, not raw requests-per-second.</p>
+<h2 id="axum-the-tokio-teams-own-answer">Axum: the Tokio team&rsquo;s own answer</h2>
+<p>Axum is built and maintained by the Tokio project itself, which is the single biggest reason it&rsquo;s become the default recommendation in 2026. It leans entirely on the <code>tower</code> ecosystem for middleware — meaning anything built as a <code>tower::Service</code> (rate limiting, tracing, compression, retries) drops into an Axum app with almost no glue code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">use</span> axum::{routing::get, Router, extract::Path};
+
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">get_user</span>(Path(id): <span style="color:#50fa7b">Path</span><span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">u32</span><span style="color:#ff79c6">&gt;</span>) -&gt; <span style="color:#8be9fd;font-style:italic">String</span> {
+    format!(<span style="color:#f1fa8c">&#34;user {id}&#34;</span>)
+}
+
+<span style="color:#ff79c6">#[tokio::main]</span>
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> app <span style="color:#ff79c6">=</span> Router::new().route(<span style="color:#f1fa8c">&#34;/users/:id&#34;</span>, get(get_user));
+    <span style="color:#8be9fd;font-style:italic">let</span> listener <span style="color:#ff79c6">=</span> tokio::net::TcpListener::bind(<span style="color:#f1fa8c">&#34;0.0.0.0:3000&#34;</span>).<span style="color:#ff79c6">await</span>.unwrap();
+    axum::serve(listener, app).<span style="color:#ff79c6">await</span>.unwrap();
+}
+</code></pre></div><p>What stood out building the webhook relay in Axum: extractors are the whole design philosophy. Instead of pulling data out of a generic <code>Request</code> object by hand, your handler&rsquo;s function signature declares what it needs — <code>Path&lt;u32&gt;</code>, <code>Json&lt;Payload&gt;</code>, <code>State&lt;AppState&gt;</code> — and Axum wires it up or returns a typed error automatically if the request doesn&rsquo;t match. It reads almost like dependency injection, except it&rsquo;s checked at compile time.</p>
+<p><strong>Where Axum wins:</strong> no macros for routing (unlike Rocket&rsquo;s attribute macros or Actix&rsquo;s route macros), first-class <code>tower</code> middleware reuse, and it&rsquo;s the framework most likely to get new features first since it ships from the same team as the runtime it depends on. <strong>Where it costs you:</strong> because it&rsquo;s minimal by design, things like sessions, CSRF protection, and templating are BYO via crates rather than built in — you assemble more of the stack yourself compared to Rocket.</p>
+<h2 id="actix-web-still-the-raw-performance-leader">Actix-web: still the raw performance leader</h2>
+<p>Actix-web has consistently topped the TechEmpower framework benchmarks for years, and that hasn&rsquo;t changed in 2026. It predates the <code>async</code>/<code>await</code> stabilization in Rust and was originally built on the actor model (hence the name), though most people today use it purely as an async web framework without touching actors directly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">use</span> actix_web::{get, web, App, HttpServer, Responder};
+
+<span style="color:#ff79c6">#[get(</span><span style="color:#f1fa8c">&#34;/users/{id}&#34;</span><span style="color:#ff79c6">)]</span>
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">get_user</span>(id: <span style="color:#50fa7b">web</span>::Path<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">u32</span><span style="color:#ff79c6">&gt;</span>) -&gt; <span style="color:#50fa7b">impl</span> Responder {
+    format!(<span style="color:#f1fa8c">&#34;user {id}&#34;</span>)
+}
+
+<span style="color:#ff79c6">#[actix_web::main]</span>
+<span style="color:#ff79c6">async</span> <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() -&gt; <span style="color:#50fa7b">std</span>::io::<span style="color:#8be9fd;font-style:italic">Result</span><span style="color:#ff79c6">&lt;</span>()<span style="color:#ff79c6">&gt;</span> {
+    HttpServer::new(<span style="color:#ff79c6">||</span> App::new().service(get_user))
+        .bind((<span style="color:#f1fa8c">&#34;0.0.0.0&#34;</span>, <span style="color:#bd93f9">8080</span>))<span style="color:#ff79c6">?</span>
+        .run()
+        .<span style="color:#ff79c6">await</span>
+}
+</code></pre></div><p>Running the rate-limited proxy on Actix-web, the thing that actually mattered in production wasn&rsquo;t the benchmark chart — it was <code>HttpServer</code>&rsquo;s built-in worker-per-core model. Actix-web spins up a configurable number of worker threads, each running its own Tokio runtime instance, and load-balances incoming connections across them automatically. For a CPU-bound proxy doing header rewriting and rate-limit checks on every request, that model squeezed out noticeably better throughput under sustained load than a naive single-runtime setup.</p>
+<p><strong>Where Actix-web wins:</strong> still the fastest of the three in most raw-throughput benchmarks, mature middleware ecosystem (actix-web has been production-grade the longest of the three), and the worker-per-core model is genuinely useful for CPU-heavy request handling. <strong>Where it costs you:</strong> the API surface is bigger and the actor-model history still shows up in some corners of the docs, so the learning curve is steeper than Axum&rsquo;s, especially for anyone coming from a simpler framework in another language.</p>
+<p><img src="/blogs-images/rust-web-framework-benchmark-comparison-2026.webp" alt="Rust web framework performance benchmark comparison chart for Axum Actix and Rocket"></p>
+<h2 id="rocket-the-framework-that-makes-rust-feel-like-batteries-included">Rocket: the framework that makes Rust feel like batteries-included</h2>
+<p>Rocket was the framework that convinced a lot of people Rust backends didn&rsquo;t have to be painful, back before Axum existed. It leans hard on attribute macros and procedural code generation to make route declarations read almost like a config file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">#[macro_use]</span> <span style="color:#ff79c6">extern</span> <span style="color:#ff79c6">crate</span> rocket;
+
+<span style="color:#ff79c6">#[get(</span><span style="color:#f1fa8c">&#34;/users/&lt;id&gt;&#34;</span><span style="color:#ff79c6">)]</span>
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">get_user</span>(id: <span style="color:#8be9fd">u32</span>) -&gt; <span style="color:#8be9fd;font-style:italic">String</span> {
+    format!(<span style="color:#f1fa8c">&#34;user {id}&#34;</span>)
+}
+
+<span style="color:#ff79c6">#[launch]</span>
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">rocket</span>() -&gt; <span style="color:#50fa7b">_</span> {
+    rocket::build().mount(<span style="color:#f1fa8c">&#34;/&#34;</span>, routes<span style="color:#ff79c6">!</span>[get_user])
+}
+</code></pre></div><p>Building the internal admin API in Rocket, the difference that actually mattered day to day was request guards — Rocket&rsquo;s mechanism for validating and extracting data (auth headers, cookies, form data) before a handler even runs, with compile-time checked types. Combined with built-in support for JSON, forms, file uploads, and a template engine out of the box, Rocket got that admin API from zero to a working CRUD interface faster than either of the other two frameworks did for equivalent features, mostly because less had to be pulled in from third-party crates.</p>
+<p><strong>Where Rocket wins:</strong> the most complete &ldquo;batteries included&rdquo; experience of the three — templating, cookies, CSRF-adjacent guards, and form handling all ship in the box. It&rsquo;s also, subjectively, the nicest framework to read code in, since the macros keep route definitions compact. <strong>Where it costs you:</strong> it trails Axum and Actix-web slightly on raw benchmark numbers, and heavier reliance on macros means error messages can be less obvious to a newcomer than Axum&rsquo;s plain-function-signature approach.</p>
+<h2 id="axum-vs-actix-vs-rocket-side-by-side-comparison">Axum vs Actix vs Rocket: side-by-side comparison</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Axum</th>
+<th>Actix-web</th>
+<th>Rocket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Async runtime</td>
+<td>Tokio (native)</td>
+<td>Tokio (native)</td>
+<td>Tokio (optional, now default)</td>
+</tr>
+<tr>
+<td>Routing style</td>
+<td>Function signatures + extractors</td>
+<td>Attribute macros + <code>App::service</code></td>
+<td>Attribute macros</td>
+</tr>
+<tr>
+<td>Middleware</td>
+<td><code>tower::Service</code> ecosystem</td>
+<td>Actix middleware trait</td>
+<td>Fairings</td>
+</tr>
+<tr>
+<td>Raw throughput</td>
+<td>Very good</td>
+<td>Best of the three in most benchmarks</td>
+<td>Good, slightly behind the other two</td>
+</tr>
+<tr>
+<td>Batteries included</td>
+<td>Minimal, compose via crates</td>
+<td>Moderate</td>
+<td>Most complete out of the box</td>
+</tr>
+<tr>
+<td>Backed by</td>
+<td>Tokio project</td>
+<td>Independent maintainers</td>
+<td>Independent maintainers</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>New projects, teams already using <code>tower</code></td>
+<td>High-throughput services, CPU-bound request handling</td>
+<td>Fast prototyping, teams that want less boilerplate</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gotchas-and-edge-cases-across-all-three">Gotchas and edge cases across all three</h2>
+<p>A few things I only ran into once real traffic and real deployments were involved, not in a hello-world demo:</p>
+<p><strong>Blocking code kills all three the same way.</strong> None of this framework-level ergonomics matters if you call a blocking database driver or a synchronous <code>std::fs</code> read inside an async handler. All three frameworks will happily let you stall a worker thread and tank throughput — you need <code>spawn_blocking</code> (Tokio) or an async driver (<code>sqlx</code>, <code>tokio-postgres</code>) regardless of which framework you picked. This bug looks identical in Axum, Actix, and Rocket, and it&rsquo;s the single most common cause of &ldquo;why is my Rust API suddenly slow&rdquo; that has nothing to do with the framework at all.</p>
+<p><strong>Compile times are a real cost, and they scale differently.</strong> Actix-web&rsquo;s heavier macro and generic-trait usage tends to produce the slowest incremental compile times of the three in larger codebases. Axum&rsquo;s simpler trait bounds generally compile faster. If your team does a lot of iterative local development, this is worth testing on your actual codebase size before committing — it compounds over months.</p>
+<p><strong>Extractor/guard ordering matters more than it looks.</strong> In Axum, extractor order in a handler&rsquo;s arguments affects which errors get generated first; in Rocket, request guard failure ordering can silently change which route candidate wins when multiple routes could match. Neither is a bug, but both bit me in ways that only showed up once I had overlapping routes with different auth requirements.</p>
+<p><strong>Error handling philosophy differs sharply.</strong> Axum expects you to implement <code>IntoResponse</code> for your own error types and lean on the type system. Actix-web has a more centralized <code>ResponseError</code> trait with more built-in conversions. Rocket uses <code>Responder</code> plus catcher functions for error pages. None is objectively better, but switching between them mid-project (which I did, on purpose, for this comparison) meant re-learning the idiomatic error pattern each time.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Is Axum faster than Actix-web?</strong> In most published benchmarks, Actix-web still edges out Axum on raw requests-per-second, though the gap has narrowed significantly as Axum has matured. For the overwhelming majority of real-world backends, the difference is not the bottleneck — your database, network, or business logic will dominate latency long before the framework&rsquo;s per-request overhead does.</p>
+<p><strong>Should I use Rocket for a production API in 2026?</strong> Yes, if it fits your team — Rocket has been stable and production-ready for years, and companies do run it in production. The main reason people default to Axum instead isn&rsquo;t stability, it&rsquo;s ecosystem gravity: more recent tutorials, more <code>tower</code> middleware compatibility, and Tokio-team backing.</p>
+<p><strong>Do I need to know Actix&rsquo;s actor model to use Actix-web?</strong> No. Modern Actix-web usage is almost entirely <code>async</code>/<code>await</code> based. The actor system (<code>actix</code> crate, separate from <code>actix-web</code>) still exists and is genuinely useful for certain stateful-service patterns, but you can build and ship a complete Actix-web API without ever touching an actor.</p>
+<p><strong>Can I mix Tokio-based crates across all three frameworks?</strong> Yes — since all three now run on Tokio, async database drivers, HTTP clients, and other Tokio-based crates work the same way regardless of which framework sits on top. This is a big part of why the &ldquo;which framework&rdquo; decision has gotten lower-stakes over time; you&rsquo;re not locking yourself out of the ecosystem either way.</p>
+<p><strong>Which one should I pick for a new project right now?</strong> If you&rsquo;re starting fresh with no strong opinion, Axum is the safest default in 2026 — it&rsquo;s what most new tutorials teach, it has the best <code>tower</code> middleware compatibility, and it&rsquo;s maintained by the same team as the runtime it sits on. Reach for Actix-web specifically when you&rsquo;ve profiled a bottleneck and need the worker-per-core throughput model. Reach for Rocket when developer velocity and built-in features matter more than shaving off the last few percent of latency.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>None of these three frameworks is wrong, and that&rsquo;s actually the interesting part of where Rust&rsquo;s web ecosystem landed in 2026 — the competition stopped being about who&rsquo;s &ldquo;production ready&rdquo; and became about fit. I&rsquo;d still start a greenfield project in Axum by default, reach for Actix-web the moment a profiler tells me I need the worker-per-core model, and recommend Rocket to anyone who wants to move fast without duct-taping five crates together for basic features. The real win for Rust backends isn&rsquo;t any single framework — it&rsquo;s that all three are boring, stable, well-documented choices now, which is exactly what you want from infrastructure you&rsquo;re betting a production service on.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=Rust&#43;for&#43;Web&#43;Backends&#43;in&#43;2026%3A&#43;Axum&#43;vs&#43;Actix&#43;vs&#43;Rocket&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost66%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost66%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-the-rust-web-framework-question-matters-more-in-2026">Why the Rust web framework question matters more in 2026</a></li>
+    <li><a href="#the-shared-foundation-tokio-and-async-rust">The shared foundation: Tokio and async Rust</a></li>
+    <li><a href="#axum-the-tokio-teams-own-answer">Axum: the Tokio team&rsquo;s own answer</a></li>
+    <li><a href="#actix-web-still-the-raw-performance-leader">Actix-web: still the raw performance leader</a></li>
+    <li><a href="#rocket-the-framework-that-makes-rust-feel-like-batteries-included">Rocket: the framework that makes Rust feel like batteries-included</a></li>
+    <li><a href="#axum-vs-actix-vs-rocket-side-by-side-comparison">Axum vs Actix vs Rocket: side-by-side comparison</a></li>
+    <li><a href="#gotchas-and-edge-cases-across-all-three">Gotchas and edge cases across all three</a></li>
+    <li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+    <li><a href="#closing-thought">Closing thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post66/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/rust-web-backends.webp" alt="Rust for Web Backends in 2026: Axum vs Actix vs Rocket" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Rust for Web Backends in 2026: Axum vs Actix vs Rocket</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 16, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post65/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/clean-arch-ai.webp" alt="Clean Architecture in the Age of AI-Generated Code: Why Structure Matters More Than Ever in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Clean Architecture in the Age of AI-Generated Code: Why Structure Matters More Than Ever in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 22, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post63/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/cpp26.webp" alt="What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 22, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post64/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/ebpf-linux.webp" alt="eBPF in 2026: The Linux Superpower Every Backend Developer Should Understand" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">eBPF in 2026: The Linux Superpower Every Backend Developer Should Understand</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 22, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post60/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/python314.webp" alt="Python 3.14: New Features Every Developer Should Know in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Python 3.14: New Features Every Developer Should Know in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Aug 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post49/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/cpp_rust_go.webp" alt="C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 15, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/rust" class="card-tag">rust</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post49/" class="card-content-link">
+            <div class="card-title">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</div>
+
+            
+            <div class="card-desc">C&#43;&#43; vs Rust vs Go in 2026 compared for performance, memory safety, and real use cases — which systems language is worth learning right now.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post64/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/ebpf-linux.webp" alt="eBPF in 2026: The Linux Superpower Every Backend Developer Should Understand" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 22, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/linux" class="card-tag">linux</a>
+            
+            <a href="/tags/ebpf" class="card-tag">ebpf</a>
+            
+            <a href="/tags/performance" class="card-tag">performance</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post64/" class="card-content-link">
+            <div class="card-title">eBPF in 2026: The Linux Superpower Every Backend Developer Should Understand</div>
+
+            
+            <div class="card-desc">What eBPF actually is, how it lets you trace and observe a running Linux kernel safely, and why every backend developer should have at least one bpftrace one-liner in their toolkit.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        12 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post52/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 16, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/linux" class="card-tag">linux</a>
+            
+            <a href="/tags/postgresql" class="card-tag">postgresql</a>
+            
+            <a href="/tags/performance" class="card-tag">performance</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post52/" class="card-content-link">
+            <div class="card-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</div>
+
+            
+            <div class="card-desc">Linux Kernel 7.0 shipped a stable Rust implementation in April 2026, then a viral claim said it halved PostgreSQL throughput. Here&#39;s what the benchmarks actually show.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        13 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+<div class="">
+    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
+            <p class="opacity-60">I work on everything coding and share developer memes</p>
+        </div>
+        <ul class="flex justify-end gap-6">
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
+                </a>
+            </li>
+            
+             
+            <li>
+                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+            <li>
+                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+                
+            <li>
+                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+             
+            <li>
+                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</div><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://anooptube.in/blog/post66/\""
+  },
+  "headline": "\"Rust for Web Backends in 2026: Axum vs Actix vs Rocket\"",
+  "description": "\"Axum vs Actix-web vs Rocket compared for 2026 — performance, ergonomics, async runtime choices, and which Rust web framework to pick for your next backend.\"",
+  "datePublished": "2026-11-16T09:00:00\u002b05:30",
+  "dateModified": "2026-11-16T09:00:00\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "name": "\"ANOOP P\"",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "\"https://anooptube.in/thumbs/rust-web-backends.webp\""
+  },
+  "url": "\"https://anooptube.in/blog/post66/\""
+}
+</script>
+
+
+
+
+
+
+    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
+    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="text-sm text-gray-400 dark:text-gray-500">
+            
+            Copyright © 2026 - #anooptube · All rights reserved
+            
+        </span>
+        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
+            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 15l-6 -6l-6 6h12" />
+                </svg>
+                Top
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function changeDarkModeLogoToLight() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
+    }
+
+    function changeLightModeLogoToDark() {
+        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
+    }
+
+    function changeLogoToDark() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
+        changeDarkModeLogoToLight();
+    }
+
+    function changeLogoToLight() {
+        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
+        changeLightModeLogoToDark();
+    }
+
+    function toggleDarkMode() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark')
+            changeLogoToLight()
+            localStorage.setItem('darkmode', 'light')
+        } else {
+            document.documentElement.classList.add('dark')
+            changeLogoToDark()
+            localStorage.setItem('darkmode', 'dark')
+        }
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+    }
+
+    const darkStorage = localStorage.getItem('darkmode');
+    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (!darkStorage) {
+        document.documentElement.classList.add('dark');
+        changeLogoToDark();
+    } else {
+        changeLightModeLogoToDark();
+    }
+
+    if (darkStorage && darkStorage === 'dark') {
+        toggleDarkMode();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+<script>
+    
+    const playlistRow = document.querySelector('.playlist-scroll-row');
+    if (playlistRow) {
+        let isDown = false, startX, scrollLeft;
+        playlistRow.addEventListener('mousedown', e => {
+            isDown = true;
+            playlistRow.style.cursor = 'grabbing';
+            startX = e.pageX - playlistRow.offsetLeft;
+            scrollLeft = playlistRow.scrollLeft;
+        });
+        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
+        playlistRow.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - playlistRow.offsetLeft;
+            playlistRow.scrollLeft = scrollLeft - (x - startX);
+        });
+        playlistRow.style.cursor = 'grab';
+    }
+</script>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

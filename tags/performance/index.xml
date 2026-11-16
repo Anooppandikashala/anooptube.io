@@ -6,7 +6,25 @@
     <description>Recent content in performance on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust for Web Backends in 2026: Axum vs Actix vs Rocket</title>
+      <link>https://anooptube.in/blog/post66/</link>
+      <pubDate>Mon, 16 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post66/</guid>
+      <description>I spent the last few months building three small but real backends — a webhook relay, an internal admin API, and a rate-limited proxy — each in a different Rust web framework, on purpose. Not a toy benchmark, actual services with auth, database pools, and traffic. The goal was simple: figure out which Rust web framework I&amp;rsquo;d actually reach for by default in 2026, and which ones only make sense in specific situations.</description>
+    </item>
+    
+    <item>
+      <title>eBPF in 2026: The Linux Superpower Every Backend Developer Should Understand</title>
+      <link>https://anooptube.in/blog/post64/</link>
+      <pubDate>Sat, 22 Aug 2026 15:45:26 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post64/</guid>
+      <description>A few months back I had a Node service that was randomly stalling for a couple hundred milliseconds every few minutes. No exceptions, no error logs, nothing in the APM dashboard worth screenshotting. Application-level tracing was useless because the problem wasn&amp;rsquo;t in the application — it was somewhere between the syscall layer and the disk. The tool that actually cracked it open wasn&amp;rsquo;t a new logging library or a fancier metrics agent.</description>
+    </item>
+    
     <item>
       <title>Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</title>
       <link>https://anooptube.in/blog/post52/</link>

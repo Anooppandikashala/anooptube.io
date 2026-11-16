@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>axum on #anooptube</title>
+    <link>https://anooptube.in/tags/axum/</link>
+    <description>Recent content in axum on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/axum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust for Web Backends in 2026: Axum vs Actix vs Rocket</title>
+      <link>https://anooptube.in/blog/post66/</link>
+      <pubDate>Mon, 16 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post66/</guid>
+      <description>I spent the last few months building three small but real backends — a webhook relay, an internal admin API, and a rate-limited proxy — each in a different Rust web framework, on purpose. Not a toy benchmark, actual services with auth, database pools, and traffic. The goal was simple: figure out which Rust web framework I&amp;rsquo;d actually reach for by default in 2026, and which ones only make sense in specific situations.</description>
+    </item>
+    
+  </channel>
+</rss>
