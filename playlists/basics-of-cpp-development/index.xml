@@ -6,26 +6,7 @@
     <description>Recent content in Basics of CPP Development on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Aug 2026 15:45:50 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/basics-of-cpp-development/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years</title>
-      <link>https://anooptube.in/blog/post63/</link>
-      <pubDate>Sat, 22 Aug 2026 15:45:50 +0530</pubDate>
-      
-      <guid>https://anooptube.in/blog/post63/</guid>
-      <description>Every C++ standard since C++11 has been &amp;ldquo;the incremental one&amp;rdquo; — C++17 tidied things up, C++20 gave us concepts and coroutines, C++23 was mostly cleanup. C++26 is different. Two features landing in it — static reflection and contracts — have been on the wishlist since before C++11 shipped, and they&amp;rsquo;re finally real. I went through the accepted papers and current compiler support to figure out what actually changes for people writing C++ day to day, not just what sounds impressive on a slide.</description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</title>
-      <link>https://anooptube.in/blog/post49/</link>
-      <pubDate>Sat, 15 Aug 2026 19:48:00 +0530</pubDate>
-      
-      <guid>https://anooptube.in/blog/post49/</guid>
-      <description>Every few months someone asks me the same question: &amp;ldquo;should I learn Rust or just stick with C++?&amp;rdquo; Lately Go gets thrown into that question too. I&amp;rsquo;ve written a lot of C++, poked at Rust, and shipped small things in Go — so here&amp;rsquo;s my honest 2026 take, backed by what&amp;rsquo;s actually happening in the ecosystem right now, not vibes.
-Why this comparison actually matters in 2026 This isn&amp;rsquo;t an academic exercise.</description>
-    </item>
-    
+    <lastBuildDate>Mon, 11 Aug 2025 10:32:09 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/basics-of-cpp-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering std::list in C&#43;&#43;</title>
       <link>https://anooptube.in/blog/post39/</link>

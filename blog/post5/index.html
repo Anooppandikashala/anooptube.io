@@ -8,13 +8,17 @@
     <link rel="icon" href="https://anooptube.in/favicon.svg">
     <link rel="canonical" href="https://anooptube.in/blog/post5/" />
 
-    <title>
-        Class and Objects in C&#43;&#43; - #anooptube
-    </title><meta name="description" content="Object oriented Programming with class and objects" /><meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.4f1c8b0a47a9bd2125f4b0e6c5f5ce270f2760af843e6d995769ba893418fd9c.css" integrity="sha256-TxyLCkepvSEl9LDmxfXOJw8nYK+EPm2ZV2m6iTQY/Zw=" />
+    <title>Class and Objects in C&#43;&#43; | #anooptube</title>
+
+    <script>
+     
+    try { if (localStorage.getItem('darkmode') !== 'light') document.documentElement.classList.add('dark'); }
+    catch (e) { document.documentElement.classList.add('dark'); }
+    </script><meta name="description" content="Object oriented Programming with class and objects" /><meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.cbd5e7222b04ee6ec4b2adf221d658e42b8448faaeb693a28763b13501115360.css" integrity="sha256-y9XnIisE7m7Esq3yIdZY5CuESPqutpOih2OxNQERU2A=" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playball&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
 
     
     
@@ -32,14 +36,18 @@
     
 
     
-    
     <meta property="og:image" content="https://anooptube.in/thumbs/class_and_objects.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://anooptube.in/thumbs/class_and_objects.webp" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:image:alt" content="Class and Objects in C&#43;&#43;" />
     <meta name="twitter:card" content="summary_large_image" />
-    
+    <meta name="twitter:title" content="Class and Objects in C&#43;&#43;" />
+    <meta name="twitter:description" content="Object oriented Programming with class and objects" />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/class_and_objects.webp" />
+    <link rel="preload" as="image" href="/thumbs/class_and_objects.webp" fetchpriority="high" />
 
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     
 
     
@@ -56,7 +64,6 @@
             async src="//gc.zgo.at/count.js"></script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
-    <script defer src="https://kit.fontawesome.com/0bc368e25b.js" crossorigin="anonymous"></script>
 
     
     <script>
@@ -106,10 +113,9 @@
 </head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
 <header class="anooptube-sticky">
     <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
-        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center">
-            
-            <img src="https://anooptube.in/logo.png" alt="#anooptube" class="h-8 max-w-full anooptube-logo" id="anooptube_logo"/>
-            
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center" aria-label="#anooptube home">
+            <img src="/logo.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-light" />
+            <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-dark" />
         </a>
 
         <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -148,22 +154,6 @@
             </li>
             
             <li>
-                <a href="/playlists"
-                  
-                  >
-                  Playlists
-                </a>
-            </li>
-            
-            <li>
-                <a href="/page/projects/"
-                  
-                  >
-                  Projects
-                </a>
-            </li>
-            
-            <li>
                 <a href="https://anooppandikashala.github.io/"
                   target="_blank"
                   rel="noopener">
@@ -175,6 +165,12 @@
             
 
 
+            <li class="grid place-items-center">
+                <a href="/blog/?q=" class="header-search-btn" aria-label="Search articles">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+                    <span class="md:hidden">Search</span>
+                </a>
+            </li>
             
             <li class="grid place-items-center">
                 <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
@@ -185,22 +181,6 @@
     </div>
 </header>
 <main class="flex-1">   
-<div class="relative max-w-6xl mx-auto px-4 md:px-6">
-    <div class="rounded-xl overflow-hidden">
-        <img src="/thumbs/class_and_objects.webp" alt="Class and Objects in C&#43;&#43;" class="w-full object-contain" style="max-height: 28rem;" loading="eager" width="1200" height="630" />
-        
-        <div class="absolute top-4 right-8 rounded-md shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1">
-            
-  
-    November 18, 2022
-  
-
-
-        </div>
-        
-    </div>
-</div>
-
 
 
 
@@ -230,31 +210,32 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "\"https://anooptube.in/\""
+      "item": "https://anooptube.in/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "\"https://anooptube.in/blog/\""
+      "item": "https://anooptube.in/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "\"Basics of CPP Development\"",
-      "item": "\"https://anooptube.in/playlists/basics-of-cpp-development/\""
+      "name": "Basics of CPP Development",
+      "item": "https://anooptube.in/playlists/basics-of-cpp-development/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "\"Class and Objects in C++\"",
-      "item": "\"https://anooptube.in/blog/post5/\""
+      "name": "Class and Objects in C++",
+      "item": "https://anooptube.in/blog/post5/"
     }
     
   ]
 }
 </script>
-<h1 class="text-xl font-semibold mb-3 anooptube-blogtitle anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma anooptube-word-spacing-for-michroma">Class and Objects in C&#43;&#43;</h1>
+<h1 class="post-title">Class and Objects in C&#43;&#43;</h1>
+                <p class="post-lead">Object oriented Programming with class and objects</p>
                 
                 <div class="post-meta-strip">
                     
@@ -319,7 +300,12 @@
                     
                       
                 </div>
-                 
+                
+                
+                <figure class="post-hero">
+                    <img src="/thumbs/class_and_objects.webp" alt="Class and Objects in C&#43;&#43;" fetchpriority="high" decoding="async" width="1280" height="720" />
+                </figure>
+                
                 <div id="ad-post-top" class="ad-container"></div>
                 <script>
                 window.addEventListener('load', function () {
@@ -405,10 +391,6 @@
     
       
     
-      
-    
-      
-    
 
     <div class="series-nav" role="navigation" aria-label="Series navigation">
       
@@ -421,7 +403,7 @@
             </svg>
             <span class="series-nav-title">Basics of CPP Development</span>
           </span>
-          <span class="series-nav-badge">5 / 30</span>
+          <span class="series-nav-badge">5 / 28</span>
         </summary>
 
         <ol class="series-nav-list">
@@ -707,26 +689,6 @@
               
             </li>
           
-            
-            <li class="series-nav-item">
-              
-              <a href="https://anooptube.in/blog/post49/" class="series-nav-link">
-                <span class="series-nav-num">29</span>
-                <span class="series-nav-name">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</span>
-              </a>
-              
-            </li>
-          
-            
-            <li class="series-nav-item">
-              
-              <a href="https://anooptube.in/blog/post63/" class="series-nav-link">
-                <span class="series-nav-num">30</span>
-                <span class="series-nav-name">What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years</span>
-              </a>
-              
-            </li>
-          
         </ol>
 
         <a href="https://anooptube.in/playlists/basics-of-cpp-development/" class="series-nav-footer-link">
@@ -760,7 +722,31 @@
   
 
 
-<h2 id="1-class">1. Class</h2>
+
+                <details class="toc-mobile lg:hidden">
+                    <summary>On this page</summary>
+                    <nav >
+  <ul>
+    <li><a href="#1-class">1. Class</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#2-objects">2. Objects</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#accessing-data-members-and-functions-through-objects">Accessing Data Members and Functions through objects</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </details>
+                
+                <h2 id="1-class">1. Class</h2>
 <ol>
 <li>
 <p>A class is a template(prototype) for the object.</p>
@@ -929,18 +915,6 @@ function postCopyLink(btn) {
             
             
                 
-            
-            
-        
-            
-                
-            
-            
-            
-        
-            
-                
-            
             
             
         
@@ -1287,7 +1261,7 @@ function postCopyLink(btn) {
 
 <script>
 (function () {
-    var tocLinks = document.querySelectorAll('#TableOfContents a');
+    var tocLinks = document.querySelectorAll('.toc-widget #TableOfContents a');
     if (!tocLinks.length) return;
 
     var headings = [];
@@ -1341,16 +1315,16 @@ function postCopyLink(btn) {
 <div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
 
     <div class="section-header mb-6">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Related Posts</h2>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Keep reading</h2>
         <div class="section-header-line"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <article class="blog-card">
 
     
     <a href="https://anooptube.in/blog/post12/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/c_cpp.webp" alt="C v/s C&#43;&#43;" loading="lazy" />
+        <img src="/thumbs/c_cpp.webp" alt="C v/s C&#43;&#43;" loading="lazy" decoding="async" width="1280" height="720" />
         
         <span class="card-date-badge">
             
@@ -1379,7 +1353,7 @@ function postCopyLink(btn) {
         
 
         <a href="https://anooptube.in/blog/post12/" class="card-content-link">
-            <div class="card-title">C v/s C&#43;&#43;</div>
+            <h3 class="card-title">C v/s C&#43;&#43;</h3>
 
             
             <div class="card-desc">C and C&#43;&#43;: what&#39;s the difference?</div>
@@ -1414,7 +1388,7 @@ function postCopyLink(btn) {
 
     
     <a href="https://anooptube.in/blog/post11/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/basic_io.webp" alt="C&#43;&#43; Input and Output Functions" loading="lazy" />
+        <img src="/thumbs/basic_io.webp" alt="C&#43;&#43; Input and Output Functions" loading="lazy" decoding="async" width="1280" height="720" />
         
         <span class="card-date-badge">
             
@@ -1443,7 +1417,7 @@ function postCopyLink(btn) {
         
 
         <a href="https://anooptube.in/blog/post11/" class="card-content-link">
-            <div class="card-title">C&#43;&#43; Input and Output Functions</div>
+            <h3 class="card-title">C&#43;&#43; Input and Output Functions</h3>
 
             
             <div class="card-desc">Basic input and output functions(IO Functions)</div>
@@ -1478,7 +1452,7 @@ function postCopyLink(btn) {
 
     
     <a href="https://anooptube.in/blog/post10/" class="card-img-wrap" style="text-decoration:none;display:block;">
-        <img src="/thumbs/abstraction.webp" alt="Abstraction &amp; Encapsulation" loading="lazy" />
+        <img src="/thumbs/abstraction.webp" alt="Abstraction &amp; Encapsulation" loading="lazy" decoding="async" width="1280" height="720" />
         
         <span class="card-date-badge">
             
@@ -1507,10 +1481,202 @@ function postCopyLink(btn) {
         
 
         <a href="https://anooptube.in/blog/post10/" class="card-content-link">
-            <div class="card-title">Abstraction &amp; Encapsulation</div>
+            <h3 class="card-title">Abstraction &amp; Encapsulation</h3>
 
             
             <div class="card-desc">Abstraction and Encapsulation in C&#43;&#43;</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        2 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post9/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/headerfiles.webp" alt="Create Header Files" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Dec 3, 22
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/header_guard" class="card-tag">header_guard</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post9/" class="card-content-link">
+            <h3 class="card-title">Create Header Files</h3>
+
+            
+            <div class="card-desc">Header files in C&#43;&#43;</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        2 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post8/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/namespace.webp" alt="How to create a namespace in C&#43;&#43;" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Nov 30, 22
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/header_guard" class="card-tag">header_guard</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post8/" class="card-content-link">
+            <h3 class="card-title">How to create a namespace in C&#43;&#43;</h3>
+
+            
+            <div class="card-desc">Create custom namespaces for your C&#43;&#43; projects.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        2 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post6/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/string_boolean.webp" alt="String and Boolean" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Nov 18, 22
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/string" class="card-tag">string</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post6/" class="card-content-link">
+            <h3 class="card-title">String and Boolean</h3>
+
+            
+            <div class="card-desc">Basics of String and Boolean in C&#43;&#43;</div>
             
 
             <div class="card-footer">
@@ -1542,62 +1708,28 @@ function postCopyLink(btn) {
     </div>
 
 </div>
-<div class="">
-    <div class="rounded anooptube-corner-rad bg-blue-100 dark:bg-gray-900 container  px-6 py-12 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <div>
-            <div class="text-2xl font-bold mb-2  anooptube-blogtitle-fontFamily-Michroma">Follow me</div>
-            <p class="opacity-60">I work on everything coding and share developer memes</p>
-        </div>
-        <ul class="flex justify-end gap-6">
-            
-            <li>
-                <a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Twitter" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
-                    <i width="24" height="24" class="fa fa-briefcase" aria-hidden="true"></i>    
-                </a>
-            </li>
-            
-             
-            <li>
-                <a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                </a>
-            </li>
-              
-            <li>
-                <a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
-                    <i class="fa fa-github" aria-hidden="true"></i>
-                </a>
-            </li>
-                
-            <li>
-                <a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
-                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                </a>
-            </li>
-             
-            <li>
-                <a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram" class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-            </li>
-              
-        </ul>
-    </div>
-</div><script type="application/ld+json">
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "en-us",
+  "wordCount":  176 ,
+  "keywords": "cpp, c++, class, objects, oops",
+  "articleSection": "Basics of CPP Development",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "\"https://anooptube.in/blog/post5/\""
+    "@id": "https://anooptube.in/blog/post5/"
   },
-  "headline": "\"Class and Objects in C++\"",
-  "description": "\"Object oriented Programming with class and objects\"",
+  "headline": "Class and Objects in C++",
+  "description": "Object oriented Programming with class and objects",
   "datePublished": "2022-11-18T22:45:30\u002b05:30",
   "dateModified": "2022-11-18T22:45:30\u002b05:30",
   "author": {
     "@type": "Person",
-    "name": "\"ANOOP P\"",
+    "@id": "https://anooptube.in/#person",
+    "name": "ANOOP P",
     "url": "https://anooptube.in/page/about/",
     "sameAs": [
       "https://www.youtube.com/anooptube",
@@ -1616,33 +1748,70 @@ function postCopyLink(btn) {
   },
   "image": {
     "@type": "ImageObject",
-    "url": "\"https://anooptube.in/thumbs/class_and_objects.webp\""
+    "url": "https://anooptube.in/thumbs/class_and_objects.webp",
+    "width":  1280 ,
+    "height":  720 
   },
-  "url": "\"https://anooptube.in/blog/post5/\""
+  "url": "https://anooptube.in/blog/post5/"
 }
 </script>
 
 
 
 
-
-
-    </main><footer class="border-t border-gray-100 dark:border-gray-800 mt-8">
-    <div class="container mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <span class="text-sm text-gray-400 dark:text-gray-500">
-            
+    </main>
+<footer class="site-footer mt-12">
+    <div class="container mx-auto max-w-6xl px-6 pt-12 pb-8 grid gap-10 md:grid-cols-4">
+        <div class="md:col-span-2">
+            <a href="https://anooptube.in/" class="inline-block mb-3" aria-label="#anooptube home">
+                <img src="/logo.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-light" />
+                <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-dark" />
+            </a>
+            <p class="footer-blurb">Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube.</p>
+            <ul class="footer-social">
+                <li><a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a></li>
+                <li><a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a></li>
+                <li><a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a></li>
+                <li><a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+                <li><a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Portfolio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></a></li>
+                <li><a href="https://www.buymeacoffee.com/anoopp" target="_blank" rel="noopener" aria-label="Buy me a coffee"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></a></li>
+            </ul>
+        </div>
+        <nav aria-label="Topics">
+            <h2 class="footer-head">Topics</h2>
+            <ul class="footer-links">
+                
+                <li><a href="/playlists/basics-of-cpp-development/">Basics of CPP Development</a></li>
+                
+                <li><a href="/playlists/python/">Python</a></li>
+                
+                <li><a href="/playlists/flutter/">Flutter</a></li>
+                
+                <li><a href="/playlists/linux/">Linux</a></li>
+                
+                <li><a href="/playlists/android/">Android</a></li>
+                
+                <li><a href="/playlists/design-patterns/">Design Patterns</a></li>
+                
+                <li><a href="/playlists/game-development/">Game Development</a></li>
+                
+            </ul>
+        </nav>
+        <nav aria-label="Site">
+            <h2 class="footer-head">Site</h2>
+            <ul class="footer-links">
+                <li><a href="/blog/">All articles</a></li>
+                <li><a href="/tags/">Tags</a></li>
+                <li><a href="/page/about/#projects">Projects</a></li>
+                <li><a href="/page/about/">About</a></li>
+                <li><a href="https://anooptube.in/privacy/">Privacy Policy</a></li>
+                <li><a href="/index.xml">RSS feed</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <div class="container mx-auto max-w-6xl px-6 py-5 text-sm">
             Copyright © 2026 - #anooptube · All rights reserved
-            
-        </span>
-        <div class="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-500">
-            <a href="https://anooptube.in/privacy" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M18 15l-6 -6l-6 6h12" />
-                </svg>
-                Top
-            </span>
         </div>
     </div>
 </footer>
@@ -1693,51 +1862,21 @@ function postCopyLink(btn) {
     const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
     const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
 
-    function changeDarkModeLogoToLight() {
-        document.getElementById("anooptube-dark-mode-toggle").innerHTML = lightModeIcon;
-    }
-
-    function changeLightModeLogoToDark() {
-        document.getElementById("anooptube-dark-mode-toggle").innerHTML = darkModeIcon;
-    }
-
-    function changeLogoToDark() {
-        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo", "logo_dark");
-        changeDarkModeLogoToLight();
-    }
-
-    function changeLogoToLight() {
-        document.getElementById("anooptube_logo").src = document.getElementById("anooptube_logo").src.replace("logo_dark", "logo");
-        changeLightModeLogoToDark();
+    function syncDarkIcon() {
+        var btn = document.getElementById("anooptube-dark-mode-toggle");
+        var isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? lightModeIcon : darkModeIcon;
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
     }
 
     function toggleDarkMode() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark')
-            changeLogoToLight()
-            localStorage.setItem('darkmode', 'light')
-        } else {
-            document.documentElement.classList.add('dark')
-            changeLogoToDark()
-            localStorage.setItem('darkmode', 'dark')
-        }
+        var isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('darkmode', isDark ? 'dark' : 'light'); } catch (e) {}
+        syncDarkIcon();
     }
     if (darkmode) {
         darkmode.addEventListener('click', toggleDarkMode);
-    }
-
-    const darkStorage = localStorage.getItem('darkmode');
-    const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (!darkStorage) {
-        document.documentElement.classList.add('dark');
-        changeLogoToDark();
-    } else {
-        changeLightModeLogoToDark();
-    }
-
-    if (darkStorage && darkStorage === 'dark') {
-        toggleDarkMode();
+        syncDarkIcon();
     }
 
     const highlights = document.querySelectorAll("div.highlight")
@@ -1812,28 +1951,6 @@ function postCopyLink(btn) {
     })();
 </script>
 
-<script>
-    
-    const playlistRow = document.querySelector('.playlist-scroll-row');
-    if (playlistRow) {
-        let isDown = false, startX, scrollLeft;
-        playlistRow.addEventListener('mousedown', e => {
-            isDown = true;
-            playlistRow.style.cursor = 'grabbing';
-            startX = e.pageX - playlistRow.offsetLeft;
-            scrollLeft = playlistRow.scrollLeft;
-        });
-        playlistRow.addEventListener('mouseleave', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
-        playlistRow.addEventListener('mouseup', () => { isDown = false; playlistRow.style.cursor = 'grab'; });
-        playlistRow.addEventListener('mousemove', e => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - playlistRow.offsetLeft;
-            playlistRow.scrollLeft = scrollLeft - (x - startX);
-        });
-        playlistRow.style.cursor = 'grab';
-    }
-</script>
 
 <script>
     const mobileMenuButton = document.querySelector('.mobile-menu-button')
