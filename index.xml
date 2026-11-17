@@ -6,7 +6,16 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Nov 2026 09:45:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kotlin Coroutines and Structured Concurrency in 2026: A Deep Dive for Android Developers</title>
+      <link>https://anooptube.in/blog/post67/</link>
+      <pubDate>Tue, 17 Nov 2026 09:45:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post67/</guid>
+      <description>I once spent an entire afternoon chasing a bug where a network call kept firing after the user had already backed out of the screen — the response would come back, try to update a ViewModel that no longer had an active observer, and quietly leak. The fix wasn&amp;rsquo;t a null check or a lifecycle callback. It was realizing I&amp;rsquo;d launched the coroutine in GlobalScope instead of viewModelScope, which meant nothing was ever going to cancel it.</description>
+    </item>
+    
     <item>
       <title>Rust for Web Backends in 2026: Axum vs Actix vs Rocket</title>
       <link>https://anooptube.in/blog/post66/</link>
