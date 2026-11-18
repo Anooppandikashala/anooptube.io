@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/tags/microservices/" />
+
+    <title>microservices | #anooptube</title>
+
+    <script>
+     
+    try { if (localStorage.getItem('darkmode') !== 'light') document.documentElement.classList.add('dark'); }
+    catch (e) { document.documentElement.classList.add('dark'); }
+    </script><meta name="description" content="Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube." /><meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.cbd5e7222b04ee6ec4b2adf221d658e42b8448faaeb693a28763b13501115360.css" integrity="sha256-y9XnIisE7m7Esq3yIdZY5CuESPqutpOih2OxNQERU2A=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <link rel="alternate" type="application/rss+xml" href="https://anooptube.in/tags/microservices/index.xml" title="#anooptube" />
+    <meta property="og:title" content="microservices" />
+<meta property="og:description" content="Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://anooptube.in/tags/microservices/" />
+
+
+
+
+    
+
+    
+    <meta property="og:image" content="https://anooptube.in/hero.png" />
+    <meta property="og:image:width" content="1500" />
+    <meta property="og:image:height" content="1000" />
+    <meta property="og:image:alt" content="microservices" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="microservices" />
+    <meta name="twitter:description" content="Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube." />
+    <meta name="twitter:image" content="https://anooptube.in/hero.png" />
+
+    
+    <meta name="robots" content="noindex, follow" />
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center" aria-label="#anooptube home">
+            <img src="/logo.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-light" />
+            <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-dark" />
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            <li class="grid place-items-center">
+                <a href="/blog/?q=" class="header-search-btn" aria-label="Search articles">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+                    <span class="md:hidden">Search</span>
+                </a>
+            </li>
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">
+
+
+
+
+
+
+
+
+
+<section class="list-hero">
+  <div class="container px-6 mx-auto max-w-6xl">
+    
+    <a href="/tags/" class="list-back">← All tags</a>
+    
+    <p class="hero-eyebrow anooptube-blogtitle-fontFamily-Michroma">Tag</p>
+    <h1 class="list-title">microservices</h1>
+    <p class="list-sub">
+      1 article in this topic.
+      
+      
+    </p>
+
+    
+
+    
+  </div>
+</section>
+
+
+<div id="blog-paginated-content" class="container px-6 pb-6 mx-auto max-w-6xl">
+
+  
+  
+
+  
+
+  <div id="post-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    
+    <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post68/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/microservices-vs-monolith.webp" alt="Microservices vs Modular Monolith in 2026: Which Architecture Actually Wins" loading="lazy" decoding="async" width="1536" height="1024" />
+        
+        <span class="card-date-badge">
+            
+  
+    Nov 18, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/architecture" class="card-tag">architecture</a>
+            
+            <a href="/tags/microservices" class="card-tag">microservices</a>
+            
+            <a href="/tags/monolith" class="card-tag">monolith</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post68/" class="card-content-link">
+            <h3 class="card-title">Microservices vs Modular Monolith in 2026: Which Architecture Actually Wins</h3>
+
+            
+            <div class="card-desc">Microservices vs modular monolith in 2026 — a practical breakdown of team size, deployment complexity, and the distributed systems tax, with real guidance on when each architecture wins.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        9 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    
+  </div>
+
+  
+</div>
+
+<script>
+
+
+(function () {
+  var btn = document.getElementById('load-more');
+  var grid = document.getElementById('post-grid');
+  var wrap = document.getElementById('load-more-wrap');
+  if (!btn || !grid || !wrap || !window.fetch || !window.DOMParser) return;
+
+  var total = +wrap.dataset.total, start = +wrap.dataset.start, end = +wrap.dataset.end;
+  var KEY = 'loadmore:' + location.pathname;
+  var loaded = 0, busy = false;
+
+  function update() {
+    document.getElementById('lm-range').textContent = start + '\u2013' + end;
+    document.getElementById('lm-bar').style.width = Math.round(end * 100 / total) + '%';
+  }
+
+  function loadNext() {
+    var url = btn.getAttribute('data-next');
+    if (busy || !url) return Promise.resolve(false);
+    busy = true;
+    btn.classList.add('is-loading');
+    btn.textContent = 'Loading\u2026';
+    return fetch(url, { credentials: 'same-origin' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var cards = doc.querySelectorAll('#post-grid > *');
+        var first = null;
+        cards.forEach(function (c) {
+          var node = document.importNode(c, true);
+          node.classList.add('is-new');
+          grid.appendChild(node);
+          if (!first) first = node;
+        });
+        end += cards.length;
+        loaded++;
+        var next = doc.getElementById('load-more');
+        if (next) {
+          btn.setAttribute('data-next', next.getAttribute('data-next'));
+          btn.href = next.getAttribute('href');
+          btn.textContent = 'Load more articles';
+        } else {
+          btn.remove();
+        }
+        update();
+        return first;
+      })
+      .catch(function () { location.href = url; return false; })
+      .finally(function () { busy = false; btn.classList.remove('is-loading'); });
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    loadNext().then(function (first) {
+      var link = first && first.querySelector('a');
+      if (link) link.focus({ preventScroll: true });
+    });
+  });
+
+  
+  function save() {
+    try { sessionStorage.setItem(KEY, JSON.stringify({ loaded: loaded, y: window.scrollY })); } catch (e) {}
+  }
+  grid.addEventListener('click', function (e) { if (e.target.closest('a')) save(); });
+  window.addEventListener('pagehide', save);
+
+  var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  var saved = null;
+  try { saved = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (nav && nav.type === 'back_forward' && saved && saved.loaded > 0) {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    (function step(n) {
+      if (n <= 0) { window.scrollTo({ top: saved.y, behavior: 'instant' }); return; }
+      loadNext().then(function (ok) { if (ok) step(n - 1); });
+    })(saved.loaded);
+  } else {
+    try { sessionStorage.removeItem(KEY); } catch (e) {}
+  }
+})();
+</script>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "microservices",
+  "url": "https://anooptube.in/tags/microservices/",
+  "isPartOf": { "@id": "https://anooptube.in/#website" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems":  1 ,
+    "itemListElement": [
+      
+      { "@type": "ListItem", "position":  1 , "url": "https://anooptube.in/blog/post68/", "name": "Microservices vs Modular Monolith in 2026: Which Architecture Actually Wins" }
+    ]
+  }
+}
+</script>
+
+
+
+    </main>
+<footer class="site-footer mt-12">
+    <div class="container mx-auto max-w-6xl px-6 pt-12 pb-8 grid gap-10 md:grid-cols-4">
+        <div class="md:col-span-2">
+            <a href="https://anooptube.in/" class="inline-block mb-3" aria-label="#anooptube home">
+                <img src="/logo.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-light" />
+                <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-dark" />
+            </a>
+            <p class="footer-blurb">Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube.</p>
+            <ul class="footer-social">
+                <li><a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a></li>
+                <li><a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a></li>
+                <li><a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a></li>
+                <li><a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+                <li><a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Portfolio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></a></li>
+                <li><a href="https://www.buymeacoffee.com/anoopp" target="_blank" rel="noopener" aria-label="Buy me a coffee"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></a></li>
+            </ul>
+        </div>
+        <nav aria-label="Topics">
+            <h2 class="footer-head">Topics</h2>
+            <ul class="footer-links">
+                
+                <li><a href="/playlists/basics-of-cpp-development/">Basics of CPP Development</a></li>
+                
+                <li><a href="/playlists/python/">Python</a></li>
+                
+                <li><a href="/playlists/android/">Android</a></li>
+                
+                <li><a href="/playlists/flutter/">Flutter</a></li>
+                
+                <li><a href="/playlists/linux/">Linux</a></li>
+                
+                <li><a href="/playlists/design-patterns/">Design Patterns</a></li>
+                
+                <li><a href="/playlists/game-development/">Game Development</a></li>
+                
+            </ul>
+        </nav>
+        <nav aria-label="Site">
+            <h2 class="footer-head">Site</h2>
+            <ul class="footer-links">
+                <li><a href="/blog/">All articles</a></li>
+                <li><a href="/tags/">Tags</a></li>
+                <li><a href="/page/about/#projects">Projects</a></li>
+                <li><a href="/page/about/">About</a></li>
+                <li><a href="https://anooptube.in/privacy/">Privacy Policy</a></li>
+                <li><a href="/index.xml">RSS feed</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <div class="container mx-auto max-w-6xl px-6 py-5 text-sm">
+            Copyright © 2026 - #anooptube · All rights reserved
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function syncDarkIcon() {
+        var btn = document.getElementById("anooptube-dark-mode-toggle");
+        var isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? lightModeIcon : darkModeIcon;
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
+    function toggleDarkMode() {
+        var isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('darkmode', isDark ? 'dark' : 'light'); } catch (e) {}
+        syncDarkIcon();
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+        syncDarkIcon();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>
