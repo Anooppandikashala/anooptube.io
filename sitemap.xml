@@ -2,18 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2026-11-18T09:00:00+05:30</lastmod>
+    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/blog/</loc>
-    <lastmod>2026-11-18T09:00:00+05:30</lastmod>
+    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
   </url>
   <url>
-    <loc>https://anooptube.in/blog/post68/</loc>
-    <lastmod>2026-11-18T09:00:00+05:30</lastmod>
+    <loc>https://anooptube.in/playlists/linux/</loc>
+    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/linux/</loc>
+    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post69/</loc>
+    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post68/</loc>
     <lastmod>2026-11-18T09:00:00+05:30</lastmod>
   </url>
   <url>
@@ -58,14 +70,6 @@
   </url>
   <url>
     <loc>https://anooptube.in/blog/post64/</loc>
-    <lastmod>2026-08-22T15:45:26+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/playlists/linux/</loc>
-    <lastmod>2026-08-22T15:45:26+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/tags/linux/</loc>
     <lastmod>2026-08-22T15:45:26+05:30</lastmod>
   </url>
   <url>

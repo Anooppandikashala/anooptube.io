@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>podman on #anooptube</title>
+    <link>https://anooptube.in/tags/podman/</link>
+    <description>Recent content in podman on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/podman/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Podman and Rootless Containers in 2026: The Docker Alternative Sysadmins Are Switching To</title>
+      <link>https://anooptube.in/blog/post69/</link>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post69/</guid>
+      <description>I spent an afternoon last month explaining to a junior sysadmin why the docker group on our build server was effectively equivalent to passwordless root. He didn&amp;rsquo;t believe me until I showed him the one-liner: add a user to docker, mount / into a container, chroot in, done — full host access, no sudo required, no audit trail pointing at anything except &amp;ldquo;ran a container.&amp;rdquo; That conversation is what finally pushed our team off Docker and onto Podman across every server we don&amp;rsquo;t strictly need Docker Desktop&amp;rsquo;s GUI for.</description>
+    </item>
+    
+  </channel>
+</rss>

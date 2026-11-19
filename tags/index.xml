@@ -6,7 +6,43 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>containers</title>
+      <link>https://anooptube.in/tags/containers/</link>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://anooptube.in/tags/devops/</link>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://anooptube.in/tags/linux/</link>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>podman</title>
+      <link>https://anooptube.in/tags/podman/</link>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/podman/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>architecture</title>
       <link>https://anooptube.in/tags/architecture/</link>
@@ -202,15 +238,6 @@
       <pubDate>Sat, 22 Aug 2026 15:45:26 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/ebpf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://anooptube.in/tags/linux/</link>
-      <pubDate>Sat, 22 Aug 2026 15:45:26 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/linux/</guid>
       <description></description>
     </item>
     
