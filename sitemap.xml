@@ -2,11 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anooptube.in/</loc>
-    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
+    <lastmod>2026-11-21T09:00:00+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/blog/</loc>
-    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
+    <lastmod>2026-11-21T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/performance/</loc>
+    <lastmod>2026-11-21T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/postgresql/</loc>
+    <lastmod>2026-11-21T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post71/</loc>
+    <lastmod>2026-11-21T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/</loc>
+    <lastmod>2026-11-21T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/playlists/flutter/</loc>
+    <lastmod>2026-11-20T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/tags/flutter/</loc>
+    <lastmod>2026-11-20T09:00:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>https://anooptube.in/blog/post70/</loc>
+    <lastmod>2026-11-20T09:00:00+05:30</lastmod>
   </url>
   <url>
     <loc>https://anooptube.in/playlists/linux/</loc>
@@ -18,10 +46,6 @@
   </url>
   <url>
     <loc>https://anooptube.in/blog/post69/</loc>
-    <lastmod>2026-11-19T09:00:00+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/tags/</loc>
     <lastmod>2026-11-19T09:00:00+05:30</lastmod>
   </url>
   <url>
@@ -85,10 +109,6 @@
     <lastmod>2026-08-19T09:45:24+05:30</lastmod>
   </url>
   <url>
-    <loc>https://anooptube.in/playlists/postgresql/</loc>
-    <lastmod>2026-08-19T09:45:08+05:30</lastmod>
-  </url>
-  <url>
     <loc>https://anooptube.in/blog/post61/</loc>
     <lastmod>2026-08-19T09:45:08+05:30</lastmod>
   </url>
@@ -122,14 +142,6 @@
   </url>
   <url>
     <loc>https://anooptube.in/blog/post51/</loc>
-    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/playlists/flutter/</loc>
-    <lastmod>2026-08-16T13:11:18+05:30</lastmod>
-  </url>
-  <url>
-    <loc>https://anooptube.in/tags/flutter/</loc>
     <lastmod>2026-08-16T13:11:18+05:30</lastmod>
   </url>
   <url>

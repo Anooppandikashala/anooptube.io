@@ -6,7 +6,16 @@
     <description>Recent content in Flutter on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2026 13:11:18 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/playlists/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flutter State Management in 2026: Riverpod vs Bloc vs Signals</title>
+      <link>https://anooptube.in/blog/post70/</link>
+      <pubDate>Fri, 20 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post70/</guid>
+      <description>Every new Flutter project starts the same way: you get the widgets on screen, everything&amp;rsquo;s a StatefulWidget with a setState call, and it works fine — until it doesn&amp;rsquo;t. Two screens need the same data. A form needs to survive a rebuild. Someone on the team asks &amp;ldquo;how do we test this?&amp;rdquo; and you realize setState was never going to scale past a todo app. That&amp;rsquo;s the point where you have to actually pick a state management approach, and in 2026 the honest answer isn&amp;rsquo;t &amp;ldquo;just use Provider&amp;rdquo; anymore.</description>
+    </item>
+    
     <item>
       <title>What&#39;s New in Flutter 3.44 and Dart 3.12: Agentic Hot Reload and Genkit AI</title>
       <link>https://anooptube.in/blog/post53/</link>

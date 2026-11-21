@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sql on #anooptube</title>
+    <link>https://anooptube.in/tags/sql/</link>
+    <description>Recent content in sql on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</title>
+      <link>https://anooptube.in/blog/post71/</link>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post71/</guid>
+      <description>I once inherited a Postgres table with 40 million rows and a query that took 11 seconds to return a handful of matches. There was an index on the column being filtered. The index was just the wrong type — a B-tree sitting on a JSONB column that needed a GIN index, doing sequential-scan-adjacent work because it couldn&amp;rsquo;t actually help with the containment query being run against it. Swapping the index type, not adding more indexes, took that query from 11 seconds to 40 milliseconds.</description>
+    </item>
+    
+  </channel>
+</rss>

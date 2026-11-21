@@ -6,7 +6,25 @@
     <description>Recent content on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</title>
+      <link>https://anooptube.in/blog/post71/</link>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post71/</guid>
+      <description>I once inherited a Postgres table with 40 million rows and a query that took 11 seconds to return a handful of matches. There was an index on the column being filtered. The index was just the wrong type — a B-tree sitting on a JSONB column that needed a GIN index, doing sequential-scan-adjacent work because it couldn&amp;rsquo;t actually help with the containment query being run against it. Swapping the index type, not adding more indexes, took that query from 11 seconds to 40 milliseconds.</description>
+    </item>
+    
+    <item>
+      <title>Flutter State Management in 2026: Riverpod vs Bloc vs Signals</title>
+      <link>https://anooptube.in/blog/post70/</link>
+      <pubDate>Fri, 20 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post70/</guid>
+      <description>Every new Flutter project starts the same way: you get the widgets on screen, everything&amp;rsquo;s a StatefulWidget with a setState call, and it works fine — until it doesn&amp;rsquo;t. Two screens need the same data. A form needs to survive a rebuild. Someone on the team asks &amp;ldquo;how do we test this?&amp;rdquo; and you realize setState was never going to scale past a todo app. That&amp;rsquo;s the point where you have to actually pick a state management approach, and in 2026 the honest answer isn&amp;rsquo;t &amp;ldquo;just use Provider&amp;rdquo; anymore.</description>
+    </item>
+    
     <item>
       <title>Podman and Rootless Containers in 2026: The Docker Alternative Sysadmins Are Switching To</title>
       <link>https://anooptube.in/blog/post69/</link>

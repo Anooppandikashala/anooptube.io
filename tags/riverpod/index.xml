@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>riverpod on #anooptube</title>
+    <link>https://anooptube.in/tags/riverpod/</link>
+    <description>Recent content in riverpod on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/riverpod/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flutter State Management in 2026: Riverpod vs Bloc vs Signals</title>
+      <link>https://anooptube.in/blog/post70/</link>
+      <pubDate>Fri, 20 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post70/</guid>
+      <description>Every new Flutter project starts the same way: you get the widgets on screen, everything&amp;rsquo;s a StatefulWidget with a setState call, and it works fine — until it doesn&amp;rsquo;t. Two screens need the same data. A form needs to survive a rebuild. Someone on the team asks &amp;ldquo;how do we test this?&amp;rdquo; and you realize setState was never going to scale past a todo app. That&amp;rsquo;s the point where you have to actually pick a state management approach, and in 2026 the honest answer isn&amp;rsquo;t &amp;ldquo;just use Provider&amp;rdquo; anymore.</description>
+    </item>
+    
+  </channel>
+</rss>
