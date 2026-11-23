@@ -6,7 +6,16 @@
     <description>Recent content in programming on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2026 09:45:24 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python asyncio in 2026: A Practical Guide to Async/Await</title>
+      <link>https://anooptube.in/blog/post73/</link>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post73/</guid>
+      <description>I spent my first few weeks with asyncio writing code that looked async but ran exactly like synchronous code — one await at a time, zero concurrency gained, and no error telling me why. The syntax is deceptively simple; the mental model underneath it is not. This is the guide I wish I&amp;rsquo;d had: what the event loop actually does, how async/await really behaves, and the specific mistakes that make people give up on asyncio and reach for threads instead.</description>
+    </item>
+    
     <item>
       <title>Python 3.14: New Features Every Developer Should Know in 2026</title>
       <link>https://anooptube.in/blog/post60/</link>

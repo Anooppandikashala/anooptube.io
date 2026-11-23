@@ -6,7 +6,25 @@
     <description>Recent content in All Articles on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python asyncio in 2026: A Practical Guide to Async/Await</title>
+      <link>https://anooptube.in/blog/post73/</link>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post73/</guid>
+      <description>I spent my first few weeks with asyncio writing code that looked async but ran exactly like synchronous code — one await at a time, zero concurrency gained, and no error telling me why. The syntax is deceptively simple; the mental model underneath it is not. This is the guide I wish I&amp;rsquo;d had: what the event loop actually does, how async/await really behaves, and the specific mistakes that make people give up on asyncio and reach for threads instead.</description>
+    </item>
+    
+    <item>
+      <title>Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</title>
+      <link>https://anooptube.in/blog/post72/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post72/</guid>
+      <description>I still see pull requests in 2026 with a raw new sitting in a constructor and no matching delete anywhere in sight. Nobody&amp;rsquo;s being careless — the codebase just grew organically and smart pointers never made it into the house style. So here&amp;rsquo;s the practical version of &amp;ldquo;modern C++ memory management&amp;rdquo; I wish someone had handed me years ago: not a language-lawyer tour of the standard, just what to reach for, when, and why the alternative bites you eventually.</description>
+    </item>
+    
     <item>
       <title>PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</title>
       <link>https://anooptube.in/blog/post71/</link>

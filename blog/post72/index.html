@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post72/" />
+
+    <title>Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers | #anooptube</title>
+
+    <script>
+     
+    try { if (localStorage.getItem('darkmode') !== 'light') document.documentElement.classList.add('dark'); }
+    catch (e) { document.documentElement.classList.add('dark'); }
+    </script><meta name="description" content="A practical 2026 guide to modern C&#43;&#43; memory management — unique_ptr, shared_ptr, weak_ptr, RAII, and move semantics, plus when raw pointers still make sense." />
+    <meta name="keywords" content="modern C&#43;&#43; memory management, unique_ptr vs shared_ptr, when to use raw pointers in C&#43;&#43;, C&#43;&#43; smart pointers explained, RAII C&#43;&#43; tutorial, weak_ptr circular reference fix, C&#43;&#43; move semantics smart pointers, std::make_unique vs new, shared_ptr control block overhead, C&#43;&#43; memory leak prevention 2026, smart pointer best practices C&#43;&#43;, raw pointer vs smart pointer performance" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.cbd5e7222b04ee6ec4b2adf221d658e42b8448faaeb693a28763b13501115360.css" integrity="sha256-y9XnIisE7m7Esq3yIdZY5CuESPqutpOih2OxNQERU2A=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers" />
+<meta property="og:description" content="A practical 2026 guide to modern C&#43;&#43; memory management — unique_ptr, shared_ptr, weak_ptr, RAII, and move semantics, plus when raw pointers still make sense." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post72/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-11-22T09:00:00+05:30" />
+<meta property="article:modified_time" content="2026-11-22T09:00:00+05:30" />
+
+
+
+
+    
+
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/cpp-memory-management.webp" />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers" />
+    <meta name="twitter:description" content="A practical 2026 guide to modern C&#43;&#43; memory management — unique_ptr, shared_ptr, weak_ptr, RAII, and move semantics, plus when raw pointers still make sense." />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/cpp-memory-management.webp" />
+    <link rel="preload" as="image" href="/thumbs/cpp-memory-management.webp" fetchpriority="high" />
+
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center" aria-label="#anooptube home">
+            <img src="/logo.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-light" />
+            <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-dark" />
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            <li class="grid place-items-center">
+                <a href="/blog/?q=" class="header-search-btn" aria-label="Search articles">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+                    <span class="md:hidden">Search</span>
+                </a>
+            </li>
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/modern-cpp-and-systems-programming">Modern CPP and Systems Programming</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers">Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://anooptube.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://anooptube.in/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Modern CPP and Systems Programming",
+      "item": "https://anooptube.in/playlists/modern-cpp-and-systems-programming/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Modern C++ Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers",
+      "item": "https://anooptube.in/blog/post72/"
+    }
+    
+  ]
+}
+</script>
+<h1 class="post-title">Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</h1>
+                <p class="post-lead">A practical 2026 guide to modern C&#43;&#43; memory management — unique_ptr, shared_ptr, weak_ptr, RAII, and move semantics, plus when raw pointers still make sense.</p>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    November 22, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2142 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                
+                
+                <figure class="post-hero">
+                    <img src="/thumbs/cpp-memory-management.webp" alt="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers" fetchpriority="high" decoding="async" width="1536" height="1024" />
+                </figure>
+                
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">Modern CPP and Systems Programming</span>
+          </span>
+          <span class="series-nav-badge">3 / 3</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post49/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post63/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/modern-cpp-and-systems-programming/" class="series-nav-footer-link">
+          View all in "Modern CPP and Systems Programming" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+
+                <details class="toc-mobile lg:hidden">
+                    <summary>On this page</summary>
+                    <nav >
+  <ul>
+    <li><a href="#why-memory-management-still-matters-in-modern-c">Why Memory Management Still Matters in Modern C++</a></li>
+    <li><a href="#raii-the-idea-everything-else-is-built-on">RAII: The Idea Everything Else Is Built On</a></li>
+    <li><a href="#unique_ptr-your-default-choice-for-heap-ownership">unique_ptr: Your Default Choice for Heap Ownership</a></li>
+    <li><a href="#shared_ptr-and-weak_ptr-when-ownership-is-genuinely-shared">shared_ptr and weak_ptr: When Ownership Is Genuinely Shared</a></li>
+    <li><a href="#unique_ptr-vs-shared_ptr-picking-the-right-one">unique_ptr vs shared_ptr: Picking the Right One</a></li>
+    <li><a href="#move-semantics-how-smart-pointers-transfer-ownership-for-free">Move Semantics: How Smart Pointers Transfer Ownership for Free</a></li>
+    <li><a href="#when-you-still-need-raw-pointers-in-modern-c">When You Still Need Raw Pointers in Modern C++</a></li>
+    <li><a href="#common-memory-management-mistakes-even-with-smart-pointers">Common Memory Management Mistakes Even With Smart Pointers</a></li>
+    <li><a href="#faq-modern-c-memory-management">FAQ: Modern C++ Memory Management</a></li>
+    <li><a href="#closing-thought">Closing Thought</a></li>
+  </ul>
+</nav>
+                </details>
+                
+                <p>I still see pull requests in 2026 with a raw <code>new</code> sitting in a constructor and no matching <code>delete</code> anywhere in sight. Nobody&rsquo;s being careless — the codebase just grew organically and smart pointers never made it into the house style. So here&rsquo;s the practical version of &ldquo;modern C++ memory management&rdquo; I wish someone had handed me years ago: not a language-lawyer tour of the standard, just what to reach for, when, and why the alternative bites you eventually.</p>
+<h2 id="why-memory-management-still-matters-in-modern-c">Why Memory Management Still Matters in Modern C++</h2>
+<p>C++ doesn&rsquo;t have a garbage collector, and in 2026 that&rsquo;s still a deliberate design choice, not a gap waiting to be filled. You get deterministic destruction, zero runtime overhead when you don&rsquo;t need it, and full control over layout and lifetime — which is exactly why C++ still runs game engines, trading systems, and embedded firmware where a GC pause is unacceptable.</p>
+<p>The tradeoff is that every allocation needs an owner, and every owner needs a plan for release. Miss that plan once and you get a leak. Get the ownership model wrong under concurrency and you get a use-after-free that only shows up in production, three months later, under load. Static analyzers and sanitizers (ASan, UBSan) catch a lot of this in CI now, but they&rsquo;re a safety net, not a substitute for a codebase where ownership is obvious from the type signature.</p>
+<p>That&rsquo;s the actual point of modern smart pointers: they turn &ldquo;who owns this and when does it die&rdquo; from a comment or a mental note into something the compiler enforces.</p>
+<p><img src="/blogs-images/cpp-smart-pointer-ownership-model.webp" alt="C++ smart pointer ownership model showing unique_ptr and shared_ptr lifetimes"></p>
+<h2 id="raii-the-idea-everything-else-is-built-on">RAII: The Idea Everything Else Is Built On</h2>
+<p>RAII — Resource Acquisition Is Initialization — is the one concept that makes all of this work. Tie a resource&rsquo;s lifetime to a stack-allocated object&rsquo;s lifetime. Acquire the resource in the constructor, release it in the destructor. When the object goes out of scope — normal return, early return, or an exception unwinding the stack — the destructor runs and the resource is freed. No <code>finally</code> block, no manual cleanup path to forget.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FileHandle</span> {
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">explicit</span> FileHandle(<span style="color:#ff79c6">const</span> <span style="color:#8be9fd">char</span><span style="color:#ff79c6">*</span> path) <span style="color:#ff79c6">:</span> fp_(std<span style="color:#ff79c6">::</span>fopen(path, <span style="color:#f1fa8c">&#34;r&#34;</span>)) {
+        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>fp_) <span style="color:#ff79c6">throw</span> std<span style="color:#ff79c6">::</span>runtime_error(<span style="color:#f1fa8c">&#34;failed to open file&#34;</span>);
+    }
+    <span style="color:#ff79c6">~</span>FileHandle() { <span style="color:#ff79c6">if</span> (fp_) std<span style="color:#ff79c6">::</span>fclose(fp_); }
+
+    <span style="color:#6272a4">// disable copy, or implement it properly — see move semantics below
+</span><span style="color:#6272a4"></span>    FileHandle(<span style="color:#ff79c6">const</span> FileHandle<span style="color:#ff79c6">&amp;</span>) <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">delete</span>;
+    FileHandle<span style="color:#ff79c6">&amp;</span> <span style="color:#ff79c6">operator</span><span style="color:#ff79c6">=</span>(<span style="color:#ff79c6">const</span> FileHandle<span style="color:#ff79c6">&amp;</span>) <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">delete</span>;
+
+<span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+    std<span style="color:#ff79c6">::</span>FILE<span style="color:#ff79c6">*</span> fp_;
+};
+</code></pre></div><p>Smart pointers are just RAII applied specifically to heap-allocated objects. Once you internalize RAII, <code>unique_ptr</code> and <code>shared_ptr</code> stop looking like magic and start looking like the obvious application of a pattern you&rsquo;d write yourself anyway.</p>
+<h2 id="unique_ptr-your-default-choice-for-heap-ownership">unique_ptr: Your Default Choice for Heap Ownership</h2>
+<p><code>std::unique_ptr</code> should be the first thing you reach for when you need to own a heap-allocated object. It has exactly one owner at a time, it&rsquo;s move-only, and it compiles down to essentially the same machine code as a raw pointer with manual delete — there&rsquo;s no reference-counting overhead, no atomic operations, nothing. If you&rsquo;re not sharing ownership, there&rsquo;s no reason to pay for <code>shared_ptr</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;memory&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Connection</span> {
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">query</span>(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> sql);
+};
+
+std<span style="color:#ff79c6">::</span>unique_ptr<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span> open_connection() {
+    <span style="color:#ff79c6">auto</span> conn <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_unique<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span>();
+    <span style="color:#ff79c6">return</span> conn; <span style="color:#6272a4">// moved out, not copied — unique_ptr has no copy constructor
+</span><span style="color:#6272a4"></span>}
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">run</span>() {
+    <span style="color:#ff79c6">auto</span> conn <span style="color:#ff79c6">=</span> open_connection();
+    conn<span style="color:#ff79c6">-&gt;</span>query(<span style="color:#f1fa8c">&#34;SELECT 1&#34;</span>);
+} <span style="color:#6272a4">// Connection destroyed automatically here, no leak even if query() throws
+</span></code></pre></div><p>Always prefer <code>std::make_unique&lt;T&gt;(args...)</code> over <code>std::unique_ptr&lt;T&gt;(new T(args...))</code>. It&rsquo;s not just shorter — it avoids a subtle exception-safety hole where, in certain expressions with multiple arguments, the <code>new</code> could succeed but a sibling expression could throw before the raw pointer is ever wrapped, leaking the allocation. <code>make_unique</code> closes that gap by construction.</p>
+<p>Transferring ownership is explicit and visible at the call site:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#ff79c6">::</span>unique_ptr<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span> a <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_unique<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span>();
+std<span style="color:#ff79c6">::</span>unique_ptr<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span> b <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>move(a); <span style="color:#6272a4">// a is now null, b owns it
+</span></code></pre></div><p>No copy is silently made, no ambiguity about who&rsquo;s responsible for the object after that line. That&rsquo;s the whole value proposition — ownership transfer is a language-level, compiler-checked operation instead of a convention you hope everyone follows.</p>
+<h2 id="shared_ptr-and-weak_ptr-when-ownership-is-genuinely-shared">shared_ptr and weak_ptr: When Ownership Is Genuinely Shared</h2>
+<p>Reach for <code>std::shared_ptr</code> only when multiple independent owners genuinely need to keep an object alive, and none of them can be identified as &ldquo;the&rdquo; owner up front — a cache shared across threads, a graph node referenced from several parents, an object handed off to an async callback that might outlive the caller.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;memory&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;vector&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6"></span>
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Texture</span> {
+    std<span style="color:#ff79c6">::</span>vector<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">uint8_t</span><span style="color:#ff79c6">&gt;</span> data;
+};
+
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Sprite</span> {
+    std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>Texture<span style="color:#ff79c6">&gt;</span> texture_;
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#ff79c6">explicit</span> Sprite(std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>Texture<span style="color:#ff79c6">&gt;</span> tex) <span style="color:#ff79c6">:</span> texture_(std<span style="color:#ff79c6">::</span>move(tex)) {}
+};
+
+<span style="color:#ff79c6">auto</span> shared_tex <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_shared<span style="color:#ff79c6">&lt;</span>Texture<span style="color:#ff79c6">&gt;</span>();
+Sprite <span style="color:#50fa7b">s1</span>(shared_tex);
+Sprite <span style="color:#50fa7b">s2</span>(shared_tex); <span style="color:#6272a4">// both sprites keep the texture alive; freed when both are gone
+</span></code></pre></div><p><code>shared_ptr</code> isn&rsquo;t free. Every copy bumps an atomic reference count (thread-safe, so there&rsquo;s real synchronization cost under contention), and <code>make_shared</code> allocates the control block and the object in one block — which is more cache-friendly than two separate allocations, but it also means the memory for the object can&rsquo;t be reclaimed until <em>every</em> <code>weak_ptr</code> referencing it is gone too, not just every <code>shared_ptr</code>.</p>
+<p>That leads directly into the classic <code>shared_ptr</code> trap: reference cycles. If A holds a <code>shared_ptr</code> to B and B holds a <code>shared_ptr</code> back to A, neither reference count ever hits zero, and both leak silently — no crash, no warning, just memory that never comes back.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Node</span> {
+    std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>Node<span style="color:#ff79c6">&gt;</span> parent;   <span style="color:#6272a4">// wrong: creates a cycle if child also holds parent
+</span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>vector<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>Node<span style="color:#ff79c6">&gt;&gt;</span> children;
+};
+</code></pre></div><p>The fix is <code>std::weak_ptr</code> for any &ldquo;back-reference&rdquo; that shouldn&rsquo;t itself keep the object alive:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Node</span> {
+    std<span style="color:#ff79c6">::</span>weak_ptr<span style="color:#ff79c6">&lt;</span>Node<span style="color:#ff79c6">&gt;</span> parent;     <span style="color:#6272a4">// doesn&#39;t affect parent&#39;s reference count
+</span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>vector<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>Node<span style="color:#ff79c6">&gt;&gt;</span> children;
+
+    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">greet_parent</span>() {
+        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">auto</span> p <span style="color:#ff79c6">=</span> parent.lock()) { <span style="color:#6272a4">// returns a shared_ptr, or empty if parent is gone
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// safe to use p here
+</span><span style="color:#6272a4"></span>        }
+    }
+};
+</code></pre></div><p><code>weak_ptr</code> observes without owning. It can&rsquo;t be dereferenced directly — you call <code>.lock()</code>, which atomically produces a <code>shared_ptr</code> if the object is still alive, or an empty one if it&rsquo;s already been destroyed. That single method is what makes it safe to hold a non-owning reference to something that might disappear out from under you, which a raw pointer can never guarantee on its own.</p>
+<p><img src="/blogs-images/cpp-weak-ptr-reference-cycle-fix.webp" alt="C++ shared_ptr reference cycle broken with weak_ptr parent pointer"></p>
+<h2 id="unique_ptr-vs-shared_ptr-picking-the-right-one">unique_ptr vs shared_ptr: Picking the Right One</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>unique_ptr</code></th>
+<th><code>shared_ptr</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ownership</td>
+<td>Single, exclusive</td>
+<td>Shared, reference-counted</td>
+</tr>
+<tr>
+<td>Copyable</td>
+<td>No (move-only)</td>
+<td>Yes (atomic refcount bump)</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>Same as raw pointer</td>
+<td>Control block + atomic ops</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Default choice, factory returns, PImpl</td>
+<td>Caches, graphs, async handoff</td>
+</tr>
+<tr>
+<td>Cycle risk</td>
+<td>None</td>
+<td>Yes — pair with <code>weak_ptr</code></td>
+</tr>
+</tbody>
+</table>
+<p>A good rule of thumb I&rsquo;ve settled into: start every new heap allocation as <code>unique_ptr</code>. Only promote it to <code>shared_ptr</code> when a second owner shows up that genuinely needs to extend the object&rsquo;s lifetime — not just &ldquo;needs a reference to it,&rdquo; which is what a raw pointer or reference parameter is for. Most codebases I&rsquo;ve reviewed have far more <code>shared_ptr</code> than they actually need, usually because it was easier to reach for than to think through who really owns what.</p>
+<h2 id="move-semantics-how-smart-pointers-transfer-ownership-for-free">Move Semantics: How Smart Pointers Transfer Ownership for Free</h2>
+<p>Move semantics (from C++11 onward) are what make <code>unique_ptr</code> practical to pass around and return from functions without any performance penalty. A move transfers the internal pointer and nulls out the source — no allocation, no copy, no reference-count churn.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#ff79c6">::</span>unique_ptr<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span> make_pool_connection() {
+    <span style="color:#ff79c6">auto</span> conn <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_unique<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span>();
+    <span style="color:#6272a4">// ... setup work ...
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> conn; <span style="color:#6272a4">// guaranteed move (or elided entirely by NRVO)
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>This is also why functions that only need to <em>use</em> an object, not own it, should take a raw pointer or reference — not a <code>unique_ptr</code> or <code>shared_ptr</code> by value. Passing a smart pointer by value when you don&rsquo;t need ownership forces an unnecessary move or, worse, an unnecessary atomic refcount bump for <code>shared_ptr</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">// Bad: forces a shared_ptr copy just to read the object
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">log_query</span>(std<span style="color:#ff79c6">::</span>shared_ptr<span style="color:#ff79c6">&lt;</span>Connection<span style="color:#ff79c6">&gt;</span> conn);
+
+<span style="color:#6272a4">// Good: no ownership implied, no refcount touched
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">log_query</span>(<span style="color:#ff79c6">const</span> Connection<span style="color:#ff79c6">&amp;</span> conn);
+</code></pre></div><p>A useful mental check before choosing a parameter type: does this function need to keep the object alive after it returns? If not, it doesn&rsquo;t need a smart pointer at all.</p>
+<h2 id="when-you-still-need-raw-pointers-in-modern-c">When You Still Need Raw Pointers in Modern C++</h2>
+<p>Smart pointers handle ownership. Raw pointers and references are still the right tool the moment ownership isn&rsquo;t the question:</p>
+<ul>
+<li><strong>Non-owning observation.</strong> A function that reads or mutates an object it doesn&rsquo;t own should take <code>T*</code> or <code>T&amp;</code>, not a smart pointer. This is the single most common place I still see people over-apply <code>shared_ptr</code> out of habit.</li>
+<li><strong>Performance-critical inner loops.</strong> In hot paths — physics steps, render loops, parsers processing megabytes of input — the atomic operations behind <code>shared_ptr</code> copies are measurable. Raw pointers or references into memory owned elsewhere avoid that cost entirely.</li>
+<li><strong>C API interop.</strong> Any function boundary talking to a C library, a driver, or hardware wants a raw pointer, because that&rsquo;s the ABI. You still wrap the <em>ownership</em> in a smart pointer with a custom deleter on the C++ side — the raw pointer only exists at the boundary.</li>
+<li><strong>Non-owning optional reference to something with a longer lifetime than the local scope</strong>, where the alternative (<code>weak_ptr</code> + <code>.lock()</code> everywhere) adds overhead nothing in that code path actually needs.</li>
+</ul>
+<p>Custom deleters are the bridge for C APIs — you get RAII safety around a resource that isn&rsquo;t <code>new</code>/<code>delete</code> at all:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">FileCloser</span> { <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">operator</span>()(std<span style="color:#ff79c6">::</span>FILE<span style="color:#ff79c6">*</span> fp) <span style="color:#ff79c6">const</span> { <span style="color:#ff79c6">if</span> (fp) std<span style="color:#ff79c6">::</span>fclose(fp); } };
+std<span style="color:#ff79c6">::</span>unique_ptr<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>FILE, FileCloser<span style="color:#ff79c6">&gt;</span> file(std<span style="color:#ff79c6">::</span>fopen(<span style="color:#f1fa8c">&#34;data.bin&#34;</span>, <span style="color:#f1fa8c">&#34;rb&#34;</span>));
+<span style="color:#6272a4">// closed automatically, no manual fclose needed, still zero-overhead
+</span></code></pre></div><p>The rule that&rsquo;s served me well: raw pointers for <em>access</em>, smart pointers for <em>ownership</em>. If you keep that boundary clean, a raw pointer in your codebase is never a red flag — it&rsquo;s a signal that this code deliberately isn&rsquo;t the owner, which is exactly the information you want at a glance.</p>
+<h2 id="common-memory-management-mistakes-even-with-smart-pointers">Common Memory Management Mistakes Even With Smart Pointers</h2>
+<p>Smart pointers remove entire bug classes, but they don&rsquo;t make memory management mistake-proof:</p>
+<ul>
+<li><strong>Calling <code>get()</code> and storing the raw pointer past the smart pointer&rsquo;s lifetime.</strong> <code>unique_ptr::get()</code> and <code>shared_ptr::get()</code> return the underlying raw pointer without any lifetime guarantee — if the owning smart pointer is destroyed, that raw pointer dangles.</li>
+<li><strong>Mixing <code>new</code> and <code>make_unique</code>/<code>make_shared</code> inconsistently across a codebase.</strong> Pick one style; inconsistency is where the accidental raw <code>new</code> with no wrapper creeps back in.</li>
+<li><strong>Using <code>shared_ptr</code> as a default &ldquo;I&rsquo;m not sure who owns this&rdquo; fallback.</strong> It works, but it hides a design question you should actually answer, and it leaves cycle bugs waiting to happen.</li>
+<li><strong>Forgetting <code>enable_shared_from_this</code></strong> when an object needs to hand out a <code>shared_ptr</code> to itself (e.g., from inside a member function for an async callback) — constructing a new <code>shared_ptr</code> from <code>this</code> directly creates a second, unrelated control block and a guaranteed double-free.</li>
+<li><strong>Capturing <code>this</code> in a lambda that outlives the object</strong>, instead of capturing a <code>weak_ptr</code> and locking it inside the callback.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#6272a4">// Correct pattern for async self-references
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Worker</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> std<span style="color:#ff79c6">::</span>enable_shared_from_this<span style="color:#ff79c6">&lt;</span>Worker<span style="color:#ff79c6">&gt;</span> {
+<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+    <span style="color:#8be9fd">void</span> start_async() {
+        <span style="color:#ff79c6">auto</span> self <span style="color:#ff79c6">=</span> weak_from_this();
+        do_async_work([self]() {
+            <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">auto</span> strong <span style="color:#ff79c6">=</span> self.lock()) strong<span style="color:#ff79c6">-&gt;</span>on_complete();
+        });
+    }
+};
+</code></pre></div><h2 id="faq-modern-c-memory-management">FAQ: Modern C++ Memory Management</h2>
+<p><strong>Is <code>new</code>/<code>delete</code> ever acceptable in modern C++?</strong>
+Rarely, and almost never directly in application code. Library and container implementations still use it under the hood, and you&rsquo;ll see it inside a custom allocator or the internals of a smart pointer itself. Outside of that, if you&rsquo;re typing <code>new</code> in 2026 application code, ask whether <code>make_unique</code> or <code>make_shared</code> should be there instead.</p>
+<p><strong>Does <code>shared_ptr</code> cause memory leaks?</strong>
+Not by itself — but a reference cycle between two or more <code>shared_ptr</code>s will, since the reference count never reaches zero. Break the cycle with <code>weak_ptr</code> on whichever side is the &ldquo;back&rdquo; or &ldquo;non-owning&rdquo; reference (parent pointers, observer lists, cache entries).</p>
+<p><strong>Is <code>unique_ptr</code> slower than a raw pointer?</strong>
+No. <code>unique_ptr</code> is designed to have zero overhead over a raw pointer in optimized builds — no extra memory, no extra indirection, no runtime cost, just compiler-enforced move-only semantics.</p>
+<p><strong>When should I use <code>std::make_shared</code> instead of <code>std::shared_ptr&lt;T&gt;(new T)</code>?</strong>
+Almost always use <code>make_shared</code>. It allocates the object and the control block in a single heap allocation instead of two, which is faster and more cache-friendly, and it has the same exception-safety benefit as <code>make_unique</code>.</p>
+<p><strong>Can I convert a <code>unique_ptr</code> to a <code>shared_ptr</code>?</strong>
+Yes, via move: <code>std::shared_ptr&lt;T&gt; sp = std::move(up);</code>. The reverse isn&rsquo;t possible — a <code>shared_ptr</code> can&rsquo;t be converted back to <code>unique_ptr</code>, since ownership may already be shared elsewhere.</p>
+<h2 id="closing-thought">Closing Thought</h2>
+<p>None of this is new language machinery — <code>unique_ptr</code> and <code>shared_ptr</code> have been standard since C++11. What&rsquo;s changed by 2026 is that there&rsquo;s no excuse left not to use them. Compilers optimize them down to nothing extra, static analyzers flag raw <code>new</code>/<code>delete</code> pairs automatically, and every major codebase I&rsquo;ve touched this year treats manual memory management as something you do at a boundary, not as the default. Get comfortable with the ownership question — who owns this, for how long, and does anyone else need to — and the actual pointer type you reach for becomes the easy part.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=Modern&#43;C%2B%2B&#43;Memory&#43;Management&#43;in&#43;2026%3A&#43;unique_ptr%2C&#43;shared_ptr%2C&#43;and&#43;When&#43;You&#43;Still&#43;Need&#43;Raw&#43;Pointers&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost72%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost72%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post63/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">Modern CPP and Systems Programming</span>
+                <span class="post-nav-title">What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-memory-management-still-matters-in-modern-c">Why Memory Management Still Matters in Modern C++</a></li>
+    <li><a href="#raii-the-idea-everything-else-is-built-on">RAII: The Idea Everything Else Is Built On</a></li>
+    <li><a href="#unique_ptr-your-default-choice-for-heap-ownership">unique_ptr: Your Default Choice for Heap Ownership</a></li>
+    <li><a href="#shared_ptr-and-weak_ptr-when-ownership-is-genuinely-shared">shared_ptr and weak_ptr: When Ownership Is Genuinely Shared</a></li>
+    <li><a href="#unique_ptr-vs-shared_ptr-picking-the-right-one">unique_ptr vs shared_ptr: Picking the Right One</a></li>
+    <li><a href="#move-semantics-how-smart-pointers-transfer-ownership-for-free">Move Semantics: How Smart Pointers Transfer Ownership for Free</a></li>
+    <li><a href="#when-you-still-need-raw-pointers-in-modern-c">When You Still Need Raw Pointers in Modern C++</a></li>
+    <li><a href="#common-memory-management-mistakes-even-with-smart-pointers">Common Memory Management Mistakes Even With Smart Pointers</a></li>
+    <li><a href="#faq-modern-c-memory-management">FAQ: Modern C++ Memory Management</a></li>
+    <li><a href="#closing-thought">Closing Thought</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post73/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/python-asyncio.webp" alt="Python asyncio in 2026: A Practical Guide to Async/Await" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Python asyncio in 2026: A Practical Guide to Async/Await</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 23, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post72/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/cpp-memory-management.webp" alt="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 22, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post71/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/postgresql-indexing.webp" alt="PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 21, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post70/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/flutter-state-management.webp" alt="Flutter State Management in 2026: Riverpod vs Bloc vs Signals" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Flutter State Management in 2026: Riverpod vs Bloc vs Signals</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 20, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post69/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/podman-rootless.webp" alt="Podman and Rootless Containers in 2026: The Docker Alternative Sysadmins Are Switching To" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Podman and Rootless Containers in 2026: The Docker Alternative Sysadmins Are Switching To</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 19, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('.toc-widget #TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Keep reading</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post63/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/cpp26.webp" alt="What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years" loading="lazy" decoding="async" width="1536" height="1024" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 22, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/c&#43;&#43;26" class="card-tag">c&#43;&#43;26</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post63/" class="card-content-link">
+            <h3 class="card-title">What&#39;s Coming in C&#43;&#43;26: Reflection, Contracts, and the Biggest Standard Update in Years</h3>
+
+            
+            <div class="card-desc">C&#43;&#43;26 explained: static reflection, contracts (pre/post/contract_assert), #embed, pack indexing, and every major feature landing in the next C&#43;&#43; standard.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post49/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/cpp_rust_go.webp" alt="C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?" loading="lazy" decoding="async" width="1536" height="1024" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 15, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/rust" class="card-tag">rust</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post49/" class="card-content-link">
+            <h3 class="card-title">C&#43;&#43; vs Rust vs Go in 2026: Which One Should You Actually Learn?</h3>
+
+            
+            <div class="card-desc">C&#43;&#43; vs Rust vs Go in 2026 compared for performance, memory safety, and real use cases — which systems language is worth learning right now.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post42/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/observer_design_pattern.webp" alt="Observer Design Pattern" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 29, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/design-pattern" class="card-tag">design pattern</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post42/" class="card-content-link">
+            <h3 class="card-title">Observer Design Pattern</h3>
+
+            
+            <div class="card-desc">Observer Design Pattern in C&#43;&#43; Explained with Examples</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        5 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post41/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/adapter.webp" alt="Adapter Design Pattern" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 26, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/design-pattern" class="card-tag">design pattern</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post41/" class="card-content-link">
+            <h3 class="card-title">Adapter Design Pattern</h3>
+
+            
+            <div class="card-desc">Adapter Design Pattern in C&#43;&#43; with Media Player Example</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        5 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post40/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/prototype.webp" alt="Prototype Design Pattern" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 26, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/design-pattern" class="card-tag">design pattern</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post40/" class="card-content-link">
+            <h3 class="card-title">Prototype Design Pattern</h3>
+
+            
+            <div class="card-desc">Prototype Design Pattern in C&#43;&#43;: A Complete Guide with Examples</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post39/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/std_list.webp" alt="Mastering std::list in C&#43;&#43;" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 11, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/cpp" class="card-tag">cpp</a>
+            
+            <a href="/tags/c&#43;&#43;" class="card-tag">c&#43;&#43;</a>
+            
+            <a href="/tags/list" class="card-tag">list</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post39/" class="card-content-link">
+            <h3 class="card-title">Mastering std::list in C&#43;&#43;</h3>
+
+            
+            <div class="card-desc">A complete guide to std::list in C&#43;&#43; with detailed examples, functionalities, and performance notes.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        3 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "inLanguage": "en-us",
+  "wordCount":  2142 ,
+  "keywords": "cpp, c++, smart-pointers, memory-management, raii",
+  "articleSection": "Modern CPP and Systems Programming",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anooptube.in/blog/post72/"
+  },
+  "headline": "Modern C++ Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers",
+  "description": "A practical 2026 guide to modern C++ memory management — unique_ptr, shared_ptr, weak_ptr, RAII, and move semantics, plus when raw pointers still make sense.",
+  "datePublished": "2026-11-22T09:00:00\u002b05:30",
+  "dateModified": "2026-11-22T09:00:00\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "@id": "https://anooptube.in/#person",
+    "name": "ANOOP P",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://anooptube.in/thumbs/cpp-memory-management.webp",
+    "width":  1536 ,
+    "height":  1024 
+  },
+  "url": "https://anooptube.in/blog/post72/"
+}
+</script>
+
+
+
+
+    </main>
+<footer class="site-footer mt-12">
+    <div class="container mx-auto max-w-6xl px-6 pt-12 pb-8 grid gap-10 md:grid-cols-4">
+        <div class="md:col-span-2">
+            <a href="https://anooptube.in/" class="inline-block mb-3" aria-label="#anooptube home">
+                <img src="/logo.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-light" />
+                <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-dark" />
+            </a>
+            <p class="footer-blurb">Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube.</p>
+            <ul class="footer-social">
+                <li><a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a></li>
+                <li><a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a></li>
+                <li><a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a></li>
+                <li><a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+                <li><a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Portfolio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></a></li>
+                <li><a href="https://www.buymeacoffee.com/anoopp" target="_blank" rel="noopener" aria-label="Buy me a coffee"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></a></li>
+            </ul>
+        </div>
+        <nav aria-label="Topics">
+            <h2 class="footer-head">Topics</h2>
+            <ul class="footer-links">
+                
+                <li><a href="/playlists/basics-of-cpp-development/">Basics of CPP Development</a></li>
+                
+                <li><a href="/playlists/python/">Python</a></li>
+                
+                <li><a href="/playlists/flutter/">Flutter</a></li>
+                
+                <li><a href="/playlists/linux/">Linux</a></li>
+                
+                <li><a href="/playlists/android/">Android</a></li>
+                
+                <li><a href="/playlists/design-patterns/">Design Patterns</a></li>
+                
+                <li><a href="/playlists/modern-cpp-and-systems-programming/">Modern CPP and Systems Programming</a></li>
+                
+            </ul>
+        </nav>
+        <nav aria-label="Site">
+            <h2 class="footer-head">Site</h2>
+            <ul class="footer-links">
+                <li><a href="/blog/">All articles</a></li>
+                <li><a href="/tags/">Tags</a></li>
+                <li><a href="/page/about/#projects">Projects</a></li>
+                <li><a href="/page/about/">About</a></li>
+                <li><a href="https://anooptube.in/privacy/">Privacy Policy</a></li>
+                <li><a href="/index.xml">RSS feed</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <div class="container mx-auto max-w-6xl px-6 py-5 text-sm">
+            Copyright © 2026 - #anooptube · All rights reserved
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function syncDarkIcon() {
+        var btn = document.getElementById("anooptube-dark-mode-toggle");
+        var isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? lightModeIcon : darkModeIcon;
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
+    function toggleDarkMode() {
+        var isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('darkmode', isDark ? 'dark' : 'light'); } catch (e) {}
+        syncDarkIcon();
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+        syncDarkIcon();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

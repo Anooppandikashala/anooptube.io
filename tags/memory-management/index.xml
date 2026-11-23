@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memory-management on #anooptube</title>
+    <link>https://anooptube.in/tags/memory-management/</link>
+    <description>Recent content in memory-management on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/memory-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</title>
+      <link>https://anooptube.in/blog/post72/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post72/</guid>
+      <description>I still see pull requests in 2026 with a raw new sitting in a constructor and no matching delete anywhere in sight. Nobody&amp;rsquo;s being careless — the codebase just grew organically and smart pointers never made it into the house style. So here&amp;rsquo;s the practical version of &amp;ldquo;modern C++ memory management&amp;rdquo; I wish someone had handed me years ago: not a language-lawyer tour of the standard, just what to reach for, when, and why the alternative bites you eventually.</description>
+    </item>
+    
+  </channel>
+</rss>

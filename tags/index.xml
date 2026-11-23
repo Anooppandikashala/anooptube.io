@@ -6,7 +6,88 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>asyncio</title>
+      <link>https://anooptube.in/tags/asyncio/</link>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/asyncio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrency</title>
+      <link>https://anooptube.in/tags/concurrency/</link>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://anooptube.in/tags/programming/</link>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://anooptube.in/tags/python/</link>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;</title>
+      <link>https://anooptube.in/tags/c&#43;&#43;/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpp</title>
+      <link>https://anooptube.in/tags/cpp/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memory-management</title>
+      <link>https://anooptube.in/tags/memory-management/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/memory-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raii</title>
+      <link>https://anooptube.in/tags/raii/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/raii/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smart-pointers</title>
+      <link>https://anooptube.in/tags/smart-pointers/</link>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/smart-pointers/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>database</title>
       <link>https://anooptube.in/tags/database/</link>
@@ -260,15 +341,6 @@
     </item>
     
     <item>
-      <title>c&#43;&#43;</title>
-      <link>https://anooptube.in/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 22 Aug 2026 15:45:50 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>c&#43;&#43;26</title>
       <link>https://anooptube.in/tags/c&#43;&#43;26/</link>
       <pubDate>Sat, 22 Aug 2026 15:45:50 +0530</pubDate>
@@ -283,15 +355,6 @@
       <pubDate>Sat, 22 Aug 2026 15:45:50 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/contracts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cpp</title>
-      <link>https://anooptube.in/tags/cpp/</link>
-      <pubDate>Sat, 22 Aug 2026 15:45:50 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/cpp/</guid>
       <description></description>
     </item>
     
@@ -319,24 +382,6 @@
       <pubDate>Sat, 22 Aug 2026 15:45:26 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/observability/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://anooptube.in/tags/programming/</link>
-      <pubDate>Wed, 19 Aug 2026 09:45:24 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://anooptube.in/tags/python/</link>
-      <pubDate>Wed, 19 Aug 2026 09:45:24 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/python/</guid>
       <description></description>
     </item>
     
