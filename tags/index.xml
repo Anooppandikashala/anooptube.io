@@ -6,7 +6,52 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://anooptube.in/tags/linux/</link>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>https://anooptube.in/tags/productivity/</link>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terminal</title>
+      <link>https://anooptube.in/tags/terminal/</link>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tmux</title>
+      <link>https://anooptube.in/tags/tmux/</link>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zellij</title>
+      <link>https://anooptube.in/tags/zellij/</link>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/zellij/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>asyncio</title>
       <link>https://anooptube.in/tags/asyncio/</link>
@@ -184,15 +229,6 @@
       <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://anooptube.in/tags/linux/</link>
-      <pubDate>Thu, 19 Nov 2026 09:00:00 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -517,15 +553,6 @@
       <pubDate>Mon, 17 Aug 2026 14:59:57 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/webdev/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>productivity</title>
-      <link>https://anooptube.in/tags/productivity/</link>
-      <pubDate>Sun, 16 Aug 2026 13:11:18 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/productivity/</guid>
       <description></description>
     </item>
     

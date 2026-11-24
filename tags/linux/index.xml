@@ -6,7 +6,16 @@
     <description>Recent content in linux on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tmux vs Zellij: Modern Terminal Multiplexers for Linux in 2026</title>
+      <link>https://anooptube.in/blog/post74/</link>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post74/</guid>
+      <description>I lost an eight-pane debugging session to a flaky VPN drop for the third time in a month, and that&amp;rsquo;s what finally got me to sit down and seriously compare tmux against Zellij instead of just grumbling and reattaching. I&amp;rsquo;ve run tmux for over a decade — muscle memory, a .tmux.conf I&amp;rsquo;ve been dragging between machines since 2014, plugins I half-remember installing. Zellij kept showing up in &amp;ldquo;modern CLI tools&amp;rdquo; roundups, so I spent two weeks running it as my daily driver instead of tmux, on the same servers, for the same work.</description>
+    </item>
+    
     <item>
       <title>Podman and Rootless Containers in 2026: The Docker Alternative Sysadmins Are Switching To</title>
       <link>https://anooptube.in/blog/post69/</link>
