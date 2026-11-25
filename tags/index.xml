@@ -6,7 +6,52 @@
     <description>Recent content in Tags on #anooptube</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>database</title>
+      <link>https://anooptube.in/tags/database/</link>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>high availability</title>
+      <link>https://anooptube.in/tags/high-availability/</link>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/high-availability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgres</title>
+      <link>https://anooptube.in/tags/postgres/</link>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/postgres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgresql</title>
+      <link>https://anooptube.in/tags/postgresql/</link>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>replication</title>
+      <link>https://anooptube.in/tags/replication/</link>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/tags/replication/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>linux</title>
       <link>https://anooptube.in/tags/linux/</link>
@@ -134,38 +179,11 @@
     </item>
     
     <item>
-      <title>database</title>
-      <link>https://anooptube.in/tags/database/</link>
-      <pubDate>Sat, 21 Nov 2026 09:00:00 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>performance</title>
       <link>https://anooptube.in/tags/performance/</link>
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0530</pubDate>
       
       <guid>https://anooptube.in/tags/performance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>postgres</title>
-      <link>https://anooptube.in/tags/postgres/</link>
-      <pubDate>Sat, 21 Nov 2026 09:00:00 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/postgres/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>postgresql</title>
-      <link>https://anooptube.in/tags/postgresql/</link>
-      <pubDate>Sat, 21 Nov 2026 09:00:00 +0530</pubDate>
-      
-      <guid>https://anooptube.in/tags/postgresql/</guid>
       <description></description>
     </item>
     

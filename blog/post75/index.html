@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="https://anooptube.in/favicon.svg">
+    <link rel="canonical" href="https://anooptube.in/blog/post75/" />
+
+    <title>PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies | #anooptube</title>
+
+    <script>
+     
+    try { if (localStorage.getItem('darkmode') !== 'light') document.documentElement.classList.add('dark'); }
+    catch (e) { document.documentElement.classList.add('dark'); }
+    </script><meta name="description" content="A practical guide to PostgreSQL high availability in 2026 — streaming replication, automated failover with Patroni, connection pooling with pgBouncer, and avoiding split-brain in production." />
+    <meta name="keywords" content="postgresql high availability 2026, patroni automated failover, pgbouncer connection pooling tutorial, postgresql streaming replication setup, postgres split brain prevention, patroni etcd cluster, pgbouncer transaction pooling mode, postgresql failover architecture, postgres ha vs manual failover, patroni vs repmgr, postgresql replication slots, production postgres cluster design" />
+    <meta name="author" content="ANOOP P" /><link rel="stylesheet" href="https://anooptube.in/css/styles.min.cbd5e7222b04ee6ec4b2adf221d658e42b8448faaeb693a28763b13501115360.css" integrity="sha256-y9XnIisE7m7Esq3yIdZY5CuESPqutpOih2OxNQERU2A=" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
+
+    
+    
+
+    <meta property="og:title" content="PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies" />
+<meta property="og:description" content="A practical guide to PostgreSQL high availability in 2026 — streaming replication, automated failover with Patroni, connection pooling with pgBouncer, and avoiding split-brain in production." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anooptube.in/blog/post75/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-11-25T09:00:00+05:30" />
+<meta property="article:modified_time" content="2026-11-25T09:00:00+05:30" />
+
+
+
+
+    
+
+    
+    <meta property="og:image" content="https://anooptube.in/thumbs/postgresql-ha.webp" />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies" />
+    <meta name="twitter:description" content="A practical guide to PostgreSQL high availability in 2026 — streaming replication, automated failover with Patroni, connection pooling with pgBouncer, and avoiding split-brain in production." />
+    <meta name="twitter:image" content="https://anooptube.in/thumbs/postgresql-ha.webp" />
+    <link rel="preload" as="image" href="/thumbs/postgresql-ha.webp" fetchpriority="high" />
+
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT7Q0CNLC2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CT7Q0CNLC2', { 'anonymize_ip': true });
+    </script>
+
+    
+    <script data-goatcounter="https://anooptube.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9749303862760552" crossorigin="anonymous"></script>
+
+    
+    <script>
+    (function () {
+      function scaleAd(container) {
+        var iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        var adW = parseInt(iframe.getAttribute('width') || iframe.offsetWidth || 728, 10);
+        var adH = parseInt(iframe.getAttribute('height') || iframe.offsetHeight || 90, 10);
+        var cW = container.offsetWidth;
+        if (cW > 0 && cW < adW) {
+          var ratio = cW / adW;
+          iframe.style.transform = 'scale(' + ratio + ')';
+          iframe.style.transformOrigin = 'left top';
+          container.style.height = Math.ceil(adH * ratio) + 'px';
+        } else {
+          iframe.style.transform = '';
+          container.style.height = '';
+        }
+      }
+
+      function initAdScaling() {
+        var containers = document.querySelectorAll('.ad-container');
+        if (!containers.length) return;
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                var iframe = node.tagName === 'IFRAME' ? node : node.querySelector('iframe');
+                if (iframe) scaleAd(iframe.closest('.ad-container') || iframe.parentElement);
+              }
+            });
+          });
+        });
+        containers.forEach(function (c) {
+          observer.observe(c, { childList: true, subtree: true });
+        });
+        window.addEventListener('resize', function () {
+          containers.forEach(scaleAd);
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initAdScaling);
+    })();
+    </script>
+
+</head><body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><div id="scroll-progress"></div>
+<header class="anooptube-sticky">
+    <div class="container flex max-w-6xl justify-between gap-4 flex-wrap px-6 py-4 mx-auto relative">
+        <a href="https://anooptube.in/" class="capitalize font-extrabold text-2xl flex items-center" aria-label="#anooptube home">
+            <img src="/logo.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-light" />
+            <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" class="max-w-full anooptube-logo logo-dark" />
+        </a>
+
+        <button class="mobile-menu-button md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="20" y2="16" />
+            </svg>
+        </button>
+
+        <ul id="mobile-menu" class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-7 bg-white dark:bg-gray-900">
+
+            
+            <li>
+                <a href="/"
+                  
+                  >
+                  Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="/blog"
+                  
+                  >
+                  Blogs
+                </a>
+            </li>
+            
+            <li>
+                <a href="/page/about/"
+                  
+                  >
+                  About
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://anooppandikashala.github.io/"
+                  target="_blank"
+                  rel="noopener">
+                  Portfolio
+                </a>
+            </li>
+            
+
+            
+
+
+            <li class="grid place-items-center">
+                <a href="/blog/?q=" class="header-search-btn" aria-label="Search articles">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+                    <span class="md:hidden">Search</span>
+                </a>
+            </li>
+            
+            <li class="grid place-items-center">
+                <button class="toggle-dark-mode cursor-pointer opacity-60 hover:opacity-100 transition-opacity bg-transparent border-0 p-0 leading-none" id="anooptube-dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                </button>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<main class="flex-1">   
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="col-span-3">
+
+        <article class="prose lg:prose-lg anooptube-bg mx-auto my-8 dark:prose-dark px-2 md:px-4"><nav class="post-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/blog">Blog</a>
+    
+    
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <a href="/playlists/postgresql/">PostgreSQL</a>
+    
+    <span class="post-breadcrumbs-sep" aria-hidden="true">›</span>
+    <span class="post-breadcrumbs-current" title="PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies">PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://anooptube.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://anooptube.in/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PostgreSQL",
+      "item": "https://anooptube.in/playlists/postgresql/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies",
+      "item": "https://anooptube.in/blog/post75/"
+    }
+    
+  ]
+}
+</script>
+<h1 class="post-title">PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies</h1>
+                <p class="post-lead">A practical guide to PostgreSQL high availability in 2026 — streaming replication, automated failover with Patroni, connection pooling with pgBouncer, and avoiding split-brain in production.</p>
+                
+                <div class="post-meta-strip">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <line x1="16" y1="3" x2="16" y2="7"/>
+                            <line x1="8" y1="3" x2="8" y2="7"/>
+                            <line x1="4" y1="11" x2="20" y2="11"/>
+                        </svg>
+                        
+  
+    November 25, 2026
+  
+
+
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/>
+                            <line x1="3" y1="6" x2="3" y2="19"/>
+                            <line x1="12" y1="6" x2="12" y2="19"/>
+                            <line x1="21" y1="6" x2="21" y2="19"/>
+                        </svg>
+                        2133 words
+                    </span>
+                    
+                    <span class="flex items-center gap-1" id="post-view-count" style="display:none!important">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/>
+                        </svg>
+                        <span id="post-view-count-text"></span>
+                    </span>
+                    <script>
+                    (window.requestIdleCallback || function(fn){ setTimeout(fn, 200); })(function () {
+                        fetch('https://anooptube.goatcounter.com/counter/' + encodeURIComponent(window.location.pathname) + '.json')
+                            .then(function (r) { return r.ok ? r.json() : null; })
+                            .then(function (d) {
+                                if (d && parseInt(d.count, 10) > 0) {
+                                    document.getElementById('post-view-count-text').textContent = d.count + ' views';
+                                    document.getElementById('post-view-count').style.removeProperty('display');
+                                }
+                            })
+                            .catch(function () {});
+                    });
+                    </script>
+                    
+                      
+                </div>
+                
+                
+                <figure class="post-hero">
+                    <img src="/thumbs/postgresql-ha.webp" alt="PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies" fetchpriority="high" decoding="async" width="1536" height="1024" />
+                </figure>
+                
+                <div id="ad-post-top" class="ad-container"></div>
+                <script>
+                window.addEventListener('load', function () {
+                    window.atOptions = {
+                        'key': '502480a173cea121c3fa59819e26fc88',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = '//www.highperformanceformat.com/502480a173cea121c3fa59819e26fc88/invoke.js';
+                    document.getElementById('ad-post-top').appendChild(s);
+                });
+                </script>
+
+  
+  
+  
+  
+    
+    
+
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    <div class="series-nav" role="navigation" aria-label="Series navigation">
+      
+      <details class="series-nav-details" open>
+        <summary class="series-nav-summary">
+          <span class="series-nav-summary-left">
+            <svg class="series-nav-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span class="series-nav-title">PostgreSQL</span>
+          </span>
+          <span class="series-nav-badge">4 / 4</span>
+        </summary>
+
+        <ol class="series-nav-list">
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post43/" class="series-nav-link">
+                <span class="series-nav-num">1</span>
+                <span class="series-nav-name">PostgreSQL CRUD App with Python &amp; Neon</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post61/" class="series-nav-link">
+                <span class="series-nav-num">2</span>
+                <span class="series-nav-name">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item">
+              
+              <a href="https://anooptube.in/blog/post71/" class="series-nav-link">
+                <span class="series-nav-num">3</span>
+                <span class="series-nav-name">PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</span>
+              </a>
+              
+            </li>
+          
+            
+            <li class="series-nav-item series-nav-item--active">
+              
+              <span class="series-nav-link series-nav-link--active" aria-current="page">
+                <span class="series-nav-num">4</span>
+                <span class="series-nav-name">PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies</span>
+                <span class="series-nav-here">← here</span>
+              </span>
+              
+            </li>
+          
+        </ol>
+
+        <a href="https://anooptube.in/playlists/postgresql/" class="series-nav-footer-link">
+          View all in "PostgreSQL" →
+        </a>
+
+      </details>
+    </div>
+
+    <script>
+    (function () {
+      var details = document.querySelector('.series-nav-details');
+      if (!details) return;
+      function scrollActive() {
+        var active = details.querySelector('.series-nav-item--active');
+        var list   = details.querySelector('.series-nav-list');
+        if (!active || !list) return;
+        var itemTop    = active.offsetTop;
+        var listHeight = list.clientHeight;
+        list.scrollTop = itemTop - listHeight / 2 + active.clientHeight / 2;
+      }
+      if (details.open) {
+        scrollActive();
+      } else {
+        details.addEventListener('toggle', function () {
+          if (details.open) scrollActive();
+        }, { once: true });
+      }
+    })();
+    </script>
+  
+
+
+
+                <details class="toc-mobile lg:hidden">
+                    <summary>On this page</summary>
+                    <nav >
+  <ul>
+    <li><a href="#why-postgresql-high-availability-is-harder-than-it-looks">Why PostgreSQL High Availability Is Harder Than It Looks</a></li>
+    <li><a href="#postgresql-streaming-replication-setup-the-foundation">PostgreSQL Streaming Replication Setup: The Foundation</a></li>
+    <li><a href="#patroni-automated-failover-without-the-3-am-manual-promotion">Patroni: Automated Failover Without the 3 AM Manual Promotion</a></li>
+    <li><a href="#pgbouncer-connection-pooling-that-also-solves-failover-routing">pgBouncer: Connection Pooling That Also Solves Failover Routing</a></li>
+    <li><a href="#putting-it-together-a-real-postgresql-ha-architecture-in-2026">Putting It Together: A Real PostgreSQL HA Architecture in 2026</a></li>
+    <li><a href="#common-gotchas-in-production-postgresql-ha">Common Gotchas in Production PostgreSQL HA</a></li>
+    <li><a href="#faq-postgresql-high-availability">FAQ: PostgreSQL High Availability</a></li>
+  </ul>
+</nav>
+                </details>
+                
+                <p>The first time a primary Postgres database went down on my watch, I had a runbook, a pager alert, and eleven minutes of downtime while I manually promoted a replica and rewired connection strings by hand. That was fine for a side project. It is not fine for anything that makes money while it&rsquo;s asleep. The gap between &ldquo;we have a replica&rdquo; and &ldquo;we have high availability&rdquo; is the entire subject of this post — and it&rsquo;s a bigger gap than most teams realize until the primary actually falls over at 3 AM.</p>
+<p>High availability in Postgres isn&rsquo;t one feature you turn on. It&rsquo;s three separate problems stacked on top of each other: getting data copied to a standby in real time, deciding automatically and correctly when to promote that standby, and making sure application traffic finds the new primary without anyone touching a config file. In 2026, the default answer to all three is streaming replication, Patroni, and pgBouncer — and this post walks through why, and how they fit together.</p>
+<h2 id="why-postgresql-high-availability-is-harder-than-it-looks">Why PostgreSQL High Availability Is Harder Than It Looks</h2>
+<p>Postgres doesn&rsquo;t ship a built-in HA controller. Unlike some databases with a cluster manager baked into the core, vanilla Postgres gives you the primitives — streaming replication, WAL shipping, synchronous commit — and leaves failover orchestration entirely up to you. That&rsquo;s a deliberate design choice: failover is a distributed systems problem, and getting it wrong is worse than not having it at all.</p>
+<p>Here&rsquo;s the failure mode that catches people: a naive HA setup where two nodes each think they should be primary. Both accept writes. Both diverge. By the time someone notices, you have two conflicting histories of your data and no clean way to merge them. This is <strong>split-brain</strong>, and it&rsquo;s the reason &ldquo;just add a replica and promote it when the primary dies&rdquo; is not a high availability strategy — it&rsquo;s a data corruption strategy with extra steps.</p>
+<p>A real PostgreSQL HA architecture in 2026 has to answer three questions correctly, every time, even under network partitions:</p>
+<ol>
+<li><strong>Is the primary actually down, or can I just not reach it?</strong> (the hardest question — see split-brain below)</li>
+<li><strong>Which replica is most caught up, and safe to promote?</strong></li>
+<li><strong>How does the application find the new primary within seconds, not minutes?</strong></li>
+</ol>
+<p>Streaming replication answers the &ldquo;getting data there&rdquo; part. Patroni answers questions 1 and 2. pgBouncer, combined with Patroni&rsquo;s routing, answers question 3.</p>
+<p><img src="/blogs-images/postgresql-ha-architecture-diagram.webp" alt="PostgreSQL high availability architecture diagram showing primary, replicas, Patroni, etcd, and pgBouncer"></p>
+<h2 id="postgresql-streaming-replication-setup-the-foundation">PostgreSQL Streaming Replication Setup: The Foundation</h2>
+<p>Everything in a PostgreSQL HA cluster sits on top of streaming replication, so it&rsquo;s worth being precise about what it actually does. A replica connects to the primary&rsquo;s WAL (write-ahead log) stream and applies each record as it arrives, keeping a near-real-time copy of the database. The two modes you&rsquo;ll choose between:</p>
+<p><strong>Asynchronous replication</strong> (the default) — the primary commits a transaction and returns success to the client without waiting for any replica to confirm receipt. Fast, but a crash right after commit can lose the last few transactions that hadn&rsquo;t shipped yet.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6272a4">-- On the primary, postgresql.conf
+</span><span style="color:#6272a4"></span>wal_level <span style="color:#ff79c6">=</span> replica
+max_wal_senders <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>
+max_replication_slots <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>
+</code></pre></div><p><strong>Synchronous replication</strong> — the primary waits for at least one replica to confirm the WAL record is durably received before returning success to the client. Zero data loss on failover, at the cost of added commit latency.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6272a4">-- On the primary
+</span><span style="color:#6272a4"></span>synchronous_standby_names <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;ANY 1 (replica1, replica2)&#39;</span>
+synchronous_commit <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">on</span>
+</code></pre></div><p><code>ANY 1 (...)</code> (Postgres&rsquo;s quorum-based synchronous replication) means any one of the named standbys acknowledging is enough — so a single slow replica doesn&rsquo;t stall every write, but you still get a durability guarantee. This is the setting most production HA clusters land on: full synchronous-to-all is too slow, pure async is too risky for financial or transactional data.</p>
+<p><strong>Replication slots</strong> are the other piece worth understanding. A slot tells the primary &ldquo;don&rsquo;t recycle WAL segments this replica still needs,&rdquo; which prevents a lagging or briefly disconnected replica from becoming permanently unrecoverable. Without slots, a replica that falls behind during a network blip might find the WAL it needs has already been deleted, forcing a full resync from scratch — exactly the kind of surprise you don&rsquo;t want during an incident.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#ff79c6">SELECT</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">FROM</span> pg_create_physical_replication_slot(<span style="color:#f1fa8c">&#39;replica1_slot&#39;</span>);
+</code></pre></div><p>The trade-off: slots also mean a replica that&rsquo;s <em>permanently</em> gone (not just lagging) will cause WAL to pile up on the primary indefinitely, eating disk. Monitoring slot lag is non-negotiable once you&rsquo;re running slots in production.</p>
+<h2 id="patroni-automated-failover-without-the-3-am-manual-promotion">Patroni: Automated Failover Without the 3 AM Manual Promotion</h2>
+<p>Streaming replication gets data to your standbys. It does nothing about deciding <em>when</em> to promote one, or making sure two nodes don&rsquo;t both decide they&rsquo;re primary at once. That&rsquo;s Patroni&rsquo;s job.</p>
+<p>Patroni is a Python-based cluster manager that wraps each Postgres node, continuously checks its health, and coordinates leader election through a separate consensus store — typically <strong>etcd</strong>, though Consul and ZooKeeper are also supported. The consensus store is the actual source of truth for &ldquo;who is primary,&rdquo; and this is the detail that makes Patroni safe where naive scripts aren&rsquo;t: Postgres nodes don&rsquo;t get to unilaterally decide they&rsquo;re the leader. They have to win a lease from etcd first.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#6272a4"># patroni.yml (abbreviated)</span>
+<span style="color:#ff79c6">scope</span>: postgres-cluster
+<span style="color:#ff79c6">name</span>: node1
+
+<span style="color:#ff79c6">etcd3</span>:
+  <span style="color:#ff79c6">hosts</span>: <span style="color:#bd93f9">10.0.1.10</span>:<span style="color:#bd93f9">2379</span>,<span style="color:#bd93f9">10.0.1.11</span>:<span style="color:#bd93f9">2379</span>,<span style="color:#bd93f9">10.0.1.12</span>:<span style="color:#bd93f9">2379</span>
+
+<span style="color:#ff79c6">postgresql</span>:
+  <span style="color:#ff79c6">listen</span>: <span style="color:#bd93f9">10.0.1.10</span>:<span style="color:#bd93f9">5432</span>
+  <span style="color:#ff79c6">data_dir</span>: /var/lib/postgresql/16/main
+  <span style="color:#ff79c6">parameters</span>:
+    <span style="color:#ff79c6">synchronous_commit</span>: <span style="color:#f1fa8c">&#34;on&#34;</span>
+    <span style="color:#ff79c6">synchronous_standby_names</span>: <span style="color:#f1fa8c">&#34;ANY 1 (*)&#34;</span>
+
+<span style="color:#ff79c6">bootstrap</span>:
+  <span style="color:#ff79c6">dcs</span>:
+    <span style="color:#ff79c6">ttl</span>: <span style="color:#bd93f9">30</span>
+    <span style="color:#ff79c6">loop_wait</span>: <span style="color:#bd93f9">10</span>
+    <span style="color:#ff79c6">retry_timeout</span>: <span style="color:#bd93f9">10</span>
+    <span style="color:#ff79c6">maximum_lag_on_failover</span>: <span style="color:#bd93f9">1048576</span>
+</code></pre></div><p>The mechanics: each Postgres node runs a Patroni agent that holds a <strong>leader lease</strong> in etcd with a short TTL (30 seconds in the example above). The current primary renews that lease continuously. If the primary crashes, hangs, or gets network-partitioned away from etcd, the lease expires, and the remaining Patroni agents run a leader election among the replicas that are eligible — meaning within <code>maximum_lag_on_failover</code> bytes of the old primary&rsquo;s WAL position.</p>
+<p>This is how Patroni avoids split-brain: because leadership is decided by <em>quorum consensus in etcd</em>, not by each node&rsquo;s local view of the world, a partitioned old primary can&rsquo;t keep believing it&rsquo;s still in charge. If it can&rsquo;t reach a majority of the etcd cluster, Patroni demotes it automatically — it fences itself rather than risk conflicting writes. This is the same core idea as Raft or Paxos leader election, just applied specifically to Postgres failover.</p>
+<p>A few operational details that matter in practice:</p>
+<ul>
+<li><strong>Run etcd with an odd number of nodes (3 or 5)</strong>, never 2 — even-numbered clusters can&rsquo;t break ties during a partition, which defeats the whole point.</li>
+<li><strong><code>maximum_lag_on_failover</code></strong> stops Patroni from promoting a replica that&rsquo;s dangerously far behind — better a slightly longer outage than promoting a replica missing thousands of transactions.</li>
+<li>Patroni also exposes a REST API (<code>GET /master</code>, <code>GET /replica</code>) that health checks and load balancers can poll directly, which matters for the pgBouncer piece next.</li>
+</ul>
+<p><strong>Patroni vs repmgr</strong>, the other common option: repmgr is simpler and doesn&rsquo;t require a separate consensus store, but that simplicity is exactly the problem — without an external quorum mechanism, repmgr is more exposed to split-brain during network partitions unless you layer in fencing yourself. Most teams building new HA clusters in 2026 reach for Patroni specifically because etcd-backed consensus is a solved, well-tested problem, and repmgr&rsquo;s operator has to solve more of that themselves.</p>
+<h2 id="pgbouncer-connection-pooling-that-also-solves-failover-routing">pgBouncer: Connection Pooling That Also Solves Failover Routing</h2>
+<p>Here&rsquo;s the part people underestimate: even a flawless Patroni failover is useless if your application is still holding connections open to the now-demoted old primary, or if every one of your app servers needs its own logic for &ldquo;who&rsquo;s the primary right now.&rdquo;</p>
+<p>pgBouncer solves two problems at once here.</p>
+<p><strong>Problem one: Postgres connections are expensive.</strong> Each Postgres connection is a full OS process with its own memory overhead — commonly cited around 5-10MB per idle connection, and that adds up fast with modern app frameworks that open dozens of connections per instance. pgBouncer sits in front of Postgres and multiplexes many client connections onto a much smaller pool of actual database connections.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#6272a4"># pgbouncer.ini</span>
+<span style="color:#ff79c6">[databases]</span>
+<span style="color:#50fa7b">mydb</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">host=127.0.0.1 port=5432 dbname=mydb</span>
+
+<span style="color:#ff79c6">[pgbouncer]</span>
+<span style="color:#50fa7b">listen_port</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">6432</span>
+<span style="color:#50fa7b">pool_mode</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">transaction</span>
+<span style="color:#50fa7b">max_client_conn</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">1000</span>
+<span style="color:#50fa7b">default_pool_size</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">25</span>
+</code></pre></div><p><strong><code>pool_mode = transaction</code></strong> is the setting that matters most for real workloads — a backend connection is only assigned to a client for the duration of a single transaction, then returned to the pool. This gets you far higher effective concurrency than <code>session</code> mode, with the caveat that session-level features (prepared statements across transactions, <code>SET</code> outside a transaction, advisory locks held across transactions) don&rsquo;t work the same way and need auditing before you switch.</p>
+<p><strong>Problem two: routing writes to whoever is currently primary.</strong> In an HA cluster, &ldquo;primary&rdquo; is a moving target. The common pattern is to run pgBouncer (or a lightweight layer like HAProxy in front of it) configured against Patroni&rsquo;s REST health-check endpoints, so traffic automatically follows the elected leader:</p>
+<pre tabindex="0"><code># HAProxy health check against Patroni's REST API
+backend postgres_primary
+    option httpchk GET /master
+    server node1 10.0.1.10:5432 check port 8008
+    server node2 10.0.1.11:5432 check port 8008
+    server node3 10.0.1.12:5432 check port 8008
+</code></pre><p>Patroni&rsquo;s <code>/master</code> endpoint returns 200 only from the current leader and a non-200 from replicas, so the load balancer naturally drains traffic away from a demoted node within a couple of health-check intervals — no application code changes, no manual DNS updates, no connection string edits at 3 AM.</p>
+<p><img src="/blogs-images/pgbouncer-connection-pooling-flow.webp" alt="pgBouncer connection pooling flow between application servers and PostgreSQL primary and replicas"></p>
+<h2 id="putting-it-together-a-real-postgresql-ha-architecture-in-2026">Putting It Together: A Real PostgreSQL HA Architecture in 2026</h2>
+<p>A typical production setup looks like this:</p>
+<ul>
+<li><strong>3 Postgres nodes</strong> (1 primary + 2 replicas), synchronous replication with <code>ANY 1</code> quorum</li>
+<li><strong>3-node etcd cluster</strong> for Patroni&rsquo;s consensus store (can colocate with the Postgres nodes or run separately)</li>
+<li><strong>Patroni</strong> on each Postgres node, managing local Postgres and reporting health to etcd</li>
+<li><strong>HAProxy or pgBouncer</strong> in front, routing writes to the current leader via Patroni&rsquo;s REST API and (optionally) load-balancing reads across replicas</li>
+<li><strong>Replication slots</strong> on the primary, monitored for lag so a stuck replica doesn&rsquo;t silently pile up WAL</li>
+</ul>
+<p>This gives you: automatic failover in the time it takes a lease to expire plus an election (typically 10-30 seconds with the config above), zero-data-loss on failover if you&rsquo;re running synchronous commit, and application servers that never need to know or care which node is currently primary.</p>
+<h2 id="common-gotchas-in-production-postgresql-ha">Common Gotchas in Production PostgreSQL HA</h2>
+<p><strong>Fencing the old primary.</strong> Even with etcd-backed leader election, a &ldquo;zombie&rdquo; old primary that comes back online after a partition heals needs to be forced to rejoin as a replica, not attempt to serve traffic. Patroni handles this automatically by checking the DCS on recovery, but it&rsquo;s worth testing explicitly — pull the network cable on your primary in staging and watch what happens when it reconnects.</p>
+<p><strong>Synchronous replication and availability trade-offs.</strong> <code>synchronous_standby_names = 'ANY 1 (*)'</code> means writes block if <em>no</em> replica is reachable — which trades a small availability hit for a strong durability guarantee. Decide deliberately whether your workload wants &ldquo;never lose a committed write&rdquo; or &ldquo;never block writes,&rdquo; because you cannot fully have both.</p>
+<p><strong>pgBouncer and long-lived session state.</strong> If your application relies on session-level Postgres features, <code>transaction</code> pooling mode will break in subtle, hard-to-reproduce ways. Test this explicitly before flipping the switch in production, not after.</p>
+<p><strong>Monitoring replication lag, not just replica existence.</strong> A replica that&rsquo;s technically &ldquo;up&rdquo; but seconds or minutes behind is a landmine for <code>maximum_lag_on_failover</code> — and worse, if promoted anyway, means real data loss. Alert on lag in bytes and in time, not just on the replica process being alive.</p>
+<h2 id="faq-postgresql-high-availability">FAQ: PostgreSQL High Availability</h2>
+<p><strong>Do I need Patroni if I already have replicas?</strong> Replicas alone give you a manual disaster recovery option, not high availability. Without an automated, consensus-based failover mechanism, promoting a replica is a manual, error-prone, and slow process — exactly what HA is meant to eliminate.</p>
+<p><strong>Is pgBouncer required, or just recommended?</strong> It&rsquo;s not strictly required — you can point applications directly at Postgres — but without it you lose connection pooling (a real cost at scale) and you need some other mechanism for routing traffic to the current primary after failover.</p>
+<p><strong>Can I run Patroni without etcd?</strong> Patroni supports etcd, Consul, ZooKeeper, and even a Kubernetes-native DCS. You need <em>some</em> external consensus store; Patroni doesn&rsquo;t do leader election on its own without one.</p>
+<p><strong>What&rsquo;s a realistic failover time?</strong> With the TTL and loop settings shown above, expect 10-30 seconds from primary failure to a new leader being elected and serving traffic. Tuning <code>ttl</code> and <code>loop_wait</code> lower speeds this up but increases the risk of false-positive failovers during transient network hiccups — there&rsquo;s a real trade-off here, not a free lunch.</p>
+<p>High availability in Postgres has quietly become a solved problem — not because Postgres grew a built-in cluster manager, but because Patroni, etcd, and pgBouncer compose cleanly into something that behaves like one. The pieces are boring, well-understood, and battle-tested, which is exactly what you want from anything holding your database up while you&rsquo;re asleep.</p>
+<div class="post-share-strip">
+    <span class="post-share-label">Share</span>
+
+    
+    <button id="post-copy-btn" class="post-share-btn" onclick="postCopyLink(this)" title="Copy link to clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 13a5 5 0 0 0 7.54 .54l3 -3a5 5 0 0 0 -7.07 -7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0 -7.54 -.54l-3 3a5 5 0 0 0 7.07 7.07l1.71 -1.71"/>
+        </svg>
+        <span id="post-copy-label">Copy link</span>
+    </button>
+
+    
+    <a href="https://twitter.com/intent/tweet?text=PostgreSQL&#43;High&#43;Availability&#43;in&#43;2026%3A&#43;Patroni%2C&#43;pgBouncer%2C&#43;and&#43;Replication&#43;Strategies&url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost75%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on X / Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X / Twitter
+    </a>
+
+    
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fanooptube.in%2Fblog%2Fpost75%2F"
+       target="_blank" rel="noopener" class="post-share-btn" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
+
+<script>
+function postCopyLink(btn) {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        var label = document.getElementById('post-copy-label');
+        btn.classList.add('share-copied');
+        label.textContent = 'Copied!';
+        setTimeout(function () {
+            btn.classList.remove('share-copied');
+            label.textContent = 'Copy link';
+        }, 2000);
+    });
+}
+</script>
+
+
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+        
+            
+            
+                
+            
+            
+        
+
+        
+        <div class="post-nav">
+
+            
+            <a href="/blog/post71/" class="post-nav-link">
+                <span class="post-nav-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="19" y1="12" x2="5" y2="12"/>
+                        <polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Previous
+                </span>
+                <span class="post-nav-playlist">PostgreSQL</span>
+                <span class="post-nav-title">PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</span>
+            </a>
+            
+
+            
+
+        </div>
+        
+    
+
+</article>
+
+
+    </div>
+
+    
+    <div class="hidden lg:block lg:col-span-1">
+
+        
+        <div class="toc-widget">
+            <div class="toc-widget-header">
+                <span class="toc-widget-title anooptube-blogtitle-fontFamily-Michroma">Contents</span>
+                <div class="toc-widget-line"></div>
+            </div>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-postgresql-high-availability-is-harder-than-it-looks">Why PostgreSQL High Availability Is Harder Than It Looks</a></li>
+    <li><a href="#postgresql-streaming-replication-setup-the-foundation">PostgreSQL Streaming Replication Setup: The Foundation</a></li>
+    <li><a href="#patroni-automated-failover-without-the-3-am-manual-promotion">Patroni: Automated Failover Without the 3 AM Manual Promotion</a></li>
+    <li><a href="#pgbouncer-connection-pooling-that-also-solves-failover-routing">pgBouncer: Connection Pooling That Also Solves Failover Routing</a></li>
+    <li><a href="#putting-it-together-a-real-postgresql-ha-architecture-in-2026">Putting It Together: A Real PostgreSQL HA Architecture in 2026</a></li>
+    <li><a href="#common-gotchas-in-production-postgresql-ha">Common Gotchas in Production PostgreSQL HA</a></li>
+    <li><a href="#faq-postgresql-high-availability">FAQ: PostgreSQL High Availability</a></li>
+  </ul>
+</nav>
+        </div>
+        
+
+        
+        
+                
+                
+
+<div class="recent-widget">
+
+    <div class="recent-widget-header">
+        <span class="recent-widget-title anooptube-blogtitle-fontFamily-Michroma">Recent Posts</span>
+        <div class="recent-widget-line"></div>
+    </div>
+    <a href="/blog/post75/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/postgresql-ha.webp" alt="PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 25, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post74/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/tmux-zellij.webp" alt="tmux vs Zellij: Modern Terminal Multiplexers for Linux in 2026" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">tmux vs Zellij: Modern Terminal Multiplexers for Linux in 2026</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 24, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post73/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/python-asyncio.webp" alt="Python asyncio in 2026: A Practical Guide to Async/Await" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Python asyncio in 2026: A Practical Guide to Async/Await</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 23, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post72/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/cpp-memory-management.webp" alt="Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">Modern C&#43;&#43; Memory Management in 2026: unique_ptr, shared_ptr, and When You Still Need Raw Pointers</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 22, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+    <a href="/blog/post71/" class="recent-post-item">
+
+        
+        <img class="recent-post-thumb" src="/thumbs/postgresql-indexing.webp" alt="PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash" loading="lazy" />
+        
+
+        <div class="recent-post-info">
+            <div class="recent-post-title">PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</div>
+            <div class="recent-post-date">
+                
+  
+    Nov 21, 26
+  
+
+
+            </div>
+        </div>
+
+    </a>
+
+</div>
+
+<div class="ad-container">
+<script type="text/javascript">
+    atOptions = {
+        'key' : '7bcf1a30bafb5e9c097af1c911fd1119',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+    };
+</script>
+<script async type="text/javascript" src="//www.highperformanceformat.com/7bcf1a30bafb5e9c097af1c911fd1119/invoke.js"></script>
+</div>
+
+            
+        
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var tocLinks = document.querySelectorAll('.toc-widget #TableOfContents a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    tocLinks.forEach(function (link) {
+        var id = decodeURIComponent(link.getAttribute('href').substring(1));
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+    });
+    if (!headings.length) return;
+
+    var activeLink = null;
+    function setActive(link) {
+        if (activeLink === link) return;
+        if (activeLink) activeLink.classList.remove('toc-active');
+        activeLink = link;
+        if (activeLink) {
+            activeLink.classList.add('toc-active');
+            
+            var widget = document.querySelector('.toc-widget');
+            if (widget) {
+                var linkTop = activeLink.offsetTop;
+                var widgetScroll = widget.scrollTop;
+                var widgetHeight = widget.clientHeight;
+                if (linkTop < widgetScroll + 48 || linkTop > widgetScroll + widgetHeight - 48) {
+                    widget.scrollTo({ top: linkTop - widgetHeight / 2, behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    
+    setActive(headings[0].link);
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var found = headings.find(function (h) { return h.el === entry.target; });
+                if (found) setActive(found.link);
+            }
+        });
+    }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+
+    headings.forEach(function (h) { observer.observe(h.el); });
+})();
+</script>
+
+
+
+
+
+<div class="container px-4 md:px-6 mx-auto max-w-6xl py-10">
+
+    <div class="section-header mb-6">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 anooptube-blogtitle-fontFamily-Michroma anooptube-letter-spacing-for-michroma whitespace-nowrap">Keep reading</h2>
+        <div class="section-header-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post71/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/postgresql-indexing.webp" alt="PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash" loading="lazy" decoding="async" width="1536" height="1024" />
+        
+        <span class="card-date-badge">
+            
+  
+    Nov 21, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/postgresql/" class="card-tag">postgresql</a>
+            
+            <a href="/tags/postgres/" class="card-tag">postgres</a>
+            
+            <a href="/tags/database/" class="card-tag">database</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post71/" class="card-content-link">
+            <h3 class="card-title">PostgreSQL Indexing Strategies in 2026: B-tree vs GIN vs BRIN vs Hash</h3>
+
+            
+            <div class="card-desc">A practical guide to PostgreSQL index types in 2026 — when to reach for B-tree, GIN, GiST, BRIN, or Hash, with real query examples and EXPLAIN ANALYZE output.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        11 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post61/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/pg18-pgvector.webp" alt="PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026" loading="lazy" decoding="async" width="1536" height="1024" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 19, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/postgresql/" class="card-tag">postgresql</a>
+            
+            <a href="/tags/postgres/" class="card-tag">postgres</a>
+            
+            <a href="/tags/pgvector/" class="card-tag">pgvector</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post61/" class="card-content-link">
+            <h3 class="card-title">PostgreSQL 18 and pgvector: Building AI-Native Applications on Postgres in 2026</h3>
+
+            
+            <div class="card-desc">How PostgreSQL 18&#39;s async I/O and pgvector&#39;s latest features turn Postgres into a real production vector database for RAG and AI apps in 2026.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        10 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post43/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/postgresql_crud.webp" alt="PostgreSQL CRUD App with Python &amp; Neon" loading="lazy" decoding="async" width="1280" height="720" />
+        
+        <span class="card-date-badge">
+            
+  
+    Dec 29, 25
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/python/" class="card-tag">python</a>
+            
+            <a href="/tags/postgres/" class="card-tag">postgres</a>
+            
+            <a href="/tags/postgresql/" class="card-tag">postgresql</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post43/" class="card-content-link">
+            <h3 class="card-title">PostgreSQL CRUD App with Python &amp; Neon</h3>
+
+            
+            <div class="card-desc">PostgreSQL CRUD App with Python &amp; Neon | Build a Clean Backend (No Local DB!)</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        4 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+<article class="blog-card">
+
+    
+    <a href="https://anooptube.in/blog/post52/" class="card-img-wrap" style="text-decoration:none;display:block;">
+        <img src="/thumbs/linux_kernal.webp" alt="Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened" loading="lazy" decoding="async" width="1536" height="1024" />
+        
+        <span class="card-date-badge">
+            
+  
+    Aug 16, 26
+  
+
+
+        </span>
+        
+    </a>
+    
+
+    <div class="card-body">
+
+        
+        <div class="card-tags">
+            
+            <a href="/tags/linux/" class="card-tag">linux</a>
+            
+            <a href="/tags/postgresql/" class="card-tag">postgresql</a>
+            
+            <a href="/tags/performance/" class="card-tag">performance</a>
+            
+        </div>
+        
+
+        <a href="https://anooptube.in/blog/post52/" class="card-content-link">
+            <h3 class="card-title">Linux Kernel 7.0 Didn&#39;t Halve PostgreSQL Throughput — Here&#39;s What Actually Happened</h3>
+
+            
+            <div class="card-desc">Linux Kernel 7.0 shipped a stable Rust implementation in April 2026, then a viral claim said it halved PostgreSQL throughput. Here&#39;s what the benchmarks actually show.</div>
+            
+
+            <div class="card-footer">
+                <span class="flex items-center gap-1.5 flex-wrap">
+                    
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 15"/>
+                        </svg>
+                        13 min read
+                    </span>
+                </span>
+                <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+
+      
+
+</article>
+
+    </div>
+
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "inLanguage": "en-us",
+  "wordCount":  2133 ,
+  "keywords": "postgresql, postgres, database, high availability, replication",
+  "articleSection": "PostgreSQL",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anooptube.in/blog/post75/"
+  },
+  "headline": "PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies",
+  "description": "A practical guide to PostgreSQL high availability in 2026 — streaming replication, automated failover with Patroni, connection pooling with pgBouncer, and avoiding split-brain in production.",
+  "datePublished": "2026-11-25T09:00:00\u002b05:30",
+  "dateModified": "2026-11-25T09:00:00\u002b05:30",
+  "author": {
+    "@type": "Person",
+    "@id": "https://anooptube.in/#person",
+    "name": "ANOOP P",
+    "url": "https://anooptube.in/page/about/",
+    "sameAs": [
+      "https://www.youtube.com/anooptube",
+      "https://github.com/Anooppandikashala",
+      "https://www.linkedin.com/in/anooppandikashala/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "#anooptube",
+    "url": "https://anooptube.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anooptube.in/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://anooptube.in/thumbs/postgresql-ha.webp",
+    "width":  1536 ,
+    "height":  1024 
+  },
+  "url": "https://anooptube.in/blog/post75/"
+}
+</script>
+
+
+
+
+    </main>
+<footer class="site-footer mt-12">
+    <div class="container mx-auto max-w-6xl px-6 pt-12 pb-8 grid gap-10 md:grid-cols-4">
+        <div class="md:col-span-2">
+            <a href="https://anooptube.in/" class="inline-block mb-3" aria-label="#anooptube home">
+                <img src="/logo.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-light" />
+                <img src="/logo_dark.webp" alt="#anooptube" width="691" height="160" loading="lazy" class="footer-logo logo-dark" />
+            </a>
+            <p class="footer-blurb">Practical programming tutorials on C&#43;&#43;, Python, Flutter, Android, Linux, PostgreSQL, Rust and software design, with free video lessons on YouTube.</p>
+            <ul class="footer-social">
+                <li><a href="https://www.youtube.com/anooptube" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a></li>
+                <li><a href="https://github.com/Anooppandikashala" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a></li>
+                <li><a href="https://www.linkedin.com/in/anooppandikashala/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a></li>
+                <li><a href="https://www.instagram.com/anoop_p_krishnan/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+                <li><a href="https://anooppandikashala.github.io/anoop/" target="_blank" rel="noopener" aria-label="Portfolio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></a></li>
+                <li><a href="https://www.buymeacoffee.com/anoopp" target="_blank" rel="noopener" aria-label="Buy me a coffee"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></a></li>
+            </ul>
+        </div>
+        <nav aria-label="Topics">
+            <h2 class="footer-head">Topics</h2>
+            <ul class="footer-links">
+                
+                <li><a href="/playlists/basics-of-cpp-development/">Basics of CPP Development</a></li>
+                
+                <li><a href="/playlists/linux/">Linux</a></li>
+                
+                <li><a href="/playlists/python/">Python</a></li>
+                
+                <li><a href="/playlists/flutter/">Flutter</a></li>
+                
+                <li><a href="/playlists/android/">Android</a></li>
+                
+                <li><a href="/playlists/postgresql/">PostgreSQL</a></li>
+                
+                <li><a href="/playlists/design-patterns/">Design Patterns</a></li>
+                
+            </ul>
+        </nav>
+        <nav aria-label="Site">
+            <h2 class="footer-head">Site</h2>
+            <ul class="footer-links">
+                <li><a href="/blog/">All articles</a></li>
+                <li><a href="/tags/">Tags</a></li>
+                <li><a href="/page/about/#projects">Projects</a></li>
+                <li><a href="/page/about/">About</a></li>
+                <li><a href="https://anooptube.in/privacy/">Privacy Policy</a></li>
+                <li><a href="/index.xml">RSS feed</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <div class="container mx-auto max-w-6xl px-6 py-5 text-sm">
+            Copyright © 2026 - #anooptube · All rights reserved
+        </div>
+    </div>
+</footer>
+
+<div class="search-ui absolute top-4 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <button class="p-2 absolute right-0 top-0 cursor-pointer close-search bg-transparent border-0" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <label for="search-query" class="sr-only">Search posts</label>
+    <input id="search-query" type="search" class="py-2 px-3 w-full anooptube-corner-rad dark:text-black border dark:border-transparent"
+      placeholder="Enter search query" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">Results</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>
+  </div>
+</div>
+
+
+<span class="open-search" style="display:none" aria-hidden="true"></span>
+
+
+
+
+
+<script src="https://anooptube.in/js/scripts.min.js"></script>   
+<script>
+    
+    const darkmode = document.querySelector('.toggle-dark-mode');
+
+    const darkModeIcon = '<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M623.709091 46.545455C826.181818 97.745455 977.454545 283.927273 977.454545 505.018182 977.454545 765.672727 768 977.454545 512 977.454545 267.636364 977.454545 67.490909 786.618182 48.872727 542.254545c-2.327273-2.327273-2.327273-4.654545-2.327272-9.30909 0-16.290909 11.636364-27.927273 27.927272-27.927273 13.963636 0 23.272727 9.309091 27.927273 20.945454 51.2 123.345455 172.218182 209.454545 311.854545 209.454546 186.181818 0 337.454545-153.6 337.454546-344.436364 0-121.018182-60.509091-225.745455-153.6-288.581818-9.309091-4.654545-16.290909-16.290909-16.290909-25.6 0-16.290909 13.963636-30.254545 27.927273-30.254545h13.963636z"  /></svg>';
+    const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="12" cy="12" r="3" /> <line x1="12" y1="5" x2="12" y2="5.01" /> <line x1="17" y1="7" x2="17" y2="7.01" /> <line x1="19" y1="12" x2="19" y2="12.01" /> <line x1="17" y1="17" x2="17" y2="17.01" /> <line x1="12" y1="19" x2="12" y2="19.01" /> <line x1="7" y1="17" x2="7" y2="7.01" /> <line x1="5" y1="12" x2="5" y2="12.01" /> <line x1="7" y1="7" x2="7" y2="7.01" /> </svg>';
+
+    function syncDarkIcon() {
+        var btn = document.getElementById("anooptube-dark-mode-toggle");
+        var isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? lightModeIcon : darkModeIcon;
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
+    function toggleDarkMode() {
+        var isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('darkmode', isDark ? 'dark' : 'light'); } catch (e) {}
+        syncDarkIcon();
+    }
+    if (darkmode) {
+        darkmode.addEventListener('click', toggleDarkMode);
+        syncDarkIcon();
+    }
+
+    const highlights = document.querySelectorAll("div.highlight")
+
+    highlights.forEach(div => {
+        const copy = document.createElement("button")
+        copy.innerHTML = 'Copy'
+        copy.addEventListener("click", handleCopyClick)
+
+        const spanCopy = document.createElement("span")
+        spanCopy.innerHTML = 'Copied'
+        spanCopy.setAttribute("class", "custom-tooltip")
+
+        div.append(spanCopy)
+        div.append(copy)
+    });
+
+    const copyToClipboard = str => {
+        const el = document.createElement("textarea")
+        el.value = str
+        el.setAttribute("readonly", "")
+        el.style.position = "absolute"
+        el.style.left = "-9999px"
+        document.body.appendChild(el)
+        const selected =
+            document.getSelection().rangeCount > 0
+            ?
+            document.getSelection().getRangeAt(0)
+            :
+            false
+        el.select()
+        document.execCommand("copy")
+        document.body.removeChild(el)
+        if (selected) {
+            document.getSelection().removeAllRanges()
+            document.getSelection().addRange(selected)
+        }
+    }
+
+    function handleCopyClick(evt) {
+        const { children } = evt.target.parentElement
+        const { innerText } = Array.from(children)[0]
+        copyToClipboard(innerText)
+
+        const parent = evt.target.parentElement
+        var x = parent.getElementsByClassName('custom-tooltip')[0].style.display = 'block'
+        setTimeout(function() {
+            parent.getElementsByClassName('custom-tooltip')[0].style.display = "none";
+        }, 1000);
+    }
+</script>
+
+
+<script>
+    
+    (function () {
+        var bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        function update() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () { update(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    })();
+</script>
+
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenu)
+    }
+</script>
+<button id="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+    <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('back-to-top--visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>replication on #anooptube</title>
+    <link>https://anooptube.in/tags/replication/</link>
+    <description>Recent content in replication on #anooptube</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Nov 2026 09:00:00 +0530</lastBuildDate><atom:link href="https://anooptube.in/tags/replication/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL High Availability in 2026: Patroni, pgBouncer, and Replication Strategies</title>
+      <link>https://anooptube.in/blog/post75/</link>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0530</pubDate>
+      
+      <guid>https://anooptube.in/blog/post75/</guid>
+      <description>The first time a primary Postgres database went down on my watch, I had a runbook, a pager alert, and eleven minutes of downtime while I manually promoted a replica and rewired connection strings by hand. That was fine for a side project. It is not fine for anything that makes money while it&amp;rsquo;s asleep. The gap between &amp;ldquo;we have a replica&amp;rdquo; and &amp;ldquo;we have high availability&amp;rdquo; is the entire subject of this post — and it&amp;rsquo;s a bigger gap than most teams realize until the primary actually falls over at 3 AM.</description>
+    </item>
+    
+  </channel>
+</rss>
